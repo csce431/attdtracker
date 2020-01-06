@@ -174,3 +174,30 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 251ms (Views: 245.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 66.96.207.244 at 2020-01-06 01:58:07 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.erb within layouts/application
+  Rendered welcome/index.erb within layouts/application (0.9ms)
+Completed 200 OK in 261ms (Views: 256.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 66.96.207.244 at 2020-01-06 01:59:11 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.erb within layouts/application
+  Rendered welcome/index.erb within layouts/application (1.3ms)
+Completed 200 OK in 242ms (Views: 238.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 66.96.207.244 at 2020-01-06 02:04:04 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.erb within layouts/application
+  Rendered welcome/index.erb within layouts/application (1.2ms)
+Completed 200 OK in 249ms (Views: 243.9ms | ActiveRecord: 0.0ms)
+
+
