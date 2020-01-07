@@ -1,22 +1,25 @@
 <center><h1>Attendance Tracker</h1></center>
 <!--<p>Find me in app/views/home/index.html.erb</p>-->
-<center> 
+
+<center>
 <%= form_with scope: :home, url: home_index_path, local: true do |form| %>
-<!-- <p> 
+<!--
+  <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
-  </p> 
+  </p>
  
   <p>
     <%= form.label :uin %><br>
     <%= form.text_area :uin %>
-  </p> -->
- 
-   <p>
+  </p>
+-->
+
+  <p>
     <%= form.label :card %><br>
     <%= form.text_area :card %>
-  </p>  
-  
+  </p>
+
   <p>
     <%= form.submit "Submit" %>
   </p>
