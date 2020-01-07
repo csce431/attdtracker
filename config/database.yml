@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: ruby-getting-started_production
+  database: postgres
   username: ruby-getting-started
   password: <%= ENV['RUBY-GETTING-STARTED_DATABASE_PASSWORD'] %>
+#ruby-getting-started_production
