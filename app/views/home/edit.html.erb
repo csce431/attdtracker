@@ -1,5 +1,6 @@
+<div class="page-content">
+
 <h1>Edit Student</h1>
- 
 <%= form_with(model: @home, local: true) do |form| %>
  
   <% if @home.errors.any? %>
@@ -16,13 +17,14 @@
   <% end %>
  
   <p>
-    <%= form.label :card %><br>
+    <%= form.label :text, "Edit student's ID" %><br>
     <%= form.text_area :card %>
   </p>
 
   <p>
-    <%= form.submit "Submit" %>
+    <%= form.submit "Update" %>
   </p> 
 <% end %>
 
 <%= link_to 'Back', home_index_path %>
+</div>
