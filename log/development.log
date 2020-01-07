@@ -269,6 +269,29 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 250ms (Views: 245.1ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 66.96.207.244 at 2020-01-06 03:04:16 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.erb within layouts/application
+  Rendered welcome/index.erb within layouts/application (0.6ms)
+Completed 200 OK in 263ms (Views: 257.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 66.96.207.244 at 2020-01-06 03:04:21 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.erb within layouts/application
+  Rendered welcome/index.erb within layouts/application (0.3ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 66.96.207.244 at 2020-01-06 03:07:04 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.erb within layouts/application
+  Rendered welcome/index.erb within layouts/application (0.5ms)
+Completed 200 OK in 243ms (Views: 238.3ms | ActiveRecord: 0.0ms)
 DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
 set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
 boolean values and must have old data converted to 1 and 0 (its native boolean
