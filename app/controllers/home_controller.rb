@@ -31,7 +31,7 @@ def update
   @home = Home.find(params[:id])
 
   if @home.update(home_params)
-    redirect_to @home
+    redirect_to controller: 'home'
   else
     render 'edit'
   end

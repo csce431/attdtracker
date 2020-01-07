@@ -3333,3 +3333,2289 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.1ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:52:58 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 214ms (Views: 190.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:52:59 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:53:05 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fkQGKuOoYQWisudB9epo1CY4DUHvXiEpxCAKiq6HQWbLx2xeIlPjutl3TXfwedfg58LXYkrWqRsOue1pASrCyw==", "home"=>{"card"=>"asf"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 207ms (Views: 177.3ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:53:08 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"59Jka6C6J+hsAF2mc/2tM931blm/nYN/uSz+4S9ORe9SUQ4fYUGlVxfF95B2bhIHHA+0ehoVC01ztRkCgOPGQg==", "home"=>{"card"=>"asf"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:53:16 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:53:20 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ibTrIBUema5N0IlEi6yRHH1tgiaEvdXrpdLkxW0LYng8N4FU1OUbETYVI3KOPy4ovJdYBSE1XdlvSwMmwqbh1Q==", "home"=>{"card"=>"l"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:53:40 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k6bnkaTzBYW03+UrrMjAdRFmNEto6kclk195ZZX8bBwmJY3lZQiHOs8aTx2pW39B0JzuaM1izxdZxp6GOlHvsQ==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:53:40.652802"], ["updated_at", "2020-01-07 15:53:40.652802"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/10
+Completed 302 Found in 19ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/home/10" for 42.61.24.14 at 2020-01-07 15:53:41 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:53:43 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/home/1" for 42.61.24.14 at 2020-01-07 15:53:48 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"dqndYbtusYdSIcT7Ps+ugIzvW2cqVAuhITipziDr5kfDKrcVepUzOCnkbs07XBG0TRWBRI/cg5ProU4tj0Zl6g==", "id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.3ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 22ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:53:48 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/2" for 42.61.24.14 at 2020-01-07 15:53:50 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"GunrAlJp8FrHWx0ZEJ14QA6mv5SxQnFONgf0dhV5hOOvaoF2k5Jy5byety8VDsd0z1xltxTK+Xz8nhOVutQHTg==", "id"=>"2"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 17ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:53:51 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.6ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/home/3" for 42.61.24.14 at 2020-01-07 15:53:53 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"KiPhF8PJe+9iVAe1ZnKCNJkMzvzHoPmbpZPxC2X4M8qfoItjAjL5UBmRrYNj4T0AWPYU32IocalvChboylWwZw==", "id"=>"3"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 18ms (ActiveRecord: 13.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:53:54 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 19ms (Views: 17.7ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/4" for 42.61.24.14 at 2020-01-07 15:53:55 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9xre7PAhKtnZZjh0ZSGqSFOFnFMzwIooR8nb7dSEI4NCmbSYMdqoZqKjkkJgshV8kn9GcJZIAhqNUDwOeymgLg==", "id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 19ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:53:56 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/5" for 42.61.24.14 at 2020-01-07 15:53:57 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"c1afDSvb7UPKSgjN/ektigxxe17zqmhfWdS03TAAZWrG1fV56iBv/LGPovv4epK+zYuhfVYi4G2TTVM+n63mxw==", "id"=>"5"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 19ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:53:57 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/6" for 42.61.24.14 at 2020-01-07 15:53:59 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2gH0GBD7WoJpF4yiYp7rS60srmCUG8oYfblwuPQOoepvgp5s0QDYPRLSJpRnDVR/bNZ0QzGTQiq3IJdbW6MiRw==", "id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 18ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:53:59 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/7" for 42.61.24.14 at 2020-01-07 15:54:00 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"d6isR/hd5YVO9zFdTpYNAAudz/Ye3mRt6cxvUB51eFLCK8YzOaZnOjUym2tLBbI0ymcV1btW7F8jVYizsdj7/w==", "id"=>"7"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 18ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:54:01 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/8" for 42.61.24.14 at 2020-01-07 15:54:02 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3nYN3PVSaH4XMRaUNL9Hz14iKfjio4pNsA8E1Ycx9mJr9WeoNKnqwWz0vKIxLPj7n9jz20crAn96luM2KJx1zw==", "id"=>"8"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (13.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 18ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:54:02 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/9" for 42.61.24.14 at 2020-01-07 15:54:03 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Vw8rh7pC8pLImkiSnBGYV0Bjl05tOreWcsVxQtpJMtfijEHze7lwLbNf4qSZgidjgZlNbciyP6S4XJahdeSxeg==", "id"=>"9"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 17ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:54:04 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:54:25 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:54:31 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u07ktAGL/8sH/CDR0+v8Ev9HROG5K0/CNe6AnGWGRJIOzY7AwHB9dHw5iufWeEMmPr2ewhyjx/D/d2d/yivHPw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:54:31.415069"], ["updated_at", "2020-01-07 15:54:31.415069"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/11
+Completed 302 Found in 19ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/home/11" for 42.61.24.14 at 2020-01-07 15:54:31 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:54:34 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:54:56 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:55:02 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RYrY4YHnPzP0AE/YQxGU9uSJz/OCjO1oQvJOjq4LnMLwCbKVQBy9jI/F5e5GgivCJXMV0CcEZVqIa6ltAaYfbw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:55:02.569672"], ["updated_at", "2020-01-07 15:55:02.569672"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/12
+Completed 302 Found in 20ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/home/12" for 42.61.24.14 at 2020-01-07 15:55:02 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mHome Load (0.6ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:55:05 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:55:15 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:55:26 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KTErW8O/U7LOviNWkEYoU50Oc/JzCF3Xpg8PfHHqsGycskEvAkTRDbV7iWCV1ZdnXPSp0daA1eVsluif3kczwQ==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:55:26.284665"], ["updated_at", "2020-01-07 15:55:26.284665"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (14.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/13
+Completed 302 Found in 21ms (ActiveRecord: 14.7ms)
+
+
+Started GET "/home/13" for 42.61.24.14 at 2020-01-07 15:55:26 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:55:32 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.1ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:56:59 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 210ms (Views: 200.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:57:00 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:57:13 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3OqkYcK+srsxknc6kNZt1Ke+bhLo5V1Mx6KPzIoWWc1pac4VA0UwBEpX3QyVRdLgZkS0MU1t1X4NO2gvJbvaYA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:57:13.898275"], ["updated_at", "2020-01-07 15:57:13.898275"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/14
+Completed 302 Found in 23ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/home/14" for 42.61.24.14 at 2020-01-07 15:57:14 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (266.4ms)
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `new_index_path' for #<#<Class:0x000055f541461450>:0x00007f1f040304b0>
+Did you mean?  new_widget_path
+               new_home_path):
+     7:   </center>
+     8: </p>
+     9: 
+    10: <%= link_to 'Back', new_index_path %>
+    11: </div>
+  
+app/views/home/show.html.erb:10:in `_app_views_home_show_html_erb__243967827790191921_69885594011260'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:57:48 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 211ms (Views: 201.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 15:57:49 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:57:55 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FFDQ4dS3FyByL14fU58+JL+V2EhVdZcb54O25acbL/eh07qVFUyVnwnq9ClWDIEQfm8Ca/D9HyktGlEGCLasWg==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:57:55.605451"], ["updated_at", "2020-01-07 15:57:55.605451"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/15
+Completed 302 Found in 19ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/home/15" for 42.61.24.14 at 2020-01-07 15:57:55 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 15:57:57 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/" for 42.61.24.14 at 2020-01-07 15:58:04 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 15:58:08 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 15:58:10 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T57ZOJs9oqwWYLHXFkbrTDUnR8d1YT77dwxnN79c5CTLCR0hc9sE341dOIqD/fHmzyhLuChxLSc6DwoDu1qkGA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.3ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653\r\n"], ["updated_at", "2020-01-07 15:58:10.818853"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/10
+Completed 302 Found in 20ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/home/10" for 42.61.24.14 at 2020-01-07 15:58:11 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 15:58:14 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 38ms (Views: 37.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:58:31 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1X/kMFSIwqtqEE76ybEiebduzXXtfb3uoYLFSyVQvL2iO8FkDHkeZXttYdZbhSowQ8CZ0GniUp9SDswN7ZHf6Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:58:31.127094"], ["updated_at", "2020-01-07 15:58:31.127094"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/16
+Completed 302 Found in 19ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/home/16" for 42.61.24.14 at 2020-01-07 15:58:31 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 15:58:36 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 15:58:41 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 15:58:43 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 15:58:48 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dn9glhcAX70qEslWXl+BEbZQursir7hw2s6DCeYCCe2K6KSP/+b5zrEvQAvL5Ju7TF+2xH+/q6yXze494gRJ0Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 15:58:56 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZwimsDXx+GZFovr34T1uqPAi51UMogLzyXExecSrhljSi8zE9Ap62T5nUMHkrtGcMdg9dqkqisED6NaaawYF9Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfa\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.3ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfa\r\n"], ["updated_at", "2020-01-07 15:58:56.021207"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/10
+Completed 302 Found in 21ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/home/10" for 42.61.24.14 at 2020-01-07 15:58:56 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 15:58:58 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 15:59:59 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K8nwgpMj29xfBbsHkvn4WwX5ZcfUbH/RF4O99F6QdAxcjdXWy9IHEk54lCsAzfAS8VcxYlDzkKDkD7SyllEXWA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 15:59:59.979272"], ["updated_at", "2020-01-07 15:59:59.979272"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/17
+Completed 302 Found in 19ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/home/17" for 42.61.24.14 at 2020-01-07 16:00:00 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:00:05 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/" for 42.61.24.14 at 2020-01-07 16:00:11 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:00:13 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:00:16 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/pqsmtAohKPuAIfmJ/n7F4M6vylmpl0ijx3MM7eVKmN6DWiDOM4i0HU9DruyQuG9eTWzVju2Tv7CHqEHs5NqXw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfa\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/10
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/home/10" for 42.61.24.14 at 2020-01-07 16:00:16 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 0.1ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:05:47 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 208ms (Views: 198.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:05:55 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:05:57 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:06:02 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/A1esLtJyo3Otw16aSEaFK3ogn/wWiEoY5sflgsikYB4mpqpU69s/lWKhCf8mgC+V+eOAK1KMvQumHKiDyTRvA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfaf"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.4ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfaf"], ["updated_at", "2020-01-07 16:06:02.131810"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 16.4ms)
+
+
+  
+NoMethodError (undefined method `/' for #<Home:0x00005613ca132390>):
+  
+app/controllers/home_controller.rb:34:in `update'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/home/" for 42.61.24.14 at 2020-01-07 16:06:50 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 211ms (Views: 205.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:06:52 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:06:54 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"a97fECoDkmY1Vj2b5fAsSfagUfGbrMbsD6dE9ebExpfvSRsJwuU0Fa5rtMZwSzbjDK9djsa81TBCpCnB4sKGqw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfaff"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.4ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfaff"], ["updated_at", "2020-01-07 16:06:54.245475"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.comhome/edit
+Completed 302 Found in 21ms (ActiveRecord: 13.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:07:31 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 250ms (Views: 244.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:07:34 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:07:37 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eI52dNT+p5EsarwjZU1DX6DyezGQoneG/U7S2MFDyJj8GbJtPBgB4rdXNX7w9ln1Wv13Ts2yZFqwTb/sxUWIpA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafff"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.4ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfafff"], ["updated_at", "2020-01-07 16:07:37.027167"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/edit
+Completed 302 Found in 21ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/home/edit" for 42.61.24.14 at 2020-01-07 16:07:37 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Home with 'id'=edit):
+  
+app/controllers/home_controller.rb:8:in `show'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/home/edit" for 42.61.24.14 at 2020-01-07 16:09:34 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+Completed 404 Not Found in 8ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Home with 'id'=edit):
+  
+app/controllers/home_controller.rb:8:in `show'
+Started GET "/home/" for 42.61.24.14 at 2020-01-07 16:09:39 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.3ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 206ms (Views: 200.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:09:41 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 21ms (Views: 17.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:09:43 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bHU+ZRWmwBWYgzfldz9ddLnB6hZ/lyZKeVT4OzDMU3To4vp8/UBmZgO+vrjihEfeQ87maSKHNZY0V5UPNMoTSA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffa"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.3ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfafffa"], ["updated_at", "2020-01-07 16:09:43.419203"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/updated
+Completed 302 Found in 21ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/home/updated" for 42.61.24.14 at 2020-01-07 16:09:43 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"updated"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Home with 'id'=updated):
+  
+app/controllers/home_controller.rb:8:in `show'
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:19:42 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 51ms (Views: 43.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:19:45 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i+iR4/2x5PpukQ7Zqy/74CbHJj2fQZUvT/oEMOzGgPk+a/uXPEpmRRVUpO+uvETU5z38HjrJHR2FY+PTQ2sDVA==", "home"=>{"card"=>"s"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 40ms (Views: 35.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:19:56 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:19:58 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5QgAsmj/IL3GeJeAa0LLMHWadbahd1wNL10FvpaRtLdQi2rGqQSiAr29PbZu0XQEtGCvlQT/1D/lxOJdOTw3Gg==", "home"=>{"card"=>""}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 19ms (Views: 15.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:20:06 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UODPKA95pM585OvFRWEPyzbplqBVSsnH4ZlaPqbcirHlY6VczoImcQchQfNA8rD/9xNMg/DCQfUrAL3dCXEJHA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (3.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 16:20:06.148613"], ["updated_at", "2020-01-07 16:20:06.148613"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/18
+Completed 302 Found in 23ms (ActiveRecord: 15.6ms)
+
+
+Started GET "/home/18" for 42.61.24.14 at 2020-01-07 16:20:06 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:20:08 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:20:15 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7sIj+Ycm6Z0s2cex/9KCY0dw6/Ihq0DKLLIZRCXKDp6Zhgat39c1Uz2k6J1t5ooqs96/V6U0r7vfPhAC7Qttyg==", "home"=>{"card"=>""}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 326ms (Views: 309.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:20:28 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"PZl1FPoJxpB5rF5bbYyQ23fFcJYI41zqV0XmfuXGh0eIGh9gO/JELwJp9G1oHy/vtj+qta1r1Nid3AGdSmsE6g==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 16:20:28.814551"], ["updated_at", "2020-01-07 16:20:28.814551"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/19
+Completed 302 Found in 22ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/home/19" for 42.61.24.14 at 2020-01-07 16:20:29 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/" for 42.61.24.14 at 2020-01-07 16:20:31 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/home/12" for 42.61.24.14 at 2020-01-07 16:20:35 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"JO7GPotJhmeACilr6SsaB7aQYLwHW+3K137S3IJD9xWRbaxKSrIE2PvPg13suKUzd2q6n6LTZfgd5zU/Le50uA==", "id"=>"12"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 20ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:20:35 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.6ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/home/13" for 42.61.24.14 at 2020-01-07 16:20:36 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2b/QyvyzXInVl3OhRYTYPcXSCOqisQDEl9VXqbdddR9sPLq+PUjeNq5S2ZdAF2cJBCjSyQc5iPZdTLBKGPD2sg==", "id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 17ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:20:37 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 30ms (Views: 28.8ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/13" for 42.61.24.14 at 2020-01-07 16:20:37 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2b/QyvyzXInVl3OhRYTYPcXSCOqisQDEl9VXqbdddR9sPLq+PUjeNq5S2ZdAF2cJBCjSyQc5iPZdTLBKGPD2sg==", "id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Home with 'id'=13):
+  
+app/controllers/home_controller.rb:41:in `destroy'
+Started DELETE "/home/13" for 42.61.24.14 at 2020-01-07 16:20:38 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2b/QyvyzXInVl3OhRYTYPcXSCOqisQDEl9VXqbdddR9sPLq+PUjeNq5S2ZdAF2cJBCjSyQc5iPZdTLBKGPD2sg==", "id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Home with 'id'=13):
+  
+app/controllers/home_controller.rb:41:in `destroy'
+Started DELETE "/home/13" for 42.61.24.14 at 2020-01-07 16:20:40 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"2b/QyvyzXInVl3OhRYTYPcXSCOqisQDEl9VXqbdddR9sPLq+PUjeNq5S2ZdAF2cJBCjSyQc5iPZdTLBKGPD2sg==", "id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Home with 'id'=13):
+  
+app/controllers/home_controller.rb:41:in `destroy'
+Started GET "/home/" for 42.61.24.14 at 2020-01-07 16:20:48 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 31ms (Views: 30.2ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/11" for 42.61.24.14 at 2020-01-07 16:20:50 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"G/3ZnyCTkhuJNb+0VV+l28Tuk7Pl48NnVa1uUrgARuGufrPr4WgQpPLwFYJQzBrvBRRJkEBrS1WfNImxF63FTA==", "id"=>"11"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 23ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:20:51 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/home/14" for 42.61.24.14 at 2020-01-07 16:20:53 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9lm7anoKX/rmalIkTpr2E8HXY+tNC4ha4KXmm4JQp/BD2tEeu/HdRZ2v+BJLCUknAC25yOiDAGgqPAF4Lf0kXQ==", "id"=>"14"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (20.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 28ms (ActiveRecord: 20.4ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:20:53 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/15" for 42.61.24.14 at 2020-01-07 16:20:55 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"bqqEFcjUaCyrLESn5RQit/zs7nc2qdbTGuEVz+pslK7bKe5hCS/qk9Dp7pHgh52DPRY0VJMhXuHQePIsRcEXAw==", "id"=>"15"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 18ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:20:55 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/16" for 42.61.24.14 at 2020-01-07 16:20:57 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Qa8k1ugRQ2xacU3HvlQduoOhW4wasvTjA5/L8lifeIb0LE6iKerB0yG05/G7x6KOQluBr786fNHJBiwR9zL7Kw==", "id"=>"16"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 16]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 17ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:20:57 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/17" for 42.61.24.14 at 2020-01-07 16:20:59 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BGew7d7D1RFJQlvv/gzPDRPWjV83ClkdOKgwMW1g09+x5NqZHzhXrjKH8dn7n3A50ixXfJKC0S/yMdfSws1Qcg==", "id"=>"17"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 17]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 17ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:20:59 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/18" for 42.61.24.14 at 2020-01-07 16:21:00 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sZ5OE5vFYPwQylSFSHWbIMO2O4wSa7Ao+XGOPs2eLa0EHSRnWj7iQ2sP/rNN5iQUAkzhr7fjOBoz6GndYjOuAA==", "id"=>"18"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:41
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+  [1m[36mHome Destroy (0.2ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 18]]
+  ↳ app/controllers/home_controller.rb:42
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:42
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 18ms (ActiveRecord: 14.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:21:01 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:21:02 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 18ms (Views: 14.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:21:03 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"va6pdgxbmDtolFBGerCCT4PBULmu0CNHlOR9BSG2AB85OW1v5L0+SPOp2RvvC5jlec5cxvPAMJvZ5xAxJbBAIw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffas"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.2ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfafffas"], ["updated_at", "2020-01-07 16:21:03.811843"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 23ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:21:04 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:21:06 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:21:08 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n8Pd0EMQlg3WXh+dkHR+AZxSgmrKldZMFEfKrRxrRC8bVBnJq/Ywfk1jlsAFz2SrZl2OFZeFxZBZRKeZGG0EEw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffasd"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.3ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfafffasd"], ["updated_at", "2020-01-07 16:21:08.167937"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (17.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 26ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:21:08 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:21:10 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:21:18 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WCtmXoPEEjjXhQvVyjITNHAiIiZRdaOsCMHmHfnCO83cvKJHayK0S0y4gohfiQmeii0uWQxlsHBFwosp/cR78Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffasds\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.3ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfafffasds\r\n"], ["updated_at", "2020-01-07 16:21:18.126830"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (13.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 22ms (ActiveRecord: 14.0ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:21:18 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:21:21 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:21:32 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hZDTHAcjrEFiUENPIgDfNwqyLmWI0/uVGHZWR6EDcdgwE7loxtgu/hmV6Xknk2ADy0j0Ri1bc6fS77GkDq7ydQ==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?\r\n"], ["created_at", "2020-01-07 16:21:32.281332"], ["updated_at", "2020-01-07 16:21:32.281332"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (17.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/20
+Completed 302 Found in 24ms (ActiveRecord: 17.5ms)
+
+
+Started GET "/home/20" for 42.61.24.14 at 2020-01-07 16:21:32 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:21:34 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:21:40 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:21:42 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 20ms (Views: 15.4ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:21:45 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0j4c3YIjBQ/cGcUwyICHANAiQUKpGOqbEJWmC6S/iHhWqdjEasWjfEckTG1dO52qKi1NPfQI+Uddlss/oLnIRA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffasdsf\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.3ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfafffasdsf\r\n"], ["updated_at", "2020-01-07 16:21:45.385811"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 23ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:21:45 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:23:01 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:23:05 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s9yNYgxdGa8Jnyoru2lqzO8hnQWWrU2F961MJXRU1hA3S0l75Lu/3JKio3Yu0nBmFS6Resu9Xlm6riERcFKWLA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffasdsfs"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.3ms)[0m  [1m[33mUPDATE "homes" SET "card" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028asfafffasdsfs"], ["updated_at", "2020-01-07 16:23:05.389983"], ["id", 10]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home
+Completed 302 Found in 22ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:23:05 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:31:58 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:32:02 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 23ms (Views: 16.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:32:17 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WNZlEnrWKf3P0nNyZKHL/Nt8Og1TT1TOTziqnn5gZLXtVQ9muy2rQrQX2URhMnTIGobgLvbH3PyFoU190c3nGA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:32:19 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"m5gcpnsvT2TXCLULAZaLobAsV8l+P2KyjEIepjjZTCEuG3bSutTN26zNHz0EBTSVcdaN6tu36oBG2/lFl3TPjA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653ff\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:32:26 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:32:30 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 14.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:32:32 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1l3gDYYLo3yFXDSoZ9Vesg5CJ1vplVM6OcMMte4gTd9SyiQUbu0FDx5hvfXybkQY9E0rJLSFQOZ0wGGB6iYN4w==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffasdsfs"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 43ms (Views: 38.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:32:36 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2/ItFGpFGLRAzt81GT8sOls+qCQrFloZ5BoV2f+n/wZucUdgq76aCzsLdQMcrJMOmsRyB46e0isug/I6UAp8qw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafff"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:32:41 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xivno9L21UIMuoTvz95LIe+ct7fFajmQNl1C+R5/h2VzqI3XEw1X/Xd/LtnKTfQVLmZtlGDisaL8xKUasdIEyA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asf"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:32:45 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ScnVPXIUdsMUsiqlzvbmRC97RF07MZ4bSJwx36km/N38Sr9Js+/0fG93gJPLZVlw7oGefp65FimCBdY8Bot/cA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfwfqwfqfqfqf"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:32:56 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:32:57 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:33:32 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:33:36 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:33:38 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9f3NidTb1c06eJDA7bYDEOiCVxCkjlm02sFk8FnDWAZAfqf9FSBXckG9OvboJbwkKXiNMwEG0YYQWIMT9m7bqw==", "home"=>{"card"=>"qwf"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 32ms (Views: 27.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:33:46 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+jgEPQraF4zLGQTdoJHCxZ8ccF7TowOiPbZXK6PQCWhPu25JyyGVM7DcruulAn3xXuaqfXYri5D3L7DIDH2KxQ==", "home"=>{"card"=>"qwf%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 47ms (Views: 42.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:34:20 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gf1y+Q+xDcxgnKcNtRw55MASuydaYJD/v/padRgcvbWsfhiNzkqPcxtZDTuwj4bQAehhBP/oGM11Y72Wt7E+GA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?a\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 20ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:34:24 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oIb3RZlz7oaFa4Ozf903uH2IoT2irGweQlGvEMYDFT0VBZ0xWIhsOf6uKYV6ToiMvHJ7Hgck5CyIyEjzaa6WkA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:34:27 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SEc9likO7nwE/NpBlmNO6R89edhBh/QbVyPNCFHQUAH9xFfi6PVsw385cHeT8PHd3sej++QPfCmduirr/n3TrA==", "home"=>{"card"=>""}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:34:37 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"siqYRZE0SPEjtrcKb75RYTAkIX/co8aHtLXJrGnaKaYHqfIxUM/KTlhzHTxqLe5V8d77XHkrTrV+LC5PxneqCw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:34:49 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4BsvrTFjLv0hQawIzPeoHyA8/ltfb3ggmcE6rGUX3nRVmEXZ8JisQlqEBj7JZBcr4cYkePrn8BJTWN1Pyrpd2Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:34:51 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"04DlBQWs4XKQBYzYN1W2U/HMFiqBHTHF0V1xtQiNOFxmA49xxFdjzevAJu4yxglnMDbMCSSVufcbxJZWpyC78Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:34:59 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xFwI8+6uEYb/jH9dCHbsZWh3/0bwzU5X2KD7BfNzojBx32KHL1WTOYRJ1WsN5VNRqY0lZVVFxmUSORzmXN4hnQ==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?s\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:35:01 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"arOJrjFE8u+gjRwehclLUQOvvMKLe791k1yDTL7bz9TfMOPa8L9wUNtItiiAWvRlwlVm4S7zN0dZxWSvEXZMeQ==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 34ms (Views: 29.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:35:04 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GvTopG4nlhzW3B23rQ5SJNVoBLUFGzrVaF8xF7aMkTevd4LQr9wUo60Zt4Gone0QFJLelqCTsueixtb0GSESmg==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+601642659302865\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+601642659302865\r\n"], ["created_at", "2020-01-07 16:35:04.371205"], ["updated_at", "2020-01-07 16:35:04.371205"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/21
+Completed 302 Found in 20ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/home/21" for 42.61.24.14 at 2020-01-07 16:35:04 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:35:11 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:35:17 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JqoT+Q2jjel269wi/bCpRNDUIuhfVb4wPlEuxCxqDjFR7jatVVJRJ2eW8w5vhKENJHp2TdvKUUHN3SeC5KttZQ==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:35:20 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5py3Bq1B1QoXNKFwfRZYylNxGEa/N5fukJDLnTy2ZYlTH91ybLpXtWzxC0Z4hef+kovCZRq/H9xaCSx+kxvmJA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:35:22 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ak6vP8Myk4FsTbG1e608wJwKROUqKDlqn11g6gxLlYrfzcVLAskRPheIG4N+PoP0XfCexo+gsVhVxIcJo+YWJw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:35:25 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4YXmV1jhsd8NvJB/FbsaRxFdlCZfrZZqKO2eQF1gN1RUBowjmRozYHZ5OkkQKKVz0KdOBfolHljidHmj8s20+Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+601642659302865\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+601642659302865\r\n"], ["created_at", "2020-01-07 16:35:25.805039"], ["updated_at", "2020-01-07 16:35:25.805039"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/22
+Completed 302 Found in 19ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/home/22" for 42.61.24.14 at 2020-01-07 16:35:26 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 13.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:36:02 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:36:12 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4Tnoyiv+p2CCLOSbgL/SLUE+L/kcjg9Ma3f2Edn6XPSWfc2ecw97rpNRy7cSi9pktZB7XJgR4D2Y+/9XETs/oA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 42.61.24.14 at 2020-01-07 16:36:21 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 30ms (Views: 29.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/10/edit" for 42.61.24.14 at 2020-01-07 16:36:23 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 18ms (Views: 15.3ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:36:24 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vzDYDHIOAVkuSIdrxQzlS8hjHoVBrTvNLGXTfY6115w7pxwVmuinKrV1DjZQt//hMmwS+hy9KBFhZr5JirOXoA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028asfafffasdsfs"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 14.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:36:35 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bQIuTUFwiYkqhMWQrxXVcayzZbWVD/5xR/NbOjRdwC/YgUQ5gIsLNlFBb6aqhmpFbUm/ljCHdkONarzZm/BDgg==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 27ms (Views: 21.3ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/10" for 42.61.24.14 at 2020-01-07 16:36:36 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WqfIB1txHfg8wEnxWqTMBjQdsAOz3lfX5EDs5VwFU9XvJKJzmoqfR0cF48dfN3My9edqIBZW3+Uu2QsG86jQeA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Update", "id"=>"10"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:31
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:36:42 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 16:36:44 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:36:49 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s2SSnNigXjLJfLOyGeySiKD8K1HVwhi3hpqbMxWQmxYG5/joGVvcjbK5GYQcfy28YQbxcnBKkIVMA3zQuj0Yuw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:36:52 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7zjhH92fguiFU2gJgWW8ANZi6WJ46p0W+AphNvezCNRau4trHGQAV/6Wwj+E9gM0F5gzQd1iFSQyk4bVWB6LeQ==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+601642659302865\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+601642659302865\r\n"], ["created_at", "2020-01-07 16:36:52.693542"], ["updated_at", "2020-01-07 16:36:52.693542"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/23
+Completed 302 Found in 18ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/home/23" for 42.61.24.14 at 2020-01-07 16:36:53 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"23"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:36:55 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:37:13 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v2C2FNp7rlgFSZFtDA+nS3xjXXdMnX3Xy/Ni+PWkbmfIJJNAgopylhQ0vkGeO68CiM0J0sgCkqY4f2u+PWUNMw==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 15.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:38:13 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"89kox59tEmvPX0gbgcrTGqCjASgG1ueE2j0MglGbLfdGWkKzXpaQ1LSa4i2EWWwuYVnbC6Neb7YQpOth/jauWg==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:38:17 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SkVbcJg8teDbYMGhF+kpXvtVNa9nlITIO3np2Jtf4Mf/xjEEWcc3X6Cla5cSepZqOq/vjMIcDPrx4A47NPJjag==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 20ms (Views: 15.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:38:20 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5hYFB9Fug+uHXKKgL1A9youbFEimfEWwL0dk+b7vSJ1TlW9zEJUBVPyZCJYqw4L+SmHOawP0zYLl3oMaEULLMA==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653f"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653f"], ["created_at", "2020-01-07 16:38:20.758007"], ["updated_at", "2020-01-07 16:38:20.758007"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/24
+Completed 302 Found in 19ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/home/24" for 42.61.24.14 at 2020-01-07 16:38:21 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"24"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 16ms (Views: 13.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:38:22 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 16:38:37 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tHmXrDesabJQior4EfVBu1nwnA6vnQDk5tr3/qfcb73DPbL4b121fEH3pdSDwUnyrV7IqysC75UVVv64bx0M6Q==", "home"=>{"card"=>"%6016426593028653?;6016426593028653?+6016426593028653?"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426593028653?;6016426593028653?+6016426593028653?"], ["created_at", "2020-01-07 16:38:37.137194"], ["updated_at", "2020-01-07 16:38:37.137194"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/25
+Completed 302 Found in 19ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/home/25" for 42.61.24.14 at 2020-01-07 16:38:37 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"25"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 42.61.24.14 at 2020-01-07 16:38:39 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
