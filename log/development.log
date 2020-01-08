@@ -5619,3 +5619,107 @@ Processing by HomeController#new as HTML
 Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 66.96.207.244 at 2020-01-08 01:15:06 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 389ms (Views: 377.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 66.96.207.244 at 2020-01-08 01:15:16 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 19ms (Views: 18.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 66.96.207.244 at 2020-01-08 01:15:50 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HDZEgwzS5/MYTjN0NvaKsYQqT8oSmADzBzFalja2pHuptS73zSllTGOLmUIzZTWFRdCV6bcQiMHNqL11mRsn1g==", "home"=>{"card"=>"%6016426594439677?;6016426594439677?+6016426594439677?"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (1.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426594439677?;6016426594439677?+6016426594439677?"], ["created_at", "2020-01-08 01:15:50.533413"], ["updated_at", "2020-01-08 01:15:50.533413"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/26
+Completed 302 Found in 21ms (ActiveRecord: 13.6ms)
+
+
+Started GET "/home/26" for 66.96.207.244 at 2020-01-08 01:15:51 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"26"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/new" for 66.96.207.244 at 2020-01-08 01:15:55 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 66.96.207.244 at 2020-01-08 01:16:02 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kx58eu78uQUmryeE2ZndCoUwNfWZrEQLQ/Q9qCwjQKrkWlkutg1lyzfSCKhLrdVDcZ5hUB0zq3qweDTu5OIj/g==", "home"=>{"card"=>"%6016426594439677?;6016426594439677?+6016426594439677?"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%6016426594439677?;6016426594439677?+6016426594439677?"], ["created_at", "2020-01-08 01:16:02.178665"], ["updated_at", "2020-01-08 01:16:02.178665"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/27
+Completed 302 Found in 22ms (ActiveRecord: 13.4ms)
+
+
+Started GET "/home/27" for 66.96.207.244 at 2020-01-08 01:16:02 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 66.96.207.244 at 2020-01-08 01:16:07 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
