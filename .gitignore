@@ -11,6 +11,8 @@
 /tmp/*
 /log/*
 .sass-cache
+log/*
+tmp/*
 
 # Used by dotenv library to load environment variables.
 # .env
