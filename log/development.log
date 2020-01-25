@@ -2489,3 +2489,459 @@ Processing by HomeController#show as HTML
 Completed 200 OK in 51ms (Views: 45.6ms | ActiveRecord: 0.9ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 42.61.24.14 at 2020-01-07 04:29:35 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 274ms (Views: 269.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 04:29:54 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YU/HVjzyeXIze3cTSHJyQB5R8d4ka0phN55Cy0SkO5TUuqI0ZBXGB+wnTBEw70007LqAFFUoADjxGvGRz6zoyQ==", "home"=>{"card"=>"%TXBROWNSVILLE^BROWN$SAUSHA-RAE^4636 S BROWNE AVE^?;63601536788603=211219971220?+\" 78521      C A             2508184BROBRO?\r\n"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:12
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "%TXBROWNSVILLE^BROWN$SAUSHA-RAE^4636 S BROWNE AVE^?;63601536788603=211219971220?+\" 78521      C A             2508184BROBRO?\r\n"], ["created_at", "2020-01-07 04:29:54.175340"], ["updated_at", "2020-01-07 04:29:54.175340"]]
+  ↳ app/controllers/home_controller.rb:12
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:12
+Redirected to http://52.14.214.74:8080/home/9
+Completed 302 Found in 24ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/home/9" for 42.61.24.14 at 2020-01-07 04:29:54 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 0.2ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 42.61.24.14 at 2020-01-07 11:41:37 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 309ms (Views: 304.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 11:41:44 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eO6xW3pVA547R1QTfOuR8Az3nJMuaZ2nW11p42lVRmq9pQ3s34RRfaBEbJnhpkRkWgrbJ1fePhxJeDRyCxLeXQ==", "home"=>{"card"=>"9090909090"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:12
+  [1m[36mHome Create (3.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "9090909090"], ["created_at", "2020-01-07 11:41:44.555827"], ["updated_at", "2020-01-07 11:41:44.555827"]]
+  ↳ app/controllers/home_controller.rb:12
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:12
+Redirected to http://3.15.164.155:8080/home/10
+Completed 302 Found in 37ms (ActiveRecord: 16.4ms)
+
+
+Started GET "/home/10" for 42.61.24.14 at 2020-01-07 11:41:44 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 22ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 42.61.24.14 at 2020-01-07 12:14:23 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 283ms (Views: 278.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 42.61.24.14 at 2020-01-07 12:14:50 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 42.61.24.14 at 2020-01-07 12:14:54 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9inimhlv0/evVA7lLsW/2RjpAKBKhP5vbp7RlAeLQ98zYl4tvL6BFDRXNm+ziGpNThRHFDMzXdR8u4wFZczb6A==", "home"=>{"card"=>"0000000"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:12
+  [1m[36mHome Create (1.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["card", "0000000"], ["created_at", "2020-01-07 12:14:54.864840"], ["updated_at", "2020-01-07 12:14:54.864840"]]
+  ↳ app/controllers/home_controller.rb:12
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:12
+Redirected to http://3.15.164.155:8080/home/11
+Completed 302 Found in 24ms (ActiveRecord: 14.1ms)
+
+
+Started GET "/home/11" for 42.61.24.14 at 2020-01-07 12:14:55 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:4
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.2ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:42:45 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 377ms (Views: 372.1ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:51:52 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 293ms (Views: 289.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:51:54 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 92ms (Views: 91.2ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:52:47 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 240ms (Views: 235.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:52:48 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 95ms (Views: 93.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:52:51 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:53:32 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 233ms (Views: 228.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:53:33 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 115ms (Views: 114.3ms | ActiveRecord: 0.0ms)
+
+
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 165.91.13.3 at 2020-01-25 21:54:45 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 272ms (Views: 266.9ms | ActiveRecord: 0.0ms)
+
+
