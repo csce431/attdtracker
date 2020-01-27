@@ -9,15 +9,12 @@
  
   <% @homes.each do |home| %>
     <tr>
-      <td><%= link_to home.name, home %></td>
-      <td><%= link_to home.card, edit_home_path(home) %></td>
-      
-      <!--
-      <td><%= link_to 'Edit', edit_home_path(home) %></td>      
+      <td>placeholder</td>
+      <td><%= link_to home.card, home %></td>
+      <td><%= link_to 'Edit', edit_home_path(home) %></td>
       <td><%= link_to 'Remove', home,
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
-      -->
     </tr>
   <% end %>
 </table>
