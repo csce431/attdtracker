@@ -18,6 +18,7 @@ end
 
 def create
   @home = Home.new(home_params)
+  @home = Home.create(params.require(:home).permit(:card, :name))
 
   if @home.save
     redirect_to @home
@@ -29,7 +30,8 @@ end
 
 def update
   @home = Home.find(params[:id])
-
+  @home.update(params.require(:home).permit(:card, :name))
+  
   if @home.update(home_params)
     redirect_to controller: 'home'
   else
