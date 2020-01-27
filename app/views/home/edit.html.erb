@@ -17,24 +17,12 @@
   <% end %>
  
   <p>
-    <%= form.label :text, "Edit name" %><br>
-    <%= form.text_field :name %>
-  </p>
-
-  <p>
     <%= form.label :text, "Edit student's ID" %><br>
     <%= form.text_field :card %>
   </p>
 
   <p>
     <%= form.submit "Update" %>
-  </p>
- 
-  <p>
-    <%= link_to 'Remove', @home,
-        method: :delete,
-        data: { confirm: 'Are you sure?' }
-    %>
   </p>
 <% end %>
 
