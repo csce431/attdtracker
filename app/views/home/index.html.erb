@@ -9,8 +9,8 @@
  
   <% @homes.each do |home| %>
     <tr>
-      <td><%= link_to home.name, home %></td>
-      <td><%= link_to home.card, edit_home_path(home) %></td>
+      <td class="colA"><%= link_to home.name, home %></td>
+      <td class="colB"><%= link_to home.card, edit_home_path(home) %></td>
       
       <!--
       <td><%= link_to 'Edit', edit_home_path(home) %></td>      
@@ -20,6 +20,6 @@
       -->
     </tr>
   <% end %>
-</table>
+</table><br>
 <%= button_to "Add User", new_home_path, method: :get %>
 </div>

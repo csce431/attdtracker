@@ -7,35 +7,36 @@
 
   <% if @home.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h4>
         <%= pluralize(@home.errors.count, "error") %> prohibited this student from being saved:
-      </h2>
-      <ul>
+      </h4>
+      <div>
         <% @home.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <p><%= msg %></p>
         <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
-  
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
 
-  <p>
-    <%= form.label :card %><br>
-    <%= form.text_field :card %>
-  </p>
+  <div>
+    <div><%= form.label :name %></div>
+    <div><%= form.text_field :name %></div>
+  </div>
+  <br>
 
-  <p>
+  <div>
+    <div><%= form.label :card %></div>
+    <div><%= form.text_field :card %></div>
+  </div>
+  <br>
+
+  <div>
     <%= form.submit "Submit" %>
-  </p>
+  </div>
 <% end %>
 
 <br>
 <br>
-
 
 <p>
 <%= link_to 'Profile', student_index_path %>
