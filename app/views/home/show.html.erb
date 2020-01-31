@@ -1,9 +1,9 @@
 <div class="page-content">
 
 <p>
-  <h1>Howdy User!</h1>
-  <p>Your card number is: </p> <%= @home.card %>
+  <h1>Howdy <%= @home.name %>!</h1>
+  <p>Your card number is: </p><%= @home.card %>
 </p>
 
-<%= link_to 'Back', new_home_path %>
+<%= link_to 'Back', home_index_path %>
 </div>
