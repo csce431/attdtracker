@@ -17869,3 +17869,253 @@ Processing by WelcomeController#index as HTML
 Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 52.119.101.12 at 2020-01-31 19:34:21 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 380ms (Views: 375.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 52.119.101.12 at 2020-01-31 19:34:23 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.8ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 54ms (Views: 48.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/home/3" for 52.119.101.12 at 2020-01-31 19:34:26 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <div class="page-content">
+    2: 
+    3: <p>
+    4:   <h1>Howdy <%= @home.name %>!</h1>
+    5:   <p>Your card number is: </p><%= @home.card %>
+    6: </p>
+    7: 
+  
+app/views/home/show.html.erb:4:in `_app_views_home_show_html_erb__2243856943627793049_69861649085100'
+Started GET "/home" for 52.119.101.12 at 2020-01-31 19:35:04 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 52.119.101.12 at 2020-01-31 19:35:07 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <div class="page-content">
+    2: 
+    3: <p>
+    4:   <h1>Howdy <%= @home.name %>!</h1>
+    5:   <p>Your card number is: </p><%= @home.card %>
+    6: </p>
+    7: 
+  
+app/views/home/show.html.erb:4:in `_app_views_home_show_html_erb__2243856943627793049_69861649907420'
+Started GET "/home" for 52.119.101.12 at 2020-01-31 19:35:31 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/3" for 52.119.101.12 at 2020-01-31 19:35:39 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <div class="page-content">
+    2: 
+    3: <p>
+    4:   <h1>Howdy <%= @home.name %>!</h1>
+    5:   <p>Your card number is: </p><%= @home.card %>
+    6: </p>
+    7: 
+  
+app/views/home/show.html.erb:4:in `_app_views_home_show_html_erb__2243856943627793049_69861650836080'
+Started GET "/home" for 52.119.101.12 at 2020-01-31 19:35:43 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/5/edit" for 52.119.101.12 at 2020-01-31 19:35:45 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mHome Load (0.3ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:17
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 32ms (Views: 21.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home/6" for 52.119.101.12 at 2020-01-31 19:35:54 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+    1: <div class="page-content">
+    2: 
+    3: <p>
+    4:   <h1>Howdy <%= @home.name %>!</h1>
+    5:   <p>Your card number is: </p><%= @home.card %>
+    6: </p>
+    7: 
+  
+app/views/home/show.html.erb:4:in `_app_views_home_show_html_erb__2243856943627793049_69861655520580'
+Started GET "/home/6" for 52.119.101.12 at 2020-01-31 19:37:06 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 36ms (Views: 27.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/home/6" for 52.119.101.12 at 2020-01-31 19:37:08 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 52.119.101.12 at 2020-01-31 19:37:14 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/5" for 52.119.101.12 at 2020-01-31 19:37:17 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:8
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 52.119.101.12 at 2020-01-31 19:37:18 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 30ms (Views: 28.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/5/edit" for 52.119.101.12 at 2020-01-31 19:37:20 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:16
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/home/5" for 52.119.101.12 at 2020-01-31 19:37:24 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U6PbDk5EcYxc3GUKrTPLXkISONDq9ubzffNRlyerJra2yjLg6NGcIldmsrPGCF9ELs5f3tduKPfZO1Nw/DY3zg==", "home"=>{"name"=>"LMAO", "card"=>"725"}, "commit"=>"Update", "id"=>"5"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "LMAO"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[36mHome Update (0.2ms)[0m  [1m[33mUPDATE "homes" SET "name" = ?, "updated_at" = ? WHERE "homes"."id" = ?[0m  [["name", "LMAO"], ["updated_at", "2020-01-31 19:37:24.569348"], ["id", 5]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:33
+Unpermitted parameter: :name
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "LMAO"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:34
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+Redirected to http://3.19.215.177:5000/home
+Completed 302 Found in 22ms (ActiveRecord: 15.6ms)
+
+
+Started GET "/home" for 52.119.101.12 at 2020-01-31 19:37:24 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes"[0m
+  ↳ app/views/home/index.html.erb:10
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+

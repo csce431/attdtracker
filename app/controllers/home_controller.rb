@@ -2,15 +2,14 @@ class HomeController < ApplicationController
   def index
     @homes = Home.all
   end
-
-  def update
-    @home = Home.find(params[:id])
   
-    if @home.update(home_params)
-      redirect_to controller: 'home'
-    else
-      render 'edit'
-    end
+  def show
+    #note to self, when call redirect_to @object, it automatically goes to show
+    @home = Home.find(params[:id])
+  end
+  
+  def new
+    @home = Home.new
   end
   
   def edit
