@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   def index
-    @homes = Home.all
+    #@homes = Home.all
+    @homes = Home.order(:name)
   end
   
   def show
