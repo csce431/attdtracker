@@ -10,10 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_025059) do
+ActiveRecord::Schema.define(version: 2020_01_31_072855) do
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.integer "section"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses_students", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_courses_students_on_course_id"
+    t.index ["student_id"], name: "index_courses_students_on_student_id"
+  end
 
   create_table "homes", force: :cascade do |t|
     t.string "card"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "fname"
+    t.string "mname"
+    t.string "lname"
+    t.string "prefname"
+    t.integer "uin"
+    t.string "email"
+    t.binary "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

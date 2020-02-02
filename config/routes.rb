@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  resources :widgets
+  #resources :widgets
   resources :home
+  resources :teacher
+  resources :courses do
+    resources :students
+  end
+  resources :students do
+    resources :courses
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
