@@ -1,7 +1,18 @@
-<center><p>Profile</p></center>
+<center><h1>Student Profile</h1></center>
 
-<p>Name: <%= @student.name %></p>
-<p>Class: </p>
-<p>Card Number: <%= @student.card %></p>
+<table>
+    <tr>
+        <td class="colC">Name:</td>
+        <td class="colD"><strong><%= @student.name %></strong></td>
+    </tr>
+    <tr>
+        <td class="colC">Card Number:</td>
+        <td class="colD"><strong><%= @student.card %></strong></td>
+    </tr>
+    <tr>
+        <td class="colC">Classes:</td>
+        <td class="colD"><strong></strong></td>
+    </tr>
+</table>
 
 <!-- show when student was there -->

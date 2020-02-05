@@ -5,8 +5,10 @@
   <p>Your card number is: <%= @home.card %></p>
 </p>
 
+<br>
+
 <p>
-  <%= link_to 'Profile', student_path(@home) %>
+  <%= link_to 'View Profile', student_path(@home) %>
 </p>
 
 <%= link_to 'Back', home_index_path %>
