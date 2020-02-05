@@ -2,7 +2,11 @@
 
 <p>
   <h1>Howdy <%= @home.name %>!</h1>
-  <p>Your card number is: </p><%= @home.card %>
+  <p>Your card number is: <%= @home.card %></p>
+</p>
+
+<p>
+  <%= link_to 'Profile', student_path(@home) %>
 </p>
 
 <%= link_to 'Back', home_index_path %>
