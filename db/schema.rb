@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_025059) do
+ActiveRecord::Schema.define(version: 2020_02_05_020326) do
 
   create_table "homes", force: :cascade do |t|
     t.string "card"
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "preferredname"
+    t.string "class"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

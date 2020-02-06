@@ -27759,3 +27759,898 @@ Unpermitted parameter: :name
 Completed 200 OK in 32ms (Views: 17.6ms | ActiveRecord: 1.4ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 165.91.12.229 at 2020-02-06 19:23:36 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 165.91.12.229 at 2020-02-06 19:24:29 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateStudents (20200205020326)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ db/migrate/20200205020326_create_students.rb:3
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "preferredname" varchar, "class" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200205020326_create_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200205020326"]]
+  ↳ bin/rails:4
+  [1m[35m (16.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/" for 165.91.12.229 at 2020-02-06 19:25:11 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 410ms (Views: 405.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.12.229 at 2020-02-06 19:25:14 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 86ms (Views: 68.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:25:15 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.5ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home/13" for 165.91.12.229 at 2020-02-06 19:25:17 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/student/13" for 165.91.12.229 at 2020-02-06 19:25:19 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 165.91.12.229 at 2020-02-06 19:29:02 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 270ms (Views: 251.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home/new" for 165.91.12.229 at 2020-02-06 19:29:04 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.12.229 at 2020-02-06 19:29:06 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:29:06 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 100ms (Views: 98.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/13" for 165.91.12.229 at 2020-02-06 19:29:08 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:29:09 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/13/edit" for 165.91.12.229 at 2020-02-06 19:29:10 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:17
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 37ms (Views: 29.4ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/home/13" for 165.91.12.229 at 2020-02-06 19:30:06 +0000
+Processing by HomeController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4PsLDbPdY8rjE/EY+jZvlwY+kIlTod5MvyZt3hMEUH5+b0Dp2XlGfDE8PxiE08nE0iGhMWMtZ1rwnpMsSPxE3Q==", "id"=>"13"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:43
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:44
+  [1m[36mHome Destroy (0.3ms)[0m  [1m[31mDELETE FROM "homes" WHERE "homes"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/home_controller.rb:44
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:44
+Redirected to http://13.59.119.147:8080/home
+Completed 302 Found in 19ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:30:06 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/1/edit" for 165.91.12.229 at 2020-02-06 19:30:09 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:17
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/1" for 165.91.12.229 at 2020-02-06 19:30:17 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yAxgUPRF+jaxqoNHvpnLxrYQH/+ql6cUwg9tlMLzOXBXtzq8QaHA8y/17VDOYOVfQ2VWrlWmYbmfk3zmcvq5EA==", "home"=>{"name"=>"TonyA", "card"=>"%6016426593028"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? AND "homes"."id" != ? LIMIT ?[0m  [["card", "%6016426593028"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:34
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "TonyA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:34
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+Unpermitted parameter: :name
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:35
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? AND "homes"."id" != ? LIMIT ?[0m  [["card", "%6016426593028"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:35
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "TonyA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:35
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:35
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 34ms (Views: 17.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/home/1" for 165.91.12.229 at 2020-02-06 19:30:26 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vijaQZPQLbpSTlA9SbCzdQbikVbiCFGOMkcWJwIb9K4gvJGl+XQIDIBhnj03VRUm0v2g7tKE6Jh9/+jVWePgDQ==", "home"=>{"name"=>"TonyA", "card"=>"%60164265930280000000000000000000000000"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? AND "homes"."id" != ? LIMIT ?[0m  [["card", "%60164265930280000000000000000000000000"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:34
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "TonyA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:34
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:35
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? AND "homes"."id" != ? LIMIT ?[0m  [["card", "%60164265930280000000000000000000000000"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:35
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "TonyA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:35
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:35
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 33ms (Views: 16.7ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/home/1" for 165.91.12.229 at 2020-02-06 19:30:30 +0000
+Processing by HomeController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LbNNu5SkGhh2Rhdgz3HZbcdNTNh1CoLAoC6Egwu9Qf2zJwZf/gA/rqRp2WCxlH8+E1J9YEWGO9bvlnpxUEVVXg==", "home"=>{"name"=>"TonyA", "card"=>"%601642659302800000000000000000000000000000000"}, "commit"=>"Update", "id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:33
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? AND "homes"."id" != ? LIMIT ?[0m  [["card", "%601642659302800000000000000000000000000000000"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:34
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "TonyA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:34
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:34
+Unpermitted parameter: :name
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:35
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? AND "homes"."id" != ? LIMIT ?[0m  [["card", "%601642659302800000000000000000000000000000000"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:35
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "TonyA"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:35
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:35
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 36ms (Views: 18.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:30:32 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/2/edit" for 165.91.12.229 at 2020-02-06 19:30:34 +0000
+Processing by HomeController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:17
+  Rendering home/edit.html.erb within layouts/application
+  Rendered home/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 28ms (Views: 26.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/home/2/edit" for 165.91.12.229 at 2020-02-06 19:32:11 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [PATCH] "/home/2/edit"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/home/2/edit" for 165.91.12.229 at 2020-02-06 19:32:36 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [PATCH] "/home/2/edit"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/home/2/edit" for 165.91.12.229 at 2020-02-06 19:33:14 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [PATCH] "/home/2/edit"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.11.2) lib/puma/configuration.rb:225:in `call'
+puma (3.11.2) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.2) lib/puma/server.rb:438:in `process_client'
+puma (3.11.2) lib/puma/server.rb:302:in `block in run'
+puma (3.11.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 165.91.12.229 at 2020-02-06 19:33:48 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 212ms (Views: 207.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 165.91.12.229 at 2020-02-06 19:34:10 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 215ms (Views: 209.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.12.229 at 2020-02-06 19:34:14 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 55ms (Views: 47.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:34:17 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/1" for 165.91.12.229 at 2020-02-06 19:34:19 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 16.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:20 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:22 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:25 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:26 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:49 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 227ms (Views: 206.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:55 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 43ms (Views: 41.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:57 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:34:57 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:35:23 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:36:40 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 28ms (Views: 24.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:36:41 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:36:54 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 249ms (Views: 226.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:36:56 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:36:57 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:37:19 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (1.0ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 249ms (Views: 227.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/student/" for 165.91.12.229 at 2020-02-06 19:37:22 +0000
+Processing by StudentController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template home/student with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/environment/attdtracker/app/views"
+):
+  
+app/controllers/student_controller.rb:4:in `index'
+Started GET "/student/" for 165.91.12.229 at 2020-02-06 19:37:28 +0000
+Processing by StudentController#index as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template home/student with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/environment/attdtracker/app/views"
+):
+  
+app/controllers/student_controller.rb:4:in `index'
+Started GET "/" for 165.91.12.229 at 2020-02-06 19:37:28 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 38ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:37:28 +0000
+Started GET "/home/new" for 165.91.12.229 at 2020-02-06 19:37:28 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+Processing by HomeController#new as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (14.1ms)
+Started GET "/" for 165.91.12.229 at 2020-02-06 19:37:29 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  Rendered home/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 85ms (Views: 84.4ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 598ms (Views: 563.0ms | ActiveRecord: 0.5ms)
+
+
+Completed 200 OK in 583ms (Views: 560.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/home" for 165.91.12.229 at 2020-02-06 19:37:30 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.3ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home/1" for 165.91.12.229 at 2020-02-06 19:37:31 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 33ms (Views: 30.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:37:32 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:38:23 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 245ms (Views: 223.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:38:35 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:39:35 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:39:45 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 41ms (Views: 39.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:39:46 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:39:48 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:39:54 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:40:29 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:40:48 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:41:16 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 28ms (Views: 25.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:41:47 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:42:16 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:42:32 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:43:00 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/student/1" for 165.91.12.229 at 2020-02-06 19:43:21 +0000
+Processing by StudentController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/student_controller.rb:9
+  Rendering student/show.html.erb within layouts/application
+  Rendered student/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
