@@ -29207,3 +29207,104 @@ ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=1):
   
 app/controllers/student_controller.rb:13:in `edit'
 >>>>>>> 0d83ca70d21f8e4162441dd7e58132da73137695
+Started GET "/" for 165.91.13.248 at 2020-02-09 21:51:14 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 410ms (Views: 405.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 21:51:18 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 60ms (Views: 47.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/home" for 165.91.13.248 at 2020-02-09 21:51:19 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.7ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 21:51:21 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 165.91.13.248 at 2020-02-09 21:51:22 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 21:51:38 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 165.91.13.248 at 2020-02-09 21:51:39 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 21:51:43 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 165.91.13.248 at 2020-02-09 21:51:44 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 21:51:45 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 165.91.13.248 at 2020-02-09 21:51:46 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 21:51:47 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 165.91.13.248 at 2020-02-09 21:51:47 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.1ms)
+
+
