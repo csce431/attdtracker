@@ -13,6 +13,7 @@
     <tr>
       <td><%= course.name %></td>
       <td><%= course.section %></td>
+      <td><%= link_to 'Take Attendance', new_course_home_path(course) %></td>
       <td><%= link_to 'View', course_path(course) %></td>
       <td><%= link_to 'Edit', edit_course_path(course) %></td>
       <td><%= link_to 'Delete', course_path(course),

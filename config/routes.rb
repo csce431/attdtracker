@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :teacher
   resources :courses do
     resources :students
+    resources :home
   end
   resources :students do
     resources :courses
