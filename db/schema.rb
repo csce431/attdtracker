@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_02_09_220614) do
 
   create_table "homes", force: :cascade do |t|
     t.string "card"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
