@@ -3,7 +3,8 @@
 <table>
     <tr>
         <td class="colC">Name:</td>
-        <td class="colD"><strong><%= @student.name %></strong></td>
+        <td class="colD"><strong><%= link_to @student.name, edit_student_path() %></strong></td>
+
     </tr>
     <tr>
         <td class="colC">Card Number:</td>
@@ -12,9 +13,6 @@
     <tr>
         <td class="colC">Classes:</td>
         <td class="colD"><strong></strong></td>
-    </tr>
-    <tr>
-        <td class="colC"><%= link_to 'Edit', @home %></td>
     </tr>
 </table>
 

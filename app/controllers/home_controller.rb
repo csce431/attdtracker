@@ -51,4 +51,4 @@ class HomeController < ApplicationController
       params.require(:home).permit(:card)
     end
   
-  end
+end
