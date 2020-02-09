@@ -10,7 +10,17 @@ class StudentController < ApplicationController
   end
   
   def edit
-    @student = Student.find(params[:id])
+    @student = Home.find(params[:id])
   end 
+  
+  def update
+    @student = Home.find(params[:id])
+    @student.update(params.require(:student).permit(:name))
+    if @student.update(student_params)
+      redirect_to controller: 'student'
+    else
+      render 'student/edit'
+    end
+  end
   
 end
