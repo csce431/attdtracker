@@ -5,25 +5,38 @@
  
   <% if @home.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h4>
         <%= pluralize(@home.errors.count, "error") %> prohibited this student from being saved:
-      </h2>
-      <ul>
+      </h4>
+      <div>
         <% @home.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <p><%= msg %></p>
         <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label :text, "Edit student's ID" %><br>
-    <%= form.text_field :card %>
-  </p>
 
-  <p>
+  <div>
+    <div><%= form.label :text, "Edit name" %></div>
+    <div><%= form.text_field :name %></div>
+  </div>
+  <br>
+
+  <div>
+    <div><%= form.label :text, "Edit student's ID" %></div>
+    <div><%= form.text_field :card %></div>
+  </div>
+  <br>
+
+  <div>
     <%= form.submit "Update" %>
-  </p> 
+  </div><br>
+  <p>
+    <%= link_to 'Remove', @home,
+        method: :delete,
+        data: { confirm: 'Are you sure?' }
+    %>
+  </p>
 <% end %>
 
 <%= link_to 'Back', home_index_path %>
