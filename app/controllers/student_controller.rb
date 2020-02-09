@@ -15,11 +15,11 @@ class StudentController < ApplicationController
   
   def update
     @student = Home.find(params[:id])
-    @student.update(params.require(:home).permit(:card, :name))
-    if @student.update(home_params)
+    @student.update(params.require(:student).permit(:name))
+    if @student.update(student_params)
       redirect_to controller: 'student'
     else
-      render 'edit'
+      render 'student/edit'
     end
   end
   
