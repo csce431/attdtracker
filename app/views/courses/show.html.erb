@@ -1,0 +1,50 @@
+<p>
+  <strong>Course:</strong>
+  <%= @course.name %>
+</p>
+ 
+<p>
+  <strong>Section:</strong>
+  <%= @course.section %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_course_path(@course) %><br>
+  <%= link_to 'Back', courses_path %>
+</p>
+
+<p>
+  <h1>Students</h1>
+  <%= link_to 'New Student', new_course_student_path(@course) %>
+</p>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>List of Courses</th>
+    <th></th>
+  </tr>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.fname %></td>
+      <td><%= student.lname %></td>
+      <td><%= link_to 'View', student_path(student) %></td>
+      <td><%= link_to 'Edit', edit_student_path(student) %></td>
+      <td><%= link_to 'Delete', student_path(student, @course),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <% student.courses.each do |c| %>
+          <%= c.name %>
+        <% end %></td>
+    </tr>
+    
+  <% end %>
+</table>
+
+
+
+

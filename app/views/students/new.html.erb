@@ -1,0 +1,50 @@
+<h1>New Student</h1>
+
+<%= form_with model: @student, url: course_students_path, local: true do |form| %>
+ 
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@student.errors.count, "error") %> prohibited
+        this student from being saved:
+      </h2>
+      <ul>
+        <% @student.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label "First Name" %><br>
+    <%= form.text_field :fname %>
+  </p>
+  <p>
+    <%= form.label "Middle Name" %><br>
+    <%= form.text_field :mname %>
+  </p>
+  <p>
+    <%= form.label "Last Name" %><br>
+    <%= form.text_field :lname %>
+  </p>
+  <p>
+    <%= form.label "Preffered Name" %><br>
+    <%= form.text_field :prefname %>
+  </p>
+  <p>
+    <%= form.label "UIN" %><br>
+    <%= form.text_field :uin %>
+  </p>
+  <p>
+    <%= form.label "Tamu E-mail" %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+  
+  <%= link_to 'Back', students_path %>
+ 
+<% end %>
