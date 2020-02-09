@@ -20,16 +20,15 @@ class StudentsController < ApplicationController
         
         if @student.save
         begin
-            if @course 
-            begin
+            #if @course 
+            #begin
                 @course = Course.find(params[:course_id])
                 @student.courses << @course
-                @course.students << @student
                 redirect_to course_path(@course)
-            end
-            else
-                redirect_to courses_path
-            end
+            #end
+            #else
+            #    redirect_to courses_path
+            #end
         end
         else
             render 'new'

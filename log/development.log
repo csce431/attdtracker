@@ -26750,3 +26750,1566 @@ Processing by CoursesController#show as HTML
 Completed 200 OK in 22ms (Views: 19.5ms | ActiveRecord: 0.3ms)
 
 
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from block in _load_from at config/puma.rb:14)
+Started GET "/" for 165.91.13.248 at 2020-02-09 21:53:20 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 251ms (Views: 246.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:53:25 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 39ms (Views: 25.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 21:53:30 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 38ms (Views: 28.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:53:37 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/new" for 165.91.13.248 at 2020-02-09 21:53:44 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (8.5ms)
+  Rendered courses/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 55ms (Views: 52.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses" for 165.91.13.248 at 2020-02-09 21:53:49 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3PRKQ31qgz7XlBPzHsoUH+DNvKVaQpVSIAP8pSqGQOMmRNsSUqlVeULExzK0C/XotukNQwFO8hJ3b4LHfD/RHA==", "course"=>{"name"=>"ECEN214", "section"=>"222"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (1.6ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ECEN214"], ["section", 222], ["created_at", "2020-02-09 21:53:49.238177"], ["updated_at", "2020-02-09 21:53:49.238177"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (13.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/2
+Completed 302 Found in 25ms (ActiveRecord: 14.9ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 21:53:49 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:53:51 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 21:53:55 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students/1" for 165.91.13.248 at 2020-02-09 21:54:01 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:15
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 21:54:03 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:54:05 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 34ms (Views: 32.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 21:54:07 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:54:09 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 21:54:21 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:54:27 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 21:54:28 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 23ms (Views: 20.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/2/students/new" for 165.91.13.248 at 2020-02-09 21:54:30 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"2"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 34ms (Views: 32.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/2/students" for 165.91.13.248 at 2020-02-09 21:54:35 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Gdeu6jJuqVYkBTVJN0leJ9EMG5gHGaQrLheslqj/vjLozYZsQrXIvxfuqbX3GSHby1UYaK24zqVbT75QiDMPgQ==", "student"=>{"fname"=>"Rachel ", "mname"=>"Jee", "lname"=>"", "prefname"=>"", "uin"=>"", "email"=>""}, "commit"=>"Create Student", "course_id"=>"2"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("fname", "mname", "lname", "prefname", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Rachel "], ["mname", "Jee"], ["lname", ""], ["prefname", ""], ["email", ""], ["created_at", "2020-02-09 21:54:35.411778"], ["updated_at", "2020-02-09 21:54:35.411778"]]
+  ↳ app/controllers/students_controller.rb:21
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 19ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:54:35 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 21:54:37 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 23ms (Views: 19.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:54:40 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 21:54:41 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 21:55:32 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 21:56:33 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 34ms (Views: 21.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 21:56:34 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 46ms (Views: 37.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:56:36 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 30ms (Views: 24.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 21:56:37 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 54ms (Views: 26.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 21:56:40 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 21:56:41 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 21:57:54 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 41ms (Views: 27.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/students/1" for 165.91.13.248 at 2020-02-09 21:57:56 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:15
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 31ms (Views: 17.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 21:58:01 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 22:01:14 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:01:15 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 33ms (Views: 27.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:01:17 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 44ms (Views: 22.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:01:27 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 41ms (Views: 27.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/students/1" for 165.91.13.248 at 2020-02-09 22:03:20 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:15
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 17.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 22:03:21 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:03:23 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 35ms (Views: 33.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:03:25 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `courses' for nil:NilClass):
+    33:               method: :delete,
+    34:               data: { confirm: 'Are you sure?' } %></td>
+    35:     </tr>
+    36:     <% @student.courses.each do |c| %>
+    37:       <%= student.courses.name %>
+    38:     <% end %>
+    39:   <% end %>
+  
+app/views/courses/show.html.erb:36:in `block in _app_views_courses_show_html_erb___3192197481861374973_70132494528800'
+app/views/courses/show.html.erb:26:in `_app_views_courses_show_html_erb___3192197481861374973_70132494528800'
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:03:37 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `courses' for nil:NilClass):
+    33:               method: :delete,
+    34:               data: { confirm: 'Are you sure?' } %></td>
+    35:     </tr>
+    36:     <% @student.courses.each do |c| %>
+    37:       <%= student.courses.name %>
+    38:     <% end %>
+    39:   <% end %>
+  
+app/views/courses/show.html.erb:36:in `block in _app_views_courses_show_html_erb___3192197481861374973_47100628498460'
+app/views/courses/show.html.erb:26:in `_app_views_courses_show_html_erb___3192197481861374973_47100628498460'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <main> at bin/rails:4)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateWidgets (20140707111715)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "widgets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "stock" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20140707111715_create_widgets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140707111715"]]
+  ↳ bin/rails:4
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateHomes (20200106025059)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "homes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200106025059"]]
+  ↳ bin/rails:4
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCourses (20200127211855)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "section" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar, "mname" varchar, "lname" varchar, "prefname" varchar, "uin" integer, "email" varchar, "picture" blob, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200127211855"]]
+  ↳ bin/rails:4
+  [1m[35m (15.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCoursesStudents (20200209220614)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses_students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_20e6a4d275"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_a1b35a8e05"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_student_id" ON "courses_students" ("student_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_course_id" ON "courses_students" ("course_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200209220614"]]
+  ↳ bin/rails:4
+  [1m[35m (15.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-09 22:07:45.562487"], ["updated_at", "2020-02-09 22:07:45.562487"]]
+  ↳ bin/rails:4
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:07:50 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 41ms (Views: 34.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/new" for 165.91.13.248 at 2020-02-09 22:07:51 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (11.5ms)
+  Rendered courses/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 51ms (Views: 45.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses" for 165.91.13.248 at 2020-02-09 22:07:54 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"myZQuTEyI+15gclo4rtb+VfP0OHAq6tc24KHYDcLnUJhlsHoHvH1quzRHalIeroOAethB5unzByM7vkCYbIMvQ==", "course"=>{"name"=>"CSCE431", "section"=>"222"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "CSCE431"], ["section", 222], ["created_at", "2020-02-09 22:07:54.490551"], ["updated_at", "2020-02-09 22:07:54.490551"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1
+Completed 302 Found in 19ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:07:54 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 27ms (Views: 20.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 22:07:55 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 29ms (Views: 20.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 22:07:57 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:07:58 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/new" for 165.91.13.248 at 2020-02-09 22:07:59 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (1.6ms)
+  Rendered courses/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 35ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses" for 165.91.13.248 at 2020-02-09 22:08:04 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vhArRRfMiY7KXbjiwE8BJXzt2XfMpn5fF2C2Q/6k4GZEoLoUOA9fyV8NbCNqjuDSKslokZeqGR9ADMghqB1xmQ==", "course"=>{"name"=>"ECEN214", "section"=>"501"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (0.3ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "ECEN214"], ["section", 501], ["created_at", "2020-02-09 22:08:04.036727"], ["updated_at", "2020-02-09 22:08:04.036727"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/2
+Completed 302 Found in 18ms (ActiveRecord: 12.5ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:08:04 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:08:06 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:08:07 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 22:08:08 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/1/students" for 165.91.13.248 at 2020-02-09 22:08:13 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QErW4Wdc/33eUhybMTUhtatsBWJ3ZiEu3HxdMTHNLfZ+qC8F5rA/64dMKvBoQ/bPeGVEz+BlGUR+0/+zNoEqKA==", "student"=>{"fname"=>"Kek", "mname"=>"", "lname"=>"Uwu", "prefname"=>"", "uin"=>"", "email"=>""}, "commit"=>"Create Student", "course_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mStudent Create (0.2ms)[0m  [1m[32mINSERT INTO "students" ("fname", "mname", "lname", "prefname", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Kek"], ["mname", ""], ["lname", "Uwu"], ["prefname", ""], ["email", ""], ["created_at", "2020-02-09 22:08:13.155459"], ["updated_at", "2020-02-09 22:08:13.155459"]]
+  ↳ app/controllers/students_controller.rb:21
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 19ms (ActiveRecord: 12.7ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:08:13 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:08:14 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (3.9ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `courses' for nil:NilClass):
+    33:               method: :delete,
+    34:               data: { confirm: 'Are you sure?' } %></td>
+    35:     </tr>
+    36:     <% @student.courses.each do |c| %>
+    37:       <%= student.courses.name %>
+    38:     <% end %>
+    39:   <% end %>
+  
+app/views/courses/show.html.erb:36:in `block in _app_views_courses_show_html_erb___3192197481861374973_70132493343700'
+app/views/courses/show.html.erb:26:in `_app_views_courses_show_html_erb___3192197481861374973_70132493343700'
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:09:54 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  Rendered courses/show.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `courses' for nil:NilClass):
+    33:               method: :delete,
+    34:               data: { confirm: 'Are you sure?' } %></td>
+    35:     </tr>
+    36:     <% @student.courses.each do |c| %>
+    37:       <%= c.name %>
+    38:     <% end %>
+    39:   <% end %>
+  
+app/views/courses/show.html.erb:36:in `block in _app_views_courses_show_html_erb___3192197481861374973_47100628571940'
+app/views/courses/show.html.erb:26:in `_app_views_courses_show_html_erb___3192197481861374973_47100628571940'
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:10:10 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:36
+  Rendered courses/show.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 46ms (Views: 42.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:10:15 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 40ms (Views: 38.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:10:16 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:36
+  Rendered courses/show.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 57ms (Views: 53.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:10:17 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:10:19 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:36
+  Rendered courses/show.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:10:40 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:26
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:36
+  Rendered courses/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:11:34 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:12:13 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/students/1" for 165.91.13.248 at 2020-02-09 22:15:33 +0000
+  
+SyntaxError (/home/ubuntu/environment/attdtracker/app/controllers/students_controller.rb:30: else without rescue is useless
+            else
+            ^~~~
+/home/ubuntu/environment/attdtracker/app/controllers/students_controller.rb:34: else without rescue is useless
+        else
+        ^~~~
+/home/ubuntu/environment/attdtracker/app/controllers/students_controller.rb:60: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/students_controller.rb:30: else without rescue is useless
+app/controllers/students_controller.rb:34: else without rescue is useless
+app/controllers/students_controller.rb:60: syntax error, unexpected end, expecting end-of-input
+Started GET "/students/1" for 165.91.13.248 at 2020-02-09 22:15:44 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:15
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 43ms (Views: 28.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 22:15:46 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:15:48 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:15:50 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 27ms (Views: 23.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:16:58 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 63ms (Views: 49.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:17:00 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:17:02 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 41ms (Views: 36.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:17:05 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 39ms (Views: 32.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:18:37 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:18:38 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:18:41 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:18:42 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 37ms (Views: 34.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:18:45 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:19:12 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 28ms (Views: 23.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:19:13 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 29ms (Views: 24.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:19:14 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 38ms (Views: 31.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 22:19:19 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/1/students" for 165.91.13.248 at 2020-02-09 22:19:23 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zIwMkLeIBXU7lKmysplaBtZDFrWtP9zhiLTmGbIabBHybvV0NmTF42KKn9nr7418BUpXGDo85IsqG0SbtVZrzw==", "student"=>{"fname"=>"Jachel", "mname"=>"", "lname"=>"Ree", "prefname"=>"", "uin"=>"", "email"=>""}, "commit"=>"Create Student", "course_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("fname", "mname", "lname", "prefname", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "Jachel"], ["mname", ""], ["lname", "Ree"], ["prefname", ""], ["email", ""], ["created_at", "2020-02-09 22:19:23.275651"], ["updated_at", "2020-02-09 22:19:23.275651"]]
+  ↳ app/controllers/students_controller.rb:21
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:26
+  [1m[36mStudent::HABTM_Courses Create (0.3ms)[0m  [1m[32mINSERT INTO "courses_students" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 2], ["course_id", 1], ["created_at", "2020-02-09 22:19:23.305063"], ["updated_at", "2020-02-09 22:19:23.305063"]]
+  ↳ app/controllers/students_controller.rb:26
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:26
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1
+Completed 302 Found in 47ms (ActiveRecord: 25.5ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:19:23 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 24ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 22:19:36 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 33ms (Views: 20.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/courses/1/students" for 165.91.13.248 at 2020-02-09 22:19:40 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DBGkcvr2veGr9cX0C8uaJQH8yeYwLig/gLGIOSmq+Wgy812Wexp9d/Lr859SvU1f0vWIS6ctEFUiHiq7Lub+tg==", "student"=>{"fname"=>"kekekekeke", "mname"=>"", "lname"=>"", "prefname"=>"", "uin"=>"", "email"=>""}, "commit"=>"Create Student", "course_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("fname", "mname", "lname", "prefname", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "kekekekeke"], ["mname", ""], ["lname", ""], ["prefname", ""], ["email", ""], ["created_at", "2020-02-09 22:19:40.278012"], ["updated_at", "2020-02-09 22:19:40.278012"]]
+  ↳ app/controllers/students_controller.rb:21
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:26
+  [1m[36mStudent::HABTM_Courses Create (0.5ms)[0m  [1m[32mINSERT INTO "courses_students" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 3], ["course_id", 1], ["created_at", "2020-02-09 22:19:40.325580"], ["updated_at", "2020-02-09 22:19:40.325580"]]
+  ↳ app/controllers/students_controller.rb:26
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:26
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:27
+  [1m[36mCourse::HABTM_Students Create (0.3ms)[0m  [1m[32mINSERT INTO "courses_students" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 3], ["course_id", 1], ["created_at", "2020-02-09 22:19:40.346692"], ["updated_at", "2020-02-09 22:19:40.346692"]]
+  ↳ app/controllers/students_controller.rb:27
+  [1m[35m (17.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:27
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1
+Completed 302 Found in 93ms (ActiveRecord: 44.4ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:19:40 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 3]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 28ms (Views: 25.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 22:19:51 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 33ms (Views: 20.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/courses/1/students" for 165.91.13.248 at 2020-02-09 22:19:53 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"31f0nrt+JN6TKpYXc2oip3paTuSqUTbfOrJrb5GkO/ThtQ16OpLkSMo0oHwqHPXdqVMPST1SDrWYHcntlug8Kg==", "student"=>{"fname"=>"asfasfasfasf", "mname"=>"", "lname"=>"", "prefname"=>"", "uin"=>"", "email"=>""}, "commit"=>"Create Student", "course_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("fname", "mname", "lname", "prefname", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "asfasfasfasf"], ["mname", ""], ["lname", ""], ["prefname", ""], ["email", ""], ["created_at", "2020-02-09 22:19:53.128929"], ["updated_at", "2020-02-09 22:19:53.128929"]]
+  ↳ app/controllers/students_controller.rb:21
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:26
+  [1m[36mStudent::HABTM_Courses Create (0.3ms)[0m  [1m[32mINSERT INTO "courses_students" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 4], ["course_id", 1], ["created_at", "2020-02-09 22:19:53.163132"], ["updated_at", "2020-02-09 22:19:53.163132"]]
+  ↳ app/controllers/students_controller.rb:26
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:26
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1
+Completed 302 Found in 52ms (ActiveRecord: 25.7ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:19:53 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 3]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 4]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 22:20:03 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 32ms (Views: 20.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/courses/1/students" for 165.91.13.248 at 2020-02-09 22:20:05 +0000
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NMlYGgYX+9s7QBG8vz2rwuhAOqgrHkc9W3MtBnKIxs4KK6H+h/s7TWJeJ9fmS3y4O0l7Bbwdf1f53I+EdcTBEA==", "student"=>{"fname"=>"LALALA", "mname"=>"", "lname"=>"", "prefname"=>"", "uin"=>"", "email"=>""}, "commit"=>"Create Student", "course_id"=>"1"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mStudent Create (0.4ms)[0m  [1m[32mINSERT INTO "students" ("fname", "mname", "lname", "prefname", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["fname", "LALALA"], ["mname", ""], ["lname", ""], ["prefname", ""], ["email", ""], ["created_at", "2020-02-09 22:20:05.661056"], ["updated_at", "2020-02-09 22:20:05.661056"]]
+  ↳ app/controllers/students_controller.rb:21
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:21
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:27
+  [1m[36mCourse::HABTM_Students Create (0.4ms)[0m  [1m[32mINSERT INTO "courses_students" ("student_id", "course_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["student_id", 5], ["course_id", 1], ["created_at", "2020-02-09 22:20:05.693549"], ["updated_at", "2020-02-09 22:20:05.693549"]]
+  ↳ app/controllers/students_controller.rb:27
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:27
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1
+Completed 302 Found in 53ms (ActiveRecord: 26.7ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:20:05 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 3]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 4]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 5]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 43ms (Views: 40.3ms | ActiveRecord: 0.7ms)
+
+
+Started DELETE "/students/3.1" for 165.91.13.248 at 2020-02-09 22:20:31 +0000
+Processing by StudentsController#destroy as 
+  Parameters: {"authenticity_token"=>"fuRzqzC6oYcEgyf0qvVvzUFFv1rlRZQwnkg/hRZ7RUcqX/9DUYG1qDXgqaImnED9Vd0gRuhxEvmcsqwTZBwx1g==", "id"=>"3"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:49
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:50
+  [1m[36mStudent::HABTM_Courses Destroy (0.4ms)[0m  [1m[31mDELETE FROM "courses_students" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 3]]
+  ↳ app/controllers/students_controller.rb:50
+  [1m[36mStudent Destroy (0.1ms)[0m  [1m[31mDELETE FROM "students" WHERE "students"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/students_controller.rb:50
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:50
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 56ms (ActiveRecord: 14.4ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:20:31 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 62ms (Views: 58.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:20:33 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 4]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 5]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 53ms (Views: 46.4ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/students/1.2" for 165.91.13.248 at 2020-02-09 22:20:35 +0000
+Processing by StudentsController#destroy as 
+  Parameters: {"authenticity_token"=>"Ahx0O+dX/1dNmxkHqMjyythKJBeQ6HPkA3YrWsf0n51Wp/jThmzreHz4l1Ekod36zNK7C53c9S0BjLjMtZPrDA==", "id"=>"1"}
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:49
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:50
+  [1m[36mStudent::HABTM_Courses Destroy (0.1ms)[0m  [1m[31mDELETE FROM "courses_students" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/controllers/students_controller.rb:50
+  [1m[36mStudent Destroy (0.3ms)[0m  [1m[31mDELETE FROM "students" WHERE "students"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/students_controller.rb:50
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:50
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 24ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:20:35 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:21:02 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 4]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 5]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 47ms (Views: 31.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:21:04 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:21:06 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 22ms (Views: 19.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:21:16 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:21:22 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 4]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 5]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 29ms (Views: 25.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:21:30 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 34ms (Views: 33.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:21:32 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 24ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:21:44 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:22:01 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/2/students/new" for 165.91.13.248 at 2020-02-09 22:22:03 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"2"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students" for 165.91.13.248 at 2020-02-09 22:22:15 +0000
+Processing by StudentsController#index as HTML
+  Rendering students/index.html.erb within layouts/application
+  Rendered students/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 31.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:22:16 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:22:17 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 4]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 5]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 29ms (Views: 25.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:22:21 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 20ms (Views: 19.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/2" for 165.91.13.248 at 2020-02-09 22:22:23 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 19.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/2/students/new" for 165.91.13.248 at 2020-02-09 22:22:27 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"2"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 34ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 22:22:52 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 22:22:58 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 2]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 4]]
+  ↳ app/views/courses/show.html.erb:40
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 5]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.4ms)
+
+
