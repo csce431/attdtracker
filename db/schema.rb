@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_09_220614) do
   create_table "homes", force: :cascade do |t|
     t.string "card"
     t.string "name"
+    t.string "lname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_02_09_220614) do
     t.integer "uin"
     t.string "email"
     t.binary "picture"
+    t.string "card_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

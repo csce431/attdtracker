@@ -1,7 +1,7 @@
 class Home < ApplicationRecord
     ### uncomment the following if you are lazy to swipe, or if you don't have your card and reader 
     # validates :card, presence: true, length: { minimum: 0, maximum: 56 }
-    validates :card, uniqueness: true
+    #validates :card, uniqueness: true
 
     ### comment the following line if you don't have your card and reader)
     validates :card, format: { with: /[\%](\d{16}[\?])[\;](\1)[\+](\1)/ }
