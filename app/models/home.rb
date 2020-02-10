@@ -8,5 +8,5 @@ class Home < ApplicationRecord
     ### see the regex in action ---> https://regex101.com/r/nVsnUJ/2
 
     validates :name, presence: true
-    validates :name, uniqueness: true
+    #validates :name, uniqueness: true
 end
