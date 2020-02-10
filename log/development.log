@@ -50957,3 +50957,330 @@ FOREIGN KEY ("course_id")
   ↳ bin/rails:4
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:4
+Started GET "/" for 165.91.13.248 at 2020-02-09 23:38:31 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 385ms (Views: 379.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 23:38:33 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 45ms (Views: 35.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 23:38:34 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 39ms (Views: 26.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/courses/1/home/new" for 165.91.13.248 at 2020-02-09 23:38:39 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 165.91.13.248 at 2020-02-09 23:38:43 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"skJCh2+pdXKtxJBPLvmpfmFwzLF9rntrYFkjgR3tgnW0TKnCO/O6le/9ZtVQp5VeshHUvMm54TbsfFAGCZe91g==", "home"=>{"name"=>"qwf", "card"=>"afwfawf"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? LIMIT ?[0m  [["card", "afwfawf"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "qwf"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? LIMIT ?[0m  [["card", "afwfawf"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "qwf"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 37ms (Views: 20.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/home" for 165.91.13.248 at 2020-02-09 23:41:52 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"afJEgrBg+1c66Kdozh9hgbQBZy859ujp/3TcILbxFpw9Schq0VvveAuLKT5Cdk6xoJn4MzTCbiD9jk+2xJZiDQ==", "home"=>{"name"=>"qwf", "card"=>"21"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.9ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "21"], ["name", "qwf"], ["created_at", "2020-02-09 23:41:52.700606"], ["updated_at", "2020-02-09 23:41:52.700606"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/2
+Completed 302 Found in 31ms (ActiveRecord: 13.7ms)
+
+
+Started GET "/home/2" for 165.91.13.248 at 2020-02-09 23:41:52 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 200ms (Views: 186.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/home" for 165.91.13.248 at 2020-02-09 23:42:02 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 32ms (Views: 30.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/home" for 165.91.13.248 at 2020-02-09 23:42:10 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DeZfQlkYyjeKce1yn3oVkxExGbmcWeffaW75AfwlpLhZXdOqOCPeGLsSYyQTEzqjBamGpZFtYRZrlGqXjkLQKQ==", "home"=>{"name"=>"qwf", "card"=>"afwfawf"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "afwfawf"], ["name", "qwf"], ["created_at", "2020-02-09 23:42:10.808675"], ["updated_at", "2020-02-09 23:42:10.808675"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/3
+Completed 302 Found in 23ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/home/3" for 165.91.13.248 at 2020-02-09 23:42:10 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 39ms (Views: 35.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/home" for 165.91.13.248 at 2020-02-09 23:42:38 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DeZfQlkYyjeKce1yn3oVkxExGbmcWeffaW75AfwlpLhZXdOqOCPeGLsSYyQTEzqjBamGpZFtYRZrlGqXjkLQKQ==", "home"=>{"name"=>"qwf", "card"=>"afwfawf"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "afwfawf"], ["name", "qwf"], ["created_at", "2020-02-09 23:42:38.490093"], ["updated_at", "2020-02-09 23:42:38.490093"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/4
+Completed 302 Found in 24ms (ActiveRecord: 13.1ms)
+
+
+Started GET "/home/4" for 165.91.13.248 at 2020-02-09 23:42:38 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 42ms (Views: 38.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/students/4" for 165.91.13.248 at 2020-02-09 23:42:40 +0000
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mStudent Load (1.6ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:15
+Completed 404 Not Found in 8ms (ActiveRecord: 2.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Student with 'id'=4):
+  
+app/controllers/students_controller.rb:15:in `show'
+Started GET "/home" for 165.91.13.248 at 2020-02-09 23:42:44 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 22ms (Views: 20.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 23:42:48 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 165.91.13.248 at 2020-02-09 23:44:53 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3xXdN2lYoPcWzjjc9KozmhriTLf2TDRlH8o9UWN+mW6LrlHfCGO02Cettop4wxyqDnrTq/t4sqwdMK7HERnt/w==", "home"=>{"name"=>"Reegan Jiang", "card"=>"f"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "f"], ["name", "Reegan Jiang"], ["created_at", "2020-02-09 23:44:53.776690"], ["updated_at", "2020-02-09 23:44:53.776690"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/5
+Completed 302 Found in 21ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/home/5" for 165.91.13.248 at 2020-02-09 23:44:53 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 165.91.13.248 at 2020-02-09 23:47:16 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 23:48:58 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 29ms (Views: 24.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/1" for 165.91.13.248 at 2020-02-09 23:49:00 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" INNER JOIN "courses_students" ON "courses"."id" = "courses_students"."course_id" WHERE "courses_students"."student_id" = ?[0m  [["student_id", 1]]
+  ↳ app/views/courses/show.html.erb:40
+  Rendered courses/show.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 73ms (Views: 38.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courses/1/students/new" for 165.91.13.248 at 2020-02-09 23:49:02 +0000
+Processing by StudentsController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/home/new" for 165.91.13.248 at 2020-02-09 23:49:24 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 23:50:23 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/new" for 165.91.13.248 at 2020-02-09 23:50:26 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.248 at 2020-02-09 23:50:27 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/home/new" for 165.91.13.248 at 2020-02-09 23:50:31 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 165.91.13.248 at 2020-02-09 23:50:38 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9J9O0aYW5QNNWi913nJzmiHiallaGHBBwicLBoDqLb3ykaWU8kwq5A9j2e+gLE+68oNyVO4P6hxOAniBlJASHg==", "home"=>{"name"=>"Reegan Jiangaaaa", "card"=>"afwfawf"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "afwfawf"], ["name", "Reegan Jiangaaaa"], ["created_at", "2020-02-09 23:50:38.142955"], ["updated_at", "2020-02-09 23:50:38.142955"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/home/6
+Completed 302 Found in 17ms (ActiveRecord: 12.6ms)
+
+
+Started GET "/home/6" for 165.91.13.248 at 2020-02-09 23:50:38 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 165.91.13.248 at 2020-02-10 00:02:45 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.2ms)
+
+
