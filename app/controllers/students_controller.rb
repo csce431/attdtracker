@@ -19,17 +19,12 @@ class StudentsController < ApplicationController
     def create
         @student = Student.new(student_params)
         
+        #if email not found
         if @student.save
         begin
-            #if @course 
-            #begin
-                @course = Course.find(params[:course_id])
-                @student.courses << @course
-                redirect_to course_path(@course)
-            #end
-            #else
-            #    redirect_to courses_path
-            #end
+            @course = Course.find(params[:course_id])
+            @student.courses << @course
+            redirect_to course_path(@course)
         end
         else
             render 'new'
