@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     #@homes = Home.all
-    @homes = Home.order(:name)
+    @homes = Home.order(:name, :lname)
   end
   
   def show
@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   
   def create
     @home = Home.new(home_params)
-    #@home = Home.create(params.require(:home).permit(:card, :name))
+    @home = Home.create(params.require(:home).permit(:card, :name, :lname))
   
     if @home.save
       redirect_to @home
@@ -31,7 +31,7 @@ class HomeController < ApplicationController
   
   def update
     @home = Home.find(params[:id])
-    @home.update(params.require(:home).permit(:card, :name))
+    @home.update(params.require(:home).permit(:card, :name, :lname))
     if @home.update(home_params)
       redirect_to controller: 'home'
     else

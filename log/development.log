@@ -52573,3 +52573,1529 @@ Processing by StudentsController#show as HTML
 Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/courses" for 165.91.13.49 at 2020-02-10 00:25:19 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 571ms (Views: 547.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 165.91.13.49 at 2020-02-10 00:25:24 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 70ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/new" for 165.91.13.49 at 2020-02-10 00:25:26 +0000
+Processing by HomeController#new as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 55ms (Views: 45.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 165.91.13.49 at 2020-02-10 00:46:47 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 190ms (Views: 185.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.49 at 2020-02-10 00:46:51 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 39ms (Views: 25.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 165.91.13.49 at 2020-02-10 00:46:52 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 165.91.13.49 at 2020-02-10 00:46:53 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 20.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/home/new" for 165.91.13.49 at 2020-02-10 00:46:56 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 32ms (Views: 24.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:37:00 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 261ms (Views: 256.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:37:03 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 36ms (Views: 28.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:37:04 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 34ms (Views: 26.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:37:23 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0dzu9UwKGxH5LwS7ERvQC2UpxGaG33X6dxkcpOMOTKiwFsyFzwrgSrwNhgDAGh7zHBYjX+h2CjsnAkgtQDn7yA==", "home"=>{"name"=>"sausah", "card"=>"%6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? LIMIT ?[0m  [["card", "%6016426594017846?+6016426594017846?"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "sausah"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? LIMIT ?[0m  [["card", "%6016426594017846?+6016426594017846?"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "sausah"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 69ms (Views: 23.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:37:35 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AAZbJLgEtKD7MjVUBpmdmysSGVTaI/Yb6Ngb+Xz4EcDsurYgZUi3wt3w7blI9gvwPICicI15UzxzHLi/PtjR7Q==", "home"=>{"name"=>"Rae", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? LIMIT ?[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Rae"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."card" = ? LIMIT ?[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Rae"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 39ms (Views: 19.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/home" for 66.76.61.18 at 2020-02-10 04:38:55 +0000
+  [1m[35m (14.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (7.4ms)
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:38:55 +0000
+Completed 200 OK in 286ms (Views: 278.9ms | ActiveRecord: 0.8ms)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 187ms (Views: 182.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:38:56 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 70ms (Views: 55.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:38:57 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 73ms (Views: 66.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:39:05 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/GuC9dnu6VMP/rEAdQAlCvY+wdmrtTp2i/Xpm5xH3+idoaCFWu4SCErcM7ukAevyjwEm4MUcRbfb7r0SP3BoiA==", "home"=>{"name"=>"SAUSHA", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "SAUSHA"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.8ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "SAUSHA"], ["created_at", "2020-02-10 04:39:05.457519"], ["updated_at", "2020-02-10 04:39:05.457519"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "SAUSHA"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/3
+Completed 302 Found in 28ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/home/3" for 66.76.61.18 at 2020-02-10 04:39:05 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home" for 66.76.61.18 at 2020-02-10 04:39:20 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/3" for 66.76.61.18 at 2020-02-10 04:40:04 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHome Load (0.3ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 29ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home" for 66.76.61.18 at 2020-02-10 04:40:08 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 24ms (Views: 22.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:40:38 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:40:39 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 32ms (Views: 25.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:40:40 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:40:51 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IlYt2lSvAqxAThSb9mVfXWtWHkGhNOTSvND5JvBG+PpDnA+q16/59wVsliAnZJGlEmn5eM+dmxPsy62vU3FPmg==", "home"=>{"name"=>"RA", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "RA"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "RA"], ["created_at", "2020-02-10 04:40:51.662914"], ["updated_at", "2020-02-10 04:40:51.662914"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "RA"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/4
+Completed 302 Found in 26ms (ActiveRecord: 12.2ms)
+
+
+Started GET "/home/4" for 66.76.61.18 at 2020-02-10 04:40:51 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/4" for 66.76.61.18 at 2020-02-10 04:40:53 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/4" for 66.76.61.18 at 2020-02-10 04:40:55 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/4" for 66.76.61.18 at 2020-02-10 04:40:55 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/4" for 66.76.61.18 at 2020-02-10 04:40:56 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/4" for 66.76.61.18 at 2020-02-10 04:40:57 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 27.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:41:01 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 21ms (Views: 20.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:41:14 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:41:26 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ToeRIs2o4RRYFz89kaEkKn/CTgg7GCi6bR0LuYlnZISiO3wmEOTidn7V59DfzrJBaFD1LGxCjZ322aj/y0ekqQ==", "home"=>{"name"=>"BROWN", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "BROWN"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.2ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "BROWN"], ["created_at", "2020-02-10 04:41:26.306267"], ["updated_at", "2020-02-10 04:41:26.306267"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (16.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "BROWN"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/5
+Completed 302 Found in 23ms (ActiveRecord: 16.8ms)
+
+
+Started GET "/home/5" for 66.76.61.18 at 2020-02-10 04:41:26 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (205.5ms)
+Completed 500 Internal Server Error in 213ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `home_new_path' for #<#<Class:0x0000563e806f7920>:0x00007fa7b832dc48>
+Did you mean?  home_index_path
+               home_path):
+     7: 
+     8: <br>
+     9: 
+    10: <%= link_to 'Back', home_new_path %>
+    11: </div>
+  
+app/views/home/show.html.erb:10:in `_app_views_home_show_html_erb___4383385098988780354_70179163304560'
+Started GET "/home" for 66.76.61.18 at 2020-02-10 04:41:47 +0000
+Processing by HomeController#index as HTML
+Started GET "/home" for 66.76.61.18 at 2020-02-10 04:41:47 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  Rendering home/index.html.erb within layouts/application
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (4.9ms)
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 58ms (Views: 52.7ms | ActiveRecord: 0.1ms)
+
+
+Completed 200 OK in 58ms (Views: 56.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:41:51 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:41:51 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:41:51 +0000
+  ↳ app/views/courses/index.html.erb:12
+Processing by HomeController#new as HTML
+  Rendered courses/index.html.erb within layouts/application (5.2ms)
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 93ms (Views: 91.0ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 108ms (Views: 106.6ms | ActiveRecord: 0.1ms)
+
+
+Completed 200 OK in 120ms (Views: 119.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:41:52 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:42:01 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LP1AfNmeJMNsr2cvkM5f4pOt0R8b600cLL7nEJvPIoxNN2IMWp7fmCmN5ZRBz5Ea6pI2JnVCMt18pbOZOPiV7A==", "home"=>{"name"=>"RARRA", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "RARRA"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "RARRA"], ["created_at", "2020-02-10 04:42:01.773702"], ["updated_at", "2020-02-10 04:42:01.773702"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (15.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "RARRA"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/6
+Completed 302 Found in 28ms (ActiveRecord: 16.0ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:01 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:03 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:05 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:05 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 63ms (Views: 59.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:05 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 75ms (Views: 70.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:06 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 37ms (Views: 34.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:06 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:06 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home/6" for 66.76.61.18 at 2020-02-10 04:42:09 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:44:11 +0000
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:44:11 +0000
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:44:11 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (22.8ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 388ms (Views: 377.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 483ms (Views: 457.0ms | ActiveRecord: 1.4ms)
+
+
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 422ms (Views: 28.7ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:44:27 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UwaVkRPVWf64hsdlz15eH4TKDE7AvwIoxhbmoc4pz1YyzLfhkNWipf2kRd4eX5Dn/fXrd64WfemWDbIobR54Ng==", "home"=>{"name"=>"www", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameter: :name
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "www"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "www"], ["created_at", "2020-02-10 04:44:27.524343"], ["updated_at", "2020-02-10 04:44:27.524343"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "www"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/7
+Completed 302 Found in 27ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/home/7" for 66.76.61.18 at 2020-02-10 04:44:27 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 51ms (Views: 47.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:44:29 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:46:26 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 234ms (Views: 216.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:46:27 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 68ms (Views: 58.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:46:27 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (22.0ms)
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:46:28 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 63ms (Views: 62.2ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 574ms (Views: 532.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:46:29 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:46:41 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4JsYGT36G+776eDZzwrpgy9KvKcC8ys7wvS340Kdhj6BUTppvvrgtb7LYmIeCyd7VnVbnmxaVPqS7+Nq4aoxXg==", "home"=>{"name"=>"SAUSHA", "lname"=>"BROWN", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+Unpermitted parameter: :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "SAUSHA"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "SAUSHA"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 34ms (Views: 21.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:46:57 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pp4BfouzOoXHIxcWU6ea8eVU99j0NShUGzuQ4UiUdnzSIux6Vv855+Hhz/sdyAya8sZM/KNvjXOA/zOnCrS2UQ==", "home"=>{"name"=>"OPOP", "lname"=>"OOOO", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+Unpermitted parameter: :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "OPOP"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "OPOP"], ["created_at", "2020-02-10 04:46:57.125825"], ["updated_at", "2020-02-10 04:46:57.125825"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "OPOP"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/8
+Completed 302 Found in 23ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/home/8" for 66.76.61.18 at 2020-02-10 04:46:57 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home" for 66.76.61.18 at 2020-02-10 04:47:00 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 23ms (Views: 21.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home/8" for 66.76.61.18 at 2020-02-10 04:47:06 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/home" for 66.76.61.18 at 2020-02-10 04:47:07 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.1ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 34ms (Views: 32.6ms | ActiveRecord: 0.1ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:48:27 +0000
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:48:27 +0000
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:48:27 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+Processing by CoursesController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendering courses/index.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (9.3ms)
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (134.6ms)
+Completed 200 OK in 501ms (Views: 492.8ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 651ms (Views: 632.5ms | ActiveRecord: 0.7ms)
+
+
+Completed 200 OK in 657ms (Views: 630.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:48:44 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5HSWPELoqSnKiABTNYSUr1cZ6fa1/sA0GUJRjhtxqySFvrRMwehSco+qgujkhVpXLiYOz9tXv/VJWQUHuEYcRA==", "home"=>{"name"=>"IEIEIEI", "lname"=>"PPPPPPP", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'lname' for Home.):
+  
+app/controllers/home_controller.rb:22:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (19.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateWidgets (20140707111715)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "widgets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "stock" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20140707111715_create_widgets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140707111715"]]
+  ↳ bin/rails:4
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateHomes (20200106025059)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "homes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "card" varchar, "name" varchar, "lname" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200106025059"]]
+  ↳ bin/rails:4
+  [1m[35m (12.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCourses (20200127211855)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "section" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar, "mname" varchar, "lname" varchar, "prefname" varchar, "uin" integer, "email" varchar, "picture" blob, "card_num" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200127211855"]]
+  ↳ bin/rails:4
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCoursesStudents (20200209220614)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "courses_students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_20e6a4d275"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_a1b35a8e05"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_student_id" ON "courses_students" ("student_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_course_id" ON "courses_students" ("course_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200209220614"]]
+  ↳ bin/rails:4
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-10 04:50:56.621598"], ["updated_at", "2020-02-10 04:50:56.621598"]]
+  ↳ bin/rails:4
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:51:08 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 223ms (Views: 218.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:51:09 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 29ms (Views: 21.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/new" for 66.76.61.18 at 2020-02-10 04:51:12 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (4.9ms)
+  Rendered courses/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 33ms (Views: 25.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses" for 66.76.61.18 at 2020-02-10 04:51:19 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VIpZJC7Jvss0HfVSJQOtwBHTkYzC6MDnSU8PscxvkcEUBuUZkbvTyJCi6DxnevQWG+9FFb7ghOz2fLVFenG2xg==", "course"=>{"name"=>"CSCE 431", "section"=>"501"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "CSCE 431"], ["section", 501], ["created_at", "2020-02-10 04:51:19.165740"], ["updated_at", "2020-02-10 04:51:19.165740"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to http://3.15.196.208:8080/courses/1
+Completed 302 Found in 20ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/courses/1" for 66.76.61.18 at 2020-02-10 04:51:19 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 70ms (Views: 27.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:51:21 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 22ms (Views: 20.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:51:23 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 28ms (Views: 20.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:51:33 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4T/xDYeEOn1LQVpSSdewSMl5buwCQ6OSBYbAVJBY/TeA9dN9BITBJg5j2OmY1n6wsEaJ1Wzq3FNVnZTdM29KVw==", "home"=>{"name"=>"HAHAH", "lname"=>"BRUH", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "HAHAH"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.2ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "HAHAH"], ["lname", "BRUH"], ["created_at", "2020-02-10 04:51:33.707157"], ["updated_at", "2020-02-10 04:51:33.707157"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "HAHAH"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/1
+Completed 302 Found in 22ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/home/1" for 66.76.61.18 at 2020-02-10 04:51:33 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:51:38 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:54:29 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 231ms (Views: 216.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:54:29 +0000
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:54:29 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.2ms)
+
+
+Processing by WelcomeController#index as HTML
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:54:29 +0000
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 0.0ms)
+
+
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 69ms (Views: 61.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:54:29 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 217ms (Views: 212.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:54:47 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"19llM+otZR03S5xfj4vCF4+HDuV2IiCh5sYrZYiG1wu2E0dDaS2eRnJpHuReigzv9rjp3BiLX2C23X/sK7Fgaw==", "home"=>{"name"=>"Sausha-Rae", "lname"=>"Brown", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Sausha-Rae"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.3ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "Sausha-Rae"], ["lname", "Brown"], ["created_at", "2020-02-10 04:54:47.856129"], ["updated_at", "2020-02-10 04:54:47.856129"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "Sausha-Rae"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/2
+Completed 302 Found in 23ms (ActiveRecord: 13.2ms)
+
+
+Started GET "/home/2" for 66.76.61.18 at 2020-02-10 04:54:47 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:54:52 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:56:03 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:56:05 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 21ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:56:40 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 33ms (Views: 32.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:57:00 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:58:16 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 66.76.61.18 at 2020-02-10 04:58:18 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 36ms (Views: 21.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1" for 66.76.61.18 at 2020-02-10 04:58:36 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 36ms (Views: 33.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1" for 66.76.61.18 at 2020-02-10 04:58:39 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:58:40 +0000
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:58:40 +0000
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:58:40 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+Processing by WelcomeController#index as HTML
+  Rendering home/new.html.erb within layouts/application
+  Rendering welcome/index.html.erb within layouts/application
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (4.9ms)
+  Rendered home/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 78ms (Views: 77.3ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 87ms (Views: 86.5ms | ActiveRecord: 0.0ms)
+
+
+Completed 200 OK in 79ms (Views: 78.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 66.76.61.18 at 2020-02-10 04:58:40 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 44ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 04:58:57 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ooQKsliuMu2pwa3+ng/hZCZr6m2+BA92ZkJl7fegbgnDTijC267JtuzjL0VPDi+cX1QNVNCtcLc2WTFkVJfZaQ==", "home"=>{"name"=>"Sausha", "lname"=>"Brown", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Sausha"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.4ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "Sausha"], ["lname", "Brown"], ["created_at", "2020-02-10 04:58:57.482755"], ["updated_at", "2020-02-10 04:58:57.482755"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (15.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "Sausha"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.15.196.208:8080/home/3
+Completed 302 Found in 24ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/home/3" for 66.76.61.18 at 2020-02-10 04:58:57 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 04:58:59 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 21.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 04:59:04 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 66.76.61.18 at 2020-02-10 04:59:05 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 22ms (Views: 19.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 66.76.61.18 at 2020-02-10 05:07:04 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 373ms (Views: 368.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 05:07:09 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 57ms (Views: 31.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 05:07:13 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 95ms (Views: 75.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 05:07:24 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1JQnIck2IpCGnQuCXeN85ToeM+MmNmueN+OEPoRasWFU227zt6G09RAozbW9Yi7/WxkaZ8UDsBvrJVJIGhsEJg==", "home"=>{"name"=>"Sausha", "lname"=>"Bronw", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Sausha"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (1.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Sausha"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 44ms (Views: 22.4ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 05:07:33 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"67U7YuFcgiP3sJv9un4mIhNRUxmbZqxmle0+DmU0aSWE3uAFrCSlCEuSw570aBMWoOsuNtSZHjHVJ+Qg06WNdw==", "home"=>{"name"=>"Sausha", "lname"=>"Brkkkk", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Sausha"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "Sausha"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 41ms (Views: 30.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 05:07:41 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JLSvQDuh7ygKPMlCa6wJ5J6KLap6D1kZjxY3Da4yx0dL33QndtnIA7YekSElujzQLTBQhTXw607P3O0jGKMjFQ==", "home"=>{"name"=>"wwww", "lname"=>"Brkkkk", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? LIMIT ?[0m  [["name", "wwww"], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (2.2ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "wwww"], ["lname", "Brkkkk"], ["created_at", "2020-02-10 05:07:41.718194"], ["updated_at", "2020-02-10 05:07:41.718194"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[36mHome Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "homes" WHERE "homes"."name" = ? AND "homes"."id" != ? LIMIT ?[0m  [["name", "wwww"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.17.10.137:8080/home/4
+Completed 302 Found in 34ms (ActiveRecord: 14.3ms)
+
+
+Started GET "/home/4" for 66.76.61.18 at 2020-02-10 05:07:41 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/home" for 66.76.61.18 at 2020-02-10 05:07:43 +0000
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT "homes".* FROM "homes" ORDER BY "homes"."name" ASC, "homes"."lname" ASC[0m
+  ↳ app/views/home/index.html.erb:12
+  Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 38ms (Views: 36.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 05:07:54 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 66.76.61.18 at 2020-02-10 05:07:56 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 61ms (Views: 30.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 05:09:27 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 329ms (Views: 318.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 05:09:31 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 35ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 05:10:01 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.5/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 223ms (Views: 211.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 05:10:17 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fFDKVYJ77RjFW36wqynnVcpm5IY6ihWc7GZ6rrVehN8TOxEyzwPKM3l5JtPlP9JhedyZqXV1p8usrKCAA89gjQ==", "home"=>{"name"=>"SAUSHA", "lname"=>"BROWN", "card"=>"%6016426594017846?;6016426594017846?+6016426594017846?"}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[36mHome Create (0.5ms)[0m  [1m[32mINSERT INTO "homes" ("card", "name", "lname", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["card", "%6016426594017846?;6016426594017846?+6016426594017846?"], ["name", "SAUSHA"], ["lname", "BROWN"], ["created_at", "2020-02-10 05:10:17.320016"], ["updated_at", "2020-02-10 05:10:17.320016"]]
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+Redirected to http://3.17.10.137:8080/home/5
+Completed 302 Found in 23ms (ActiveRecord: 13.0ms)
+
+
+Started GET "/home/5" for 66.76.61.18 at 2020-02-10 05:10:17 +0000
+Processing by HomeController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mHome Load (0.2ms)[0m  [1m[34mSELECT  "homes".* FROM "homes" WHERE "homes"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:9
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 58ms (Views: 54.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 05:10:19 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 05:10:20 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 34ms (Views: 27.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1/home/new" for 66.76.61.18 at 2020-02-10 05:10:22 +0000
+Processing by HomeController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home" for 66.76.61.18 at 2020-02-10 05:10:24 +0000
+Processing by HomeController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nRUCcTSzRVhwfDkRHdUivJ55dO2x36obMC0MvCKLiEodWkujSiTTPebJ/yb9VHCm/35daVLqcZ7s69rKvMo9DQ==", "home"=>{"name"=>"", "lname"=>"", "card"=>""}, "commit"=>"Submit"}
+Unpermitted parameters: :name, :lname
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:22
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/home_controller.rb:24
+  Rendering home/new.html.erb within layouts/application
+  Rendered home/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 39ms (Views: 22.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses" for 66.76.61.18 at 2020-02-10 05:10:26 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1" for 66.76.61.18 at 2020-02-10 05:10:27 +0000
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:15
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "courses_students" ON "students"."id" = "courses_students"."student_id" WHERE "courses_students"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:30
+  Rendered courses/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 48ms (Views: 24.7ms | ActiveRecord: 1.4ms)
+
+

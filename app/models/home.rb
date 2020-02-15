@@ -7,6 +7,6 @@ class Home < ApplicationRecord
     #validates :card, format: { with: /[\%](\d{16}[\?])[\;](\1)[\+](\1)/ }
     ### see the regex in action ---> https://regex101.com/r/nVsnUJ/2
 
-    #validates :name, presence: true
+    validates :name, presence: true
     #validates :name, uniqueness: true
 end
