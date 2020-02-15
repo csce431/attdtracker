@@ -15,6 +15,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
       t.integer :uin
       t.string :email
       t.binary :picture
+      t.string :card_num
 
       t.timestamps
     end

@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   
   def create
     @home = Home.new(home_params)
-    @home = Home.create(params.require(:home).permit(:card, :name))
+    #@home = Home.create(params.require(:home).permit(:card, :name))
   
     if @home.save
       redirect_to @home
