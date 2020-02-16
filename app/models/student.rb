@@ -3,7 +3,7 @@ class Student < ApplicationRecord
     #validates :fname, presence: true
     #validates :lname, presence: true
     #validates :uin, length: {is: 9}
-    #validates :email, uniqueness: true
+    validates :email, presence: true
     #validates_format_of :email, :with => /\wa/
     #validates :fname, presence: true
     #validates :fname, presence: true

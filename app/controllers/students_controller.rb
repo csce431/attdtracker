@@ -18,16 +18,25 @@ class StudentsController < ApplicationController
     
     def create
         @student = Student.new(student_params)
+        @course = Course.find(params[:course_id])
         
-        #if email not found
-        if @student.save
+        if exist_email(@student.email)
         begin
-            @course = Course.find(params[:course_id])
-            @student.courses << @course
-            redirect_to course_path(@course)
+            @existStudent = Student.where(email: @student.email).first
+            if !email_in_course(@course, @student.email) 
+                @existStudent.courses << @course
+            end
+            redirect_to course_path(@existStudent.courses.last)
         end
         else
-            render 'new'
+            if @student.save
+            begin
+                @student.courses << @course
+                redirect_to course_path(@course)
+            end
+            else
+                render 'new'
+            end
         end
     end
     
@@ -49,6 +58,26 @@ class StudentsController < ApplicationController
     end 
     
     private
+        def exist_email(email)
+           ret = false
+           for student in Student.all do
+                if email == student.email
+                    ret = true
+                end
+           end
+           ret
+        end
+        
+        def email_in_course(course, email)
+            ret = false
+            for student in course.students do
+                if student.email == email
+                    ret = true
+                end
+            end
+            ret            
+        end
+        
         def student_params
             params.require(:student).permit(:fname, :mname, :lname, :prefname, :uin, :email)
         end
