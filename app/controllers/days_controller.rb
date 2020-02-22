@@ -2,7 +2,7 @@ class DaysController < ApplicationController
   def index
     @days = Day.all
     @course = Course.find(params[:course_id])
-    @tookattendance = time_exist(@course)
+    @tookattendance = time_exist
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @day = Day.where(classday: @time).first
   end
@@ -13,6 +13,7 @@ class DaysController < ApplicationController
   
   def new
     @day = Day.new
+    @course = Course.find(params[:course_id])
   end
   
   def edit
@@ -27,7 +28,7 @@ class DaysController < ApplicationController
     
     if @day.save!
       @day.classday = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
-      redirect_to courses_path
+      redirect_to new_course_day_card_path(@course, @day)
     else
       redirect_to courses_path
     end
@@ -50,7 +51,7 @@ class DaysController < ApplicationController
     redirect_to day_index_path
   end
   
-  def time_exist(course)
+  def time_exist
     #return value 'ret'
     ret = false
     time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") 

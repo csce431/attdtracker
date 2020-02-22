@@ -67362,3 +67362,1477 @@ Processing by CardsController#new as HTML
 Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (17.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateWidgets (20140707111715)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "widgets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "stock" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20140707111715_create_widgets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140707111715"]]
+  ↳ bin/rails:4
+  [1m[35m (17.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateHomes (20200106025059)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "homes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "card" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_homes_on_course_id" ON "homes" ("course_id")[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200106025059"]]
+  ↳ bin/rails:4
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCourses (20200127211855)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "section" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar, "mname" varchar, "lname" varchar, "prefname" varchar, "uin" integer, "email" varchar, "picture" blob, "card_num" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200127211855"]]
+  ↳ bin/rails:4
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCoursesStudents (20200209220614)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses_students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_20e6a4d275"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_a1b35a8e05"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_student_id" ON "courses_students" ("student_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_course_id" ON "courses_students" ("course_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200209220614"]]
+  ↳ bin/rails:4
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCards (20200216235247)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "code" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_cards_on_course_id" ON "cards" ("course_id")[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235247"]]
+  ↳ bin/rails:4
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateDays (20200216235419)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "classday" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_days_on_course_id" ON "days" ("course_id")[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235419"]]
+  ↳ bin/rails:4
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-22 21:49:40.301344"], ["updated_at", "2020-02-22 21:49:40.301344"]]
+  ↳ bin/rails:4
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:50:42 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 300ms (Views: 284.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:50:44 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ubuntu/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 213ms (Views: 202.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/new" for 52.119.101.14 at 2020-02-22 21:50:45 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (16.4ms)
+  Rendered courses/new.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 45ms (Views: 39.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses" for 52.119.101.14 at 2020-02-22 21:50:48 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4cnUt86a3spWM5x1dm+G/crhIJE67PUVSwSnjAuvLO8beUXm4VkIjcNjSLTcrmcKnMWRd2HgklUcaNnuXRa9EA==", "course"=>{"name"=>"CSCE", "section"=>"431"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (2.1ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "CSCE"], ["section", 431], ["created_at", "2020-02-22 21:50:48.671965"], ["updated_at", "2020-02-22 21:50:48.671965"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 22ms (ActiveRecord: 15.3ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:50:48 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:50:50 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.6ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:57
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 58ms (Views: 44.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 21:50:52 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering days/new.html.erb within layouts/application
+  Rendered days/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:50:53 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xmNYLVJvnXgQKYkLDld3sRpuh7BpcfX/F/bXknZIe8LAo471A4pf910Txt/64uyhjB5cS53UHxBWq3y3tyfx0A==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:24
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:28
+  [1m[36mDay Create (12.4ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 21:50:53.673912"], ["updated_at", "2020-02-22 21:50:53.673912"]]
+  ↳ app/controllers/days_controller.rb:28
+  [1m[35m (12.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:28
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 32ms (ActiveRecord: 24.7ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:50:53 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:50:55 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:57
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 21:51:29 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 44ms (Views: 34.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:54:07 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:57
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 30ms (Views: 23.7ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (19.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateWidgets (20140707111715)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "widgets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "stock" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20140707111715_create_widgets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140707111715"]]
+  ↳ bin/rails:4
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateHomes (20200106025059)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "homes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "card" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_homes_on_course_id" ON "homes" ("course_id")[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200106025059"]]
+  ↳ bin/rails:4
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCourses (20200127211855)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "section" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar, "mname" varchar, "lname" varchar, "prefname" varchar, "uin" integer, "email" varchar, "picture" blob, "card_num" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200127211855"]]
+  ↳ bin/rails:4
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCoursesStudents (20200209220614)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses_students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_20e6a4d275"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_a1b35a8e05"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_student_id" ON "courses_students" ("student_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_course_id" ON "courses_students" ("course_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200209220614"]]
+  ↳ bin/rails:4
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCards (20200216235247)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "code" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_cards_on_course_id" ON "cards" ("course_id")[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235247"]]
+  ↳ bin/rails:4
+  [1m[35m (13.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateDays (20200216235419)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "classday" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_days_on_course_id" ON "days" ("course_id")[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235419"]]
+  ↳ bin/rails:4
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-22 21:54:27.900193"], ["updated_at", "2020-02-22 21:54:27.900193"]]
+  ↳ bin/rails:4
+  [1m[35m (13.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:28 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 22.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:30 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:30 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 24ms (Views: 23.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:30 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:31 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:31 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:31 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 35ms (Views: 33.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:31 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 23.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/new" for 52.119.101.14 at 2020-02-22 21:54:32 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (1.9ms)
+  Rendered courses/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses" for 52.119.101.14 at 2020-02-22 21:54:34 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3qfPNuFD8cmqdyEWaLZJJy3w1mcgjMFZt5EPM/g3wF0kF15nzoAnjj8n9dfCd6jQe9RngXuAphng/XFRro5Rog==", "course"=>{"name"=>"CSCE", "section"=>"431"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "CSCE"], ["section", 431], ["created_at", "2020-02-22 21:54:34.532172"], ["updated_at", "2020-02-22 21:54:34.532172"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 19ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:54:34 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:54:35 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:57
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 44ms (Views: 34.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 21:54:37 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  Rendering days/new.html.erb within layouts/application
+  Rendered days/new.html.erb within layouts/application (5.9ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"cards", :course_id=>nil, :day_id=>nil}, missing required keys: [:course_id, :day_id]):
+    1: <h1>Take Attendace!</h1>
+    2: 
+    3: Do you want to take Attendance for the day of <%= Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") %>?
+    4: <%= form_with model: @day, url: new_course_day_card_path(@course, @day), local: true do |form| %>
+    5: <br> 
+    6: 
+    7: <%= form.submit %> <%= link_to 'No', course_days_path %>
+  
+app/views/days/new.html.erb:4:in `_app_views_days_new_html_erb___1037668875036333463_70185746695860'
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 21:55:53 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+Completed 404 Not Found in 13ms (ActiveRecord: 1.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Course without an ID):
+  
+app/controllers/days_controller.rb:16:in `new'
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 21:56:01 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:16
+  Rendering days/new.html.erb within layouts/application
+  Rendered days/new.html.erb within layouts/application (1.2ms)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"cards", :course_id=>"1", :day_id=>nil}, missing required keys: [:day_id]):
+    1: <h1>Take Attendace!</h1>
+    2: 
+    3: Do you want to take Attendance for the day of <%= Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") %>?
+    4: <%= form_with model: @day, url: new_course_day_card_path(@course, @day), local: true do |form| %>
+    5: <br> 
+    6: 
+    7: <%= form.submit %> <%= link_to 'No', course_days_path %>
+  
+app/views/days/new.html.erb:4:in `_app_views_days_new_html_erb___1037668875036333463_70185805984000'
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 21:56:38 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:16
+  Rendering days/new.html.erb within layouts/application
+  Rendered days/new.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.1ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"cards", :course_id=>#<Course id: 1, name: "CSCE", section: 431, created_at: "2020-02-22 21:54:34", updated_at: "2020-02-22 21:54:34">}, missing required keys: [:day_id]):
+    1: <h1>Take Attendace!</h1>
+    2: 
+    3: Do you want to take Attendance for the day of <%= Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") %>?
+    4: <%= form_with model: @day, url: new_course_day_card_path(@course), local: true do |form| %>
+    5: <br> 
+    6: 
+    7: <%= form.submit %> <%= link_to 'No', course_days_path %>
+  
+app/views/days/new.html.erb:4:in `_app_views_days_new_html_erb___1037668875036333463_47104996949380'
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 21:58:41 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:16
+  Rendering days/new.html.erb within layouts/application
+  Rendered days/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 25ms (Views: 22.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:58:43 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ptmk5cef4vnUEpFBETPNSBOv9uk1Yub/RuGmHIJSKQ/yYigNpqT21uVxHxedWuJ4Bzdp9ThWYDZEGzWK8DVdng==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Create (0.4ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 21:58:43.465008"], ["updated_at", "2020-02-22 21:58:43.465008"]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 20ms (ActiveRecord: 12.9ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 21:58:43 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:58:46 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:58
+  [1m[36mDay Load (0.5ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 29ms (Views: 23.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 21:59:29 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:58
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 21:59:31 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 43ms (Views: 33.4ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateWidgets (20140707111715)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "widgets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "stock" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20140707111715_create_widgets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140707111715"]]
+  ↳ bin/rails:4
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateHomes (20200106025059)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "homes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "card" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_homes_on_course_id" ON "homes" ("course_id")[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200106025059"]]
+  ↳ bin/rails:4
+  [1m[35m (13.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCourses (20200127211855)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "section" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar, "mname" varchar, "lname" varchar, "prefname" varchar, "uin" integer, "email" varchar, "picture" blob, "card_num" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200127211855"]]
+  ↳ bin/rails:4
+  [1m[35m (13.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCoursesStudents (20200209220614)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "courses_students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_20e6a4d275"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_a1b35a8e05"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_student_id" ON "courses_students" ("student_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_course_id" ON "courses_students" ("course_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200209220614"]]
+  ↳ bin/rails:4
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCards (20200216235247)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "code" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_cards_on_course_id" ON "cards" ("course_id")[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235247"]]
+  ↳ bin/rails:4
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateDays (20200216235419)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "classday" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_days_on_course_id" ON "days" ("course_id")[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235419"]]
+  ↳ bin/rails:4
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-22 22:00:08.554772"], ["updated_at", "2020-02-22 22:00:08.554772"]]
+  ↳ bin/rails:4
+  [1m[35m (11.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 22:00:11 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 47ms (Views: 39.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses/new" for 52.119.101.14 at 2020-02-22 22:00:13 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (1.8ms)
+  Rendered courses/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses" for 52.119.101.14 at 2020-02-22 22:00:16 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8tKtYxcr+bnh2uKSUpAXWc1USHCCCR935iac+3FMhD8IYjwyOOgv/nSKNlP4Ufaum3D5ltkFeDexSuKZJ/UVwA==", "course"=>{"name"=>"CSCE", "section"=>"431"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "CSCE"], ["section", 431], ["created_at", "2020-02-22 22:00:16.871689"], ["updated_at", "2020-02-22 22:00:16.871689"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (12.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 19ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 22:00:16 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:00:19 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:58
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 34ms (Views: 23.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 22:00:20 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:16
+  Rendering days/new.html.erb within layouts/application
+  Rendered days/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 28ms (Views: 22.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:00:21 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7d+ttPM6V10NSmogTNQ17Zofuk01dzcTMipCYkenu0jrH3tsot+V0kBwJfS4Ya79DG9htsHS3fxzd+lHhsgxWg==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Create (0.4ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 22:00:21.289673"], ["updated_at", "2020-02-22 22:00:21.289673"]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 12.9ms)
+
+
+  
+NameError (undefined local variable or method `new_courses_path_card_path' for #<DaysController:0x000055aef9403640>
+Did you mean?  new_course_day_card_path):
+  
+app/controllers/days_controller.rb:31:in `create'
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:00:37 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7d+ttPM6V10NSmogTNQ17Zofuk01dzcTMipCYkenu0jrH3tsot+V0kBwJfS4Ya79DG9htsHS3fxzd+lHhsgxWg==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Create (0.4ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 22:00:37.275613"], ["updated_at", "2020-02-22 22:00:37.275613"]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 13.7ms)
+
+
+  
+NameError (undefined local variable or method `new_course_path_card_path' for #<DaysController:0x00007faaca255e50>
+Did you mean?  new_course_day_card_path
+               new_course_day_card_url):
+  
+app/controllers/days_controller.rb:31:in `create'
+Started GET "/" for 52.119.101.14 at 2020-02-22 22:00:55 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:00:56 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7d+ttPM6V10NSmogTNQ17Zofuk01dzcTMipCYkenu0jrH3tsot+V0kBwJfS4Ya79DG9htsHS3fxzd+lHhsgxWg==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Create (1.8ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 22:00:56.387994"], ["updated_at", "2020-02-22 22:00:56.387994"]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[35m (13.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+Completed 500 Internal Server Error in 64ms (ActiveRecord: 18.4ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"new", :controller=>"cards", :course_id=>"1"}, missing required keys: [:day_id]):
+  
+app/controllers/days_controller.rb:31:in `create'
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:01:47 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7d+ttPM6V10NSmogTNQ17Zofuk01dzcTMipCYkenu0jrH3tsot+V0kBwJfS4Ya79DG9htsHS3fxzd+lHhsgxWg==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Create (0.5ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 22:01:47.191539"], ["updated_at", "2020-02-22 22:01:47.191539"]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 14.1ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"new", :controller=>"cards", :course_id=>#<Day id: 4, course_id: nil, classday: "02-22-2020", created_at: "2020-02-22 22:01:47", updated_at: "2020-02-22 22:01:47">}, missing required keys: [:day_id]):
+  
+app/controllers/days_controller.rb:31:in `create'
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:02:39 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7d+ttPM6V10NSmogTNQ17Zofuk01dzcTMipCYkenu0jrH3tsot+V0kBwJfS4Ya79DG9htsHS3fxzd+lHhsgxWg==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:25
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Create (0.4ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 22:02:39.671676"], ["updated_at", "2020-02-22 22:02:39.671676"]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1/days/5/cards/new
+Completed 302 Found in 32ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/courses/1/days/5/cards/new" for 52.119.101.14 at 2020-02-22 22:02:39 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"5"}
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 61ms (Views: 51.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 22:02:44 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:02:46 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:58
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 38ms (Views: 34.2ms | ActiveRecord: 0.5ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:4
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateWidgets (20140707111715)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "widgets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "stock" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20140707111715_create_widgets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20140707111715"]]
+  ↳ bin/rails:4
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateHomes (20200106025059)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "homes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "card" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_homes_on_course_id" ON "homes" ("course_id")[0m
+  ↳ db/migrate/20200106025059_create_homes.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200106025059"]]
+  ↳ bin/rails:4
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCourses (20200127211855)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "section" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:3
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar, "mname" varchar, "lname" varchar, "prefname" varchar, "uin" integer, "email" varchar, "picture" blob, "card_num" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200127211855_create_courses.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200127211855"]]
+  ↳ bin/rails:4
+  [1m[35m (20.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCoursesStudents (20200209220614)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "courses_students" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "student_id" integer, "course_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_20e6a4d275"
+FOREIGN KEY ("student_id")
+  REFERENCES "students" ("id")
+, CONSTRAINT "fk_rails_a1b35a8e05"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_student_id" ON "courses_students" ("student_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_courses_students_on_course_id" ON "courses_students" ("course_id")[0m
+  ↳ db/migrate/20200209220614_create_courses_students.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200209220614"]]
+  ↳ bin/rails:4
+  [1m[35m (13.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateCards (20200216235247)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "cards" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "code" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_cards_on_course_id" ON "cards" ("course_id")[0m
+  ↳ db/migrate/20200216235247_create_cards.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235247"]]
+  ↳ bin/rails:4
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+Migrating to CreateDays (20200216235419)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "days" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer, "classday" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_days_on_course_id" ON "days" ("course_id")[0m
+  ↳ db/migrate/20200216235419_create_days.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200216235419"]]
+  ↳ bin/rails:4
+  [1m[35m (13.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-02-22 22:02:55.596120"], ["updated_at", "2020-02-22 22:02:55.596120"]]
+  ↳ bin/rails:4
+  [1m[35m (13.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:4
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 22:02:57 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 26ms (Views: 21.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/courses/new" for 52.119.101.14 at 2020-02-22 22:02:59 +0000
+Processing by CoursesController#new as HTML
+  Rendering courses/new.html.erb within layouts/application
+  Rendered courses/_form.html.erb (1.8ms)
+  Rendered courses/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 38ms (Views: 32.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/courses" for 52.119.101.14 at 2020-02-22 22:03:02 +0000
+Processing by CoursesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4/7UFTv2LE5l33u9OrjImuSfkVpkzDLlKbL6n1gE4OIZTkVEFDX6CfCPr3yQeSltsrsgvD/AVaV+3oT9Dr1xHQ==", "course"=>{"name"=>"CSCE", "section"=>"431"}, "commit"=>"Create Course"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[36mCourse Create (0.4ms)[0m  [1m[32mINSERT INTO "courses" ("name", "section", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "CSCE"], ["section", 431], ["created_at", "2020-02-22 22:03:02.473783"], ["updated_at", "2020-02-22 22:03:02.473783"]]
+  ↳ app/controllers/courses_controller.rb:22
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/courses_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses
+Completed 302 Found in 17ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 22:03:02 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:03:59 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'UniqueValidator'):
+  
+app/models/day.rb:4:in `<class:Day>'
+app/models/day.rb:1:in `<main>'
+app/controllers/days_controller.rb:3:in `index'
+Started GET "/" for 52.119.101.14 at 2020-02-22 22:04:01 +0000
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 64ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 22:04:02 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 49ms (Views: 28.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:04:03 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (Unknown validator: 'UniqueValidator'):
+  
+app/models/day.rb:4:in `<class:Day>'
+app/models/day.rb:1:in `<main>'
+app/controllers/days_controller.rb:3:in `index'
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:04:32 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:58
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 41ms (Views: 22.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/courses/1/days/new" for 52.119.101.14 at 2020-02-22 22:04:34 +0000
+Processing by DaysController#new as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:16
+  Rendering days/new.html.erb within layouts/application
+  Rendered days/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 41ms (Views: 34.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:04:35 +0000
+Processing by DaysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i3NEVJip8H8IFJaEu8Z+V5tRyfqk/34Rc3byQAKT5IKNs5KMyUwy8EUu2VBPc+VHDSESAVBalP4yK1llw/xukA==", "commit"=>"Create Day", "day"=>{"classday"=>""}, "course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "days" WHERE "days"."classday" = ? LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[36mDay Create (0.4ms)[0m  [1m[32mINSERT INTO "days" ("classday", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["classday", "02-22-2020"], ["created_at", "2020-02-22 22:04:35.386859"], ["updated_at", "2020-02-22 22:04:35.386859"]]
+  ↳ app/controllers/days_controller.rb:29
+  [1m[35m (14.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/days_controller.rb:29
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1/days/1/cards/new
+Completed 302 Found in 23ms (ActiveRecord: 14.6ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:04:35 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 33ms (Views: 22.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/courses" for 52.119.101.14 at 2020-02-22 22:11:27 +0000
+Processing by CoursesController#index as HTML
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:12
+  Rendered courses/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 70ms (Views: 62.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/courses/1/days" for 52.119.101.14 at 2020-02-22 22:11:29 +0000
+Processing by DaysController#index as HTML
+  Parameters: {"course_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:4
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/controllers/days_controller.rb:58
+  [1m[36mDay Load (0.1ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."classday" = ? ORDER BY "days"."id" ASC LIMIT ?[0m  [["classday", "02-22-2020"], ["LIMIT", 1]]
+  ↳ app/controllers/days_controller.rb:7
+  Rendering days/index.html.erb within layouts/application
+  [1m[36mCACHE Day Load (0.0ms)[0m  [1m[34mSELECT "days".* FROM "days"[0m
+  ↳ app/views/days/index.html.erb:21
+  Rendered days/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 60ms (Views: 36.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:11:32 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 49ms (Views: 37.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:13:49 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"virHwnMXKP0o/Rq7CARqwuUA4UFGdPNkzsOudGbq4KZbqT74xer6UB8ovOEMad/+49VDKku+iTxvq1aFjhf5zQ==", "card"=>{"code"=>"a"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:49
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:22
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "a"], ["created_at", "2020-02-22 22:13:49.463761"], ["updated_at", "2020-02-22 22:13:49.463761"]]
+  ↳ app/controllers/cards_controller.rb:22
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1/days/1/cards/new
+Completed 302 Found in 42ms (ActiveRecord: 13.4ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:13:49 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:13:56 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RGquRdleXwtFmuMFRpxQC3XrjzSaVwAAHJorrcxDQ7MQ0SKtuGVLJHT5bVPK9X87YXMQKJdjhskeYLg7viQ3Ig==", "card"=>{"code"=>"asfasf"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:49
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:22
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "asfasf"], ["created_at", "2020-02-22 22:13:56.078423"], ["updated_at", "2020-02-22 22:13:56.078423"]]
+  ↳ app/controllers/cards_controller.rb:22
+  [1m[35m (12.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:22
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1/days/1/cards/new
+Completed 302 Found in 21ms (ActiveRecord: 13.4ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:13:56 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:14:26 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jbiY9YJvidnhqqt0+GQ3IsT0Z7AWW2HuOWSXabttkr7ZAxQd41Sd9tDJJSJ0DRgS0Gz4rBtv5yc7ngT/yQrmLw==", "card"=>{"code"=>"asf"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:49
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template cards/promptEmail, application/promptEmail with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/environment/attdtracker/app/views"
+):
+  
+app/controllers/cards_controller.rb:21:in `create'
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:16:54 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jbiY9YJvidnhqqt0+GQ3IsT0Z7AWW2HuOWSXabttkr7ZAxQd41Sd9tDJJSJ0DRgS0Gz4rBtv5yc7ngT/yQrmLw==", "card"=>{"code"=>"asf"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:20
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:51
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "asf"], ["created_at", "2020-02-22 22:16:54.928239"], ["updated_at", "2020-02-22 22:16:54.928239"]]
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 14.0ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"cards", :course_id=>#<Card id: 3, course_id: nil, code: "asf", email: nil, created_at: "2020-02-22 22:16:54", updated_at: "2020-02-22 22:16:54">, :day_id=>"1"}, missing required keys: [:id]):
+  
+app/controllers/cards_controller.rb:25:in `create'
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:16:58 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jbiY9YJvidnhqqt0+GQ3IsT0Z7AWW2HuOWSXabttkr7ZAxQd41Sd9tDJJSJ0DRgS0Gz4rBtv5yc7ngT/yQrmLw==", "card"=>{"code"=>"1"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:20
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:51
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[36mCard Create (0.2ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "1"], ["created_at", "2020-02-22 22:16:58.479136"], ["updated_at", "2020-02-22 22:16:58.479136"]]
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 13.1ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"cards", :course_id=>#<Card id: 4, course_id: nil, code: "1", email: nil, created_at: "2020-02-22 22:16:58", updated_at: "2020-02-22 22:16:58">, :day_id=>"1"}, missing required keys: [:id]):
+  
+app/controllers/cards_controller.rb:25:in `create'
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:17:21 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jbiY9YJvidnhqqt0+GQ3IsT0Z7AWW2HuOWSXabttkr7ZAxQd41Sd9tDJJSJ0DRgS0Gz4rBtv5yc7ngT/yQrmLw==", "card"=>{"code"=>"1"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:20
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:51
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template cards/promptEmail, application/promptEmail with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/environment/attdtracker/app/views"
+):
+  
+app/controllers/cards_controller.rb:23:in `create'
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:17:24 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jbiY9YJvidnhqqt0+GQ3IsT0Z7AWW2HuOWSXabttkr7ZAxQd41Sd9tDJJSJ0DRgS0Gz4rBtv5yc7ngT/yQrmLw==", "card"=>{"code"=>"2"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:20
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[36mCard Create (1.7ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "2"], ["created_at", "2020-02-22 22:17:24.173279"], ["updated_at", "2020-02-22 22:17:24.173279"]]
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 14.3ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"cards", :course_id=>#<Course id: 1, name: "CSCE", section: 431, created_at: "2020-02-22 22:03:02", updated_at: "2020-02-22 22:03:02">, :day_id=>#<Card id: 5, course_id: nil, code: "2", email: nil, created_at: "2020-02-22 22:17:24", updated_at: "2020-02-22 22:17:24">}, missing required keys: [:id]):
+  
+app/controllers/cards_controller.rb:25:in `create'
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:18:41 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jbiY9YJvidnhqqt0+GQ3IsT0Z7AWW2HuOWSXabttkr7ZAxQd41Sd9tDJJSJ0DRgS0Gz4rBtv5yc7ngT/yQrmLw==", "card"=>{"code"=>"3"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:20
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:51
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "3"], ["created_at", "2020-02-22 22:18:41.846816"], ["updated_at", "2020-02-22 22:18:41.846816"]]
+  ↳ app/controllers/cards_controller.rb:24
+  [1m[35m (12.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:24
+Redirected to 
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 14.2ms)
+
+
+  
+NoMethodError (undefined method `card_url' for #<CardsController:0x000055aef9307a70>):
+  
+app/controllers/cards_controller.rb:25:in `create'
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:23:43 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:8
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 72ms (Views: 55.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:23:47 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+mHlA53423KDVqNLS3z2uuyUSKrD2TLhEMZu0EGh8T6u2mnr/MPPXbI1LR3HFdmK+AzXts7ttCgSPP1GM8aFrw==", "card"=>{"code"=>"4"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:21
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "4"], ["created_at", "2020-02-22 22:23:47.904710"], ["updated_at", "2020-02-22 22:23:47.904710"]]
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[35m (15.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+Redirected to 
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 17.1ms)
+
+
+  
+NoMethodError (undefined method `card_url' for #<CardsController:0x00007faac5b37c30>):
+  
+app/controllers/cards_controller.rb:26:in `create'
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:24:00 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+mHlA53423KDVqNLS3z2uuyUSKrD2TLhEMZu0EGh8T6u2mnr/MPPXbI1LR3HFdmK+AzXts7ttCgSPP1GM8aFrw==", "card"=>{"code"=>"5"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:21
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "5"], ["created_at", "2020-02-22 22:24:00.975672"], ["updated_at", "2020-02-22 22:24:00.975672"]]
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1/days/1/cards/new
+Completed 302 Found in 54ms (ActiveRecord: 14.5ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:24:01 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:8
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 74ms (Views: 70.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:24:14 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:8
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 64ms (Views: 60.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:24:16 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MPqbOKGLx6+H+gF2GWjKDfuJ82dol2UEMT6ASrKEzaBkQRfQwLDTgLaZjyCVAeU97xFse2Wj480zxBPcwOO5MQ==", "card"=>{"code"=>"5"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:21
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:52
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template cards/promptEmail, application/promptEmail with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/ubuntu/environment/attdtracker/app/views"
+):
+  
+app/controllers/cards_controller.rb:24:in `create'
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:24:19 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MPqbOKGLx6+H+gF2GWjKDfuJ82dol2UEMT6ASrKEzaBkQRfQwLDTgLaZjyCVAeU97xFse2Wj480zxBPcwOO5MQ==", "card"=>{"code"=>"6"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:21
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "6"], ["created_at", "2020-02-22 22:24:19.979881"], ["updated_at", "2020-02-22 22:24:19.979881"]]
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[35m (12.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1/days/1/cards/new
+Completed 302 Found in 21ms (ActiveRecord: 13.1ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:24:20 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:8
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:28:14 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:8
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 32ms (Views: 21.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/courses/1/days/1/cards" for 52.119.101.14 at 2020-02-22 22:28:33 +0000
+Processing by CardsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z1wcc+5jBcg38l1VULTgoYybQWrfazMrLh2WO50w5E+b55Cbj1gR5waR0wPc3c+RmAPedtJfteIs5wWt71eQ3g==", "card"=>{"code"=>"7"}, "commit"=>"Submit", "course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:21
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  ↳ app/controllers/cards_controller.rb:52
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("code", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["code", "7"], ["created_at", "2020-02-22 22:28:33.808381"], ["updated_at", "2020-02-22 22:28:33.808381"]]
+  ↳ app/controllers/cards_controller.rb:25
+  [1m[35m (14.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/cards_controller.rb:25
+Redirected to https://f104ac29aba048e3981b793320b703aa.vfs.cloud9.us-east-1.amazonaws.com/courses/1/days/1/cards/new
+Completed 302 Found in 31ms (ActiveRecord: 15.6ms)
+
+
+Started GET "/courses/1/days/1/cards/new" for 52.119.101.14 at 2020-02-22 22:28:33 +0000
+Processing by CardsController#new as HTML
+  Parameters: {"course_id"=>"1", "day_id"=>"1"}
+  [1m[36mCard Load (0.1ms)[0m  [1m[34mSELECT  "cards".* FROM "cards" ORDER BY "cards"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/cards_controller.rb:8
+  Rendering cards/new.html.erb within layouts/application
+  Rendered cards/new.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.1ms)
+
+

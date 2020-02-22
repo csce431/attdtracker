@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_235419) do
   create_table "cards", force: :cascade do |t|
     t.integer "course_id"
     t.string "code"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_cards_on_course_id"

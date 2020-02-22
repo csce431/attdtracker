@@ -5,6 +5,7 @@ class CardsController < ApplicationController
     
     def new
         @card = Card.new
+        @lastCard = Card.last
     end
     
     def edit
@@ -17,10 +18,12 @@ class CardsController < ApplicationController
     
     def create
         @card = Card.new(card_params)
-        #if unique
-        # render 'file name here'
-        if @card.save
-            redirect_to new_course_day_card_path #add welcome ___
+        @course = Course.find(params[:course_id])
+        
+        if code_exist(@card.code)
+            render 'promptEmail'
+        elsif @card.save
+            redirect_to new_course_day_card_path #add welcome ___ course_day_card_path()
         else
             render 'new'
         end
@@ -42,6 +45,17 @@ class CardsController < ApplicationController
  
         #redirect_to course_day_card_index
     end 
+    
+    def code_exist(code)
+        #return value 'ret'
+        ret = false 
+        for card in Card.all do
+          if card.code == code
+            ret = true
+          end 
+        end 
+        ret
+    end
     
     private
         def card_params
