@@ -1,54 +1,51 @@
 class HomeController < ApplicationController
   def index
-    #@homes = Home.all
-    @homes = Home.order(:name, :lname)
+    @roles = Role.all
+    @course = Course.find(params[:course_id])
   end
   
   def show
-    #note to self, when call redirect_to @object, it automatically goes to show
-    @home = Home.find(params[:id])
+    @role = Role.find(params[:id])
   end
   
   def new
-    @home = Home.new
+    @role = Role.new
   end
   
   def edit
-    @home = Home.find(params[:id])
+    @role = Role.find(params[:id])
   end
   
   def create
-    @home = Home.new(home_params)
-    @home = Home.create(params.require(:home).permit(:card, :name, :lname))
+    @role = Role.new(Role_params)
+    @role = Role.create(params.require(:role).permit(:card, :name, :lname))
   
-    if @home.save
-      redirect_to @home
+    if @role.save
+      redirect_to @role
     else
       render 'new'
     end
-    #render plain: params[:home].inspect
   end
   
   def update
-    @home = Home.find(params[:id])
-    @home.update(params.require(:home).permit(:card, :name, :lname))
-    if @home.update(home_params)
-      redirect_to controller: 'home'
+    @role = Role.find(params[:id])
+    @role.update(params.require(:role).permit(:card, :name, :lname))
+    if @role.update(role_params)
+      redirect_to controller: 'role'
     else
       render 'edit'
     end
   end
   
   def destroy
-    @home = Home.find(params[:id])
-    @home.destroy
+    @role = Role.find(params[:id])
+    @role.destroy
     
-    redirect_to home_index_path
+    redirect_to role_index_path
   end
   
   private
-    def home_params
-      params.require(:home).permit(:card)
+    def role_params
+      params.require(:role).permit(:card)
     end
-  
 end
