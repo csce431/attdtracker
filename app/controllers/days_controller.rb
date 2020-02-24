@@ -4,6 +4,9 @@ class DaysController < ApplicationController
     @tookattendance = time_exist(@course)
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @day = Day.where(classday: @time).first
+    if(@course.days.first)
+      @classday = @course.days.first.classday
+    end
   end
   
   def show

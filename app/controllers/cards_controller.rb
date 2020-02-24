@@ -1,13 +1,14 @@
 class CardsController < ApplicationController
     def index
-        @cards = Card.where(course_id: :course_id)
+        @course = Course.find(params[:course_id])
+        @cards = @course.cards.all
     end
     
     def new
         @card = Card.new
-        if(Card.where(courses_id: :courses_id).last)
-            @lastCard = Card.where(course_id: :course_id).last.code
-        end
+        #if(Card.where(courses_id: :courses_id).last)
+        #    @lastCard = Card.where(course_id: :course_id).last.code
+        #end
         
     end
     
@@ -26,7 +27,7 @@ class CardsController < ApplicationController
         if code_exist(@card.code)
             render 'email'
         elsif @card.save
-            @course << @card
+            @course.cards << @card
             redirect_to new_course_day_card_path
         else
             render 'new'

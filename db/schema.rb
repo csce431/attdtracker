@@ -13,14 +13,12 @@
 ActiveRecord::Schema.define(version: 2020_02_16_235419) do
 
   create_table "cards", force: :cascade do |t|
-    t.integer "courses_id"
     t.string "code"
     t.string "email"
     t.string "firstname"
     t.string "lastname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["courses_id"], name: "index_cards_on_courses_id"
   end
 
   create_table "cards_courses", force: :cascade do |t|
@@ -67,11 +65,9 @@ ActiveRecord::Schema.define(version: 2020_02_16_235419) do
   end
 
   create_table "days", force: :cascade do |t|
-    t.integer "course_id"
     t.string "classday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_days_on_course_id"
   end
 
   create_table "students", force: :cascade do |t|
