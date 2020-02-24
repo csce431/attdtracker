@@ -9,16 +9,16 @@
 </p>
 
 <p>
-    Time: <%= Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") %>
+    Time: <%= @time %>
     <br>
-    <%= @something %>
 </p>
 
+<% @course.days.first.classday %>
 
 <table>
     <tr>
         <th>Name</th>
-        <% @days.each do |day| %>
+        <% @course.days do |day| %>
             <th><%= day.classday %></th>
         <% end %>
     </tr>

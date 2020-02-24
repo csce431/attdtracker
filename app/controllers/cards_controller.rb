@@ -1,11 +1,14 @@
 class CardsController < ApplicationController
     def index
-        @cards = Card.all
+        @cards = Card.where(course_id: :course_id)
     end
     
     def new
         @card = Card.new
-        @lastCard = Card.last
+        if(Card.where(courses_id: :courses_id).last)
+            @lastCard = Card.where(course_id: :course_id).last.code
+        end
+        
     end
     
     def edit
@@ -21,9 +24,10 @@ class CardsController < ApplicationController
         @course = Course.find(params[:course_id])
         
         if code_exist(@card.code)
-            render 'promptEmail'
+            render 'email'
         elsif @card.save
-            redirect_to new_course_day_card_path #add welcome ___ course_day_card_path()
+            @course << @card
+            redirect_to new_course_day_card_path
         else
             render 'new'
         end
@@ -45,6 +49,10 @@ class CardsController < ApplicationController
  
         #redirect_to course_day_card_index
     end 
+    
+    def newEmail
+    
+    end
     
     def code_exist(code)
         #return value 'ret'
