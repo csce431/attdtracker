@@ -24,7 +24,7 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         
-        if code_exist(@card.code)
+        if !code_exist(@card.code)
             render 'email'
         elsif @card.save
             @course.cards << @card
