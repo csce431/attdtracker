@@ -18,7 +18,7 @@
 <table>
     <tr>
         <th>Name</th>
-        <% @course.days do |day| %>
+        <% @days.each do |day| %>
             <th><%= day.classday %></th>
         <% end %>
     </tr>

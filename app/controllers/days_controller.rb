@@ -3,6 +3,7 @@ class DaysController < ApplicationController
     @course = Course.find(params[:course_id])
     @tookattendance = time_exist(@course)
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
+    @days = @course.days
     @day = Day.where(classday: @time).first
     if(@course.days.first)
       @classday = @course.days.first.classday
