@@ -10,13 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_220614) do
+ActiveRecord::Schema.define(version: 2020_02_16_235419) do
+
+  create_table "cards", force: :cascade do |t|
+    t.string "code"
+    t.string "email"
+    t.string "firstname"
+    t.string "lastname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cards_courses", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_cards_courses_on_card_id"
+    t.index ["course_id"], name: "index_cards_courses_on_course_id"
+  end
+
+  create_table "cards_days", force: :cascade do |t|
+    t.integer "card_id"
+    t.integer "day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_cards_days_on_card_id"
+    t.index ["day_id"], name: "index_cards_days_on_day_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.integer "section"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "courses_days", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_courses_days_on_course_id"
+    t.index ["day_id"], name: "index_courses_days_on_day_id"
   end
 
   create_table "courses_students", force: :cascade do |t|
@@ -28,9 +64,8 @@ ActiveRecord::Schema.define(version: 2020_02_09_220614) do
     t.index ["student_id"], name: "index_courses_students_on_student_id"
   end
 
-  create_table "homes", force: :cascade do |t|
-    t.string "card"
-    t.string "email"
+  create_table "days", force: :cascade do |t|
+    t.string "classday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,14 +79,6 @@ ActiveRecord::Schema.define(version: 2020_02_09_220614) do
     t.string "email"
     t.binary "picture"
     t.string "card_num"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "widgets", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
