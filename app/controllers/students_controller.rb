@@ -14,6 +14,12 @@ class StudentsController < ApplicationController
     def show
         @student = Student.find(params[:id])
         @courses = @student.courses.all
+        @email = @student.email
+        if(@courses.first.cards.where(email: @student.email).first)
+            @card = @courses.first.cards.where(email: @student.email).first.code
+        else
+            @card = "N/A"
+        end
     end
     
     def create
