@@ -1,4 +1,4 @@
-<%= form_with model: @course, url: courses_path, local: true do |form| %>
+<%= form_with(model: @course, local: true) do |form| %>
  
   <% if @course.errors.any? %>
     <div id="error_explanation">
@@ -27,7 +27,5 @@
   <p>
     <%= form.submit %>
   </p>
-  
-  <%= link_to 'Back', courses_path %>
- 
+
 <% end %>
