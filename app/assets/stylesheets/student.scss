@@ -2,6 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.page-content {
+    text-align: center;
+}
+  
+table, th, td {
+    padding: 10px;
+    /*border: 1px solid black;*/
+    text-align: center;
+}
+  
+table {
+    width: 90%;
+    border-spacing: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+td {
+    max-width: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+td.colA {
+    width: 50%;
+}
+td.colB {
+    width: 50%;
+    /*padding: 0% 10%;*/
+}
 td.colC {
     width: 50%;
     text-align: right;
@@ -9,4 +39,29 @@ td.colC {
 td.colD {
     width: 50%;
     text-align: left;
+}
+  
+textarea {
+    width: 60%;
+    height: 75px;
+}
+
+::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: #cccccc;
+}
+ 
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #cccccc; opacity: 1;
+}
+ 
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #cccccc; opacity: 1;
+}
+ 
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #cccccc;
 }

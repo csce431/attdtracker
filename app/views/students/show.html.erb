@@ -2,11 +2,27 @@
 -->
 <div class="page-content">
 
-<h2>Welcome, <%= @student.fname %>!</h2>
+<h2>Welcome,
+    <% if @student.prefname.empty? %>
+        <%= @student.fname + "!" %>
+    <% else %>
+        <%= @student.prefname + "!" %>
+    <% end %>
+</h2>
 <table>
     <tr>
         <td class="colC">Full Name:</td>
         <td class="colD"><%= @student.fname + " " + @student.lname %></td>
+    </tr>
+    <tr>
+        <td class="colC">Preferred Name:</td>
+        <td class="colD">
+            <% if @student.prefname.empty? %>
+                <em><%= "-" %></em>
+            <% else %>
+                <%= @student.prefname %>
+            <% end %>
+        </td>
     </tr>
     <tr>
         <td class="colC">Email:</td>
@@ -14,7 +30,7 @@
     </tr>
     <tr>
         <td class="colC">Card Number: </td>
-        <td class="colD"><%= @card %></td>
+        <td class="colD"><%= @student.card_num %></td>
     </tr>
     <tr>
         <td class="colC">Classes:</td>
