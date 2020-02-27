@@ -12,13 +12,19 @@
 <table>
     <tr>
         <td class="colC">Full Name:</td>
-        <td class="colD"><%= @student.fname + " " + @student.lname %></td>
+        <td class="colD">
+            <%= @student.fname + " " %>
+            <% if !@student.mname.empty? %>
+                <%= @student.mname %>
+            <% end %>
+            <%= @student.lname %>
+        </td>
     </tr>
     <tr>
         <td class="colC">Preferred Name:</td>
         <td class="colD">
             <% if @student.prefname.empty? %>
-                <em><%= "-" %></em>
+                <%= "-" %>
             <% else %>
                 <%= @student.prefname %>
             <% end %>

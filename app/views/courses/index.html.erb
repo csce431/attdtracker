@@ -6,17 +6,22 @@
  
 <table>
   <tr>
-    <th>Name</th>
+    <th>Department</th>
+    <th>Number</th>
     <th>Section</th>
-    <th></th>
+    <th style="color: #FFFFFF">Attendance</th>
+    <th style="color: #FFFFFF">Enrollment</th>
+    <th style="color: #FFFFFF">Edit</th>
+    <th style="color: #FFFFFF">Delete</th>
   </tr>
  
   <% @courses.each do |course| %>
     <tr>
       <td><%= course.name %></td>
+      <td><%= course.number %></td>
       <td><%= course.section %></td>
       <td><%= link_to 'Attendance', course_days_path(course) %></td>
-      <td><%= link_to 'View', course_path(course) %></td>
+      <td><%= link_to 'Enrollment', course_path(course) %></td>
       <td><%= link_to 'Edit', edit_course_path(course) %></td>
       <td><%= link_to 'Delete', course_path(course),
               method: :delete,
