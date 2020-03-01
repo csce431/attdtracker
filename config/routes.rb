@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  #resources :widgets
-  resources :home
   resources :teacher
   resources :courses do
     resources :students
-    resources :home
+    resources :role
+    resources :days do
+      resources :cards
+    end
   end
   resources :students do
     resources :courses
