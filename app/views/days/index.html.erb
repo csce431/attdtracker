@@ -1,0 +1,29 @@
+<!-- Link to new if now alreayd in database, otherwise, link to UIN_new -->
+
+<h1>Attendance!</h1> 
+<p>
+    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path) do
+     link_to("Take Attendance!", new_course_day_card_path(@course, @day))
+   end
+    %>
+</p>
+
+<p>
+    Time: <%= @time %>
+    <br>
+</p>
+
+<% @classday %>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <% @days.each do |day| %>
+            <th><%= day.classday %></th>
+        <% end %>
+    </tr>
+</table>
+
+
+
+

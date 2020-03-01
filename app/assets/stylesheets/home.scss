@@ -20,6 +20,20 @@ table {
   margin-right: auto;
 }
 
+td {
+  max-width: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+td.colA {
+  width: 50%;
+}
+td.colB {
+  width: 50%;
+  /*padding: 0% 10%;*/
+}
+
 textarea {
   width: 60%;
   height: 75px;
