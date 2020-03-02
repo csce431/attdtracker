@@ -36,6 +36,7 @@ class CardsController < ApplicationController
             elsif @card.save
                 @course.cards << @card
                 @day.cards << @card
+                
                 redirect_to new_course_day_card_path
             else
                 render 'new'
