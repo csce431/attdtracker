@@ -24,7 +24,7 @@
       <td><%= student.email %></td>
       <td><%= link_to 'View', student_path(student) %></td>
       <td><%= link_to 'Edit', edit_student_path(student) %></td>
-      <td><%= link_to 'Delete', course_student_path(student, @course),
+      <td><%= link_to 'Delete', course_student_path(@course, student),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
       <td>

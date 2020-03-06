@@ -2,7 +2,7 @@ class CardsController < ApplicationController
     def index
         @course = Course.find(params[:course_id])
         @cards = @course.cards.all
-        @students
+        @day = Day.find(params[:day_id])
     end
     
     def new
@@ -19,6 +19,8 @@ class CardsController < ApplicationController
     
     def show
         @card = Card.find(params[:id])
+        @course = Course.find(params[:course_id])
+        @students = @course.students
     end
     
     def create
@@ -60,7 +62,7 @@ class CardsController < ApplicationController
         @card = Card.find(params[:id])
         @card.destroy
  
-        redirect_to course_day_card_index
+        redirect_to course_day_cards_url
     end 
     
     def newEmail
