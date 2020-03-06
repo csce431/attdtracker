@@ -1,6 +1,6 @@
 <div class="page-content">
 
-<h1>Attendance Tracker</h1>
+<h1>Attendance Tracker <%= @page %></h1>
 
 <%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
 
@@ -17,6 +17,8 @@
     </div>
   <% end %>
 
+  <div><p>Sorry, email and/or card number does not exist for this class. Please try again.</p></div>
+
   <div>
     <div><%= form.label :card %></div>
     <div><%= form.text_field :code %></div>
@@ -24,14 +26,6 @@
     <div>
     <div><%= form.label :email %></div>
     <div><%= form.text_field :email %></div>
-  </div>
-  <div>
-    <div><%= form.label :First_Name %></div>
-    <div><%= form.text_field :firstname %></div>
-  </div>
-  <div>
-    <div><%= form.label :Last_Name %></div>
-    <div><%= form.text_field :lastname %></div>
   </div>
   <br>
 

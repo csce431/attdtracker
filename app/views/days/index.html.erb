@@ -26,16 +26,22 @@
     </tr>
     <% @cards.each do |card| %>
         <tr>
-            <td><%= card.firstname %>  <%= card.lastname %></td>
-            <% @days.each do |day| %>
-                    <td>
-                    <% if card.day_ids.include? day.id %>
-                        <%= "HERE " %>
-                    <% else %>                        
-                        <%= "ABSENT" %>
+            <td>
+                <% @students.each do |student| %>
+                    <% if card.email == student.email %>
+                        <%= student.fname %>  <%= student.lname %>
+                        <% @days.each do |day| %>
+                            <td>
+                                <% if card.day_ids.include? day.id %>
+                                    <%= "HERE " %>
+                                <% else %>                        
+                                    <%= "ABSENT" %>
+                                <% end %>
+                            </td>
+                        <% end %>
                     <% end %>
-                    </td>
                 <% end %>
+            </td>
         </tr>
     <% end %>
 </table>

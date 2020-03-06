@@ -2,6 +2,7 @@ class CardsController < ApplicationController
     def index
         @course = Course.find(params[:course_id])
         @cards = @course.cards.all
+        @students
     end
     
     def new
@@ -22,9 +23,9 @@ class CardsController < ApplicationController
     
     def create
         @card = Card.new(card_params)
-        @course = Course.find(params[:course_id])
+        @course = Course.find(params[:id])
         @day = Day.find(params[:day_id])
-        
+
         #@page holds which prompt it is on
         
         if !code_exist(@card.code) && @card.email == nil
@@ -32,11 +33,12 @@ class CardsController < ApplicationController
         else
             email = email_exist(@card.email)
             if email == ""
-                render 'promptname'
+                render 'no_email'
             elsif @card.save
+            #if @card.save
                 @course.cards << @card
                 @day.cards << @card
-                
+
                 redirect_to new_course_day_card_path
             else
                 render 'new'

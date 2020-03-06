@@ -13,6 +13,9 @@
     <tr>
       <td><%= card.email %></td>
       <td><%= card.code %></td>
+      <td><%#= link_to 'Remove', course_day_card_path(card, @course),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
       <td><%= link_to 'Remove', course_day_cards_path(card),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>

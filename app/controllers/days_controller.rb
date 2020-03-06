@@ -8,6 +8,9 @@ class DaysController < ApplicationController
 
     @cards = @course.cards
 
+    @students = @course.students
+
+
     if(@course.days.first)
       @classday = @course.days.first.classday
     end

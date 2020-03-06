@@ -4,5 +4,8 @@ class Card < ApplicationRecord
     
     ### uncomment the following if you are lazy to swipe, or if you don't have your card and reader 
     ### see the regex in action ---> https://regex101.com/r/nVsnUJ/2
-    validates :code, presence: true#, format: { with: /[\%](\d{16}[\?])[\;](\1)[\+](\1)/ } 
+    validates :code, presence: true#, format: { with: /[\%](\d{16}[\?])[\;](\1)[\+](\1)/ }
+    validates :code, uniqueness: true
+    validates :email, presence: true
+    validates :email, uniqueness: true
 end
