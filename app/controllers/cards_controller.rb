@@ -13,7 +13,7 @@ class CardsController < ApplicationController
     end
     
     def edit
-        @card = card.find(params[:id])
+        @card = Card.find(params[:id])
     end
     
     def show
@@ -23,21 +23,19 @@ class CardsController < ApplicationController
     def create
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
-        
+        @day = Day.find(params[:day_id])
+        @bool = !code_exist(@card.code)
         #@page holds which prompt it is on
         
-        if !code_exist(@card.code) && @card.email == nil
-            render 'promptemail'
-        else
-            email = email_exist(@card.email)
-            if email == ""
-                render 'promptname'
-            elsif @card.save
-                @course.cards << @card
-                redirect_to new_course_day_card_path
+        if @card.save
+            if @bool
+                redirect_to edit_course_day_card_path(@course, @day, @card) #render ''
             else
-                render 'new'
+                redirect_to new_course_day_card_path
             end
+            @course.cards << @card
+        else
+            render 'new'
         end
     end
     
@@ -73,7 +71,7 @@ class CardsController < ApplicationController
         ret
     end
     
-    email_exist(email)
+    def email_exist(email)
         ret = ""
         for student in Students.all do
             if email == student.email

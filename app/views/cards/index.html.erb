@@ -11,7 +11,7 @@
 
   <% @course.cards.each do |card| %>
     <tr>
-      <td> Student Email </td>
+      <td><%= card.email %></td>
       <td><%= card.code %></td>
       <td><%= link_to 'Remove', course_day_cards_path(card),
               method: :delete,
