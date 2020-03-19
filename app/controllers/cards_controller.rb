@@ -27,7 +27,6 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
-<<<<<<< HEAD
         @bool = !code_exist(@card.code)
         #@page holds which prompt it is on
         
@@ -38,13 +37,6 @@ class CardsController < ApplicationController
                 redirect_to new_course_day_card_path
             end
             @course.cards << @card
-=======
-
-        #@page holds which prompt it is on
-        
-        if !code_exist(@card.code) && @card.email == nil
-            render 'promptemail'
->>>>>>> crud
         else
             email = email_exist(@card.email)
             if email == ""
@@ -95,11 +87,7 @@ class CardsController < ApplicationController
     
     def email_exist(email)
         ret = ""
-<<<<<<< HEAD
-        for student in Students.all do
-=======
         for student in Student.all do
->>>>>>> crud
             if email == student.email
                 ret = email
             end
