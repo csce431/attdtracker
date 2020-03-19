@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
     
     def show
         @course = Course.find(params[:id])
-        @students = @course.students.all
+        @users = @course.users.all
     end
     
     def create

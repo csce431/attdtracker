@@ -15,7 +15,7 @@
 
 <p>
   <h1>Students</h1>
-  <%= link_to 'New Student', new_course_student_path(@course) %>
+  <%= link_to 'New Student', new_course_user_path(@course) %>
 </p>
 <table>
   <tr>
@@ -28,18 +28,18 @@
     <th>List of Courses</th>
     <th></th>
   </tr>
-  <% @students.each do |student| %>
+  <% @users.each do |user| %>
     <tr>
-      <td><%= student.fname %></td>
-      <td><%= student.lname %></td>
-      <td><%= student.email %></td>
-      <td><%= link_to 'View', student_path(student) %></td>
-      <td><%= link_to 'Edit', edit_student_path(student) %></td>
-      <td><%= link_to 'Delete', student_path(student, @course),
+      <td><%= user.fname %></td>
+      <td><%= user.lname %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'View', user_path(user) %></td>
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Delete', user_path(user, @course),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
       <td>
-        <% student.courses.each do |c| %>
+        <% user.courses.each do |c| %>
           <%= c.name %><%= c.section %> 
         <% end %></td>
     </tr>
