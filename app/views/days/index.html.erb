@@ -1,6 +1,8 @@
 <!-- Link to new if now alreayd in database, otherwise, link to UIN_new -->
 
-<h1>Attendance!</h1> 
+<div class="page-content">
+
+<h1>Attendance</h1> 
 <p>
     <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path) do
      link_to("Take Attendance!", new_course_day_card_path(@course, @day))
@@ -9,7 +11,7 @@
 </p>
 
 <p>
-    Time: <%= @time %>
+    Current Time: <em><%= @time %></em>
     <br>
 </p>
 
@@ -22,8 +24,26 @@
             <th><%= day.classday %></th>
         <% end %>
     </tr>
+    <% @cards.each do |card| %>
+        <tr>
+            <td>
+                <% @students.each do |student| %>
+                    <% if card.email == student.email %>
+                        <%= student.fname %>  <%= student.lname %>
+                        <% @days.each do |day| %>
+                            <td>
+                                <% if card.day_ids.include? day.id %>
+                                    <%= "HERE " %>
+                                <% else %>                        
+                                    <%= "ABSENT" %>
+                                <% end %>
+                            </td>
+                        <% end %>
+                    <% end %>
+                <% end %>
+            </td>
+        </tr>
+    <% end %>
 </table>
 
-
-
-
+</div>

@@ -1,8 +1,12 @@
 <div class="page-content">
 
 <p>
-  <h1>Howdy <%= @card.name%> <%= @card.lname%>!</h1>
-  <p>Your card number is: <%= @card.card %></p>
+  <% @students.each do |student| %>
+    <% if @card.email == student.email %>
+      <h1>Howdy <%= student.fname %> <%= student.lname %>!</h1>
+      <p>Your card number is: <%= @card.code %></p>
+    <% end %>
+  <% end %>
 </p>
 
 <br>
