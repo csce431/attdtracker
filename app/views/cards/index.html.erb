@@ -1,6 +1,6 @@
 <div class="page-content">
 
-<h1>Class Roster</h1>
+<h1>Attendance for <%= Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") %></h1>
 <table>
   <tr>
     <th>Student Email</th>
@@ -11,9 +11,17 @@
 
   <% @course.cards.each do |card| %>
     <tr>
-      <td> Student Email </td>
+      <td><%= card.email %></td>
+<<<<<<< HEAD
       <td><%= card.code %></td>
       <td><%= link_to 'Remove', course_day_cards_path(card),
+=======
+      <td><%= card.code %></td>      
+      <td><%#= link_to 'Remove', course_day_card_path(card, @course),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Remove', course_day_card_path(@course, @day, card),
+>>>>>>> crud
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>

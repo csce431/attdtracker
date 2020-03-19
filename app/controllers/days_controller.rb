@@ -5,6 +5,12 @@ class DaysController < ApplicationController
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @days = @course.days
     @day = Day.where(classday: @time).first
+
+    @cards = @course.cards
+
+    @students = @course.students
+
+
     if(@course.days.first)
       @classday = @course.days.first.classday
     end

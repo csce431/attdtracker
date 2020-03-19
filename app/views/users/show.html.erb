@@ -1,0 +1,20 @@
+<!-- Show student profiles
+-->
+<center><h1>Welcome <%= link_to @user.fname, edit_user_path() %></h1></center>
+
+<table>
+    <tr>
+        <td class="colC">Card Number: <%= @card %></td>
+        
+    </tr>
+    <tr>
+        <td class="colC">Classes:</td>
+        <td class="colD"><strong>
+            <% @courses.each do |course| %>
+                <%= course.name %>
+            <% end %>
+        </strong></td>
+    </tr>
+</table>
+
+<%= link_to 'Back', students_path %>

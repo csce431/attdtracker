@@ -1,0 +1,40 @@
+<div class="page-content">
+
+<h1>Attendance Tracker <%= @page %></h1>
+
+<%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
+
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h4>
+        <%= pluralize(@card.errors.count, "error") %> prohibited this student from being saved:
+      </h4>
+      <div>
+        <% @card.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div><p>Sorry, email does not exist. Please try again.</p></div>
+
+  <div>
+    <div><%= form.label :card %></div>
+    <div><%= form.text_field :code %></div>
+  </div>
+    <div>
+    <div><%= form.label :email %></div>
+    <div><%= form.text_field :email %></div>
+  </div>
+  <br>
+
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
+<% end %>
+
+
+<%= link_to 'List', course_day_cards_path %>
+
+</div>

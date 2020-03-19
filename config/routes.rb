@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :teacher
   resources :courses do
     resources :students
     resources :role
+    resources :cards
+    resources :users
     resources :days do
       resources :cards
     end
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
   resources :students do
     resources :courses
   end
+  resources :users do
+    resources :courses
+  end
+  
+  get '/courses/:course_id/days/:day_id/cards:new2(.:format)', to: 'cards#newer'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

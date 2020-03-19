@@ -1,12 +1,49 @@
 <!-- Show student profiles
 -->
-<center><h1>Welcome <%= link_to @student.fname, edit_student_path() %></h1></center>
+<div class="page-content">
 
+<h2>Welcome,
+    <% if @student.prefname.empty? %>
+        <%= @student.fname + "!" %>
+    <% else %>
+        <%= @student.prefname + "!" %>
+    <% end %>
+</h2>
 <table>
     <tr>
-        <td class="colC">Card Number:</td>
+<<<<<<< HEAD
+        <td class="colC">Card Number: <%= @card %></td>
         
+=======
+        <td class="colC">Full Name:</td>
+        <td class="colD">
+            <%= @student.fname + " " %>
+            <% if !@student.mname.empty? %>
+                <%= @student.mname %>
+            <% end %>
+            <%= @student.lname %>
+        </td>
     </tr>
+    <tr>
+        <td class="colC">Preferred Name:</td>
+        <td class="colD">
+            <% if @student.prefname.empty? %>
+                <%= "-" %>
+            <% else %>
+                <%= @student.prefname %>
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <td class="colC">Email:</td>
+        <td class="colD"><%= @student.email %></td>
+>>>>>>> crud
+    </tr>
+    <!--tr>
+        <td class="colC">Card Number: </td>
+        <td class="colD"><%= @card %></td>
+        <td class="colD"><%= @student.card_num %></td>
+    </tr-->
     <tr>
         <td class="colC">Classes:</td>
         <td class="colD"><strong>
@@ -15,6 +52,8 @@
             <% end %>
         </strong></td>
     </tr>
-</table>
+</table><br>
 
-<%= link_to 'Back', students_path %>
+<%= link_to 'Edit Student Profile', edit_student_path() %><br>
+<%= link_to 'Back', :back %>
+</div>
