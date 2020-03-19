@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     
     def edit
         @user = User.find(params[:id])
+        @course = Course.find(params[:course_id])
     end
     
     def show
