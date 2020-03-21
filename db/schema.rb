@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_03_18_212121) do
+=======
+ActiveRecord::Schema.define(version: 2020_03_21_224747) do
+>>>>>>> redirect
 
   create_table "cards", force: :cascade do |t|
     t.string "code"
@@ -94,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_03_18_212121) do
   end
 
   create_table "users", force: :cascade do |t|
+
     t.string "fname"
     t.string "mname"
     t.string "lname"
