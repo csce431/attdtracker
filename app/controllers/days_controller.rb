@@ -1,6 +1,9 @@
 class DaysController < ApplicationController
   def index
     @course = Course.find(params[:course_id])
+
+    @courses = Course.all
+
     @tookattendance = time_exist(@course)
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @days = @course.days
