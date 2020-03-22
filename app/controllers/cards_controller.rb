@@ -29,25 +29,30 @@ class CardsController < ApplicationController
         @day = Day.find(params[:day_id])
 
         #@page holds which prompt it is on
-        
+
         if !code_exist(@card.code) && @card.email == nil
             render 'promptemail'
-        else
-            email = email_exist(@card.email)
-            if email == ""
-                render 'no_email'
-            elsif @card.save
-            #if @card.save
-                @course.cards << @card
-                @day.cards << @card
+        elsif !code_exist(@card.code) && @card.email != nil
+        #check against database
+            if email_exist_in_course(@card.email, @course)
+                if @card.save #maybe check if email of card is connected to a card - then use that (if student changes tamu id card)
+                    @course.cards << @card
+                    @day.cards << @card
 
-                redirect_to new_course_day_card_path
+                    redirect_to new_course_day_card_path
+                end 
             else
-                render 'new'
+                render 'no_email' #blank error page with "consult teacher to add you to the roster"
             end
+        elsif code_exist_in_course(@card.code, @course)
+        #not functioning correctly 
+            @oldcard = Card.where(code: @card.code).first
+            @day.cards << @oldcard
+
+            redirect_to new_course_day_card_path
         end
     end
-    
+
     def update
         @card = Card.find(params[:id])
  
@@ -80,16 +85,37 @@ class CardsController < ApplicationController
         ret
     end
     
+    def code_exist_in_course(code, course)
+        #return value 'ret'
+        ret = false 
+        for card in course.cards.all do
+          if card.code == code
+            ret = true
+          end 
+        end 
+        ret
+    end
+    
     def email_exist(email)
-        ret = ""
+        ret = false
         for student in Student.all do
             if email == student.email
-                ret = email
+                ret = true
             end
         end
         ret
     end
-    
+
+    def email_exist_in_course(email, course)
+        ret = false
+        for student in course.students.all do
+            if email == student.email
+                ret = true
+            end
+        end
+        ret
+    end
+
     private
         def card_params
             params.require(:card).permit(:code, :email)

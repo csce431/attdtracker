@@ -33,9 +33,9 @@
 					<% @cards.each do |card| %>
                         <% if card.email == student.email %>
                                 <%if card.day_ids.include? day.id %>
-									<td class="green"><%= "HERE " %></td>
+									<td class="green"><%="HERE"%></td>
 								<% else %>                        
-								    <td class="red"><%= "ABSENT" %></td>
+								    <td class="red"><%="ABSENT"%></td>
 								<% end %>
                         <% end %>
                     <% end %>
