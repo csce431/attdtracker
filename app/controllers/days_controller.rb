@@ -4,6 +4,7 @@ class DaysController < ApplicationController
 
     @courses = Course.all
 
+
     @tookattendance = time_exist(@course)
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @days = @course.days
@@ -12,8 +13,7 @@ class DaysController < ApplicationController
     @cards = @course.cards
 
     @students = @course.students
-
-
+    
     if(@course.days.first)
       @classday = @course.days.first.classday
     end

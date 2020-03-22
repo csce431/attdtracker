@@ -1,3 +1,36 @@
 // Place all the styles related to the days controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table#pres_abs {
+    text-align: center;
+    float: left;
+    width: 20%;
+}
+table#attd {
+    text-align: center;
+    float: left;
+    width: 20%;
+}
+th.dept {
+    text-align: center;
+    font-size: 18px;
+}
+td.pres {
+    width: 50%;
+    background-color: green;
+    font-weight: bold;
+}
+td.abs {
+    width: 50%;
+    background-color: red;
+    font-weight: bold;
+}
+
+td.red {
+     background-color: red;
+}
+
+td.green {
+     background-color: green;
+}
