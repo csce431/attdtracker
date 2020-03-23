@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
         #user = User.find_by email: access_token["info"]["email"]
         #puts User.find_by email: access_token["info"]["email"]
         #user = User.create_from_omniauth(access_token)
-        user.save! 
+        #user.save! 
 
-        session[:user] = user.id
+        session[:user] = access_token
         #puts user.id
 
         redirect_to root_path
