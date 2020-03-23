@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
     def googleAuth
+        session.clear
         # Get access tokens from the google server
         access_token = request.env["omniauth.auth"]
         em = access_token["info"]["email"]
