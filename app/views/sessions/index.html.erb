@@ -7,9 +7,10 @@
 <!-- could add an if statement, might not need this logout button, but have destroy called in sessions_controller  -->
 
 <p id="demo">
-      <%= if session[:user]
-        session[:user]
-      end %>
+      <%= 
+        session[:name]
+        session[:email]
+      %>
 
 </p>
 
