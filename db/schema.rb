@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2020_03_18_212121) do
-=======
-ActiveRecord::Schema.define(version: 2020_03_21_224747) do
->>>>>>> redirect
+ActiveRecord::Schema.define(version: 2020_02_16_235419) do
 
   create_table "cards", force: :cascade do |t|
     t.string "code"
@@ -69,15 +65,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_224747) do
     t.index ["student_id"], name: "index_courses_students_on_student_id"
   end
 
-  create_table "courses_users", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_courses_users_on_course_id"
-    t.index ["user_id"], name: "index_courses_users_on_user_id"
-  end
-
   create_table "days", force: :cascade do |t|
     t.string "classday"
     t.datetime "created_at", null: false
@@ -93,21 +80,6 @@ ActiveRecord::Schema.define(version: 2020_03_21_224747) do
     t.string "email"
     t.binary "picture"
     t.string "card_num"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-
-    t.string "fname"
-    t.string "mname"
-    t.string "lname"
-    t.string "prefname"
-    t.integer "uin"
-    t.string "email"
-    t.binary "picture"
-    t.string "card"
-    t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
