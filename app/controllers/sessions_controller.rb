@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
         session.clear
         # Get access tokens from the google server
         access_token = request.env["omniauth.auth"]
-        em = access_token["info"]["email"]
+        em = access_token["info"]["name"]
         puts access_token
         #user = User.find_by email: access_token["info"]["email"]
         #puts User.find_by email: access_token["info"]["email"]
