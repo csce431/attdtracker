@@ -58,7 +58,7 @@
         <% @courses.each do |course| %>
             <% $i = 0 %>
             <% $j = 0 %>
-            <tr><th class="dept" colspan=2 ><%= course.name %><%= ' ' %><%= course.number %></th></tr>
+            <tr><th class="dept"><%= course.name %><%= ' ' %><%= course.number %></th></tr>
             <!-- table: present column-->
             <% course.days.each do |day| %> 
                 <% if day.cards.include? Card.where(email: @student.email).first %>
@@ -69,10 +69,20 @@
             <% end %>   
             <tr>
                 <td class="pres"><%= "Present: "%><%= $i %><%= '/' %><%= course.days.length %></td>
+                    <% course.days.each do |day| %> 
+                        <% if day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
+                        <% end %>
+                    <% end %>
                 <td class="abs"><%= "Absent: "%><%= $j %><%= '/' %><%= course.days.length %></td>
+                    <% course.days.each do |day| %> 
+                        <% if !day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
+                        <% end %>
+                    <% end %>
             </tr>
             <!-- Display dates -->
-            <tr>
+        <!--    <tr>
             <% course.days.each do |day| %> 
                 <% if day.cards.include? Card.where(email: @student.email).first %>
                     <td><%= day.classday %></td>
@@ -80,7 +90,8 @@
                     <td><%= day.classday %></td>
                 <% end %>
             <% end %>
-            </tr>
+            </tr> -->
+        </td>    
         <% end %>
     </table>
 </div>

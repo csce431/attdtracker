@@ -26,12 +26,17 @@
     </tr>
     <% @students.each do |student| %>
     <tr>
-        <td>
+        <td class="name">
+            <%= @course.id %>
             <% if @courses.ids.include? @course.id %>
                 <%= student.fname %>  <%= student.lname %>
+        </td>
 			    <% @days.each do |day| %>
 					<% @cards.each do |card| %>
                         <% if card.email == student.email %>
+                        <td><%= card.day_ids %>
+                        <%= day.id %>
+                        </td>
                                 <%if card.day_ids.include? day.id %>
 									<td class="green"><%="HERE"%></td>
 								<% else %>                        
@@ -41,7 +46,6 @@
                     <% end %>
                 <% end %>
             <% end %>
-        </td>
     </tr>
     <% end %>
 </table>

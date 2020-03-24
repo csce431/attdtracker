@@ -5,32 +5,35 @@
 table#pres_abs {
     text-align: center;
     float: left;
-    width: 20%;
+    width: 15%;
 }
 table#attd {
-    text-align: center;
-    float: left;
-    width: 20%;
+    width: 10%;
 }
+
+td.name {
+    width: 10%;
+}
+
 th.dept {
     text-align: center;
     font-size: 18px;
 }
 td.pres {
-    width: 50%;
-    background-color: green;
+
+    background-color: GreenYellow;
     font-weight: bold;
 }
 td.abs {
-    width: 50%;
-    background-color: red;
+
+    background-color: IndianRed;
     font-weight: bold;
 }
 
 td.red {
-     background-color: red;
+     background-color: IndianRed;
 }
 
 td.green {
-     background-color: green;
+     background-color: GreenYellow;
 }
