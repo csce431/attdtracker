@@ -7,8 +7,8 @@ class DaysController < ApplicationController
     @tookattendance = time_exist(@course)
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @days = @course.days
-    @day = Day.where(classday: @time).first
-
+    @day = @days.where(classday: @time).first
+    @all_days = Day.all
     @cards = @course.cards
 
     @students = @course.students
