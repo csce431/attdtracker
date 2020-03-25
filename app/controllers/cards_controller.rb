@@ -50,7 +50,14 @@ class CardsController < ApplicationController
             @day.cards << @oldcard
 
             redirect_to new_course_day_card_path
+        else
+            @oldcard = Card.where(code: @card.code).first
+            @day.cards << @oldcard
+            @course.cards << @oldcard
+
+            redirect_to new_course_day_card_path
         end
+        
     end
 
     def update
