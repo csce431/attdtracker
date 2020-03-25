@@ -11,14 +11,15 @@ table#attd {
     width: 10%;
 }
 
-td.name {
-    width: 10%;
+th {
+    border-bottom-style: solid;
 }
 
-th.dept {
-    text-align: center;
-    font-size: 18px;
+td.name {
+    width: 10%;
+    border-right-style: solid;
 }
+
 td.pres {
 
     background-color: GreenYellow;
