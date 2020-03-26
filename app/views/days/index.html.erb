@@ -31,16 +31,16 @@
                 <%= student.fname %>  <%= student.lname %>
         </td>
 			    <% @days.each do |day| %>
-		            <% $i = false %>
+		            <% $present = false %>
 					<% @cards.each do |card| %>
                         <% if card.email == student.email %>
                             <%if card.day_ids.include? day.id %>
 								<td class="green"><%="HERE"%></td>
-								<% $i = true %>
+								<% $present = true %>
 							<% end %>
                         <% end %>
                     <% end %>
-                    <% if !$i %>
+                    <% if !$present %>
                         <td class="red"><%="ABSENT"%></td>
                     <% end %>
                 <% end %>
