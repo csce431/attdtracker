@@ -78,6 +78,9 @@
 							<% $present = true %>
 						<% end %>
                     <% end %>
+                    <% if !$present %>
+                        <td class="red"><%="ABSENT"%></td>
+                    <% end %>
                 <% end %>
                 <% if !$present %>
                     <td class="red"><%="ABSENT"%></td>
