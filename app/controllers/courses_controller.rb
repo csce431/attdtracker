@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
     def index
-        @courses = Course.all
+        @courses = Course.order(:name)
+    end
+
+    def import
+        
     end
     
     def new
@@ -13,7 +17,8 @@ class CoursesController < ApplicationController
     
     def show
         @course = Course.find(params[:id])
-        @students = @course.students.all
+        #@students = @course.students.all
+        @students = @course.students.order(:fname)
     end
     
     def create
