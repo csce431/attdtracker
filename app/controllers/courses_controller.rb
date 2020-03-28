@@ -31,14 +31,10 @@ class CoursesController < ApplicationController
                 #next
                 #do nothing
             elsif exist_email(student['email']) # email exists
-                puts "HELLOOOOOOO"
                 @newstudent = Student.where(email: @newstudent.email).first
                 @newstudent.courses << @course
             else        # email doesnt exist
-                puts "HAAAAAAAAAAAAAAAA"
                 if @newstudent.save
-                    puts "YESSSSSSSSSS"
-                    
                     @newstudent.courses << @course
                     #@students_in_course << @newstudent
                     #@course << @newstudent
@@ -47,15 +43,6 @@ class CoursesController < ApplicationController
         end
 
         redirect_to course_path(@course)
-
-        # for student in csv do
-        #     @student.fname = student['First']
-        #     @student.mname = student['Middle']
-        #     @student.lname = student['Last']
-        #     @student.email = student['email']
-        #     #@student.prefname = ''
-        #     #@student.uin = ''
-        # end        
     end
     
     def new
