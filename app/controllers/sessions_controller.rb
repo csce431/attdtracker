@@ -15,18 +15,16 @@ class SessionsController < ApplicationController
         em = access_token["info"]["email"]
         #puts access_token
         #puts User.find_by email: access_token["info"]["email"]
-        user = Student.create_from_omniauth(access_token)
+        user = create_from_omniauth(access_token)
         #user = Student.find_by email: access_token["info"]["email"]
 
         refresh_token = access_token.credentials.refresh_token
         user.google_refresh_token = refresh_token if refresh_token.present?
         #user.google_token = access_token 
-
-        user.save! 
         
         session[:name] = na
         session[:email] = em
-        session[:user] = user.lname
+        session[:user] = user.fname
         #session[:token] = access_token # putting token in session gives cookie overflow
         #puts user.id
         
@@ -51,10 +49,38 @@ class SessionsController < ApplicationController
         # end
         redirect_to root_path
     end
+
+    def create_from_omniauth(access_token)
+        #data = access_token.info
+        #user = User.where(email: data['email']).first
+
+        # Creates a new user only if it doesn't exist
+    	if exist_email(access_token.info.email)
+            @newstudent = Student.new
+            @newstudent.fname = access_token.info.first_name
+            @newstudent.lname = access_token.info.last_name
+            @newstudent.email = access_token.info.email
+            @newstudent.picture = access_token.info.image
+            @newstudent.save!
+        end
+    end
+
     def destroy
         session.delete :name
         session.delete :email 
         
         redirect_to root_path
     end
+
+private
+    def exist_email(email)
+        ret = false
+        for student in Student.all do
+            if email == student.email
+                ret = true
+            end
+        end
+        ret
+    end
 end
+

@@ -49,7 +49,7 @@ class StudentsController < ApplicationController
             render 'edit'
         end
     end
-    
+
     def destroy
         @student = Student.find(params[:id])
         @courses = @student.courses.find(params[:course_id])
