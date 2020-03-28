@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
     def index
-        @student = Student.where(email: "racheljee1@tamu.edu").first
+        if Student.where(email: "racheljee1@tamu.edu").first.nil?
+            @student = Student.where(email: "racheljee1@tamu.edu").first
+        else
+            @student = Student.where(email: "rdj772@tamu.edu").first
+        end
     end
     
     def googleAuth
