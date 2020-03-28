@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
         #     #redirect to instructor home page
         # elsif (Student.find_by email: em).role == 2
         #     #redirect to student profile page
-        end
+        #end
         redirect_to root_path
     end
     def destroy
