@@ -53,16 +53,18 @@ class SessionsController < ApplicationController
     def create_from_omniauth(access_token)
         #data = access_token.info
         #user = User.where(email: data['email']).first
-
         # Creates a new user only if it doesn't exist
-    	if exist_email(access_token.info.email)
+    	if !exist_email(access_token.info.email)
             @newstudent = Student.new
             @newstudent.fname = access_token.info.first_name
             @newstudent.lname = access_token.info.last_name
             @newstudent.email = access_token.info.email
             @newstudent.picture = access_token.info.image
             @newstudent.save!
+        else
+            @newstudent = Student.where(email: access_token.info.email).first 
         end
+        @newstudent
     end
 
     def destroy
