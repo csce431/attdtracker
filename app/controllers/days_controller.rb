@@ -20,6 +20,7 @@ class DaysController < ApplicationController
   
   def show
     @day = Day.find(params[:id])
+    @course = Course.find(params[:course_id])
   end
   
   def new
@@ -70,7 +71,7 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
     @day.destroy
     
-    redirect_to day_index_path
+    redirect_to course_days_path
   end
   
   def time_exist(course)

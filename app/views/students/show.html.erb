@@ -3,7 +3,7 @@
 <div class="page-content">
 
 <h2>Welcome,
-    <% if @student.prefname.empty? %>
+    <% if @student.prefname.nil? %>
         <%= @student.fname + "!" %>
     <% else %>
         <%= @student.prefname + "!" %>
@@ -14,7 +14,7 @@
         <td class="colC">Full Name:</td>
         <td class="colD">
             <%= @student.fname + " " %>
-            <% if !@student.mname.empty? %>
+            <% if !@student.mname.nil? %>
                 <%= @student.mname %>
             <% end %>
             <%= @student.lname %>
@@ -23,7 +23,7 @@
     <tr>
         <td class="colC">Preferred Name:</td>
         <td class="colD">
-            <% if @student.prefname.empty? %>
+            <% if @student.prefname.nil? %>
                 <%= "-" %>
             <% else %>
                 <%= @student.prefname %>

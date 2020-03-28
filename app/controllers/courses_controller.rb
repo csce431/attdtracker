@@ -18,11 +18,19 @@ class CoursesController < ApplicationController
             #@newstudent = @students_in_course.new
             @newstudent = Student.new
             @newstudent.email = student['email']
+
+            # fill in student's params
+            @newstudent.fname = student['First']
+            @newstudent.mname = student['Middle']
+            @newstudent.lname = student['Last']
             
             # check if imported email exists in all students database
-            @present = exist_email(student['email'])
+            # @present = exist_email(student['email'])
 
-            if @present # email exists
+            if exist_email_in_course(student['email'],@course)
+                #next
+                #do nothing
+            elsif exist_email(student['email']) # email exists
                 puts "HELLOOOOOOO"
                 @newstudent = Student.where(email: @newstudent.email).first
                 @newstudent.courses << @course
@@ -30,12 +38,7 @@ class CoursesController < ApplicationController
                 puts "HAAAAAAAAAAAAAAAA"
                 if @newstudent.save
                     puts "YESSSSSSSSSS"
-
-                    # fill in student's params
-                    @newstudent.fname = student['First']
-                    @newstudent.mname = student['Middle']
-                    @newstudent.lname = student['Last']
-
+                    
                     @newstudent.courses << @course
                     #@students_in_course << @newstudent
                     #@course << @newstudent
@@ -100,6 +103,16 @@ class CoursesController < ApplicationController
         def exist_email(email)
             ret = false
             for student in Student.all do
+                if email == student.email
+                    ret = true
+                end
+            end
+            ret
+        end
+
+        def exist_email_in_course(email, course)
+            ret = false
+            for student in course.students.all do
                 if email == student.email
                     ret = true
                 end
