@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
         refresh_token = access_token.credentials.refresh_token
         user.google_refresh_token = refresh_token if refresh_token.present?
-        user.google_token = access_token
+        #user.google_token = access_token
 
         user.save! 
         
