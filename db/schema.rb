@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_235419) do
+ActiveRecord::Schema.define(version: 2020_03_27_182642) do
 
   create_table "cards", force: :cascade do |t|
     t.string "code"
@@ -82,6 +82,9 @@ ActiveRecord::Schema.define(version: 2020_02_16_235419) do
     t.string "card_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
+    t.integer "role"
   end
 
 end

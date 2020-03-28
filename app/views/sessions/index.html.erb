@@ -7,22 +7,10 @@
 <!-- could add an if statement, might not need this logout button, but have destroy called in sessions_controller  -->
 
 <p id="demo">
-      <%= 
-        session[:name]
-      %>
-      <%= 
-      session[:email]
+    <%= 
+      #session[:email]
+      session[:token]
     %>
 </p>
 
-<p>
-  <a href="/#" onclick="signOut();">Sign out</a>
-  <script>
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-      console.log('User signed out.');
-      });
-    }
-  </script>
-</p>
+
