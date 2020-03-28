@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
             #redirect to an admin page, need to look thru database to assign roles to teachers (1)
         end
         #if (Student.find_by email: "racheljee1@tamu.edu").role == 0
+        session[:role] = Student.where(email: "racheljee1@tamu.edu").first).role
         if (Student.where(email: "racheljee1@tamu.edu").first).role == 0
             render 'admin'
         # elsif (Student.find_by email: em).role == 1
