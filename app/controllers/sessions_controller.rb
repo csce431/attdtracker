@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         
         session[:name] = na
         session[:email] = em
-        session[:token] = access_token
+        #session[:token] = access_token
         #puts user.id
         
         # look thru all user database, if role of email is instructor, redirect to path of instructor tab (remove tab)
