@@ -15,7 +15,7 @@ class Student < ApplicationRecord
 
         # Creates a new user only if it doesn't exist
     	where(email: access_token.info.email).first_or_initialize do |user|
-            user.uid = access_token.uid # unique id? might not need
+            #user.uid = access_token.uid
             user.name = access_token.info.name
             user.email = access_token.info.email
             user.img_url = access_token.info.image
