@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+    def index
+        @student = Student.all.first
+    end
+    
     def googleAuth
         session.clear
         # Get access tokens from the google server
