@@ -50,7 +50,7 @@
 
 <div class="btn-group">
   <button>Download as CSV</button>
-</div><br>
+</div><br><br>
 
 
 <% @classday %>
@@ -60,7 +60,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <% @days.each do |day| %>
-            <th><%= day.classday %></th>
+            <th><%= link_to day.classday, course_day_path(@course, day) %></th>
         <% end %>
     </tr>
     <% @students.each do |student| %>
@@ -89,6 +89,7 @@
 
 </table>
 
+<br>
 <div><%= link_to 'Back', courses_path %></div>
 
 </div>

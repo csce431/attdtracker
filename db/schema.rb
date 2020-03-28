@@ -80,7 +80,6 @@ ActiveRecord::Schema.define(version: 2020_02_16_235419) do
     t.string "email"
     t.binary "picture"
     t.string "card_num"
-    #t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

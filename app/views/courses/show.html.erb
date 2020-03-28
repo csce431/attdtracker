@@ -6,6 +6,27 @@
   <%= link_to 'Add Student', new_course_student_path(@course) %><br>
   <%= link_to 'Back to Courses', courses_path %>
 </p>
+
+<p id="course-id" hidden><%= params[:id] %><p>
+
+<form id="upload-roster-form" method="post" enctype="multipart/form-data" action="/courses">
+  <div>
+    <label for="enrollment">Choose file to upload</label>
+    <input style="margin: auto; background-color: lightgray;"
+          type="file" id="enrollment" name="enrollment"
+          accept=".csv">
+  </div>
+  <div>
+    <button>Submit</button>
+  </div>
+</form>
+
+<script>
+  var courseID = document.getElementById("course-id").innerHTML;
+  $('form#upload-roster-form').attr('action', "/courses/".concat(courseID, "/import"));
+</script>
+
+
 <table>
   <tr>
     <th>First Name</th>

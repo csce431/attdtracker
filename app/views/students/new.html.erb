@@ -1,19 +1,22 @@
+<div class="page-content">
+
 <h1>New Student</h1>
 
 <%= form_with model: @student, url: course_students_path, html: {autocomplete: 'off'}, local: true do |form| %>
  
   <% if @student.errors.any? %>
     <div id="error_explanation">
-      <h2>
+      <h3>
         <%= pluralize(@student.errors.count, "error") %> prohibited
         this student from being saved:
-      </h2>
-      <ul>
-        <% @student.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+      </h3>
+      <div>
+        <% @student.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
         <% end %>
-      </ul>
+      </div>
     </div>
+    <br>
   <% end %>
  
   <p>
@@ -48,3 +51,5 @@
   <%= link_to 'Back', students_path %>
  
 <% end %>
+
+</div>
