@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     def index
-        if Student.where(email: "racheljee1@tamu.edu").first.nil?
+        if !Student.where(email: "racheljee1@tamu.edu").first.nil?
             @student = Student.where(email: "racheljee1@tamu.edu").first
         else
             @student = Student.where(email: "rdj772@tamu.edu").first
