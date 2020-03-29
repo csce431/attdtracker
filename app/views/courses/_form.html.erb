@@ -36,7 +36,7 @@
   
   <p>
     <%= form.label "Season" %><br>
-    <%= form.text_field :season %>
+    <%= form.select(:season, options_for_select([["Fall","Fall"], ["Spring", "Spring"], ["Summer", "Summer"]])) %>
   </p>
  
   <p>
