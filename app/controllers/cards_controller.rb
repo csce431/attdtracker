@@ -14,7 +14,7 @@ class CardsController < ApplicationController
     end
     
     def edit
-        @card = card.find(params[:id])
+        @card = Card.find(params[:id])
     end
     
     def show
@@ -27,7 +27,7 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
-
+        @bool = !code_exist(@card.code)
         #@page holds which prompt it is on
 
         if !code_exist(@card.code) && @card.email == nil

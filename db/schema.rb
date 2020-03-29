@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_02_16_235419) do
     t.string "name"
     t.integer "number"
     t.integer "section"
+    t.integer "year"
+    t.string "season"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
