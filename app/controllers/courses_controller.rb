@@ -24,16 +24,16 @@ class CoursesController < ApplicationController
             @newstudent.mname = student['Middle']
             @newstudent.lname = student['Last']
             
-            # check if imported email exists in all students database
-            # @present = exist_email(student['email'])
-
+            # check if imported email exists
             if exist_email_in_course(student['email'],@course)
-                #next
-                #do nothing
-            elsif exist_email(student['email']) # email exists
+                # do nothing (email already exists in course)
+                # next
+            elsif exist_email(student['email'])
+                # email exists
                 @newstudent = Student.where(email: @newstudent.email).first
                 @newstudent.courses << @course
-            else        # email doesnt exist
+            else
+                # email doesnt exist
                 if @newstudent.save
                     @newstudent.courses << @course
                     #@students_in_course << @newstudent

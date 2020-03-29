@@ -1,3 +1,15 @@
 // Place all the styles related to the cards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#cards-index th {
+    width: 40%;
+}
+#cards-index td {
+    margin: auto;
+    max-width: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
