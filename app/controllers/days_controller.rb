@@ -1,16 +1,18 @@
 class DaysController < ApplicationController
   def index
     @course = Course.find(params[:course_id])
+
+    @courses = Course.all
+
     @tookattendance = time_exist(@course)
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @days = @course.days
-    @day = Day.where(classday: @time).first
-
+    @day = @days.where(classday: @time).first
+    @all_days = Day.all
     @cards = @course.cards
 
     @students = @course.students
-
-
+    
     if(@course.days.first)
       @classday = @course.days.first.classday
     end
@@ -18,11 +20,22 @@ class DaysController < ApplicationController
   
   def show
     @day = Day.find(params[:id])
+    @course = Course.find(params[:course_id])
   end
   
   def new
-    @day = Day.new
+    #@day = Day.new
+    @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @course = Course.find(params[:course_id])
+    @days = @course.days
+    @cards = @course.cards
+    @db = Day.all
+  
+    if !@db.include? @days.ids
+      @day = Day.new 
+    else
+      @day = @days.id
+    end  
   end
   
   def edit
@@ -58,7 +71,7 @@ class DaysController < ApplicationController
     @day = Day.find(params[:id])
     @day.destroy
     
-    redirect_to day_index_path
+    redirect_to course_days_path
   end
   
   def time_exist(course)

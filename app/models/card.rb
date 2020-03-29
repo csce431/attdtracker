@@ -1,5 +1,5 @@
 class Card < ApplicationRecord
-    has_and_belongs_to_many :days #optional: true
+    has_and_belongs_to_many :days
     has_and_belongs_to_many :courses
     
     ### uncomment the following if you are lazy to swipe, or if you don't have your card and reader 

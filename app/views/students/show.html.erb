@@ -3,7 +3,7 @@
 <div class="page-content">
 
 <h2>Welcome,
-    <% if @student.prefname.empty? %>
+    <% if @student.prefname.nil? %>
         <%= @student.fname + "!" %>
     <% else %>
         <%= @student.prefname + "!" %>
@@ -18,7 +18,7 @@
         <td class="colC">Full Name:</td>
         <td class="colD">
             <%= @student.fname + " " %>
-            <% if !@student.mname.empty? %>
+            <% if !@student.mname.nil? %>
                 <%= @student.mname %>
             <% end %>
             <%= @student.lname %>
@@ -27,7 +27,7 @@
     <tr>
         <td class="colC">Preferred Name:</td>
         <td class="colD">
-            <% if @student.prefname.empty? %>
+            <% if @student.prefname.nil? %>
                 <%= "-" %>
             <% else %>
                 <%= @student.prefname %>
@@ -48,12 +48,58 @@
         <td class="colC">Classes:</td>
         <td class="colD"><strong>
             <% @courses.each do |course| %>
-                <%= course.name %>
+                <%= course.name %><%= ' ' %><%= course.number %> 
             <% end %>
         </strong></td>
     </tr>
 </table><br>
 
 <%= link_to 'Edit Student Profile', edit_student_path() %><br>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', courses_path %>
+
+<br><br><br>
+<div>
+    <% @courses.each do |course| %>
+        <table id="pres_abs">
+            <% $i = 0 %>
+            <% $j = 0 %>
+            <tr><th class="dept" colspan="2"><%= course.name %><%= ' ' %><%= course.number %></th></tr>
+            <!-- table: present column-->
+            <% course.days.each do |day| %> 
+                <% if day.cards.include? Card.where(email: @student.email).first %>
+                    <% $i += 1 %>
+                <% else %>
+                    <% $j += 1 %>
+                <% end %>
+            <% end %>
+            <tr>
+                <td class="pres"><%= "Present: "%><%= $i %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
+                <td class="abs"><%= "Absent: "%><%= $j %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
+            </tr>
+
+            <tr>
+                <td>
+                <table>
+                    <!--ul id="days_pres"-->
+                    <% course.days.each do |day| %> 
+                        <% if day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
+                        <% end %>
+                    <% end %>
+                    <!--/ul-->
+                </table></td><td>
+                <table>
+                    <!--ul id="days_abs"-->
+                    <% course.days.each do |day| %> 
+                        <% if !day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
+                        <% end %>
+                    <% end %>
+                    <!--/ul-->
+                </table></td>
+            </tr>
+        </table>  
+    <% end %>
+</div>
+
 </div>

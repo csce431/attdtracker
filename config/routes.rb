@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   
   get '/courses/:course_id/days/:day_id/cards:new2(.:format)', to: 'cards#newer'
 
+  post '/courses/:id/import', to: 'courses#import'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,6 +1,48 @@
 class CoursesController < ApplicationController
+
+    skip_before_action :verify_authenticity_token 
+
     def index
-        @courses = Course.all
+        @courses = Course.order(:name)
+    end
+
+    def import
+        @course = Course.find(params[:id])
+        @students_in_course = @course.students.all
+
+        tempFile = params['enrollment']
+        csv = CSV.read(tempFile.path, :headers => true)
+
+        for student in csv do
+            # create new student
+            #@newstudent = @students_in_course.new
+            @newstudent = Student.new
+            @newstudent.email = student['email']
+
+            # fill in student's params
+            @newstudent.fname = student['First']
+            @newstudent.mname = student['Middle']
+            @newstudent.lname = student['Last']
+            
+            # check if imported email exists
+            if exist_email_in_course(student['email'],@course)
+                # do nothing (email already exists in course)
+                # next
+            elsif exist_email(student['email'])
+                # email exists
+                @newstudent = Student.where(email: @newstudent.email).first
+                @newstudent.courses << @course
+            else
+                # email doesnt exist
+                if @newstudent.save
+                    @newstudent.courses << @course
+                    #@students_in_course << @newstudent
+                    #@course << @newstudent
+                end
+            end
+        end
+
+        redirect_to course_path(@course)
     end
     
     def new
@@ -13,7 +55,12 @@ class CoursesController < ApplicationController
     
     def show
         @course = Course.find(params[:id])
+<<<<<<< HEAD
         @users = @course.users.all
+=======
+        #@students = @course.students.all
+        @students = @course.students.order(:fname)
+>>>>>>> crud
     end
     
     def create
@@ -44,6 +91,26 @@ class CoursesController < ApplicationController
     end 
     
     private
+        def exist_email(email)
+            ret = false
+            for student in Student.all do
+                if email == student.email
+                    ret = true
+                end
+            end
+            ret
+        end
+
+        def exist_email_in_course(email, course)
+            ret = false
+            for student in course.students.all do
+                if email == student.email
+                    ret = true
+                end
+            end
+            ret
+        end
+
         def course_params
             params.require(:course).permit(:name, :number, :section)
         end

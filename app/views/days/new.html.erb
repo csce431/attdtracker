@@ -1,9 +1,11 @@
+<div class="page-content">
+
 <h1>Take Attendace!</h1>
 
-Do you want to take Attendance for the day of <%= Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") %>?
+</p>Do you want to <strong>take Attendance</strong> for the day of <em><%= Time.now.in_time_zone('Central Time (US & Canada)').strftime("%B %d, %Y") %></em>?<p><br>
+<%= link_to "No", course_days_path %>
 <%= form_with model: @day, url: course_days_path, local: true do |form| %>
-<br> 
-
-<%= form.submit %> <%= link_to 'No', course_days_path %>
-  
+    <%= form.submit "Yes" %>
 <% end %>
+
+<div>
