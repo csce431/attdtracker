@@ -10,8 +10,8 @@
     <span id="course_section"><%= @course.section%></span>
 </h1> 
 <p>
-    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path) do
-     link_to("Take Attendance!", new_course_day_card_path(@course, @day))
+    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path, target: :blank) do
+     link_to("Take Attendance!", new_course_day_card_path(@course, @day), target: :_blank)
    end
     %>
 </p>

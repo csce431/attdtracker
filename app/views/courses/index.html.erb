@@ -3,7 +3,30 @@
 <h1>Listing Courses</h1>
  
 <%= link_to 'Add Course', new_course_path %>
- 
+
+  <p>
+    <%= form_tag courses_path, :method => :get do %>
+    Filter:    
+    <% @all_years.each do |year| %>
+      <%= check_box_tag "years[#{year}]", :id => "years_#{year}" %>
+      <%= year %>
+    <% end %> 
+  </p>
+  
+  
+  <p>
+    <% @all_seasons.each do |season| %>
+      <%= check_box_tag "seasons[#{season}]", :id => "seasons_#{season}" %>
+      <%= season %>
+    <% end %>
+  </p>
+  
+  <%= submit_tag 'Refresh' %>
+  
+  
+  
+<% end %>
+
 <table>
   <tr>
     <th>Course</th>
@@ -18,8 +41,8 @@
   <% @courses.each do |course| %>
     <tr>
       <td><%= course.name %> <%= course.number %>-<%= course.section %></td>
-      <td>Year</td>
-      <td>Semester</td>
+      <td><%= course.year %></td>
+      <td><%= course.season %></td>
       <td><%= link_to 'Attendance', course_days_path(course) %></td>
       <td><%= link_to 'Enrollment', course_path(course) %></td>
       <td><%= link_to 'Edit', edit_course_path(course) %></td>
