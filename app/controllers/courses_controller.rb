@@ -2,8 +2,31 @@ class CoursesController < ApplicationController
 
     skip_before_action :verify_authenticity_token 
 
+#<% @all_seasons.each do |season| %>
+ #   <%= season %>
+ #   <%= check_box_tag "seasons[#{season}]", :id => "seasons_#{season}" %>
+ # <% end %>
+ # <%= submit_tag 'Refresh', :id => "years_submit" %>
+
+
     def index
-        @courses = Course.order(:name)
+        @courses = Course.order(:year).reverse_order
+        
+        @all_seasons = @courses.distinct.pluck(:season)
+        @all_years = @courses.distinct.pluck(:year)
+        
+        #@movies = Movie.order(@sort_by)
+        #@sort_by = params[:sort_by]
+        #@current_ratings = params[:ratings] 
+        @current_seasons = params[:seasons]
+        @current_years = params[:years]
+        if !params[:seasons].nil? and !params[:year].nil?
+            @courses = Course.where(season: @current_seasons.keys, year: @current_years.keys)
+        elsif !params[:seasons].nil?
+            @courses = Course.where(season: @current_seasons.keys)
+        elsif !params[:years].nil?
+            @courses = Course.where(year: @current_years.keys)
+        end
     end
 
     def import
@@ -112,6 +135,6 @@ class CoursesController < ApplicationController
         end
 
         def course_params
-            params.require(:course).permit(:name, :number, :section)
+            params.require(:course).permit(:name, :number, :section, :year, :season)
         end
 end

@@ -20,13 +20,23 @@
   </p>
  
   <p>
-    <%= form.label :number %><br>
+    <%= form.label "Course" %><br>
     <%= form.text_field :number %>
   </p>
 
   <p>
-    <%= form.label :section %><br>
+    <%= form.label "Section" %><br>
     <%= form.text_field :section %>
+  </p>
+  
+  <p>
+    <%= form.label "Year" %><br>
+    <%= form.text_field :year %>
+  </p>
+  
+  <p>
+    <%= form.label "Season" %><br>
+    <%= form.select(:season, options_for_select([["Fall","Fall"], ["Spring", "Spring"], ["Summer", "Summer"]])) %>
   </p>
  
   <p>
