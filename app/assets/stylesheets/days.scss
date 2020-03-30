@@ -1,3 +1,25 @@
 // Place all the styles related to the days controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table#attendance_day {
+    border-style: solid;
+}
+
+th {
+    border-bottom-style: solid;
+}
+
+td.name {
+    width: 10%;
+    border-right-style: solid;
+}
+
+td.pres {
+    background-color: lightgreen;
+    font-weight: bold;
+}
+td.abs {
+    background-color: lightcoral;
+    font-weight: bold;
+}

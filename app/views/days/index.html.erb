@@ -2,48 +2,94 @@
 
 <div class="page-content">
 
-<h1>Attendance</h1> 
+<h1>Attendance for
+    <span id="course_name"><%= @course.name%></span>
+    <%= " " %>
+    <span id="course_number"><%= @course.number%></span>
+    <%= " - " %>
+    <span id="course_section"><%= @course.section%></span>
+</h1> 
 <p>
-    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path) do
-     link_to("Take Attendance!", new_course_day_card_path(@course, @day))
+    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path, target: :blank) do
+     link_to("Take Attendance!", new_course_day_card_path(@course, @day), target: :_blank)
    end
     %>
 </p>
+<p>Current Time: <em><%= @time %></em></p>
 
-<p>
-    Current Time: <em><%= @time %></em>
-    <br>
-</p>
+<script>
+    $(function() {
+        $("button").on('click', function() {
+            var data = "";
+            var tableData = [];
+            var rows = $('#attendance_day tr');
+            rows.each(function(index, row) {
+                var rowData = [];
+                $(row).find("th, td").each(function(index, column) {
+                    rowData.push(column.innerText);
+                });
+                tableData.push(rowData.join(","));
+            });
+            data += tableData.join("\n");
+
+            var fileName = "";
+            var courseName = document.getElementById("course_name").innerHTML;
+            var courseNumber = document.getElementById("course_number").innerHTML;
+            var courseSection = document.getElementById("course_section").innerHTML;
+
+            $(document.body).append('<a id="download-link" download=' + fileName.concat(courseName, courseNumber, courseSection) + '.csv href=' + URL.createObjectURL(new Blob([data], {
+                type: "text/csv"
+            })) + '/>');
+
+
+            $('#download-link')[0].click();
+            $('#download-link').remove();
+        });
+    });
+</script>
+
+<div class="btn-group">
+  <button>Download as CSV</button>
+</div><br><br>
+
 
 <% @classday %>
 
-<table>
+<table id="attendance_day">
     <tr>
-        <th>Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
         <% @days.each do |day| %>
-            <th><%= day.classday %></th>
+            <th><%= link_to day.classday, course_day_path(@course, day) %></th>
         <% end %>
     </tr>
-    <% @cards.each do |card| %>
-        <tr>
-            <td>
-                <% @students.each do |student| %>
+    <% @students.each do |student| %>
+    <tr>
+        <% if @courses.ids.include? @course.id %>
+            <td class="name"><%= student.fname %></td>
+            <td class="name"><%= student.lname %></td>
+			
+            <% @days.each do |day| %>
+		        <% $present = false %>
+				<% @cards.each do |card| %>
                     <% if card.email == student.email %>
-                        <%= student.fname %>  <%= student.lname %>
-                        <% @days.each do |day| %>
-                            <td>
-                                <% if card.day_ids.include? day.id %>
-                                    <%= "HERE " %>
-                                <% else %>                        
-                                    <%= "ABSENT" %>
-                                <% end %>
-                            </td>
-                        <% end %>
+                        <%if card.day_ids.include? day.id %>
+							<td class="pres"><%="PRESENT"%></td>
+							<% $present = true %>
+						<% end %>
                     <% end %>
                 <% end %>
-            </td>
-        </tr>
+                <% if !$present %>
+                    <td class="abs"><%="ABSENT"%></td>
+                <% end %>
+            <% end %>
+        <% end %>
+    </tr>
     <% end %>
+
 </table>
+
+<br>
+<div><%= link_to 'Back', courses_path %></div>
 
 </div>

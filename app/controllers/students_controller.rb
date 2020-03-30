@@ -32,7 +32,7 @@ class StudentsController < ApplicationController
             if !email_in_course(@course, @student.email) 
                 @existStudent.courses << @course
             end
-            redirect_to course_path(@existStudent.courses.last)
+            redirect_to course_path(@course)
         end
         else
             if @student.save
