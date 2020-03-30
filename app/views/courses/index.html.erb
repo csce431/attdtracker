@@ -4,17 +4,22 @@
  
 <%= link_to 'Add Course', new_course_path %>
 
-<%= form_tag courses_path, :method => :get do %>
-  Include:
-  <% @all_years.each do |year| %>
-    <%= year %>
-    <%= check_box_tag "years[#{year}]", :id => "years_#{year}" %>
-  <% end %>
+  <p>
+    <%= form_tag courses_path, :method => :get do %>
+    Filter:    
+    <% @all_years.each do |year| %>
+      <%= check_box_tag "years[#{year}]", :id => "years_#{year}" %>
+      <%= year %>
+    <% end %> 
+  </p>
   
-  <% @all_seasons.each do |season| %>
-    <%= season %>
-    <%= check_box_tag "seasons[#{season}]", :id => "seasons_#{season}" %>
-  <% end %>
+  
+  <p>
+    <% @all_seasons.each do |season| %>
+      <%= check_box_tag "seasons[#{season}]", :id => "seasons_#{season}" %>
+      <%= season %>
+    <% end %>
+  </p>
   
   <%= submit_tag 'Refresh' %>
   
@@ -23,6 +28,9 @@
 <% end %>
 
 <table>
+  <tr>
+    
+  </tr>
   <tr>
     <th>Course</th>
     <th>Year</th>
