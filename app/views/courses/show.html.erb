@@ -3,7 +3,7 @@
 <p>
   <h1>Enrollment for <%= @course.name + " " + @course.number.to_s + " - " + @course.section.to_s %></h1>
   <%= link_to 'Edit Course', edit_course_path(@course) %><br>
-  <%= link_to 'Add Student', new_course_user_path(@course) %><br>
+  <%= link_to 'Add Student', new_course_student_path(@course) %><br>
   <%= link_to 'Back to Courses', courses_path %>
 </p>
 
@@ -38,18 +38,18 @@
     <th>List of Courses</th>
     <th></th>
   </tr>
-  <% @users.each do |user| %>
+  <% @students.each do |student| %>
     <tr>
-      <td><%= user.fname %></td>
-      <td><%= user.lname %></td>
-      <td><%= user.email %></td>
-      <td><%= link_to 'View', user_path(user) %></td>
-      <td><%= link_to 'Edit', edit_course_user_path(@course, user) %></td>
-      <td><%= link_to 'Delete', course_user_path(@course, user),
+      <td><%= student.fname %></td>
+      <td><%= student.lname %></td>
+      <td><%= student.email %></td>
+      <td><%= link_to 'View', student_path(student) %></td>
+      <td><%= link_to 'Edit', edit_course_student_path(@course, student) %></td>
+      <td><%= link_to 'Delete', course_student_path(@course, student),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
       <td>
-        <% user.courses.each do |c| %>
+        <% student.courses.each do |c| %>
           <%= c.name %><%= c.number %> 
         <% end %></td>
     </tr>

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
   resources :teacher do
     resources :courses do
       resources :students
@@ -11,7 +9,6 @@ Rails.application.routes.draw do
     end
   end
   
->>>>>>> crud
   resources :courses do
     resources :students
     resources :role
@@ -21,16 +18,6 @@ Rails.application.routes.draw do
       resources :cards
     end
   end
-<<<<<<< HEAD
-  resources :students do
-    resources :courses
-  end
-  resources :users do
-    resources :courses
-  end
-  
-  get '/courses/:course_id/days/:day_id/cards:new2(.:format)', to: 'cards#newer'
-=======
 
   
   resources :students# do
@@ -38,7 +25,6 @@ Rails.application.routes.draw do
   #end
 
   post '/courses/:id/import', to: 'courses#import'
->>>>>>> crud
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
