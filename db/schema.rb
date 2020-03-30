@@ -93,6 +93,9 @@ ActiveRecord::Schema.define(version: 2020_03_30_202351) do
     t.string "card_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
+    t.integer "role"
   end
 
   create_table "teachers", force: :cascade do |t|
