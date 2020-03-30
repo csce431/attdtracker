@@ -78,12 +78,8 @@ class CoursesController < ApplicationController
     
     def show
         @course = Course.find(params[:id])
-<<<<<<< HEAD
-        @users = @course.users.all
-=======
         #@students = @course.students.all
         @students = @course.students.order(:fname)
->>>>>>> crud
     end
     
     def create
