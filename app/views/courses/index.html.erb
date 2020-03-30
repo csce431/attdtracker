@@ -4,7 +4,7 @@
  
 <%= link_to 'Add Course', new_course_path %>
 
-<%= form_tag courses_path, :id => "years_form", :method => :get do %>
+<%= form_tag courses_path, :method => :get do %>
   Include:
   <% @all_years.each do |year| %>
     <%= year %>

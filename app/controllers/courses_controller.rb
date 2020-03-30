@@ -20,8 +20,8 @@ class CoursesController < ApplicationController
         #@current_ratings = params[:ratings] 
         @current_seasons = params[:seasons]
         @current_years = params[:years]
-        if !params[:seasons].nil? and !params[:year].nil?
-            @courses = Course.where(season: @current_seasons.keys, year: @current_years.keys)
+        if (!params[:seasons].nil? and !params[:years].nil?)
+            @courses = Course.where(year: @current_years.keys, season: @current_seasons.keys) 
         elsif !params[:seasons].nil?
             @courses = Course.where(season: @current_seasons.keys)
         elsif !params[:years].nil?
