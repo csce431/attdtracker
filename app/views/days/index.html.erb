@@ -37,7 +37,7 @@
             var courseNumber = document.getElementById("course_number").innerHTML;
             var courseSection = document.getElementById("course_section").innerHTML;
 
-            $(document.body).append('<a id="download-link" download=' + fileName.concat(courseName, courseNumber, courseSection) + '.csv href=' + URL.createObjectURL(new Blob([data], {
+            $(document.body).append('<a id="download-link" download=' + fileName.concat(courseName, '_', courseNumber, '_', courseSection) + '_Attendance.csv href=' + URL.createObjectURL(new Blob([data], {
                 type: "text/csv"
             })) + '/>');
 
