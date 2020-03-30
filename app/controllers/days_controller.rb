@@ -48,7 +48,10 @@ class DaysController < ApplicationController
     
     @day.classday = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     
-    if @day.save!
+    if day_exist_in_course(@day.classday, @course)
+      @day = Day.where(classday: @day.classday).first
+      redirect_to new_course_day_card_path(@course, @day)
+    elsif @day.save!
       @day.classday = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
       @course.days << @day
       redirect_to new_course_day_card_path(@course, @day)
@@ -84,6 +87,16 @@ class DaysController < ApplicationController
       end 
     end 
     ret
+  end
+  
+  def day_exist_in_course(classday, course)
+      ret = false
+      for day in course.days do
+          if day.classday == classday
+              ret = true
+          end
+      end
+      ret            
   end
   
   private
