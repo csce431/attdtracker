@@ -31,23 +31,23 @@ class SessionsController < ApplicationController
         # look thru all user database, if role of email is instructor, redirect to path of instructor tab (remove tab)
         # if role is student, redirect to student view page
 
-        # if em == "racheljee1@tamu.edu"
-        #     @student = Student.where(email: "racheljee1@tamu.edu").first
-        #     @student.role = 0
-        #     #redirect to an admin page, need to look thru database to assign roles to teachers (1)
-        # end
+        if em == "racheljee1@tamu.edu"
+            @student = Student.where(email: "racheljee1@tamu.edu").first
+            @student.role = 0
+            #redirect to an admin page, need to look thru database to assign roles to teachers (1)
+        end
         #if (Student.find_by email: "racheljee1@tamu.edu").role == 0
         #session[:role] = Student.where(email: "racheljee1@tamu.edu").first).role
-        # if (Student.where(email: "racheljee1@tamu.edu").first).role == 0
-        #     render 'admin'
+        if (Student.where(email: "racheljee1@tamu.edu").first).role == 0
+            render 'admin'
         # # elsif (Student.find_by email: em).role == 1
         # #     #redirect to instructor home page
         # # elsif (Student.find_by email: em).role == 2
         # #     #redirect to student profile page
-        # else
-        #     redirect_to root_path
-        # end
-        redirect_to root_path
+        else
+            redirect_to root_path
+        end
+        #redirect_to root_path
     end
 
     def create_from_omniauth(access_token)
