@@ -3,11 +3,11 @@ class CoursesController < ApplicationController
     skip_before_action :verify_authenticity_token 
 
     def index
-        @courses = Course.order(:year).reverse_order
+        @courses = Course.order(:year).reverse_order.order(:season)
         
         @all_seasons = better_distinct_season(Course.order(:year).reverse_order)
         @all_years = better_distinct_year(Course.order(:season)).sort
-
+        
         @current_seasons = params[:seasons]
         @current_years = params[:years]
         if (!params[:seasons].nil? and !params[:years].nil?)
@@ -85,7 +85,7 @@ class CoursesController < ApplicationController
         @course = Course.find(params[:id])
  
         if @course.update(course_params)
-            redirect_to @course
+            redirect_to courses_path
         else
             render 'edit'
         end
@@ -117,6 +117,39 @@ class CoursesController < ApplicationController
                 end
             end
             ret
+        end
+        
+        #distinct doesn't work on heroku so we created our own distinct
+        def better_distinct_season(courses)
+            new_courses_seasons = Array.new
+            for course in courses.each do
+                exist = false
+                for season in new_courses_seasons do
+                    if course.season == season
+                        exist = true
+                    end
+                end
+                if !exist
+                    new_courses_seasons.push(course.season)
+                end
+            end
+            new_courses_seasons
+        end
+        
+        def better_distinct_year(courses)
+            new_courses_years = Array.new
+            for course in courses.each do
+                exist = false
+                for year in new_courses_years do
+                    if course.year == year
+                        exist = true
+                    end
+                end
+                if !exist
+                    new_courses_years.push(course.year)
+                end
+            end
+            new_courses_years
         end
 
         #distinct doesn't work on heroku so we created our own distinct

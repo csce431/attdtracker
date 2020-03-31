@@ -1,6 +1,6 @@
 <div class="page-content">
 
-<h1>Attendance Tracker <%= @page %></h1>
+<h1>Attendance Tracker _test partial page <%= @page %></h1>
 
 <%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
 
@@ -17,6 +17,7 @@
     </div>
   <% end %>
 
+
   <div>
     <div><%= form.label :card %></div>
     <div><%= form.text_field :code %></div>
@@ -31,8 +32,5 @@
     <%= form.submit "Submit" %>
   </div>
 <% end %>
-
-
-<%= link_to 'List', course_day_cards_path %>
 
 </div>
