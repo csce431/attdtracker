@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
         end
         #if (Student.find_by email: "racheljee1@tamu.edu").role == 0
         #session[:role] = Student.where(email: "racheljee1@tamu.edu").first).role
-        @role = (Student.where(email: em).first).role
+        @info = (Student.where(email: em).first).fname
         if (Student.where(email: em).first).role == 0
             render 'admin'
         # # elsif (Student.find_by email: em).role == 1
