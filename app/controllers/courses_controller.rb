@@ -121,34 +121,34 @@ class CoursesController < ApplicationController
 
         #distinct doesn't work on heroku so we created our own distinct
         def better_distinct_season(courses)
-            new_courses_seasons = Array.new
-            for course in courses.each do
-                exist = false
-                for season in new_courses_seasons do
-                    if course.season == season
-                        exist = true
-                    end
-                end
-                if !exist
-                    new_courses_seasons.push(course.season)
-                end
-            end
-            new_courses_seasons
-        end
-        
-        def better_distinct_year(courses)
-            new_courses_years = Array.new
-            for course in courses.each do
-                exist = false
-                for year in new_courses_years do
-                    if course.year == year
-                        exist = true
-                    end
-                end
-                if !exist
-                    new_courses_years.push(course.year)
-                end
-            end
+            new_courses_seasons = Array.new
+            for course in courses.each do
+                exist = false
+                for season in new_courses_seasons do
+                    if course.season == season
+                        exist = true
+                    end
+                end
+                if !exist
+                    new_courses_seasons.push(course.season)
+                end
+            end
+            new_courses_seasons
+        end
+        
+        def better_distinct_year(courses)
+            new_courses_years = Array.new
+            for course in courses.each do
+                exist = false
+                for year in new_courses_years do
+                    if course.year == year
+                        exist = true
+                    end
+                end
+                if !exist
+                    new_courses_years.push(course.year)
+                end
+            end
             new_courses_years
         end
 
