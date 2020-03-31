@@ -1,3 +1,6 @@
-<h1>ADMIN</h1>
+<% if session[:token] == @user.google_refresh_token%> <%# is this the right thing I should be checking?%>
+    <%= @student.fname%>
+<% else %>
+    <%= @student.lname %>
+<% end %>
 
-<%= @student.lname %>
