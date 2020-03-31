@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :teacher do
+    resources :courses do
+      resources :students
+      resources :role
+      resources :days do
+        resources :cards
+      end
+    end
+  end
+  
   resources :courses do
     resources :students
     resources :role
@@ -8,14 +18,10 @@ Rails.application.routes.draw do
       resources :cards
     end
   end
-  resources :students do
-    resources :courses
-  end
-  resources :users do
-    resources :courses
-  end
   
-  get '/courses/:course_id/days/:day_id/cards:new2(.:format)', to: 'cards#newer'
+  resources :students# do
+   # resources :courses
+  #end
 
   post '/courses/:id/import', to: 'courses#import'
 
