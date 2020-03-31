@@ -11,15 +11,15 @@ class CoursesController < ApplicationController
         #@movies = Movie.order(@sort_by)
         #@sort_by = params[:sort_by]
         #@current_ratings = params[:ratings] 
-        @current_seasons = params[:seasons]
-        @current_years = params[:years]
-        if (!params[:seasons].nil? and !params[:years].nil?)
-            @courses = Course.where(year: @current_years.keys, season: @current_seasons.keys) 
-        elsif !params[:seasons].nil?
-            @courses = Course.where(season: @current_seasons.keys)
-        elsif !params[:years].nil?
-            @courses = Course.where(year: @current_years.keys)
-        end
+        # @current_seasons = params[:seasons]
+        # @current_years = params[:years]
+        # if (!params[:seasons].nil? and !params[:years].nil?)
+        #     @courses = Course.where(year: @current_years.keys, season: @current_seasons.keys) 
+        # elsif !params[:seasons].nil?
+        #     @courses = Course.where(season: @current_seasons.keys)
+        # elsif !params[:years].nil?
+        #     @courses = Course.where(year: @current_years.keys)
+        # end
     end
 
     def import
