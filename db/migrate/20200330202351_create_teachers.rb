@@ -5,6 +5,7 @@ class CreateTeachers < ActiveRecord::Migration[5.2]
       t.string :mname
       t.string :lname
       t.string :email
+      t.string :department
       
       t.timestamps
     end
