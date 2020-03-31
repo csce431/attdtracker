@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
         @courses = Course.order(:year).reverse_order.order(:season)
         
         @all_seasons = better_distinct_season(Course.order(:year).reverse_order)
-        @all_years = better_distinct_year(Course.order(:season)).sortxw
+        @all_years = better_distinct_year(Course.order(:season)).sort
         
         @current_seasons = params[:seasons]
         @current_years = params[:years]
