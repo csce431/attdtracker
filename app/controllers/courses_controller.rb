@@ -5,8 +5,8 @@ class CoursesController < ApplicationController
     def index
         @courses = Course.order(:year).reverse_order
         
-        @all_seasons = @courses.pluck(:season)
-        @all_years = @courses.pluck(:year)
+        @all_seasons = @courses.select("Distinct(season)").pluck(:season)
+        @all_years = @courses.select("Distinct(year)").pluck(:year)
 
         @current_seasons = params[:seasons]
         @current_years = params[:years]
