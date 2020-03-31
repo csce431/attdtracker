@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     resources :users
     resources :days do
       resources :cards
+      get 'card/promptemail', to: 'cards#promptemail'
     end
   end
 

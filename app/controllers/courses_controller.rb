@@ -85,7 +85,7 @@ class CoursesController < ApplicationController
         @course = Course.find(params[:id])
  
         if @course.update(course_params)
-            redirect_to @course
+            redirect_to courses_path
         else
             render 'edit'
         end

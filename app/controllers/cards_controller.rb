@@ -10,7 +10,11 @@ class CardsController < ApplicationController
         #if(Card.where(courses_id: :courses_id).last)
         #    @lastCard = Card.where(course_id: :course_id).last.code
         #end
-        
+    end
+    
+    def promptemail
+        @card = Card.new
+        @code = @card.code
     end
     
     def edit
@@ -29,18 +33,23 @@ class CardsController < ApplicationController
         @day = Day.find(params[:day_id])
 
         if !code_exist(@card.code) && @card.email == nil
-            render 'promptemail'
+            redirect_to course_day_card_promptemail_path
         elsif !code_exist(@card.code) && @card.email != nil
         #check against database
             if email_exist_in_course(@card.email, @course)
-                if @card.save #maybe check if email of card is connected to a card - then use that (if student changes tamu id card)
+                if @card.save 
                     @course.cards << @card
                     @day.cards << @card
-
+                    
                     redirect_to new_course_day_card_path
-                end 
+                #If email of card is connected to a card
+                else
+                    redirect_to course_day_card_promptemail_path
+                end
+            elsif @card.email == ''
+                redirect_to course_day_card_promptemail_path
             else
-                render 'no_email' #blank error page with "consult teacher to add you to the roster"
+                render 'noemail' #blank error page with "consult teacher to add you to the roster"
             end
         elsif code_exist_in_course(@card.code, @course)
         #not functioning correctly 
