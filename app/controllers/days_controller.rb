@@ -24,18 +24,8 @@ class DaysController < ApplicationController
   end
   
   def new
-    #@day = Day.new
     @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     @course = Course.find(params[:course_id])
-    @days = @course.days
-    @cards = @course.cards
-    @db = Day.all
-  
-    if !@db.include? @days.ids
-      @day = Day.new 
-    else
-      @day = @days.id
-    end  
   end
   
   def edit

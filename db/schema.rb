@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_202351) do
+ActiveRecord::Schema.define(version: 2020_03_31_215308) do
 
   create_table "cards", force: :cascade do |t|
     t.string "code"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_202351) do
     t.string "mname"
     t.string "lname"
     t.string "email"
+    t.string "department"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
