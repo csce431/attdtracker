@@ -7,7 +7,8 @@ class CoursesController < ApplicationController
         
         # @all_seasons = @courses.distinct.pluck(:season)
         # @all_years = @courses.distinct.pluck(:year)
-        
+        @all_seasons = {'1'}
+        @all_years = {1}
         #@movies = Movie.order(@sort_by)
         #@sort_by = params[:sort_by]
         #@current_ratings = params[:ratings] 
