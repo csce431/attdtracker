@@ -1,4 +1,4 @@
-<% if session[:token] == @user.google_refresh_token%> <%# is this the right thing I should be checking?%>
+<% if session[:token] == @user.google_refresh_token%> <%# is this the right thing I should be checking for authenticity?%>
     <%= @student.fname%>
 <% else %>
     <%= @student.lname %>
