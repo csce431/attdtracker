@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         # Get access tokens from the google server
         access_token = request.env["omniauth.auth"]
         na = access_token["info"]["name"]
-        em = access_token["info"]["email"]
+        @em = access_token["info"]["email"]
         #puts access_token
         #puts User.find_by email: access_token["info"]["email"]
         user = create_from_omniauth(access_token)
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
         #user.google_token = access_token 
         
         session[:name] = na
-        session[:email] = em
+        session[:email] = @em
         session[:user] = user.fname
         #session[:token] = access_token # putting token in session gives cookie overflow
         #puts user.id
@@ -31,15 +31,15 @@ class SessionsController < ApplicationController
         # look thru all user database, if role of email is instructor, redirect to path of instructor tab (remove tab)
         # if role is student, redirect to student view page
 
-        if em == "racheljee1@tamu.edu"
+        if @em == "racheljee1@tamu.edu"
             @student = Student.where(email: "racheljee1@tamu.edu").first
             @student.role = 0
             #redirect to an admin page, need to look thru database to assign roles to teachers (1)
         end
         #if (Student.find_by email: "racheljee1@tamu.edu").role == 0
         #session[:role] = Student.where(email: "racheljee1@tamu.edu").first).role
-        @info = (Student.where(email: em).first).fname
-        if (Student.where(email: em).first).role == 0
+        @info = (Student.where(email: @em).first).fname
+        if (Student.where(email: @em).first).role == 0
             render 'admin'
         # # elsif (Student.find_by email: em).role == 1
         # #     #redirect to instructor home page
