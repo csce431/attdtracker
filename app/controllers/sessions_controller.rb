@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
         # # elsif (Student.find_by email: em).role == 2
         # #     #redirect to student profile page
         else
-            redirect_to root_path
+            render 'admin'
         end
         #redirect_to root_path
     end
