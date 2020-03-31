@@ -5,8 +5,8 @@ class CoursesController < ApplicationController
     def index
         @courses = Course.order(:year).reverse_order
         
-        @all_seasons = @courses.distinct.pluck(:season)
-        @all_years = @courses.distinct.pluck(:year)
+        # @all_seasons = @courses.distinct.pluck(:season)
+        # @all_years = @courses.distinct.pluck(:year)
         
         #@movies = Movie.order(@sort_by)
         #@sort_by = params[:sort_by]
