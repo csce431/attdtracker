@@ -1,30 +1,28 @@
 class SessionsController < ApplicationController
     def index
-        if !Student.where(email: "racheljee1@tamu.edu").first.nil?
-            @student = Student.where(email: "racheljee1@tamu.edu").first
-        elsif !Student.where(email: "rdj772@tamu.edu").first.nil?
-            @student = Student.where(email: "rdj772@tamu.edu").first
-        end
+        # was used to check if my email was being created
+        # if !Student.where(email: "racheljee1@tamu.edu").first.nil?
+        #     @student = Student.where(email: "racheljee1@tamu.edu").first
+        # elsif !Student.where(email: "rdj772@tamu.edu").first.nil?
+        #     @student = Student.where(email: "rdj772@tamu.edu").first
+        # end
     end
     
     def googleAuth
         session.clear
         # Get access tokens from the google server
         access_token = request.env["omniauth.auth"]
-        na = access_token["info"]["name"]
-        @em = access_token["info"]["email"]
-        #puts access_token
-        #puts User.find_by email: access_token["info"]["email"]
         @user = create_from_omniauth(access_token)
         #user = Student.find_by email: access_token["info"]["email"]
 
         refresh_token = access_token.credentials.refresh_token
         @user.google_refresh_token = refresh_token if refresh_token.present?
-        #user.google_token = access_token 
+        # @user.google_token = access_token 
         
-        session[:name] = na
-        session[:email] = @user.email 
-        session[:user] = @user.fname
+        # session[:name] = @user.fname
+        # session[:email] = @user.email
+        # session[:user] = @user.fname
+        session[:token] = @user.google_refresh_token # or do I use @user.google_refresh_token
         #session[:token] = access_token # putting token in session gives cookie overflow
         #puts user.id
         
@@ -57,6 +55,12 @@ class SessionsController < ApplicationController
             
         # end
             redirect_to root_path
+        end
+    end
+
+    def authenticate
+        if session[:token] == @user.google_refresh_token
+            
         end
     end
 
