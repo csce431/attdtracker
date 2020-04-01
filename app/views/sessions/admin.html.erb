@@ -1,7 +1,25 @@
 <% if session[:token] == @user.google_refresh_token%> <%# is this the right thing I should be checking for authenticity?%>
     <%= @student.fname%>
     
-    <%= render 'form'%>
+    <p>
+        <%= form.label "First Name" %><br>
+        <%= form.text_field :fname %>
+    </p>
+    <p>
+        <%= form.label "Middle Name" %><br>
+        <%= form.text_field :mname %>
+    </p>
+    <p>
+        <%= form.label "Last Name" %><br>
+        <%= form.text_field :lname %>
+    </p>
+    <p>
+        <%= form.label "TAMU E-mail" %><br>
+        <%= form.text_field :email %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>
 
 <% else %>
     <h1>Incorrect Credentials!</h1>
