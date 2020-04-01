@@ -1,8 +1,14 @@
 class SessionsController < ApplicationController
     def index
         if session[:email] == "racheljee1@tamu.edu"
-            @student = Student.where(email: "racheljee1@tamu.edu").first
-            redirect_to new_student_teacher_path(@student)
+            @admin = Student.where(email: "racheljee1@tamu.edu").first
+            redirect_to new_student_teacher_path(@admin)
+        elsif session[:email] == "rdj772@tamu.edu"
+            @teacher = Teacher.where(email: "rdj772@tamu.edu").first
+            redirect_to teacher_path(@teacher)
+        else
+            @student = create_from_omniauth(session[:fname],session[:lname],session[:email],session[:picture])
+            redirect_to student_path(@student)
         end
     end
     
@@ -11,8 +17,11 @@ class SessionsController < ApplicationController
         access_token = request.env["omniauth.auth"]
         refresh_token = access_token.credentials.refresh_token
 
+        session[:fname] = access_token.info.first_name
+        session[:lname] = access_token.info.last_name
         session[:email] = access_token.info.email
-        session[:token] = refresh_token # or do I use @user.google_refresh_token
+        session[:picture] = access_token.info.image
+        # session[:token] = refresh_token # or do I use @user.google_refresh_token
         #puts user.id
 
         # if access_token.info.email == "racheljee1@tamu.edu"
@@ -59,26 +68,21 @@ private
         ret
     end
 
-    def create_from_omniauth(access_token)
+    def create_from_omniauth(lname, fname, email, pic)
         #data = access_token.info
         #user = User.where(email: data['email']).first
         # Creates a new user only if it doesn't exist
-        if Teacher.where(email: access_token.info.email).first.nil?
-            if !exist_email(access_token.info.email)
-                @newstudent = Student.new
-                @newstudent.fname = access_token.info.first_name
-                @newstudent.lname = access_token.info.last_name
-                @newstudent.email = access_token.info.email
-                @newstudent.picture = access_token.info.image
-                @newstudent.save!
-            else
-                @newstudent = Student.where(email: access_token.info.email).first 
-            end
-            @newstudent
+        if Student.where(email: email).first.nil?
+            @newstudent = Student.new
+            @newstudent.fname = access_token.info.first_name
+            @newstudent.lname = access_token.info.last_name
+            @newstudent.email = access_token.info.email
+            @newstudent.picture = access_token.info.image
+            @newstudent.save!
         else
-            #redirect_to "/teachers/id" COURSE LIST PAGE
-            redirect_to root_path
+            @newstudent = Student.where(email: email).first 
         end
+        @newstudent
     end
 end
 
