@@ -22,9 +22,9 @@ Rails.application.routes.draw do
   #end
 
   
-  resources :students# do
-   # resources :courses
-  #end
+  resources :students do
+    resources :teachers
+  end
 
   post '/courses/:id/import', to: 'courses#import'
 
