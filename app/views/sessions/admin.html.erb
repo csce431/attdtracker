@@ -1,5 +1,5 @@
 <% if session[:token] == @user.google_refresh_token%> <%# is this the right thing I should be checking for authenticity?%>
-    <%= @student.fname%>
+    <%= @user.fname%>
     
     <p>
         <%= form.label "First Name" %><br>

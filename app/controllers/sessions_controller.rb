@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
         #puts user.id
 
         if access_token.info.email == "racheljee1@tamu.edu"
-            @student = Student.where(email: "racheljee1@tamu.edu").first
+            @user = Student.where(email: "racheljee1@tamu.edu").first
+            @user.google_refresh_token = refresh_token
             render 'admin'
         else
             @user = create_from_omniauth(access_token) 
