@@ -19,6 +19,7 @@ class StudentsController < ApplicationController
     def create
         @student = Student.new(student_params)
         @course = Course.find(params[:course_id])
+        @teacher = Teacher.find(params[:teacher_id])
         
         if exist_email(@student.email)
         begin
@@ -26,7 +27,7 @@ class StudentsController < ApplicationController
             if !email_in_course(@course, @student.email) 
                 @existStudent.courses << @course
             end
-            redirect_to course_path(@course)
+            redirect_to teacher_course_path(@teacher, @course)
         end
         else
             if @student.save

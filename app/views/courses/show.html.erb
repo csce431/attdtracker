@@ -2,8 +2,8 @@
 
 <p>
   <h1>Enrollment for <%= @course.name + " " + @course.number.to_s + " - " + @course.section.to_s %></h1>
-  <%= link_to 'Add Student', new_course_student_path(@course) %><br>
-  <%= link_to 'Back to Courses', courses_path %>
+  <%= link_to 'Add Student', new_teacher_course_student_path(@teacher, @course) %><br>
+  <%= link_to 'Back to Courses', teacher_path(@teacher) %>
 </p>
 
 <p id="course-id" hidden><%= params[:id] %><p>
@@ -42,7 +42,7 @@
       <td><%= student.lname %></td>
       <td><%= student.email %></td>
       <td><%= link_to 'View', student_path(student) %></td>
-      <td><%= link_to 'Delete', course_student_path(@course, student),
+      <td><%= link_to 'Delete', teacher_course_student_path(@teacher, @course, student),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
       <td>

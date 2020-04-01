@@ -31,9 +31,10 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
+        @teacher = Teacher.find(params[:teacher_id])
 
         if !code_exist(@card.code) && @card.email == nil
-            redirect_to course_day_card_promptemail_path
+            redirect_to teacher_course_day_card_promptemail_path
         elsif !code_exist(@card.code) && @card.email != nil
         #check against database
             if email_exist_in_course(@card.email, @course)
@@ -41,13 +42,13 @@ class CardsController < ApplicationController
                     @course.cards << @card
                     @day.cards << @card
                     
-                    redirect_to new_course_day_card_path
+                    redirect_to new_teacher_course_day_card_path
                 #If email of card is connected to a card
                 else
-                    redirect_to course_day_card_promptemail_path
+                    redirect_to teacher_course_day_card_promptemail_path
                 end
             elsif @card.email == ''
-                redirect_to course_day_card_promptemail_path
+                redirect_to teacher_course_day_card_promptemail_path
             else
                 render 'noemail' #blank error page with "consult teacher to add you to the roster"
             end
@@ -56,13 +57,13 @@ class CardsController < ApplicationController
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
 
-            redirect_to new_course_day_card_path
+            redirect_to new_teacher_course_day_card_path
         else
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
             @course.cards << @oldcard
 
-            redirect_to new_course_day_card_path
+            redirect_to new_teacher_course_day_card_path
         end
         
     end

@@ -2,7 +2,7 @@
 
 <h1>Attendance Tracker</h1>
 
-<%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
+<%= form_with scope: :card, url: teacher_course_day_cards_path, local: true do |form| %>
 
   <% if @card.errors.any? %>
     <div id="error_explanation">

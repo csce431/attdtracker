@@ -45,10 +45,25 @@ class TeachersController < ApplicationController
     end 
     
     def edit
+        @teacher = Teacher.find(params[:id])
     end
     
     def update
+        @teacher = Teacher.find(params[:id])
+ 
+        if @teacher.update(teacher_params)
+            redirect_to teacher_path(@teacher)
+        else
+            render 'edit'
+        end
     end
+    
+    def destroy
+        @teacher = Teacher.find(params[:id])
+        @teacher.destroy
+ 
+        redirect_to teachers_path
+    end 
     
     private
         ##distinct doesn't work on heroku so we created our own distinct
