@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
     def index
         if session[:email] == "racheljee1@tamu.edu"
             @student = Student.where(email: "racheljee1@tamu.edu").first
-            redirect_to new_student_teacher_path
+            redirect_to new_student_teacher_path(@student)
         end
     end
     
