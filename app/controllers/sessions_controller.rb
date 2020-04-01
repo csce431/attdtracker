@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
         if access_token.info.email == "racheljee1@tamu.edu"
             @user = Student.where(email: "racheljee1@tamu.edu").first
             @user.google_refresh_token = refresh_token
-            render 'admin'
+            # render 'admin'
+            redirect_to teacher_path
         else
             @user = create_from_omniauth(access_token) 
             @user.google_refresh_token = refresh_token if refresh_token.present?
