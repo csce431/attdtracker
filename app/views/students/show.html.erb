@@ -3,7 +3,7 @@
 <div class="page-content">
 
 <h2>Welcome,
-    <% if @student.prefname.nil? %>
+    <% if @student.prefname.nil? or @student.prefname.empty? %>
         <%= @student.fname + "!" %>
     <% else %>
         <%= @student.prefname + "!" %>
@@ -59,7 +59,7 @@
             <% $i = 0 %>
             <% $j = 0 %>
             <tr><th class="dept" colspan="2"><%= course.name %><%= ' ' %><%= course.number %></th></tr>
-            <!-- table: present column-->
+
             <% course.days.each do |day| %> 
                 <% if day.cards.include? Card.where(email: @student.email).first %>
                     <% $i += 1 %>
@@ -75,22 +75,18 @@
             <tr>
                 <td>
                 <table>
-                    <!--ul id="days_pres"-->
                     <% course.days.each do |day| %> 
                         <% if day.cards.include? Card.where(email: @student.email).first %>
                             <tr><td><%= day.classday %></td></tr>
                         <% end %>
                     <% end %>
-                    <!--/ul-->
                 </table></td><td>
                 <table>
-                    <!--ul id="days_abs"-->
                     <% course.days.each do |day| %> 
                         <% if !day.cards.include? Card.where(email: @student.email).first %>
                             <tr><td><%= day.classday %></td></tr>
                         <% end %>
                     <% end %>
-                    <!--/ul-->
                 </table></td>
             </tr>
         </table>  
