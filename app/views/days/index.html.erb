@@ -60,18 +60,18 @@
         <tr>
             <th><%= sortable "fname", "First Name" %>
                 <% if params[:direction] == "desc" and params[:sort] == "fname" %>
-                    <%= image_tag("up_arrow") %>
+                    <%= image_tag("up_arrow.gif") %>
                 <% elsif params[:direction] == "asc" and params[:sort] == "fname" %>
-                    <%= image_tag("down_arrow") %>
+                    <%= image_tag("down_arrow.gif") %>
                 <% else %>
                     <%= image_tag("") %>
                 <% end %>
             </th>
             <th><%= sortable "lname", "Last Name" %>
                 <% if params[:direction] == "desc" and params[:sort] == "lname" %>
-                    <%= image_tag("up_arrow") %>
+                    <%= image_tag("up_arrow.gif") %>
                 <% elsif params[:direction] == "asc" and params[:sort] == "lname" %>
-                    <%= image_tag("down_arrow") %>
+                    <%= image_tag("down_arrow.gif") %>
                 <% else %>
                     <%= image_tag("") %>
                 <% end %>

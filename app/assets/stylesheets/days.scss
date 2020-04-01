@@ -4,18 +4,19 @@
 
 table#attendance_day {
     border-style: solid;
+    border-color: grey;
     max-width: 0;
 }
 
 th {
     border-bottom-style: solid;
-    
     width: 1%;
     white-space: nowrap;
 }
 
 td.name {
     border-right-style: solid;
+    border-color: lightgrey;
 }
 
 td.pres {
