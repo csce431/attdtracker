@@ -22,7 +22,8 @@
 
 <script>
   var courseID = document.getElementById("course-id").innerHTML;
-  $('form#upload-roster-form').attr('action', "/courses/".concat(courseID, "/import"));
+  var teacherID = document.getElementById("teacher-id").innerHTML;
+  $('form#upload-roster-form').attr('action', "/teachers/".concat(teacherID ,"/courses/".concat(courseID, "/import")));
 </script>
 
 

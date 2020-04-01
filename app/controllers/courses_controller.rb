@@ -23,6 +23,7 @@ class CoursesController < ApplicationController
     def import
         @course = Course.find(params[:id])
         @students_in_course = @course.students.all
+        @teacher = Teacher.find(params[:teacher_id])
 
         tempFile = params['enrollment']
         csv = CSV.read(tempFile.path, :headers => true)
@@ -50,13 +51,11 @@ class CoursesController < ApplicationController
                 # email doesnt exist
                 if @newstudent.save
                     @newstudent.courses << @course
-                    #@students_in_course << @newstudent
-                    #@course << @newstudent
                 end
             end
         end
 
-        redirect_to course_path(@course)
+        redirect_to teacher_course_path(@teacher, @course)
     end
     
     def new
@@ -101,8 +100,9 @@ class CoursesController < ApplicationController
     def destroy
         @course = Course.find(params[:id])
         @course.destroy
- 
-        redirect_to courses_path
+        @teacher = Teacher.find(params[:teacher_id])
+        
+        redirect_to teacher_path(@teacher)
     end 
     
     private
