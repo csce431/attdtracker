@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     
     def googleAuth
         session.clear
-        # Get access tokens from the google server
         access_token = request.env["omniauth.auth"]
         @user = create_from_omniauth(access_token) # this will have to go in diff line maybe 
         #user = Student.find_by email: access_token["info"]["email"]
@@ -31,7 +30,6 @@ class SessionsController < ApplicationController
             @student = Student.where(email: "racheljee1@tamu.edu").first
             #@student.role = 0
             render 'admin'
-            #redirect to an admin page, need to look thru database to assign roles to teachers (1)
         else
 
         # if Teacher.where(email: @em).first.nil?
@@ -44,11 +42,14 @@ class SessionsController < ApplicationController
         end
     end
 
-    def authenticate
-        if session[:token] == @user.google_refresh_token
-            
-        end
+    def admin
+        @teacher = Teacher.new
     end
+    # def authenticate
+    #     if session[:token] == @user.google_refresh_token
+            
+    #     end
+    # end
 
     def destroy
         session.delete :name
