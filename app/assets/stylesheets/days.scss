@@ -4,14 +4,17 @@
 
 table#attendance_day {
     border-style: solid;
+    max-width: 0;
 }
 
 th {
     border-bottom-style: solid;
+    
+    width: 1%;
+    white-space: nowrap;
 }
 
 td.name {
-    width: 10%;
     border-right-style: solid;
 }
 
