@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
             @user = Student.where(email: "racheljee1@tamu.edu").first
             @user.google_refresh_token = refresh_token
             # render 'admin'
-            redirect_to "https://numberzz.herokuapp.com/teachers/index"
+            redirect_to "https://numberzz.herokuapp.com/teacher/index"
         else
             @user = create_from_omniauth(access_token) 
             @user.google_refresh_token = refresh_token if refresh_token.present?
