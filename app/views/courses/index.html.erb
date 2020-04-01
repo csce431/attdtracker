@@ -10,11 +10,8 @@
     <% @all_years.each do |year| %>
       <%= check_box_tag "years[#{year}]", :id => "years_#{year}" %>
       <%= year %>
-    <% end %> 
-  </p>
-  
-  
-  <p>
+    <% end %>
+    
     <% @all_seasons.each do |season| %>
       <%= check_box_tag "seasons[#{season}]", :id => "seasons_#{season}" %>
       <%= season %>
@@ -32,15 +29,15 @@
     <th>Course</th>
     <th>Year</th>
     <th>Semester</th>
-    <th style="color: #FFFFFF">Attendance</th>
-    <th style="color: #FFFFFF">Enrollment</th>
-    <th style="color: #FFFFFF">Edit</th>
-    <th style="color: #FFFFFF">Delete</th>
+    <th hidden>Attendance</th>
+    <th hidden>Enrollment</th>
+    <th hidden>Edit</th>
+    <th hidden>Delete</th>
   </tr>
  
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.name %> <%= course.number %>-<%= course.section %></td>
+      <td><%= course.name %> <%= course.number %> - <%= course.section %></td>
       <td><%= course.year %></td>
       <td><%= course.season %></td>
       <td><%= link_to 'Attendance', course_days_path(course) %></td>
