@@ -1,4 +1,7 @@
 class DaysController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+
   def index
     @course = Course.find(params[:course_id])
 
@@ -11,7 +14,7 @@ class DaysController < ApplicationController
     @all_days = Day.all
     @cards = @course.cards
 
-    @students = @course.students
+    @students = @course.students.order(sort_column + " " + sort_direction)
     
     if(@course.days.first)
       @classday = @course.days.first.classday
@@ -102,5 +105,13 @@ class DaysController < ApplicationController
   private
     def day_params
       params.require(:day).permit(:classday)
+    end
+
+    def sort_column
+      Student.column_names.include?(params[:sort]) ? params[:sort] : "lname"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end

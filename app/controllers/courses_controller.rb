@@ -79,7 +79,7 @@ class CoursesController < ApplicationController
     def show
         @course = Course.find(params[:id])
         #@students = @course.students.all
-        @students = @course.students.order(:fname)
+        @students = @course.students.order(:lname)
     end
     
     def create
