@@ -27,8 +27,6 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
-        @bool = !code_exist(@card.code)
-        #@page holds which prompt it is on
 
         if !code_exist(@card.code) && @card.email == nil
             render 'promptemail'
@@ -38,6 +36,7 @@ class CardsController < ApplicationController
                 if @card.save #maybe check if email of card is connected to a card - then use that (if student changes tamu id card)
                     @course.cards << @card
                     @day.cards << @card
+                    Student.where(email: @card.email).first.card_num = @card.code
 
                     redirect_to new_course_day_card_path
                 end 
