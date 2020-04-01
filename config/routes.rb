@@ -5,20 +5,21 @@ Rails.application.routes.draw do
       resources :role
       resources :days do
         resources :cards
+        get 'card/promptemail', to: 'cards#promptemail'
       end
     end
   end
   
-  resources :courses do
-    resources :students
-    resources :role
-    resources :cards
-    resources :users
-    resources :days do
-      resources :cards
-      get 'card/promptemail', to: 'cards#promptemail'
-    end
-  end
+  #resources :courses do
+  #  resources :students
+  #  resources :role
+  #  resources :cards
+  #  resources :users
+  #  resources :days do
+  #    resources :cards
+  #    get 'card/promptemail', to: 'cards#promptemail'
+  #  end
+  #end
 
   
   resources :students# do

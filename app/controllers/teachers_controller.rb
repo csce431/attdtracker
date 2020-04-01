@@ -26,29 +26,43 @@ class TeachersController < ApplicationController
     end
     
     def show
-        #teacher/:id/courses
         @teacher = Teacher.find(params[:id])
         @courses = @teacher.courses.order(:year).reverse_order.order(:season)
         
-        @all_seasons = distinct_season(Course.order(:year).reverse_order)
-        @all_years = distinct_year(Course.order(:season)).sort
+        @all_seasons = distinct_season(@courses.order(:year).reverse_order)
+        @all_years = distinct_year(@courses.order(:season)).sort
         
         @current_seasons = params[:seasons]
         @current_years = params[:years]
         if (!params[:seasons].nil? and !params[:years].nil?)
-            @courses = Course.where(year: @current_years.keys, season: @current_seasons.keys) 
+            @courses = @teacher.courses.where(year: @current_years.keys, season: @current_seasons.keys) 
         elsif !params[:seasons].nil?
-            @courses = Course.where(season: @current_seasons.keys)
+            @courses = @teacher.courses.where(season: @current_seasons.keys)
         elsif !params[:years].nil?
-            @courses = Course.where(year: @current_years.keys)
+            @courses = @teacher.courses.where(year: @current_years.keys)
         end
     end 
     
     def edit
+        @teacher = Teacher.find(params[:id])
     end
     
     def update
+        @teacher = Teacher.find(params[:id])
+ 
+        if @teacher.update(teacher_params)
+            redirect_to teacher_path(@teacher)
+        else
+            render 'edit'
+        end
     end
+    
+    def destroy
+        @teacher = Teacher.find(params[:id])
+        @teacher.destroy
+ 
+        redirect_to teachers_path
+    end 
     
     private
         ##distinct doesn't work on heroku so we created our own distinct

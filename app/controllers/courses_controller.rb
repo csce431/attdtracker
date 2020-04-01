@@ -4,6 +4,7 @@ class CoursesController < ApplicationController
 
     def index
         @courses = Course.order(:year).reverse_order.order(:season)
+        @teacher = Teacher.find(params[:teacher_id])
         
         @all_seasons = better_distinct_season(Course.order(:year).reverse_order)
         @all_years = better_distinct_year(Course.order(:season)).sort
@@ -22,6 +23,7 @@ class CoursesController < ApplicationController
     def import
         @course = Course.find(params[:id])
         @students_in_course = @course.students.all
+        @teacher = Teacher.find(params[:teacher_id])
 
         tempFile = params['enrollment']
         csv = CSV.read(tempFile.path, :headers => true)
@@ -49,13 +51,11 @@ class CoursesController < ApplicationController
                 # email doesnt exist
                 if @newstudent.save
                     @newstudent.courses << @course
-                    #@students_in_course << @newstudent
-                    #@course << @newstudent
                 end
             end
         end
 
-        redirect_to course_path(@course)
+        redirect_to teacher_course_path(@teacher, @course)
     end
     
     def new
@@ -64,11 +64,13 @@ class CoursesController < ApplicationController
     
     def edit
         @course = Course.find(params[:id])
+        @teacher = Teacher.find(params[:teacher_id])
     end
     
     def show
         @course = Course.find(params[:id])
-        @students = @course.students.order(:fname)
+        @students = @course.students.order(:lname)
+        @teacher = Teacher.find(params[:teacher_id])
     end
     
     def create
@@ -86,9 +88,10 @@ class CoursesController < ApplicationController
     
     def update
         @course = Course.find(params[:id])
+        @teacher = Teacher.find(params[:teacher_id])
  
         if @course.update(course_params)
-            redirect_to courses_path
+            redirect_to teacher_courses_path(@teacher)
         else
             render 'edit'
         end
@@ -97,8 +100,9 @@ class CoursesController < ApplicationController
     def destroy
         @course = Course.find(params[:id])
         @course.destroy
- 
-        redirect_to courses_path
+        @teacher = Teacher.find(params[:teacher_id])
+        
+        redirect_to teacher_path(@teacher)
     end 
     
     private
