@@ -9,12 +9,8 @@ Rails.application.routes.draw do
       end
     end
   end
-<<<<<<< HEAD
   post 'teachers', to: 'teachers#index'
   
-=======
-
->>>>>>> 499886a2a91909c5206ea6dbb408d6d65734e8d9
   #resources :courses do
   #  resources :students
   #  resources :role
