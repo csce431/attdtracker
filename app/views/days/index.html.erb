@@ -97,7 +97,7 @@
                     <% $present = false %>
                     <% @cards.each do |card| %>
                         <% if card.email == student.email %>
-                            <%if card.day_ids.include? day.id %>
+                            <% if card.day_ids.include? day.id %>
                                 <td class="pres"><%="PRESENT"%></td>
                                 <% $present = true %>
                             <% end %>

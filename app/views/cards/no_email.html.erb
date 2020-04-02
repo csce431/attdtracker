@@ -1,0 +1,21 @@
+<div class="page-content">
+
+<div>
+  <h1>Sorry!</h1>
+  <p>The email <%= @card.email %> you entered is not registered in this course.</p>
+  <p>Please consult with your instructor.</p>
+</div>
+
+<br>
+
+<script src="jquery-3.4.1.min.js"></script>
+<script>
+  (function () {
+      setTimeout(function () {
+          history.back();
+      }, 3000);
+  })();
+</script>
+
+<%= link_to 'Back', :back %>
+</div>

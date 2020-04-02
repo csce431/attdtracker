@@ -30,32 +30,58 @@ class CardsController < ApplicationController
         @bool = !code_exist(@card.code)
         #@page holds which prompt it is on
 
+        @students = @course.students
+
         if !code_exist(@card.code) && @card.email == nil
             render 'promptemail'
         elsif !code_exist(@card.code) && @card.email != nil
-        #check against database
+            # check against database for card's email (code doesn't exist yet)
             if email_exist_in_course(@card.email, @course)
-                if @card.save #maybe check if email of card is connected to a card - then use that (if student changes tamu id card)
+                # maybe check if email of card is connected to a card - then use that (if student changes tamu id card)
+                if @card.save
                     @course.cards << @card
                     @day.cards << @card
 
-                    redirect_to new_course_day_card_path
+                    @student = @students.where(email: @card.email).first
+                    @student.update_attribute(:card_num, @card.code)
+
+                    @card.preferredname = @student.prefname
+                    @card.firstname = @student.fname
+                    @card.lastname = @student.lname
+
+                    #redirect_to new_course_day_card_path
+                    render 'cards/show', :course_id => @course, :code => @card
                 end 
             else
-                render 'no_email' #blank error page with "consult teacher to add you to the roster"
+                render 'no_email' # blank error page with "consult teacher to add you to the roster"
             end
-        elsif code_exist_in_course(@card.code, @course)
-        #not functioning correctly 
+        elsif code_exist_in_course(@card.code, @course) # not functioning correctly 
+            # code exists (no need to check for email)
+
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
 
-            redirect_to new_course_day_card_path
+            @student = @students.where(email: @oldcard.email).first
+
+            @card.preferredname = @student.prefname
+            @card.firstname = @student.fname
+            @card.lastname = @student.lname
+
+            #redirect_to new_course_day_card_path
+            render 'already_in', :course_id => @course, :code => @card
         else
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
             @course.cards << @oldcard
 
-            redirect_to new_course_day_card_path
+            @student = @students.where(email: @oldcard.email).first
+
+            @card.preferredname = @student.prefname
+            @card.firstname = @student.fname
+            @card.lastname = @student.lname
+
+            #redirect_to new_course_day_card_path
+            render 'cards/show', :course_id => @course, :code => @card
         end
         
     end

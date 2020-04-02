@@ -1,0 +1,28 @@
+<div class="page-content">
+
+<div>
+  <h1>
+    <% @name = "" %>
+    <% if @card.preferredname.nil? or @card.preferredname.empty? %>
+      <% @name = @card.firstname %>
+    <% else %>
+      <% @name = @card.preferredname %>
+    <% end %>
+    Howdy, <%= @name %>!
+  </h1>
+  <p><%= @name %> <%= @card.lastname %>, you have <strong>already swiped-in</strong> for this class for today!</p>
+</div>
+
+<br>
+
+<script src="jquery-3.4.1.min.js"></script>
+<script>
+  (function () {
+      setTimeout(function () {
+          history.back();
+      }, 3000);
+  })();
+</script>
+
+<%= link_to 'Back', :back %>
+</div>

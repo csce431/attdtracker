@@ -48,7 +48,7 @@ class CoursesController < ApplicationController
             @newstudent.lname = student['Last']
             
             # check if imported email exists
-            if exist_email_in_course(student['email'],@course)
+            if exist_email_in_course(student['email'], @course)
                 # do nothing (email already exists in course)
                 # next
             elsif exist_email(student['email'])

@@ -1,15 +1,28 @@
 <div class="page-content">
 
-<p>
-  <% @students.each do |student| %>
-    <% if @card.email == student.email %>
-      <h1>Howdy <%= student.fname %> <%= student.lname %>!</h1>
-      <p>Your card number is: <%= @card.code %></p>
+<div>
+  <h1>
+    <% @name = "" %>
+    <% if @card.preferredname.nil? or @card.preferredname.empty? %>
+      <% @name = @card.firstname %>
+    <% else %>
+      <% @name = @card.preferredname %>
     <% end %>
-  <% end %>
-</p>
+    Howdy, <%= @name %>!
+  </h1>
+  <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
+</div>
 
 <br>
+
+<script src="jquery-3.4.1.min.js"></script>
+<script>
+  (function () {
+      setTimeout(function () {
+          history.back();
+      }, 2000);
+  })();
+</script>
 
 <%= link_to 'Back', :back %>
 </div>
