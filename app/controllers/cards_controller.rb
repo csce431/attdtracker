@@ -58,10 +58,8 @@ class CardsController < ApplicationController
             else
                 render 'no_email' # blank error page with "consult teacher to add you to the roster"
             end
-        elsif code_exist_in_course(@card.code, @course) #### not functioning correctly 
+        elsif code_exist_in_course(@card.code, @course) #### not functioning correctly
             # code exists (no need to check for email)
-
-            ##### TODO: check if card is already swiped in for that day ID
 
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
@@ -72,8 +70,16 @@ class CardsController < ApplicationController
             @card.firstname = @student.fname
             @card.lastname = @student.lname
 
-            #redirect_to new_course_day_card_path
-            render 'already_in', :course_id => @course, :code => @card
+            ##### TODO: check if card is already swiped in for that day ID
+            if @oldcard.day_ids.include? @day.id
+                # already signed in for today (the current day.id)
+
+                #redirect_to new_course_day_card_path
+                render 'already_in'
+            else
+                # if new day, show confirmation page
+                render 'cards/show', :course_id => @course, :code => @card
+            end
         else # ???
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
@@ -126,16 +132,11 @@ class CardsController < ApplicationController
     
     def code_exist_in_course(code, course)
         ret = false
-        puts('code = ', code)
         for student in course.students.all do
-            puts('Student Fname = ', student.fname)
-            puts('Student Lname = ', student.lname)
-            puts('Student card_num = ', student.card_num)
             if code == student.card_num
                 ret = true
             end
         end
-        puts('Return value ======= ', ret)
         ret
     end
     
