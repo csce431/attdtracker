@@ -8,14 +8,14 @@
   <%= form_tag courses_path, :method => :get do %>
     Filters:<br>
     <% @all_years.each do |year| %>
-      <%= check_box_tag "years[#{year}]", 1, :id => "years_#{year}" %>
+      <%= check_box_tag "years[#{year}]", 1, @current_years.include?(year), :id => "years_#{year}" %>
       <%= year %>
     <% end %>
 
     <br>
       
     <% @all_seasons.each do |season| %>
-      <%= check_box_tag "seasons[#{season}]", 1, :id => "seasons_#{season}" %>
+      <%= check_box_tag "seasons[#{season}]", 1, @current_seasons.include?(season), :id => "seasons_#{season}" %>
       <%= season %>
     <% end %>
 
