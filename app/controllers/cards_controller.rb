@@ -30,6 +30,8 @@ class CardsController < ApplicationController
         @day = Day.find(params[:day_id])
         @students = @course.students
 
+        @code_in_course = true
+
         if !code_exist(@card.code) && @card.email == nil
             puts('PROMPTED EMAIL')
             render 'promptemail'
@@ -40,7 +42,8 @@ class CardsController < ApplicationController
                 if @card.save
                     @course.cards << @card
                     @day.cards << @card
-                    Student.where(email: @card.email).first.card_num = @card.code
+                    #Student.where(email: @card.email).first.card_num = @card.code
+                    
                     @student = @students.where(email: @card.email).first
                     @student.update_attribute(:card_num, @card.code)
 
@@ -58,6 +61,8 @@ class CardsController < ApplicationController
         elsif code_exist_in_course(@card.code, @course) #### not functioning correctly 
             # code exists (no need to check for email)
 
+            ##### TODO: check if card is already swiped in for that day ID
+
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
 
@@ -69,16 +74,18 @@ class CardsController < ApplicationController
 
             #redirect_to new_course_day_card_path
             render 'already_in', :course_id => @course, :code => @card
-        else
+        else # ???
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
             @course.cards << @oldcard
 
-            @student = @students.where(email: @oldcard.email).first
+            @student = Student.all.where(email: @oldcard.email).first
 
             @card.preferredname = @student.prefname
             @card.firstname = @student.fname
             @card.lastname = @student.lname
+
+            @code_in_course = false
 
             #redirect_to new_course_day_card_path
             render 'cards/show', :course_id => @course, :code => @card
@@ -108,24 +115,27 @@ class CardsController < ApplicationController
     end
     
     def code_exist(code)
-        #return value 'ret'
-        ret = false 
+        ret = false
         for card in Card.all do
           if card.code == code
             ret = true
-          end 
-        end 
+          end
+        end
         ret
     end
     
     def code_exist_in_course(code, course)
-        #return value 'ret'
-        ret = false 
-        for card in course.cards.all do
-          if card.code == code
-            ret = true
-          end 
-        end 
+        ret = false
+        puts('code = ', code)
+        for student in course.students.all do
+            puts('Student Fname = ', student.fname)
+            puts('Student Lname = ', student.lname)
+            puts('Student card_num = ', student.card_num)
+            if code == student.card_num
+                ret = true
+            end
+        end
+        puts('Return value ======= ', ret)
         ret
     end
     
