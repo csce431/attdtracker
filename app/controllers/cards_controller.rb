@@ -50,21 +50,12 @@ class CardsController < ApplicationController
 
                     puts('IN ELSE IF!!!!!')
                     #redirect_to new_course_day_card_path
-<<<<<<< HEAD
-                    render 'added_email', :course_id => @course, :code => @card
-                end
-            else
-                render 'no_email' # blank error page with "consult teacher to add you to the roster"
-            end
-        elsif code_exist_in_course(@card.code, @course) # not functioning correctly???
-=======
                     render 'added_email'
                 end 
             else
                 render 'no_email' # blank error page with "consult teacher to add you to the roster"
             end
         elsif code_exist_in_course(@card.code, @course) #### not functioning correctly 
->>>>>>> f84abfacb73518763824fa82aa5b8f12244e7643
             # code exists (no need to check for email)
 
             @oldcard = Card.where(code: @card.code).first
