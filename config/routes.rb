@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
   post 'teachers', to: 'teachers#index'
+  # get '/teacher/index2', to: 'teachers#index2'
   
   #resources :courses do
   #  resources :students

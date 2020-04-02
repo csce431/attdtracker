@@ -11,6 +11,10 @@ class TeachersController < ApplicationController
         end
     end
     
+    def index2
+        
+    end
+    
     def new
         @teacher = Teacher.new
     end
