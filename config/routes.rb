@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  post 'teachers', to: 'teachers#index'
   
   #resources :courses do
   #  resources :students
