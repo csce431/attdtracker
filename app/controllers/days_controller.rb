@@ -14,11 +14,7 @@ class DaysController < ApplicationController
     @all_days = Day.all
     @cards = @course.cards
 
-   # if !params[:days]
-      @students = @course.students.order(sort_column + " " + sort_direction)
-    #else
-     # @students = @course.students.order(sort_column_day + " " + sort_direction)
-    #end 
+    @students = @course.students.order(sort_column + " " + sort_direction)
 
     if(@course.days.first)
       @classday = @course.days.first.classday
@@ -37,12 +33,12 @@ class DaysController < ApplicationController
     @days = @course.days
     @cards = @course.cards
     @db = Day.all
-  
+    
     if !@db.include? @days.ids
-      @day = Day.new 
+      @day = Day.new
     else
       @day = @days.id
-    end  
+    end
   end
   
   def edit
@@ -85,14 +81,13 @@ class DaysController < ApplicationController
   end
   
   def time_exist(course)
-    #return value 'ret'
     ret = false
-    time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") 
+    time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
     for day in course.days do
       if day.classday == time
         ret = true
-      end 
-    end 
+      end
+    end
     ret
   end
   
@@ -103,9 +98,9 @@ class DaysController < ApplicationController
               ret = true
           end
       end
-      ret            
+      ret
   end
-  
+
   private
     def day_params
       params.require(:day).permit(:classday)
@@ -113,14 +108,10 @@ class DaysController < ApplicationController
 
     def sort_column
         Student.column_names.include?(params[:sort]) ? params[:sort] : "lname"
-    end     
-      
-    def sort_column_day
-      
-    end   
+    end
 
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end 
-      
+    end
+
 end

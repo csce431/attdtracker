@@ -13,29 +13,15 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label "Department" %><br>
-    <%= form.text_field :name %>
-  </p>
- 
-  <p>
-    <%= form.label "Course" %><br>
-    <%= form.text_field :number %>
-  </p>
+
+  <div><%= form.text_field :name, placeholder: "Department"  %></div>
+  <div><%= form.text_field :number, placeholder: "Course Number"  %></div>
+  <div><%= form.text_field :section, placeholder: "Section" %></div>
+  <div><%= form.text_field :year, placeholder: "Year" %></div>
+  <br>
 
   <p>
-    <%= form.label "Section" %><br>
-    <%= form.text_field :section %>
-  </p>
-  
-  <p>
-    <%= form.label "Year" %><br>
-    <%= form.text_field :year %>
-  </p>
-  
-  <p>
-    <%= form.label "Season" %><br>
+    <%= form.label "Semester" %>
     <%= form.select(:season, options_for_select([["Fall","Fall"], ["Spring", "Spring"], ["Summer", "Summer"]])) %>
   </p>
  

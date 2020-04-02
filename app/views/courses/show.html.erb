@@ -32,10 +32,10 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
-    <th>View</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>List of Courses</th>
+    <th style="color: white; border-bottom-color: black;">View</th>
+    <th style="color: white; border-bottom-color: black;">Edit</th>
+    <th style="color: white; border-bottom-color: black;">&#215</th>
+    <th>Enrolled Courses</th>
     <th></th>
   </tr>
   <% @students.each do |student| %>
@@ -45,9 +45,9 @@
       <td><%= student.email %></td>
       <td><%= link_to 'View', student_path(student) %></td>
       <td><%= link_to 'Edit', edit_student_path(student) %></td>
-      <td><%= link_to 'Delete', course_student_path(@course, student),
+      <td><%= link_to '×', course_student_path(@course, student),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure you want to remove this student?' } %></td>
       <td>
         <% student.courses.each do |c| %>
           <%= c.name %><%= c.number %> 

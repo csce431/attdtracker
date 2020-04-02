@@ -23,7 +23,7 @@ class StudentsController < ApplicationController
         if exist_email(@student.email)
         begin
             @existStudent = Student.where(email: @student.email).first
-            if !email_in_course(@course, @student.email) 
+            if !email_in_course(@course, @student.email)
                 @existStudent.courses << @course
             end
             redirect_to course_path(@course)
@@ -76,7 +76,7 @@ class StudentsController < ApplicationController
                     ret = true
                 end
             end
-            ret            
+            ret
         end
         
         def student_params

@@ -33,7 +33,7 @@
     <th hidden>Attendance</th>
     <th hidden>Enrollment</th>
     <th hidden>Edit</th>
-    <th hidden>Delete</th>
+    <th hidden>&#215</th>
   </tr>
  
   <% @courses.each do |course| %>
@@ -44,9 +44,9 @@
       <td><%= link_to 'Attendance', course_days_path(course) %></td>
       <td><%= link_to 'Enrollment', course_path(course) %></td>
       <td><%= link_to 'Edit', edit_course_path(course) %></td>
-      <td><%= link_to 'Delete', course_path(course),
+      <td><%= link_to '×', course_path(course),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure you want to remove this course?' } %></td>
     </tr>
   <% end %>
 </table>

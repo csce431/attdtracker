@@ -2,13 +2,6 @@ class CoursesController < ApplicationController
 
     skip_before_action :verify_authenticity_token 
 
-#<% @all_seasons.each do |season| %>
- #   <%= season %>
- #   <%= check_box_tag "seasons[#{season}]", :id => "seasons_#{season}" %>
- # <% end %>
- # <%= submit_tag 'Refresh', :id => "years_submit" %>
-
-
     def index
         @courses = Course.order(:year).reverse_order
         

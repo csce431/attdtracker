@@ -18,37 +18,19 @@
     </div>
     <br>
   <% end %>
- 
-  <p>
-    <%= form.label "First Name" %><br>
-    <%= form.text_field :fname %>
-  </p>
-  <p>
-    <%= form.label "Middle Name" %><br>
-    <%= form.text_field :mname %>
-  </p>
-  <p>
-    <%= form.label "Last Name" %><br>
-    <%= form.text_field :lname %>
-  </p>
-  <p>
-    <%= form.label "Preferred Name" %><br>
-    <%= form.text_field :prefname %>
-  </p>
-  <p>
-    <%= form.label "UIN" %><br>
-    <%= form.text_field :uin %>
-  </p>
-  <p>
-    <%= form.label "Tamu E-mail" %><br>
-    <%= form.text_field :email %>
-  </p>
 
+  <div><%= form.text_field :fname, placeholder: "First Name"  %></div>
+  <div><%= form.text_field :mname, placeholder: "Middle Name"  %></div>
+  <div><%= form.text_field :lname, placeholder: "Last Name" %></div>
+  <div><%= form.text_field :prefname, placeholder: "Preferred Name" %></div>
+  <div><%= form.text_field :email, placeholder: "TAMU E-mail" %></div>
+
+  <br>
   <p>
-    <%= form.submit %>
+    <%= form.submit "Add Student" %>
   </p>
   
-  <%= link_to 'Back', students_path %>
+  <%= link_to 'Back', :back %>
  
 <% end %>
 
