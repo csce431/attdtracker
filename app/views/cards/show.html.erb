@@ -10,7 +10,14 @@
     <% end %>
     Howdy, <%= @name %>!
   </h1>
-  <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
+  <div>
+    <% if @code_in_course == true%>
+      <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
+    <% else %>
+      <p><%= @name %> <%= @card.lastname %>, you are currently <strong>not registered</strong> in this course.</p>
+      <p>Please consult with your instructor.</p>
+    <% end %>
+  </div>
 </div>
 
 <!-- this is the timer for the redirect -->
@@ -25,8 +32,4 @@
   })();
 </script>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f84abfacb73518763824fa82aa5b8f12244e7643
 </div>
