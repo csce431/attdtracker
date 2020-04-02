@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
             @admin = Student.where(email: "racheljee1@tamu.edu").first
             # redirect_to new_student_teacher_path(@admin) # teacher/new
             # redirect_to student_teacher_path(@admin)
-            redirect_to teachers_path
+            redirect_to teacher_index2_path
         elsif session[:email] == "rdj772@tamu.edu"
             @teacher = Teacher.where(email: "rdj772@tamu.edu").first
             redirect_to teacher_path(@teacher)
