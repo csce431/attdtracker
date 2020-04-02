@@ -51,12 +51,12 @@ class CardsController < ApplicationController
                     @card.lastname = @student.lname
 
                     #redirect_to new_course_day_card_path
-                    render 'cards/show', :course_id => @course, :code => @card
-                end 
+                    render 'added_email', :course_id => @course, :code => @card
+                end
             else
                 render 'no_email' # blank error page with "consult teacher to add you to the roster"
             end
-        elsif code_exist_in_course(@card.code, @course) # not functioning correctly 
+        elsif code_exist_in_course(@card.code, @course) # not functioning correctly???
             # code exists (no need to check for email)
 
             @oldcard = Card.where(code: @card.code).first
@@ -70,7 +70,7 @@ class CardsController < ApplicationController
 
             #redirect_to new_course_day_card_path
             render 'already_in', :course_id => @course, :code => @card
-        else
+        else # ???
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
             @course.cards << @oldcard
