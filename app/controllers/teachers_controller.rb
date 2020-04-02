@@ -12,7 +12,15 @@ class TeachersController < ApplicationController
     end
     
     def index2
+        #admin
+        @teachers = Teacher.order(:lname)
         
+        @all_departments = distinct_department(Teacher.order(:department))
+        
+        @current_departments = params[:departments]
+        if !params[:departments].nil?
+            @teachers = Teacher.where(department: @current_departments.keys) 
+        end
     end
     
     def new
