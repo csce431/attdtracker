@@ -28,11 +28,10 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
-        @students = Student.all
-
         @students = @course.students
 
         if !code_exist(@card.code) && @card.email == nil
+            puts('PROMPTED EMAIL')
             render 'promptemail'
         elsif !code_exist(@card.code) && @card.email != nil
             # check against database for card's email (code doesn't exist yet)
@@ -42,7 +41,6 @@ class CardsController < ApplicationController
                     @course.cards << @card
                     @day.cards << @card
                     Student.where(email: @card.email).first.card_num = @card.code
-
                     @student = @students.where(email: @card.email).first
                     @student.update_attribute(:card_num, @card.code)
 
@@ -50,13 +48,14 @@ class CardsController < ApplicationController
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
 
+                    puts('IN ELSE IF!!!!!')
                     #redirect_to new_course_day_card_path
-                    render 'cards/show', :course_id => @course, :code => @card
+                    render 'added_email'
                 end 
             else
                 render 'no_email' # blank error page with "consult teacher to add you to the roster"
             end
-        elsif code_exist_in_course(@card.code, @course) # not functioning correctly 
+        elsif code_exist_in_course(@card.code, @course) #### not functioning correctly 
             # code exists (no need to check for email)
 
             @oldcard = Card.where(code: @card.code).first
