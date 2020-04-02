@@ -43,7 +43,6 @@ class CardsController < ApplicationController
                     @day.cards << @card
                     Student.where(email: @card.email).first.card_num = @card.code
 
-<<<<<<< HEAD
                     @student = @students.where(email: @card.email).first
                     @student.update_attribute(:card_num, @card.code)
 
@@ -53,9 +52,6 @@ class CardsController < ApplicationController
 
                     #redirect_to new_course_day_card_path
                     render 'cards/show', :course_id => @course, :code => @card
-=======
-                    render 'cards/show', :course_id => @course, :code => @card, :card_num => @students
->>>>>>> 66c7b7bbb7ea7f3debad1c218e9ad48b5b3571fe
                 end 
             else
                 render 'no_email' # blank error page with "consult teacher to add you to the roster"
@@ -66,7 +62,6 @@ class CardsController < ApplicationController
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
 
-<<<<<<< HEAD
             @student = @students.where(email: @oldcard.email).first
 
             @card.preferredname = @student.prefname
@@ -75,15 +70,11 @@ class CardsController < ApplicationController
 
             #redirect_to new_course_day_card_path
             render 'already_in', :course_id => @course, :code => @card
-=======
-            render 'cards/show', :course_id => @course, :code => @card
->>>>>>> 66c7b7bbb7ea7f3debad1c218e9ad48b5b3571fe
         else
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
             @course.cards << @oldcard
 
-<<<<<<< HEAD
             @student = @students.where(email: @oldcard.email).first
 
             @card.preferredname = @student.prefname
@@ -91,8 +82,6 @@ class CardsController < ApplicationController
             @card.lastname = @student.lname
 
             #redirect_to new_course_day_card_path
-=======
->>>>>>> 66c7b7bbb7ea7f3debad1c218e9ad48b5b3571fe
             render 'cards/show', :course_id => @course, :code => @card
         end
         
