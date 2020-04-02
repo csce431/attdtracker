@@ -33,7 +33,6 @@ class CardsController < ApplicationController
         @code_in_course = true
 
         if !code_exist(@card.code) && @card.email == nil
-            puts('PROMPTED EMAIL')
             render 'promptemail'
         elsif !code_exist(@card.code) && @card.email != nil
             # check against database for card's email (code doesn't exist yet)
@@ -51,8 +50,6 @@ class CardsController < ApplicationController
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
 
-                    puts('IN ELSE IF!!!!!')
-                    #redirect_to new_course_day_card_path
                     render 'added_email'
                 end 
             else
@@ -73,8 +70,6 @@ class CardsController < ApplicationController
             ##### TODO: check if card is already swiped in for that day ID
             if @oldcard.day_ids.include? @day.id
                 # already signed in for today (the current day.id)
-
-                #redirect_to new_course_day_card_path
                 render 'already_in'
             else
                 # if new day, show confirmation page
@@ -93,7 +88,6 @@ class CardsController < ApplicationController
 
             @code_in_course = false
 
-            #redirect_to new_course_day_card_path
             render 'cards/show', :course_id => @course, :code => @card
         end
         

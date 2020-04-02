@@ -14,19 +14,27 @@ class CoursesController < ApplicationController
         
         @all_seasons = @courses.distinct.pluck(:season)
         @all_years = @courses.distinct.pluck(:year)
+        @all_years = @all_years.map { |str| str.to_s }
         
         #@movies = Movie.order(@sort_by)
         #@sort_by = params[:sort_by]
         #@current_ratings = params[:ratings] 
-        @current_seasons = params[:seasons]
-        @current_years = params[:years]
-        if (!params[:seasons].nil? and !params[:years].nil?)
-            @courses = Course.where(year: @current_years.keys, season: @current_seasons.keys) 
-        elsif !params[:seasons].nil?
-            @courses = Course.where(season: @current_seasons.keys)
-        elsif !params[:years].nil?
-            @courses = Course.where(year: @current_years.keys)
+        
+        if (params[:seasons].nil? and params[:years].nil?)
+            @current_seasons = @all_seasons
+            @current_years = @all_years
+        elsif params[:seasons].nil?
+            @current_seasons = @all_seasons
+            @current_years = params[:years].keys
+        elsif params[:years].nil?
+            @current_seasons = params[:seasons].keys
+            @current_years = @all_years
+        else
+            @current_seasons = params[:seasons].keys
+            @current_years = params[:years].keys
         end
+
+        @courses = Course.where(year: @current_years, season: @current_seasons) 
     end
 
     def import

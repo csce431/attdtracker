@@ -14,8 +14,12 @@ class DaysController < ApplicationController
     @all_days = Day.all
     @cards = @course.cards
 
-    @students = @course.students.order(sort_column + " " + sort_direction)
-    
+    if !params[:days]
+      @students = @course.students.order(sort_column + " " + sort_direction)
+    else
+      @students = @course.students.order(sort_column_day + " " + sort_direction)
+    end 
+
     if(@course.days.first)
       @classday = @course.days.first.classday
     end
@@ -111,7 +115,24 @@ class DaysController < ApplicationController
       Student.column_names.include?(params[:sort]) ? params[:sort] : "lname"
     end
     
+    def sort_column_day
+      @students.each do |student|
+        if @courses.ids.include? @course.id
+          @days.each do |day|
+              @cards.each do |card| 
+                if card.email == student.email
+                    if card.day_ids.include? day.id
+                      Student.column_names.include?(params[:sort]) ? params[:sort] : "days"          
+                    end
+                end
+              end
+          end
+        end
+      end   
+    end   
+
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
+    end 
+      
 end
