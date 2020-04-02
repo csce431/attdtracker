@@ -18,15 +18,17 @@ class CardsController < ApplicationController
     end
     
     def show
-        @card = Card.find(params[:id])
+        @card = Card.all
         @course = Course.find(params[:course_id])
         @students = @course.students
+        @student = Student.all
     end
     
     def create
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
+        @students = Student.all
 
         if !code_exist(@card.code) && @card.email == nil
             render 'promptemail'
@@ -38,7 +40,7 @@ class CardsController < ApplicationController
                     @day.cards << @card
                     Student.where(email: @card.email).first.card_num = @card.code
 
-                    redirect_to new_course_day_card_path
+                    render 'cards/show', :course_id => @course, :code => @card, :card_num => @students
                 end 
             else
                 render 'no_email' #blank error page with "consult teacher to add you to the roster"
@@ -48,13 +50,13 @@ class CardsController < ApplicationController
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
 
-            redirect_to new_course_day_card_path
+            render 'cards/show', :course_id => @course, :code => @card
         else
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
             @course.cards << @oldcard
 
-            redirect_to new_course_day_card_path
+            render 'cards/show', :course_id => @course, :code => @card
         end
         
     end
