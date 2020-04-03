@@ -2,6 +2,11 @@
 
 <div class="page-content">
 
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <h1>Attendance for
     <span id="course_name"><%= @course.name%></span>
     <%= " " %>
@@ -142,7 +147,7 @@
             <% @days.each do |day| %>
                 <th onclick="sortTable(<%= $i %>)" >
                     <%= day.classday %>
-                    <%= link_to '×', course_day_path(@course, day),
+                    <%= link_to ('<i class="fa fa-times"></i>').html_safe, course_day_path(@course, day),
                         method: :delete,
                         data: { confirm: 'Are you sure you want to remove this day?' } %>
                 </th>
