@@ -95,7 +95,6 @@ class CardsController < ApplicationController
                 @card.lastname = @student.lname
 
                 # error page with "consult instructor to add you to the roster"
-                @code_in_course = false
                 puts('EXISTING STUDENT NOT IN COURSE!!!')
                 render 'not_registered', :course_id => @course, :code => @card
             end
