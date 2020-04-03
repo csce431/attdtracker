@@ -3,5 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 table#courses_list {
-    max-width: 0;
+    
+}
+
+table, th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+table {
+    width: 1px;
+    border-spacing: 10px;
+    margin: auto;
+    white-space: nowrap;
 }
