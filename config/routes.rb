@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
     # Routes for Google authentication
     get "/login", to: redirect("/auth/google_oauth2")
-    get '/logout', to: 'session#destroy'
+    get '/logout', to: 'sessions#destroy'
     get "auth/google_oauth2/callback", to: "sessions#googleAuth"
     get "auth/failure", to: redirect("/")
     resource :session, only: [:googleAuth, :destroy]
