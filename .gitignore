@@ -10,6 +10,8 @@
 /test/version_tmp/
 /tmp/*
 /log/*
+!/tmp/.keep
+!/log/.keep
 .sass-cache
 */log/*
 */tmp/*

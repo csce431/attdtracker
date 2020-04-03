@@ -104,7 +104,7 @@
                 rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                 switching = true;
                 //Each time a switch is done, increase this count by 1:
-                switchcount ++;      
+                switchcount ++;
             }
             else {
                 /*If no switching has been done AND the direction is "asc",
@@ -124,22 +124,22 @@
 <table id="attendance_day">
     <thead>
         <tr>
-            <th><%= sortable "fname", "First Name" %>
+            <th style="padding-left: 21px;"><%= sortable "fname", "First Name" %>
                 <% if params[:direction] == "desc" and params[:sort] == "fname" %>
                     <%= image_tag("up_arrow.gif") %>
                 <% elsif params[:direction] == "asc" and params[:sort] == "fname" %>
                     <%= image_tag("down_arrow.gif") %>
                 <% else %>
-                    <%= image_tag("") %>
+                    <%= image_tag("no_arrow.jpg") %>
                 <% end %>
             </th>
-            <th><%= sortable "lname", "Last Name" %>
+            <th style="padding-left: 21px;"><%= sortable "lname", "Last Name" %>
                 <% if params[:direction] == "desc" and params[:sort] == "lname" %>
                     <%= image_tag("up_arrow.gif") %>
                 <% elsif params[:direction] == "asc" and params[:sort] == "lname" %>
                     <%= image_tag("down_arrow.gif") %>
                 <% else %>
-                    <%= image_tag("") %>
+                    <%= image_tag("no_arrow.jpg") %>
                 <% end %>
             </th>
 
