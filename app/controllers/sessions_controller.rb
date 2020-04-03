@@ -70,16 +70,16 @@ private
         ret
     end
 
-    def create_from_omniauth(lname, fname, email, pic)
+    def create_from_omniauth(fname, lname, email, pic)
         #data = access_token.info
         #user = User.where(email: data['email']).first
         # Creates a new user only if it doesn't exist
         if Student.where(email: email).first.nil?
             @newstudent = Student.new
-            @newstudent.fname = access_token.info.first_name
-            @newstudent.lname = access_token.info.last_name
-            @newstudent.email = access_token.info.email
-            @newstudent.picture = access_token.info.image
+            @newstudent.fname = fname
+            @newstudent.lname = lname
+            @newstudent.email = email
+            @newstudent.picture = pic
             @newstudent.save!
         else
             @newstudent = Student.where(email: email).first 
