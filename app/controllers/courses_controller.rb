@@ -27,7 +27,8 @@ class CoursesController < ApplicationController
             @current_years = params[:years].keys
         end
 
-        @courses = Course.where(year: @current_years, season: @current_seasons) 
+        @courses = Course.where(year: @current_years, season: @current_seasons)
+        #@courses = @courses.order(:name)
     end
 
     def import

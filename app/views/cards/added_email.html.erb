@@ -11,12 +11,8 @@
     Howdy, <%= @name %>!
   </h1>
   <div>
-    <% if @code_in_course == true%>
-      <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
-    <% else %>
-      <p><%= @name %> <%= @card.lastname %>, you are currently <strong>not registered</strong> in this course.</p>
-      <p>Please consult with your instructor.</p>
-    <% end %>
+    <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
+    <p>Your card was also successfully linked to your account!</strong></p>
   </div>
 </div>
 
