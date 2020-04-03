@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
     def index
-        if session[:email] == "racheljee1@tamu.edu"
+        if session[:email] == ""
+            redirect_to root_path
+            # render 'index'
+        elsif session[:email] == "racheljee1@tamu.edu"
             @admin = Student.where(email: "racheljee1@tamu.edu").first
             # redirect_to new_student_teacher_path(@admin) # teacher/new
             # redirect_to student_teacher_path(@admin)
@@ -53,7 +56,8 @@ class SessionsController < ApplicationController
     # end
 
     def destroy
-        session.delete :name
+        session.delete :fname
+        session.delete :lname
         session.delete :email 
         
         redirect_to root_path
