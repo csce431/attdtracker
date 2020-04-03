@@ -2,7 +2,7 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/a4c2a4e031.js" crossorigin="anonymous"></script>
 </head>
 
 <h1>Listing Courses</h1>
@@ -11,7 +11,7 @@
 
 <p>
   <%= form_tag courses_path, :method => :get do %>
-    Filters:<br>
+    <%= submit_tag 'Filter' %><br>
     <% @all_years.each do |year| %>
       <%= check_box_tag "years[#{year}]", 1, @current_years.include?(year), :id => "years_#{year}" %>
       <%= year %>
@@ -26,7 +26,7 @@
 
     <br>
 
-    <%= submit_tag 'Refresh' %>
+    
   <% end %>
 </p>
 
@@ -49,7 +49,7 @@
       <td><%= link_to 'Attendance', course_days_path(course) %></td>
       <td><%= link_to 'Enrollment', course_path(course) %></td>
       <td><%= link_to ('<i class="fa fa-edit"></i>').html_safe, edit_course_path(course) %></td>
-      <td><%= link_to ('<i class="fa fa-trash"></i>').html_safe, course_path(course),
+      <td><%= link_to ('<i class="fas fa-trash"></i>').html_safe, course_path(course),
               method: :delete,
               data: { confirm: 'Are you sure you want to remove this course?' } %></td>
     </tr>

@@ -4,7 +4,7 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/a4c2a4e031.js" crossorigin="anonymous"></script>
 </head>
 
 <h1>Attendance for
@@ -124,22 +124,22 @@
 <table id="attendance_day">
     <thead>
         <tr>
-            <th style="padding-left: 21px;"><%= sortable "fname", "First Name" %>
-                <% if params[:direction] == "desc" and params[:sort] == "fname" %>
-                    <%= image_tag("up_arrow.gif") %>
-                <% elsif params[:direction] == "asc" and params[:sort] == "fname" %>
-                    <%= image_tag("down_arrow.gif") %>
+            <th style="padding-left: 24px;"><%= sortable "fname", "First Name" %>
+                <% if params[:direction] == "asc" and params[:sort] == "fname" %>
+                    <i class="fas fa-sort-alpha-down"></i>
+                <% elsif params[:direction] == "desc" and params[:sort] == "fname" %>
+                    <i class="fas fa-sort-alpha-up-alt"></i>
                 <% else %>
-                    <%= image_tag("no_arrow.jpg") %>
+                    <i class="fas fa-sort-alpha-down" style="color: white;"></i>
                 <% end %>
             </th>
-            <th style="padding-left: 21px;"><%= sortable "lname", "Last Name" %>
-                <% if params[:direction] == "desc" and params[:sort] == "lname" %>
-                    <%= image_tag("up_arrow.gif") %>
-                <% elsif params[:direction] == "asc" and params[:sort] == "lname" %>
-                    <%= image_tag("down_arrow.gif") %>
+            <th style="padding-left: 24px;"><%= sortable "lname", "Last Name" %>
+                <% if params[:direction] == "asc" and params[:sort] == "lname" %>
+                    <i class="fas fa-sort-alpha-down"></i>
+                <% elsif params[:direction] == "desc" and params[:sort] == "lname" %>
+                    <i class="fas fa-sort-alpha-up-alt"></i>
                 <% else %>
-                    <%= image_tag("no_arrow.jpg") %>
+                    <i class="fas fa-sort-alpha-down" style="color: white;"></i>
                 <% end %>
             </th>
 
