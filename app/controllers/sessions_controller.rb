@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             # @teacher = Teacher.where(email: session[:email]).first
             @teacher = Teacher.where(email: "rdj772@tamu.edu").first
             redirect_to teacher_path(@teacher)
-        elsif session[:email].end_with?("@tamu.edu") # not an admin or teacher but has tamu email
+        elsif session[:email].to_s.end_with?("@tamu.edu") # not an admin or teacher but has tamu email
             @student = create_from_omniauth(session[:fname],session[:lname],session[:email],session[:picture])
             redirect_to student_path(@student)
         end
