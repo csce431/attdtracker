@@ -1,17 +1,15 @@
 class SessionsController < ApplicationController
     def index
-        if session[:email] == ""
-            redirect_to root_path
-            # render 'index'
-        elsif session[:email] == "racheljee1@tamu.edu"
+        if session[:email] == "racheljee1@tamu.edu" # !Admin.where(email: session[:email]).first.nil?
             @admin = Student.where(email: "racheljee1@tamu.edu").first
             # redirect_to new_student_teacher_path(@admin) # teacher/new
             # redirect_to student_teacher_path(@admin)
             redirect_to teacher_index2_path
-        elsif session[:email] == "rdj772@tamu.edu"
+        elsif session[:email] == "rdj772@tamu.edu" # !Teacher.where(email: session[:email]).first.nil?
+            # @teacher = Teacher.where(email: session[:email]).first
             @teacher = Teacher.where(email: "rdj772@tamu.edu").first
             redirect_to teacher_path(@teacher)
-        else
+        elsif session[:email].end_with?("@tamu.edu") # not an admin or teacher but has tamu email
             @student = create_from_omniauth(session[:fname],session[:lname],session[:email],session[:picture])
             redirect_to student_path(@student)
         end
