@@ -21,7 +21,7 @@
   <br>
   <p>
     <%= form.label "Year" %>
-    <%= form.select :year, (2000..Time.now.year).to_a %>
+    <%= form.select :year, (Date.today.year - 20)..(Date.today.year + 1), :selected => Time.current.year %>
   </p>
   <p>
     <%= form.label "Semester" %>
