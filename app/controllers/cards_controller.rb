@@ -79,12 +79,15 @@ class CardsController < ApplicationController
                 else
                     # IT IS A NEW DAY, show confirmation page
                     puts('SUCCESSFULLY SWIPED IN!!!')
+                
+                    # add card to the course if not already
+                    if !@oldcard.course_ids.include? @course.id
+                        @course.cards << @oldcard
+                    end
+                    # create day.id for card
+                    @day.cards << @oldcard
                     render 'cards/show', :course_id => @course, :code => @card
                 end
-                
-                # create day.id for card
-                @day.cards << @oldcard
-
             # code doesn't exist in course, but exists in database
             else
                 @oldcard = Card.where(code: @card.code).first
