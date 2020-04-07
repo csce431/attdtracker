@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   resources :teachers do
-    resources :courses, only: [:new, :create, :index, :update, :edit]
+    resources :courses, only: [:new, :create, :index]
   end
   
   resources :students
