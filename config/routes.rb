@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :students
+
   #resources :courses do
   #  resources :students
   #  resources :role

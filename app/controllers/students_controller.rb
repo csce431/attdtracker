@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
     # skip_before_action :require_admin_login
-    skip_before_action :require_teacher_login
+    # skip_before_action :require_teacher_login
+    before_action :require_student_login
 
     def index
         @students = Student.all
@@ -63,6 +64,13 @@ class StudentsController < ApplicationController
     end 
     
     private
+        def require_student_login
+            unless session[:student_logged_in] == true
+                flash[:error] = "You must be logged in as a student to access this section"
+                redirect_to root_path # halts request cycle
+            end
+        end
+
         def exist_email(email)
            ret = false
            for student in Student.all do

@@ -1,6 +1,7 @@
 class TeachersController < ApplicationController
     # skip_before_action :require_admin_login
-    skip_before_action :require_student_login
+    # skip_before_action :require_student_login
+    before_action :require_teacher_login
     
     def index
         #admin
@@ -68,6 +69,13 @@ class TeachersController < ApplicationController
     end 
     
     private
+        def require_teacher_login
+            unless session[:teacher_logged_in] == true
+                flash[:error] = "You must be logged in as a teacher to access this section"
+                redirect_to root_path # halts request cycle
+            end
+        end
+        
         ##distinct doesn't work on heroku so we created our own distinct
         def distinct_department(teachers)
             distinct_departments = Array.new
