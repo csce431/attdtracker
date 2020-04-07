@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_215308) do
+ActiveRecord::Schema.define(version: 2020_04_07_212842) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "fname"
+    t.string "mname"
+    t.string "lname"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string "code"

@@ -16,14 +16,13 @@
   <%= submit_tag 'Refresh' %>
   <% end %>
 
-
-
 <table>
   <tr>
     
   </tr>
   <tr>
     <th>Name</th>
+    <th>Email</th>
     <th>Department</th>
     <th style="color: #FFFFFF">View</th>
     <th style="color: #FFFFFF">Edit</th>
@@ -33,6 +32,7 @@
   <% @teachers.each do |teacher| %>
     <tr>
       <td><%= teacher.lname %>, <%= teacher.fname %> <%= teacher.mname%></td>
+      <td><%= teacher.email %></td>
       <td><%= teacher.department %></td>
       <td><%= link_to 'View', teacher_path(teacher) %></td>
       <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>

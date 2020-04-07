@@ -29,7 +29,8 @@ class TeachersController < ApplicationController
 
     def create
         @teacher = Teacher.new(teacher_params)
- 
+        @teacher.department = @teacher.department.upcase
+        
         if @teacher.save
             redirect_to teachers_path
         else
@@ -127,6 +128,6 @@ class TeachersController < ApplicationController
         end
         
         def teacher_params
-            params.require(:teacher).permit(:fname, :mname, :lname, :department)
+            params.require(:teacher).permit(:fname, :mname, :lname, :email, :department)
         end
 end
