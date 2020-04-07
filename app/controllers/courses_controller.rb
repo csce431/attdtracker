@@ -64,7 +64,7 @@ class CoursesController < ApplicationController
     
     def edit
         @course = Course.find(params[:id])
-        @teacher = Teacher.find(params[:teacher_id])
+        @teacher = @course.teacher_id
     end
     
     def show
@@ -88,7 +88,7 @@ class CoursesController < ApplicationController
     
     def update
         @course = Course.find(params[:id])
-        @teacher = Teacher.find(params[:teacher_id])
+        @teacher = @course.teacher_id
  
         if @course.update(course_params)
             redirect_to teacher_courses_path(@teacher)

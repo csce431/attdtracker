@@ -2,7 +2,7 @@
 
 <h1>Attendance Tracker <%= @page %></h1>
 
-<%= form_with scope: :card, url: teacher_course_day_cards_path, local: true do |form| %>
+<%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
 
   <% if @card.errors.any? %>
     <div id="error_explanation">
@@ -17,14 +17,13 @@
     </div>
   <% end %>
 
-
+  <div>
+    <div><%= form.label :email %></div>
+    <div><%= form.text_field :email %></div>
+  </div>
   <div>
     <div><%= form.label :card %></div>
     <div><%= form.text_field :code %></div>
-  </div>
-    <div>
-    <div><%= form.label :email %></div>
-    <div><%= form.text_field :email %></div>
   </div>
   <br>
 
