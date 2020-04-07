@@ -1,6 +1,6 @@
 # Attendance Tracker
 
-A barebones Rails app, which can easily be deployed to Heroku. See Attendance in  [Attendance Tracker](https://numberzz.herokuapp.com) action!
+A barebones Rails app, which can easily be deployed to Heroku. See [Attendance Tracker](https://numberzz.herokuapp.com) in action!
 
 ## Running Locally
 
