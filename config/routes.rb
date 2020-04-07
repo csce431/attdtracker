@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :teachers do
     resources :courses, only: [:new, :create, :show]
   end
-      
+
+  resources :students
+
   #resources :courses do
   #  resources :students
   #  resources :role
@@ -23,11 +25,6 @@ Rails.application.routes.draw do
   #    get 'card/promptemail', to: 'cards#promptemail'
   #  end
   #end
-
-  
-  resources :students do
-    resources :teachers
-  end
 
   post '/courses/:id/import', to: 'courses#import'
 
