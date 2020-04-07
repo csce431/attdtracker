@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_212842) do
   end
 
   create_table "courses", force: :cascade do |t|
+    t.integer "teacher_id"
     t.string "name"
     t.integer "number"
     t.integer "section"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_212842) do
     t.string "season"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "courses_days", force: :cascade do |t|
@@ -74,15 +76,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_212842) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_courses_students_on_course_id"
     t.index ["student_id"], name: "index_courses_students_on_student_id"
-  end
-
-  create_table "courses_teachers", force: :cascade do |t|
-    t.integer "teacher_id"
-    t.integer "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_courses_teachers_on_course_id"
-    t.index ["teacher_id"], name: "index_courses_teachers_on_teacher_id"
   end
 
   create_table "days", force: :cascade do |t|
@@ -104,7 +97,6 @@ ActiveRecord::Schema.define(version: 2020_04_07_212842) do
     t.datetime "updated_at", null: false
     t.string "google_token"
     t.string "google_refresh_token"
-    t.integer "role"
   end
 
   create_table "teachers", force: :cascade do |t|

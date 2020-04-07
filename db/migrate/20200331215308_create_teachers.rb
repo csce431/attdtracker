@@ -10,11 +10,11 @@ class CreateTeachers < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     
-    create_table :courses_teachers do |t|
-      t.references :teacher, foreign_key: true
-      t.references :course, foreign_key: true
+    #create_table :courses_teachers do |t|
+    #  t.references :teacher, foreign_key: true
+    #  t.references :course, foreign_key: true
       
-      t.timestamps
-    end
+    #  t.timestamps
+    #end
   end
 end

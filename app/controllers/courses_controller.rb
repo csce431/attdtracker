@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
     def import
         @course = Course.find(params[:id])
         @students_in_course = @course.students.all
-        @teacher = @course.teachers.first
+        @teacher = @course.teacher_id
 
         tempFile = params['enrollment']
         csv = CSV.read(tempFile.path, :headers => true)
@@ -70,7 +70,7 @@ class CoursesController < ApplicationController
     def show
         @course = Course.find(params[:id])
         @students = @course.students.order(:lname)
-        @teacher = Teacher.find(params[:teacher_id])
+        @teacher = @course.teacher_id
     end
     
     def create

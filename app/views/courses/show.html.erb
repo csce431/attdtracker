@@ -2,7 +2,7 @@
 
 <p>
   <h1>Enrollment for <%= @course.name + " " + @course.number.to_s + " - " + @course.section.to_s %></h1>
-  <%= link_to 'Add Student', new_teacher_course_student_path(@teacher, @course) %><br>
+  <%= link_to 'Add Student', new_course_student_path(@course) %><br>
   <%= link_to 'Back to Courses', teacher_path(@teacher) %>
 </p>
 
@@ -22,8 +22,7 @@
 
 <script>
   var courseID = document.getElementById("course-id").innerHTML;
-  var teacherID = document.getElementById("teacher-id").innerHTML;
-  $('form#upload-roster-form').attr('action', "/teachers/".concat(teacherID ,"/courses/".concat(courseID, "/import")));
+  $('form#upload-roster-form').attr('action', "/courses/".concat(courseID, "/import"));
 </script>
 
 
@@ -43,7 +42,7 @@
       <td><%= student.lname %></td>
       <td><%= student.email %></td>
       <td><%= link_to 'View', student_path(student) %></td>
-      <td><%= link_to 'Delete', teacher_course_student_path(@teacher, @course, student),
+      <td><%= link_to 'Delete', course_student_path(@course, student),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
       <td>
