@@ -47,23 +47,32 @@ class CardsController < ApplicationController
                 else
                     redirect_to teacher_course_day_card_promptemail_path
                 end
+            #user did not provide email
             elsif @card.email == ''
                 redirect_to teacher_course_day_card_promptemail_path
+            #student is not enrolled in this class because email is not in the course
             else
                 render 'noemail' #blank error page with "consult teacher to add you to the roster"
             end
+        #if code exists in course, add it to the current day to mark that person as present
         elsif code_exist_in_course(@card.code, @course)
-        #not functioning correctly 
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
 
             redirect_to new_teacher_course_day_card_path
+        #code exists but not in this class
         else
             @oldcard = Card.where(code: @card.code).first
-            @day.cards << @oldcard
-            @course.cards << @oldcard
-
-            redirect_to new_teacher_course_day_card_path
+            #first time swiping into this class but swiped before in another class
+            if email_exist_in_course(@oldcard.email)
+                @day.cards << @oldcard
+                @course.cards << @oldcard
+                
+                redirect_to new_teacher_course_day_card_path
+            #code exist but not enrolled in class
+            else
+                render 'noemail' #blank error page with "consult teacher to add you to the roster"
+            end
         end
         
     end
