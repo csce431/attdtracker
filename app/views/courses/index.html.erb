@@ -11,17 +11,12 @@
       <%= check_box_tag "years[#{year}]", 1, @current_years.include?(year), :id => "years_#{year}" %>
       <%= year %>
     <% end %>
-
     <br>
-      
     <% @all_seasons.each do |season| %>
       <%= check_box_tag "seasons[#{season}]", 1, @current_seasons.include?(season), :id => "seasons_#{season}" %>
       <%= season %>
     <% end %>
-
     <br>
-
-    
   <% end %>
 </p>
 

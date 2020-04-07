@@ -3,11 +3,11 @@
 <div class="page-content">
 
 <h1>Attendance for
-    <span id="course_name"><%= @course.name%></span>
+    <span id="course_name"><%= @course.name %></span>
     <%= " " %>
-    <span id="course_number"><%= @course.number%></span>
+    <span id="course_number"><%= @course.number %></span>
     <%= " - " %>
-    <span id="course_section"><%= @course.section%></span>
+    <span id="course_section"><%= @course.section %></span>
 </h1> 
 <p>
     <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path, target: :blank) do
@@ -15,7 +15,7 @@
    end
     %>
 </p>
-<p>Current Time: <em><%= @time %></em></p>
+<p>Current Date: <em><%= Date.strptime(@time, '%m-%d-%Y').strftime("%B %d, %Y") %></em></p>
 
 <script>
     $(function() {
