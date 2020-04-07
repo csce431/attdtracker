@@ -2,7 +2,7 @@
 
 <h1>New Student</h1>
 
-<%= form_with model: @student, url: teacher_course_students_path, html: {autocomplete: 'off'}, local: true do |form| %>
+<%= form_with model: @student, url: course_students_path, html: {autocomplete: 'off'}, local: true do |form| %>
  
   <% if @student.errors.any? %>
     <div id="error_explanation">

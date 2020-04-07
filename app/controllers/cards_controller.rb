@@ -31,10 +31,10 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
-        @teacher = Teacher.find(params[:teacher_id])
+        @teacher = @course.teacher_id
 
         if !code_exist(@card.code) && @card.email == nil
-            redirect_to teacher_course_day_card_promptemail_path
+            redirect_to course_day_card_promptemail_path
         elsif !code_exist(@card.code) && @card.email != nil
         #check against database
             if email_exist_in_course(@card.email, @course)
@@ -42,14 +42,14 @@ class CardsController < ApplicationController
                     @course.cards << @card
                     @day.cards << @card
                     
-                    redirect_to new_teacher_course_day_card_path
+                    redirect_to new_course_day_card_path
                 #If email of card is connected to a card
                 else
-                    redirect_to teacher_course_day_card_promptemail_path
+                    redirect_to course_day_card_promptemail_path
                 end
             #user did not provide email
             elsif @card.email == ''
-                redirect_to teacher_course_day_card_promptemail_path
+                redirect_to course_day_card_promptemail_path
             #student is not enrolled in this class because email is not in the course
             else
                 render 'noemail' #blank error page with "consult teacher to add you to the roster"
@@ -59,7 +59,7 @@ class CardsController < ApplicationController
             @oldcard = Card.where(code: @card.code).first
             @day.cards << @oldcard
 
-            redirect_to new_teacher_course_day_card_path
+            redirect_to new_course_day_card_path
         #code exists but not in this class
         else
             @oldcard = Card.where(code: @card.code).first
@@ -68,7 +68,7 @@ class CardsController < ApplicationController
                 @day.cards << @oldcard
                 @course.cards << @oldcard
                 
-                redirect_to new_teacher_course_day_card_path
+                redirect_to new_course_day_card_path
             #code exist but not enrolled in class
             else
                 render 'noemail' #blank error page with "consult teacher to add you to the roster"
