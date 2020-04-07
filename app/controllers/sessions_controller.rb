@@ -53,9 +53,7 @@ class SessionsController < ApplicationController
     # end
 
     def destroy
-        session.delete :fname
-        session.delete :lname
-        session.delete :email 
+        session.clear
         
         redirect_to root_path
     end
