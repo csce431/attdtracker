@@ -15,17 +15,18 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
-  def require_teacher_login
-    unless session[:teacher_logged_in] == true
-      flash[:error] = "You must be logged in as a teacher to access this section"
-      redirect_to root_path # halts request cycle
+    def require_teacher_login
+      unless session[:teacher_logged_in] == true
+        flash[:error] = "You must be logged in as a teacher to access this section"
+        redirect_to root_path # halts request cycle
+      end
     end
-  end
 
-  def require_student_login
-    unless session[:student_logged_in] == true
-      flash[:error] = "You must be logged in as a student to access this section"
-      redirect_to root_path # halts request cycle
+    def require_student_login
+      unless session[:student_logged_in] == true
+        flash[:error] = "You must be logged in as a student to access this section"
+        redirect_to root_path # halts request cycle
+      end
     end
   end
 end
