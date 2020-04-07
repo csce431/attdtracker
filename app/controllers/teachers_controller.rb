@@ -2,7 +2,7 @@ class TeachersController < ApplicationController
     def index
         #admin
         if session[:admin_logged_in] != true
-            flash[:error] = "You must be logged in as an admin to access this section"
+            flash[:alert] = "You must be logged in as an admin to access this section"
             redirect_to root_path
         end
         @teachers = Teacher.order(:lname)
