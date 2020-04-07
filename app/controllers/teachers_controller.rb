@@ -1,4 +1,7 @@
 class TeachersController < ApplicationController
+    # skip_before_action :require_admin_login
+    skip_before_action :require_student_login
+    
     def index
         #admin
         @teachers = Teacher.order(:lname)

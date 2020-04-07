@@ -21,11 +21,6 @@ Rails.application.routes.draw do
   #  end
   #end
 
-  
-  resources :students do
-    resources :teachers
-  end
-
   post '/courses/:id/import', to: 'courses#import'
 
   # The priority is based upon order of creation: first created -> highest priority.

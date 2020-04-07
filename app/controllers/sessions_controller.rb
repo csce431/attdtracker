@@ -1,15 +1,20 @@
 class SessionsController < ApplicationController
+    # skip_before_action :require_admin_login
+    skip_before_action :require_teacher_login
+    skip_before_action :require_student_login
+
     def index
         if session[:email] == "racheljee1@tamu.edu" # !Admin.where(email: session[:email]).first.nil?
-            @admin = Student.where(email: "racheljee1@tamu.edu").first
-            # redirect_to new_student_teacher_path(@admin) # teacher/new
-            # redirect_to student_teacher_path(@admin)
+            session[:admin_logged_in] = true
+            @admin = Student.where(email: "racheljee1@tamu.edu").first 
             redirect_to teachers_path
         elsif session[:email] == "rdj772@tamu.edu" # !Teacher.where(email: session[:email]).first.nil?
+            session[:teacher_logged_in] = true
             # @teacher = Teacher.where(email: session[:email]).first
             @teacher = Teacher.where(email: "rdj772@tamu.edu").first
             redirect_to teacher_path(@teacher)
         elsif session[:email].to_s.end_with?("@tamu.edu") # if not an admin or teacher but has tamu email, then student
+            session[:student_logged_in] = true
             @student = create_from_omniauth(session[:fname],session[:lname],session[:email],session[:picture])
             redirect_to student_path(@student)
         end
@@ -45,9 +50,6 @@ class SessionsController < ApplicationController
         # else create student, redirect to student view page
     end
 
-    def admin
-        @teacher = Teacher.new
-    end
     # def authenticate
     #     if session[:token] == @user.google_refresh_token
             
