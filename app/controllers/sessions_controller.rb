@@ -4,11 +4,16 @@ class SessionsController < ApplicationController
             session[:admin_logged_in] = true
             @admin = Student.where(email: "racheljee1@tamu.edu").first 
             redirect_to teachers_path
-        elsif session[:email] == "rdj772@tamu.edu" # !Teacher.where(email: session[:email]).first.nil?
-            session[:teacher_logged_in] = true
-            # @teacher = Teacher.where(email: session[:email]).first
-            @teacher = Teacher.where(email: "rdj772@tamu.edu").first
-            redirect_to teacher_path(@teacher)
+        elsif session[:email] == "rdj772@tamu.edu"
+            session[:admin_logged_in] = true
+            @admin = create_from_omniauth(session[:fname],session[:lname],session[:email],session[:picture])
+            @admin = Student.where(email: "rdj772@tamu.edu").first 
+            redirect_to teachers_path
+        # elsif !Teacher.where(email: session[:email]).first.nil? # session[:email] == "rdj772@tamu.edu"
+        #     session[:teacher_logged_in] = true
+        #     @teacher = Teacher.where(email: session[:email]).first
+        #     # @teacher = Teacher.where(email: "rdj772@tamu.edu").first
+        #     redirect_to teacher_path(@teacher)
         elsif session[:email].to_s.end_with?("@tamu.edu") # if not an admin or teacher but has tamu email, then student
             session[:student_logged_in] = true
             @student = create_from_omniauth(session[:fname],session[:lname],session[:email],session[:picture])
