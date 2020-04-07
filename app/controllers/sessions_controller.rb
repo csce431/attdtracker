@@ -1,8 +1,4 @@
 class SessionsController < ApplicationController
-    # skip_before_action :require_admin_login
-    # skip_before_action :require_teacher_login
-    # skip_before_action :require_student_login
-
     def index
         if session[:email] == "racheljee1@tamu.edu" # !Admin.where(email: session[:email]).first.nil?
             session[:admin_logged_in] = true
