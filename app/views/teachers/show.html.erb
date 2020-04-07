@@ -45,10 +45,10 @@
       <td><%= course.name %> <%= course.number %>-<%= course.section %></td>
       <td><%= course.year %></td>
       <td><%= course.season %></td>
-      <td><%= link_to 'Attendance', teacher_course_days_path(@teacher, course) %></td>
-      <td><%= link_to 'Enrollment', teacher_course_path(@teacher, course) %></td>
-      <td><%= link_to 'Edit', edit_teacher_course_path(@teacher, course) %></td>
-      <td><%= link_to 'Delete', teacher_course_path(@teacher, course),
+      <td><%= link_to 'Attendance', course_days_path(course) %></td>
+      <td><%= link_to 'Enrollment', course_path(course) %></td>
+      <td><%= link_to 'Edit', edit_course_path(course) %></td>
+      <td><%= link_to 'Delete', course_path(course),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>

@@ -23,7 +23,7 @@ class CoursesController < ApplicationController
     def import
         @course = Course.find(params[:id])
         @students_in_course = @course.students.all
-        @teacher = Teacher.find(params[:teacher_id])
+        @teacher = @course.teachers.first
 
         tempFile = params['enrollment']
         csv = CSV.read(tempFile.path, :headers => true)

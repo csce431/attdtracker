@@ -1,15 +1,18 @@
 Rails.application.routes.draw do
-  resources :teachers do
-    resources :courses do
-      resources :students
-      resources :role
-      resources :days do
-        resources :cards
-        get 'card/promptemail', to: 'cards#promptemail'
-      end
+
+  resources :courses do
+    resources :students
+    resources :role
+    resources :days do
+      resources :cards
+      get 'card/promptemail', to: 'cards#promptemail'
     end
   end
   
+  resources :teachers do
+    resources :courses, only: [:new, :create, :show]
+  end
+      
   #resources :courses do
   #  resources :students
   #  resources :role
