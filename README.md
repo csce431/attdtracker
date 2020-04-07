@@ -16,7 +16,7 @@ $ rails db:migrate
 $ rails server -b 0.0.0.0
 ```
 
-The app should now be running on [localhost:5000](http://localhost:3000/).
+The app should now be running on [localhost:3000](http://localhost:3000/).
 
 ### Using Heroku
 
