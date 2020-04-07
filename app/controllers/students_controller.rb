@@ -53,9 +53,9 @@ class StudentsController < ApplicationController
 
     def destroy
         @student = Student.find(params[:id])
-        @courses = @student.courses.find(params[:course_id])
-        @courses.students.delete(Student.find(params[:id]))
- 
+        @course = @student.courses.find(params[:course_id])
+        @course.students.delete(Student.find(params[:id]))
+        
         redirect_to courses_path(@course)
     end 
     
