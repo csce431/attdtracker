@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
             @admin = Student.where(email: "racheljee1@tamu.edu").first
             # redirect_to new_student_teacher_path(@admin) # teacher/new
             # redirect_to student_teacher_path(@admin)
-            redirect_to teacher_index2_path
+            redirect_to teachers_path
         elsif session[:email] == "rdj772@tamu.edu" # !Teacher.where(email: session[:email]).first.nil?
             # @teacher = Teacher.where(email: session[:email]).first
             @teacher = Teacher.where(email: "rdj772@tamu.edu").first
             redirect_to teacher_path(@teacher)
-        elsif session[:email].to_s.end_with?("@tamu.edu") # not an admin or teacher but has tamu email
+        elsif session[:email].to_s.end_with?("@tamu.edu") # if not an admin or teacher but has tamu email, then student
             @student = create_from_omniauth(session[:fname],session[:lname],session[:email],session[:picture])
             redirect_to student_path(@student)
         end
@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
         access_token = request.env["omniauth.auth"]
         refresh_token = access_token.credentials.refresh_token
 
+        # session[:loggedin] = true
         session[:fname] = access_token.info.first_name
         session[:lname] = access_token.info.last_name
         session[:email] = access_token.info.email
