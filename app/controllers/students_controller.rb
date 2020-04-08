@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
     def create
         @student = Student.new(student_params)
         @course = Course.find(params[:course_id])
-        @teacher = Teacher.find(params[:teacher_id])
+        @teacher = @course.teacher_id
         
         if exist_email(@student.email)
         begin
@@ -53,10 +53,10 @@ class StudentsController < ApplicationController
 
     def destroy
         @student = Student.find(params[:id])
-        @course = @student.courses.find(params[:course_id])
+        @course = Course.find(params[:course_id])
         @course.students.delete(Student.find(params[:id]))
         
-        redirect_to courses_path(@course)
+        redirect_to course_path(@course)
     end 
     
     private

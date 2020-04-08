@@ -2,23 +2,23 @@ class CoursesController < ApplicationController
 
     skip_before_action :verify_authenticity_token 
 
-    def index
-        @courses = Course.order(:year).reverse_order.order(:season)
-        @teacher = Teacher.find(params[:teacher_id])
+    #def index
+    #    @courses = Course.order(:year).reverse_order.order(:season)
+    #    @teacher = @course
+    #    
+    #    @all_seasons = better_distinct_season(Course.order(:year).reverse_order)
+    #    @all_years = better_distinct_year(Course.order(:season)).sort
         
-        @all_seasons = better_distinct_season(Course.order(:year).reverse_order)
-        @all_years = better_distinct_year(Course.order(:season)).sort
-        
-        @current_seasons = params[:seasons]
-        @current_years = params[:years]
-        if (!params[:seasons].nil? and !params[:years].nil?)
-            @courses = Course.where(year: @current_years.keys, season: @current_seasons.keys) 
-        elsif !params[:seasons].nil?
-            @courses = Course.where(season: @current_seasons.keys)
-        elsif !params[:years].nil?
-            @courses = Course.where(year: @current_years.keys)
-        end
-    end
+    #    @current_seasons = params[:seasons]
+     #   @current_years = params[:years]
+    #    if (!params[:seasons].nil? and !params[:years].nil?)
+    #        @courses = Course.where(year: @current_years.keys, season: @current_seasons.keys) 
+    #    elsif !params[:seasons].nil?
+    #        @courses = Course.where(season: @current_seasons.keys)
+    #    elsif !params[:years].nil?
+    #        @courses = Course.where(year: @current_years.keys)
+    #    end
+    #end
 
     def import
         @course = Course.find(params[:id])
