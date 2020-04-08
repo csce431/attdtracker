@@ -7,7 +7,7 @@ class AdminsController < ApplicationController
         end
         @admins = Admin.all
         @isStudent = Student.pluck(:email).include? session[:email] 
-        #@isTeacher = Teacher.email.include? session[:email]
+        @isTeacher = Teacher.pluck(:email).include? session[:email]
     end
     
     def new

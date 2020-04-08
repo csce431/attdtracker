@@ -3,10 +3,14 @@
 <h1>Listing Admins</h1>
  
 <%= link_to 'Add Admin', new_admin_path %><br>
-<%= link_to 'View Teachers', teachers_path %><br>
-<%= link_to 'View Students', students_path %><br>
-<%= @isStudent %>
+<%= link_to 'View Teachers', teachers_path %>
+<%= link_to_if(@isTeacher, "| My Teacher Page", teacher_path(Teacher.find(email: session[:email]))) do
+end %><br>
 
+<%= link_to 'View Students', students_path %><br>
+<%= link_to_if(@isStudent, "My Student Page", student_path(Student.find(email: session[:email]))) do
+end %>
+   
 <table>
   <tr>
     
