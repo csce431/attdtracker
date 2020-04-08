@@ -12,7 +12,11 @@
   </h1>
   <div>
     <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
-    <p>Your card was also successfully linked to your account!</strong></p>
+    <% if @card_updated = false %>
+      <p>Your card was also successfully linked to your account!</strong></p>
+    <% else %>
+      <p>Your new card is now registered with your email!</p>
+    <% end %>
   </div>
 </div>
 

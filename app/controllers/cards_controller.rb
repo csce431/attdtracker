@@ -29,6 +29,8 @@ class CardsController < ApplicationController
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
         @students = @course.students
+
+        @card_updated = false;
         
         # code doesn't exist in entire database and no email is linked to it
         if !code_exist(@card.code) && @card.email == nil
@@ -52,7 +54,26 @@ class CardsController < ApplicationController
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
 
+                    @card_updated = false;
+
                     puts('EMAIL LINKED!!!')
+                    render 'added_email'
+                else
+                    @existing_student = Card.where(email: @card.email).first
+                    @existing_student.update_attribute(:code, @card.code)
+
+                    @student = @students.where(email: @existing_student.email).first
+                    @student.update_attribute(:card_num, @existing_student.code)
+
+                    @card.preferredname = @student.prefname
+                    @card.firstname = @student.fname
+                    @card.lastname = @student.lname
+                    
+                    puts('EXISTING STUDENT WITH NEW CARD')
+
+                    @day.cards << @existing_student
+                    @card_updated = true;
+
                     render 'added_email'
                 end
             # email is prompted, but email doesn't link to anything in entire database

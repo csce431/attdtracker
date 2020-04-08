@@ -9,6 +9,7 @@ class StudentsController < ApplicationController
     
     def edit
         @student = Student.find(params[:id])
+        
     end
     
     def show
@@ -80,6 +81,6 @@ class StudentsController < ApplicationController
         end
         
         def student_params
-            params.require(:student).permit(:fname, :mname, :lname, :prefname, :uin, :email)
+            params.require(:student).permit(:fname, :mname, :lname, :prefname, :uin, :email, :card_num)
         end
 end 

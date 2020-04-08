@@ -26,22 +26,20 @@
     <th>Year</th>
     <th>Semester</th>
     <th><span hidden>Attendance</span></th>
-    <th><span hidden>Enrollment</span></th>
-    <th><span hidden>Edit</span></th>
-    <th><span hidden>&#215</span></th>
   </tr>
  
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.name %> <%= course.number %> - <%= course.section %></td>
+      <% @course_fullname = course.name + " " + course.number.to_s + " - " + course.section.to_s %>
+      <td title="View Course Enrollment"><%= link_to @course_fullname, course_path(course) %></td>
       <td><%= course.year %></td>
       <td><%= course.season %></td>
-      <td><%= link_to 'Attendance', course_days_path(course) %></td>
-      <td><%= link_to 'Enrollment', course_path(course) %></td>
-      <td><%= link_to ('<i class="fa fa-edit"></i>').html_safe, edit_course_path(course) %></td>
-      <td><%= link_to ('<i class="fas fa-trash"></i>').html_safe, course_path(course),
+      <td title="View Attendance for Course"><%= link_to 'Attendance', course_days_path(course) %></td>
+      <!--<td><%= link_to 'Enrollment', course_path(course) %></td>-->
+      <!--<td><%= link_to ('<i class="fa fa-edit"></i>').html_safe, edit_course_path(course) %></td>-->
+      <!--<td><%= link_to ('<i class="fas fa-trash"></i>').html_safe, course_path(course),
               method: :delete,
-              data: { confirm: 'Are you sure you want to remove this course?' } %></td>
+              data: { confirm: 'Are you sure you want to remove this course?' } %></td>-->
     </tr>
   <% end %>
 </table>
