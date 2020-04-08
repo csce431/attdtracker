@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :courses do
-    resources :students, only: [:new, :destroy]
+    resources :students
     resources :days do
       resources :cards
       get 'card/promptemail', to: 'cards#promptemail'
@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   
   resources :teachers do
-    resources :courses, only: [:new, :create, :index]
+    resources :courses
   end
 
   resources :students
