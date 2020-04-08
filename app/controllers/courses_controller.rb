@@ -80,7 +80,7 @@ class CoursesController < ApplicationController
         if @course.save
             @teacher.courses << @course
             
-            redirect_to teacher_path(@teacher)
+            redirect_to teacher_course_path(@teacher, @course)
         else
             render 'new'
         end
