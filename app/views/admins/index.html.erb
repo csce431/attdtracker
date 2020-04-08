@@ -7,8 +7,8 @@
 <%= link_to_if(@isTeacher, "| My Teacher Page", teacher_path(@teacher)) do
 end %><br>
 
-<%= link_to 'View Students', students_path %><br>
-<%= link_to_if(@isStudent, "My Student Page", student_path(@student)) do
+<%= link_to 'View Students', students_path %>
+<%= link_to_if(@isStudent, " | My Student Page", student_path(@student)) do
 end %>
    
 <table>
