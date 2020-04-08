@@ -7,7 +7,19 @@ class AdminsController < ApplicationController
         end
         @admins = Admin.all
         @isStudent = Student.pluck(:email).include? session[:email] 
+        if @isStudent
+            @student = Student.where(email: session[:email]).first
+        else
+            @student = Student.new
+            @student.id = 0
+        end
         @isTeacher = Teacher.pluck(:email).include? session[:email]
+        if @isTeacher
+            @teacher = Teacher.where(email: session[:email]).first
+        else
+            @teacher = Teacher.new
+            @teacher.id = 0
+        end
     end
     
     def new
