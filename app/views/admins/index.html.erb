@@ -4,11 +4,11 @@
  
 <%= link_to 'Add Admin', new_admin_path %><br>
 <%= link_to 'View Teachers', teachers_path %>
-<%= link_to_if(@isTeacher, "| My Teacher Page", teacher_path(Teacher.find(email: session[:email]))) do
+<%= link_to_if(@isTeacher, "| My Teacher Page", teacher_path(Teacher.where(email: session[:email]).first)) do
 end %><br>
 
 <%= link_to 'View Students', students_path %><br>
-<%= link_to_if(@isStudent, "My Student Page", student_path(Student.find(email: session[:email]))) do
+<%= link_to_if(@isStudent, "My Student Page", student_path(Student.where(email: session[:email]).first)) do
 end %>
    
 <table>
