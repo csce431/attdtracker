@@ -1,0 +1,33 @@
+<div class="page-content">
+
+<h1>Listing Admins</h1>
+ 
+<%= link_to 'Add Admin', new_admin_path %><br>
+<%= link_to 'View Teachers', teachers_path %><br>
+<%= link_to 'View Students', students_path %><br>
+<%= @isStudent %>
+
+<table>
+  <tr>
+    
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th style="color: #FFFFFF">Edit</th>
+    <th style="color: #FFFFFF">Delete</th>
+  </tr>
+ 
+  <% @admins.each do |admin| %>
+    <tr>
+      <td><%= admin.lname %>, <%= admin.fname %> <%= admin.mname%></td>
+      <td><%= admin.email %></td>
+      <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+      <td><%= link_to 'Delete', admin_path(admin),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+</div>

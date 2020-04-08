@@ -1,5 +1,38 @@
-  <div class="page-content">
+<div class="page-content">
+<h1>Listing Students</h1>
+ 
+<%= link_to 'Add Student', new_student_path %><br>
+<%= link_to 'Back', :back %>
 
-  <%= link_to 'Back', :back %>
+<table>
+  <tr>
+    
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Courses</th>
+    <th style="color: #FFFFFF">View</th>
+    <th style="color: #FFFFFF">Edit</th>
+    <th style="color: #FFFFFF">Delete</th>
+  </tr>
+ 
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.lname %>, <%= student.fname %> <%= student.mname%></td>
+      <td><%= student.email %></td>
+      <td>
+        <% student.courses.each do |course| %>
+          <%= course.name %><%= course.number %> 
+        <% end %>
+      </td>
+      <td><%= link_to 'View', student_path(student) %></td>
+      <td><%= link_to 'Edit', edit_student_path(student) %></td>
+      <td><%= link_to 'Delete', student_path(student),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
 
-  </div>
+</div>

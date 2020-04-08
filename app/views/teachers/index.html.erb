@@ -8,7 +8,8 @@
 
 <h1>Listing Teachers</h1>
  
-<%= link_to 'Add Teacher', new_teacher_path %>
+<%= link_to 'Add Teacher', new_teacher_path %><br>
+<%= link_to 'Back', :back %>
 
   <p>
     <%= form_tag teachers_path, :method => :get do %>
