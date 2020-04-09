@@ -71,6 +71,11 @@ class CardsController < ApplicationController
                     
                     puts('EXISTING STUDENT WITH NEW CARD')
 
+                    # re-add card to the course if not already
+                    if !@existing_student.course_ids.include? @course.id
+                        @course.cards << @existing_student
+                    end
+
                     @day.cards << @existing_student
                     @card_updated = true;
 
