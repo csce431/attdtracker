@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
     def index
-        if session[:email] == "racheljee1@tamu.edu" # !Admin.where(email: session[:email]).first.nil?
+        if !Admin.where(email: session[:email]).first.nil?
             session[:admin_logged_in] = true
-            @admin = create_admin(session[:fname], session[:lname], session[:email])
-            # @admin = Student.where(email: "racheljee1@tamu.edu").first 
+            # @admin = create_admin(session[:fname], session[:lname], session[:email])
+            @admin = Admin.where(email: session[:email]).first 
+            session[:test] = @admin.lname
+            # @admin = Admin.where(email: "racheljee1@tamu.edu").first
             redirect_to teachers_path
         elsif session[:email] == "rdj772@tamu.edu"
             session[:admin_logged_in] = true
