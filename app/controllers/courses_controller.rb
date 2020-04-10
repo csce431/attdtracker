@@ -42,6 +42,7 @@ class CoursesController < ApplicationController
     
     def new
         @course = Course.new
+        @teacher = @course.teacher_id
     end
     
     def edit
@@ -57,7 +58,7 @@ class CoursesController < ApplicationController
     
     def create
         @course = Course.new(course_params)
-        @teacher = Teacher.find(params[:teacher_id])
+        @teacher = @course.teacher_id
  
         if @course.save
             @teacher.courses << @course
