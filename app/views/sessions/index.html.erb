@@ -4,11 +4,9 @@
   <input type="button" value="Sign in" onclick="window.location.href = '/login'">
 </body>
 
-<!-- could add an if statement, might not need this logout button, but have destroy called in sessions_controller  -->
-
 <p id="demo">
     <%= 
-      session[:login]
+      session[:error]
     %>
 </p>
 

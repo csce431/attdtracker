@@ -2,7 +2,7 @@ class AdminsController < ApplicationController
     def index
         if session[:admin_logged_in] != true
             flash[:alert] = "ERROR: You must be logged in as an admin to access that page!"
-            session[:login] = flash[:alert]
+            session[:error] = flash[:alert]
             redirect_to root_path
         end
         @admins = Admin.all
