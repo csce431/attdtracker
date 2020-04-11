@@ -2,30 +2,31 @@ class CoursesController < ApplicationController
 
     skip_before_action :verify_authenticity_token 
 
-    # def index
-    #     @courses = Course.order(:year).reverse_order
+    def index
+        @teacher = Teacher.find(params[:teacher_id])
+        @courses = @teacher.courses.order(:year).reverse_order.order(:season)
         
-    #     @all_seasons = @courses.distinct.pluck(:season)
-    #     @all_years = @courses.distinct.pluck(:year)
-    #     @all_years = @all_years.map { |str| str.to_s }
-        
-    #     if (params[:seasons].nil? and params[:years].nil?)
-    #         @current_seasons = @all_seasons
-    #         @current_years = @all_years
-    #     elsif params[:seasons].nil?
-    #         @current_seasons = @all_seasons
-    #         @current_years = params[:years].keys
-    #     elsif params[:years].nil?
-    #         @current_seasons = params[:seasons].keys
-    #         @current_years = @all_years
-    #     else
-    #         @current_seasons = params[:seasons].keys
-    #         @current_years = params[:years].keys
-    #     end
+        @all_seasons = better_distinct_season(@courses.order(:year).reverse_order)
+        @all_years = better_distinct_year(@courses.order(:season)).sort
+        @all_years = @all_years.map { |str| str.to_s }
 
-    #     @courses = Course.where(year: @current_years, season: @current_seasons)
-    #     #@courses = @courses.order(:name)
-    # end
+        @current_seasons = params[:seasons]
+        @current_years = params[:years]
+        if (!params[:seasons].nil? and !params[:years].nil?)
+            @current_seasons = params[:seasons].keys
+            @current_years = params[:years].keys
+        elsif !params[:seasons].nil?
+            @current_seasons = params[:seasons].keys
+            @current_years = @all_years
+        elsif !params[:years].nil?
+            @current_seasons = @all_seasons
+            @current_years = params[:years].keys
+        else
+            @current_seasons = @all_seasons
+            @current_years = @all_years
+        end
+        @courses = @teacher.courses.where(year: @current_years, season: @current_seasons)
+    end
 
     def import
         @course = Course.find(params[:id])
@@ -67,7 +68,7 @@ class CoursesController < ApplicationController
     
     def new
         @course = Course.new
-        @teacher = @course.teacher_id
+        @teacher = Teacher.find(params[:teacher_id])
     end
     
     def edit
@@ -83,12 +84,12 @@ class CoursesController < ApplicationController
     
     def create
         @course = Course.new(course_params)
-        @teacher = @course.teacher_id
+        @teacher = Teacher.find(params[:teacher_id])
  
         if @course.save
             @teacher.courses << @course
             
-            redirect_to teacher_course_path(@teacher, @course)
+            redirect_to teacher_courses_path(@teacher)
         else
             render 'new'
         end
