@@ -2,6 +2,31 @@ class CoursesController < ApplicationController
 
     skip_before_action :verify_authenticity_token 
 
+    # def index
+    #     @courses = Course.order(:year).reverse_order
+        
+    #     @all_seasons = @courses.distinct.pluck(:season)
+    #     @all_years = @courses.distinct.pluck(:year)
+    #     @all_years = @all_years.map { |str| str.to_s }
+        
+    #     if (params[:seasons].nil? and params[:years].nil?)
+    #         @current_seasons = @all_seasons
+    #         @current_years = @all_years
+    #     elsif params[:seasons].nil?
+    #         @current_seasons = @all_seasons
+    #         @current_years = params[:years].keys
+    #     elsif params[:years].nil?
+    #         @current_seasons = params[:seasons].keys
+    #         @current_years = @all_years
+    #     else
+    #         @current_seasons = params[:seasons].keys
+    #         @current_years = params[:years].keys
+    #     end
+
+    #     @courses = Course.where(year: @current_years, season: @current_seasons)
+    #     #@courses = @courses.order(:name)
+    # end
+
     def import
         @course = Course.find(params[:id])
         @students_in_course = @course.students.all
@@ -22,7 +47,7 @@ class CoursesController < ApplicationController
             @newstudent.lname = student['Last']
             
             # check if imported email exists
-            if exist_email_in_course(student['email'],@course)
+            if exist_email_in_course(student['email'], @course)
                 # do nothing (email already exists in course)
                 # next
             elsif exist_email(student['email'])

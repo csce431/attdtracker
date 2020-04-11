@@ -22,9 +22,10 @@ class CardsController < ApplicationController
     end
     
     def show
-        @card = Card.find(params[:id])
+        @card = Card.all
         @course = Course.find(params[:course_id])
         @students = @course.students
+        @student = Student.all
     end
     
     def create
@@ -32,46 +33,105 @@ class CardsController < ApplicationController
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
         @teacher = @course.teacher_id
+        @students = @course.students
 
+        @card_updated = false;
+        
+        # code doesn't exist in entire database and no email is linked to it
         if !code_exist(@card.code) && @card.email == nil
-            redirect_to course_day_card_promptemail_path
+            redirect_to course_day_card_promptemail_path(@course, @day, @card)
+            # puts('EMAIL PROMPTED!!!')
+            # render 'prompt_email'
+        # code doesn't exist in entire database, but there is email linked to it
         elsif !code_exist(@card.code) && @card.email != nil
-        #check against database
+            # check if linked email is in course's cards' emails
             if email_exist_in_course(@card.email, @course)
-                if @card.save 
+                # if email of card is connected to a card, use that (if student changes tamu id card)
+                if @card.save
                     @course.cards << @card
                     @day.cards << @card
+                    #Student.where(email: @card.email).first.card_num = @card.code
                     
-                    redirect_to new_course_day_card_path
-                #If email of card is connected to a card
-                else
-                    redirect_to course_day_card_promptemail_path
-                end
-            #user did not provide email
-            elsif @card.email == ''
-                redirect_to course_day_card_promptemail_path
-            #student is not enrolled in this class because email is not in the course
-            else
-                render 'noemail' #blank error page with "consult teacher to add you to the roster"
-            end
-        #if code exists in course, add it to the current day to mark that person as present
-        elsif code_exist_in_course(@card.code, @course)
-            @oldcard = Card.where(code: @card.code).first
-            @day.cards << @oldcard
+                    # update student and card attribute (link email and card number)
+                    @student = @students.where(email: @card.email).first
+                    @student.update_attribute(:card_num, @card.code)
 
-            redirect_to new_course_day_card_path
-        #code exists but not in this class
-        else
-            @oldcard = Card.where(code: @card.code).first
-            #first time swiping into this class but swiped before in another class
-            if email_exist_in_course(@oldcard.email)
-                @day.cards << @oldcard
-                @course.cards << @oldcard
-                
-                redirect_to new_course_day_card_path
-            #code exist but not enrolled in class
+                    @card.preferredname = @student.prefname
+                    @card.firstname = @student.fname
+                    @card.lastname = @student.lname
+
+                    @card_updated = false;
+
+                    puts('EMAIL LINKED!!!')
+                    render 'added_email'
+                else
+                    @existing_student = Card.where(email: @card.email).first
+                    @existing_student.update_attribute(:code, @card.code)
+
+                    @student = @students.where(email: @existing_student.email).first
+                    @student.update_attribute(:card_num, @existing_student.code)
+
+                    @card.preferredname = @student.prefname
+                    @card.firstname = @student.fname
+                    @card.lastname = @student.lname
+                    
+                    puts('EXISTING STUDENT WITH NEW CARD')
+
+                    # re-add card to the course if not already
+                    if !@existing_student.course_ids.include? @course.id
+                        @course.cards << @existing_student
+                    end
+
+                    @day.cards << @existing_student
+                    @card_updated = true;
+
+                    render 'added_email'
+                end
+            # email is prompted, but email doesn't link to anything in entire database
             else
-                render 'noemail' #blank error page with "consult teacher to add you to the roster"
+                render 'no_email' # error page with "consult instructor to add you to the roster"
+            end
+        # code exists in entire database
+        else
+            # code exists in course (no need to check for email)
+            if code_exist_in_course(@card.code, @course)
+
+                @oldcard = Card.where(code: @card.code).first
+                @student = @students.where(email: @oldcard.email).first
+
+                @card.preferredname = @student.prefname
+                @card.firstname = @student.fname
+                @card.lastname = @student.lname
+
+                # card is already swiped in for that day ID
+                if @oldcard.day_ids.include? @day.id
+                    # already swiped in for the day (the current day.id)
+                    puts('ALREADY SWIPED IN!!!')
+                    render 'already_in'
+                else
+                    # IT IS A NEW DAY, show confirmation page
+                    puts('SUCCESSFULLY SWIPED IN!!!')
+                
+                    # add card to the course if not already
+                    if !@oldcard.course_ids.include? @course.id
+                        @course.cards << @oldcard
+                    end
+                    # create day.id for card
+                    @day.cards << @oldcard
+                    render 'cards/show', :course_id => @course, :code => @card
+                end
+            # code doesn't exist in course, but exists in database
+            else
+                @oldcard = Card.where(code: @card.code).first
+                @student = Student.all.where(email: @oldcard.email).first
+
+                @card.preferredname = @student.prefname
+                @card.firstname = @student.fname
+                @card.lastname = @student.lname
+
+                # error page with "consult instructor to add you to the roster"
+                puts('EXISTING STUDENT NOT IN COURSE!!!')
+                render 'not_registered', :course_id => @course, :code => @card
             end
         end
         
@@ -99,24 +159,22 @@ class CardsController < ApplicationController
     end
     
     def code_exist(code)
-        #return value 'ret'
-        ret = false 
+        ret = false
         for card in Card.all do
           if card.code == code
             ret = true
-          end 
-        end 
+          end
+        end
         ret
     end
     
     def code_exist_in_course(code, course)
-        #return value 'ret'
-        ret = false 
-        for card in course.cards.all do
-          if card.code == code
-            ret = true
-          end 
-        end 
+        ret = false
+        for student in course.students.all do
+            if code == student.card_num
+                ret = true
+            end
+        end
         ret
     end
     

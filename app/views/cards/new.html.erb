@@ -1,6 +1,6 @@
 <div class="page-content">
 
-<h1>Attendance Tracker</h1>
+<h1>Swipe In</h1>
 
 <%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
 
@@ -20,8 +20,8 @@
   <% @lastCard %>
   
   <div>
-    <div><%= form.label :card %></div>
-    <div><%= form.text_field :code, autocomplete: 'off' %></div>
+    <div><%= form.label :code, "Please swipe your TAMU ID card" %></div>
+    <div><%= form.text_field :code, :required => true, placeholder: 'TAMU ID card', autocomplete: 'off' %></div>
   </div>
   <br>
 

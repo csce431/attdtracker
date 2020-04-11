@@ -7,16 +7,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag  '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js' %>
   <%= csrf_meta_tags %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://kit.fontawesome.com/a4c2a4e031.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
 <nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
-      <li class="active">
+      <li class="<%= 'active' if current_page?(root_path) %>">
         <a href="/"><span class="glyphicon glyphicon-home"></span> Sign In</a>
       </li>
-      <li>
+      <li class="<%= 'active' if current_page?(teachers_path) %>">
         <a href="/teachers"><span class="glyphicon glyphicon-apple"></span> Instructor</a>
       </li>
       <li>

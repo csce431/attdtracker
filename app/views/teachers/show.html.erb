@@ -6,51 +6,40 @@
 
   <p>
     <%= form_tag teacher_courses_path(@teacher), :method => :get do %>
-    Filter:    
-    <% @all_years.each do |year| %>
-      <%= check_box_tag "years[#{year}]", :id => "years_#{year}" %>
-      <%= year %>
-    <% end %> 
-  </p>
-
-  
-  <p>
-    <% @all_seasons.each do |season| %>
-      <%= check_box_tag "seasons[#{season}]", :id => "seasons_#{season}" %>
-      <%= season %>
+      <%= submit_tag 'Filter' %><br>  
+      <% @all_years.each do |year| %>
+        <%= check_box_tag "years[#{year}]", 1, @current_years.include?(year), :id => "years_#{year}" %>
+        <%= year %>
+      <% end %>
+      <br>
+      <% @all_seasons.each do |season| %>
+        <%= check_box_tag "seasons[#{season}]", 1, @current_seasons.include?(season), :id => "seasons_#{season}" %>
+        <%= season %>
+      <% end %>
+      <br>
     <% end %>
   </p>
-  
-  <%= submit_tag 'Refresh' %>
-  <% end %>
 
-
-
-<table>
-  <tr>
-    
-  </tr>
+<table id="courses_list">
   <tr>
     <th>Course</th>
     <th>Year</th>
     <th>Semester</th>
-    <th style="color: #FFFFFF">Attendance</th>
-    <th style="color: #FFFFFF">Enrollment</th>
-    <th style="color: #FFFFFF">Edit</th>
-    <th style="color: #FFFFFF">Delete</th>
+    <th><span hidden>Attendance</span></th>
   </tr>
  
   <% @courses.each do |course| %>
     <tr>
-      <td><%= course.name %> <%= course.number %>-<%= course.section %></td>
+      <% @course_fullname = course.name + " " + course.number.to_s + " - " + course.section.to_s %>
+      <td title="View Course Enrollment"><%= link_to @course_fullname, course_path(course) %></td>
       <td><%= course.year %></td>
       <td><%= course.season %></td>
-      <td><%= link_to 'Attendance', course_days_path(course) %></td>
-      <td><%= link_to 'Enrollment', course_path(course) %></td>
-      <td><%= link_to 'Edit', edit_teacher_course_path(@teacher, course) %></td>
-      <td><%= link_to 'Delete', course_path(course),
+      <td title="View Attendance for Course"><%= link_to 'Attendance', course_days_path(course) %></td>
+      <!--<td><%= link_to 'Enrollment', course_path(course) %></td>-->
+      <!--<td><%= link_to ('<i class="fa fa-edit"></i>').html_safe, edit_course_path(course) %></td>-->
+      <!--<td><%= link_to ('<i class="fas fa-trash"></i>').html_safe, course_path(course),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure you want to remove this course?' } %></td>-->
     </tr>
   <% end %>
 </table>

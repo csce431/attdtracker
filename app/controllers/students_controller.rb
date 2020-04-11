@@ -9,6 +9,7 @@ class StudentsController < ApplicationController
     
     def edit
         @student = Student.find(params[:id])
+        
     end
     
     def show
@@ -24,7 +25,7 @@ class StudentsController < ApplicationController
         if exist_email(@student.email)
         begin
             @existStudent = Student.where(email: @student.email).first
-            if !email_in_course(@course, @student.email) 
+            if !email_in_course(@course, @student.email)
                 @existStudent.courses << @course
             end
             redirect_to teacher_course_path(@teacher, @course)
@@ -77,10 +78,10 @@ class StudentsController < ApplicationController
                     ret = true
                 end
             end
-            ret            
+            ret
         end
         
         def student_params
-            params.require(:student).permit(:fname, :mname, :lname, :prefname, :uin, :email)
+            params.require(:student).permit(:fname, :mname, :lname, :prefname, :uin, :email, :card_num)
         end
 end 

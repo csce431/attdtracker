@@ -2,22 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.page-content {
-    text-align: center;
-}
-
-table, th, td {
-    padding: 10px;
-    /*border: 1px solid black;*/
-    text-align: center;
-}
-
-table {
-    width: 90%;
-    border-spacing: 10px;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 table#pres_abs {
     text-align: center;
@@ -53,11 +37,11 @@ td.colD {
 
 td.pres {
     background-color: lightgreen;
-    font-weight: bold;
+    // font-weight: bold;
 }
 td.abs {
     background-color: lightcoral;
-    font-weight: bold;
+    // font-weight: bold;
 }
 
 /*ul#days_pres {
