@@ -41,7 +41,8 @@ class CardsController < ApplicationController
                 if @card.save 
                     @course.cards << @card
                     @day.cards << @card
-                    
+                    Student.where(email: @card.email).first.card_num = @card.code
+
                     redirect_to new_course_day_card_path
                 #If email of card is connected to a card
                 else

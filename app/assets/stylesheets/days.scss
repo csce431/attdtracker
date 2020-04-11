@@ -4,22 +4,26 @@
 
 table#attendance_day {
     border-style: solid;
+    border-color: grey;
+    max-width: 0;
 }
 
 th {
     border-bottom-style: solid;
+    width: 1%;
+    white-space: nowrap;
 }
 
 td.name {
-    width: 10%;
     border-right-style: solid;
+    border-color: lightgrey;
 }
 
 td.pres {
     background-color: lightgreen;
-    font-weight: bold;
+    // font-weight: bold;
 }
 td.abs {
     background-color: lightcoral;
-    font-weight: bold;
+    // font-weight: bold;
 }
