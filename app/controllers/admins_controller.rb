@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-    before_action: require_admin_login
+    before_action :require_admin_login
 
     def index
         # if session[:admin_logged_in] != true
