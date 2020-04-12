@@ -1,10 +1,12 @@
 class AdminsController < ApplicationController
+    before_action :require_admin_login
+
     def index
-        if session[:admin_logged_in] != true
-            flash[:alert] = "ERROR: You must be logged in as an admin to access that page!"
-            session[:error] = flash[:alert]
-            redirect_to root_path
-        end
+        # if session[:admin_logged_in] != true
+        #     flash[:alert] = "ERROR: You must be logged in as an admin to access that page!"
+        #     session[:error] = flash[:alert]
+        #     redirect_to root_path
+        # end
         @admins = Admin.all
         @isStudent = Student.pluck(:email).include? session[:email] 
         if @isStudent
@@ -44,6 +46,16 @@ class AdminsController < ApplicationController
     end
 
     private
+        def require_admin_login
+            unless session[:admin_logged_in] == true
+                render 'no_auth'
+            end
+        end
+        def require_teacher_login
+            unless session[:teacher_logged_in] == true
+                render 'no_auth'
+            end
+        end
         def admin_params
             params.require(:admin).permit(:fname, :mname, :lname, :email)
         end

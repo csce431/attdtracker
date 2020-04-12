@@ -1,0 +1,7 @@
+<% if session[:student_logged_in] != true %>
+    <p>ERROR: You must be logged in to access that page!</p>
+<% elsif session[:teacher_logged_in] != true %>
+    <p>ERROR: You must be logged in as a teacher to access that page!</p>
+<% elsif session[:admin_logged_in] != true %>
+    <p>ERROR: You must be logged in as an admin to access that page!</p>
+<% end %>
