@@ -100,7 +100,7 @@ class CoursesController < ApplicationController
         @teacher = @course.teacher_id
  
         if @course.update(course_params)
-            redirect_to teacher_course_path(@teacher, @course)
+            redirect_to teacher_courses_path(@teacher)
         else
             render 'edit'
         end

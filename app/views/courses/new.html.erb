@@ -1,7 +1,42 @@
 <div class="page-content">
 
 <h1>New Course</h1>
-<%= render 'form' %>
+
+<%= form_with(model: @course, url: teacher_courses_path(@teacher), local: true) do |form| %>
+ 
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@course.errors.count, "error") %> prohibited
+        this course from being saved:
+      </h2>
+      <ul>
+        <% @course.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div><%= form.text_field :name, :required => true, placeholder: "Department"  %></div>
+  <div><%= form.text_field :number, :required => true, placeholder: "Course Number"  %></div>
+  <div><%= form.text_field :section, :required => true, placeholder: "Section" %></div>
+  
+  <br>
+  <p>
+    <%= form.label "Year" %>
+    <%= form.select :year, (Date.today.year - 20)..(Date.today.year + 1), :selected => Time.current.year %>
+  </p>
+  <p>
+    <%= form.label "Semester" %>
+    <%= form.select(:season, options_for_select([["Fall","Fall"], ["Spring", "Spring"], ["Summer", "Summer"]])) %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
   
 <%= link_to 'Back', teacher_path(@teacher) %>
 

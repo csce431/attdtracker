@@ -34,7 +34,7 @@ class TeachersController < ApplicationController
     
     def show
         @teacher = Teacher.find(params[:id])
-        @courses = @teacher.courses.order(:year).reverse_order.order(:season)
+        # @courses = @teacher.courses.order(:year).reverse_order.order(:season)
         
         redirect_to teacher_courses_path(@teacher)
 

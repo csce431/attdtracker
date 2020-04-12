@@ -31,7 +31,7 @@
   <% @courses.each do |course| %>
     <tr>
       <% @course_fullname = course.name + " " + course.number.to_s + " - " + course.section.to_s %>
-      <td title="View Course Enrollment"><%= link_to @course_fullname, teacher_course_path(@teacher, course) %></td>
+      <td title="View Course Enrollment"><%= link_to @course_fullname, course_path(course) %></td>
       <td><%= course.year %></td>
       <td><%= course.season %></td>
       <td title="View Attendance for Course"><%= link_to 'Attendance', course_days_path(course) %></td>
