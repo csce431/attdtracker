@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
-    # before_action :require_teacher_login, except: [:index]
+    before_action :require_admin_login
+    before_action :require_teacher_login, except: [:index]
     def index
         #admin
         # if session[:admin_logged_in] != true
@@ -57,27 +58,6 @@ class TeachersController < ApplicationController
             @current_years = @all_years
         end
         @courses = Course.where(year: @current_years, season: @current_seasons)
-        # @courses = Course.order(:year).reverse_order
-        ###
-        # @all_seasons = @courses.distinct.pluck(:season)
-        # @all_years = @courses.distinct.pluck(:year)
-        # @all_years = @all_years.map { |str| str.to_s }
-        
-        # if (params[:seasons].nil? and params[:years].nil?)
-        #     @current_seasons = @all_seasons
-        #     @current_years = @all_years
-        # elsif params[:seasons].nil?
-        #     @current_seasons = @all_seasons
-        #     @current_years = params[:years].keys
-        # elsif params[:years].nil?
-        #     @current_seasons = params[:seasons].keys
-        #     @current_years = @all_years
-        # else
-        #     @current_seasons = params[:seasons].keys
-        #     @current_years = params[:years].keys
-        # end
-
-        # @courses = Course.where(year: @current_years, season: @current_seasons)
     end 
     
     def edit
@@ -102,13 +82,22 @@ class TeachersController < ApplicationController
     end 
     
     private
-        # def require_teacher_login
-        #     unless session[:teacher_logged_in] == true
-        #         flash[:alert] = "ERROR: You must be logged in as a teacher to access that page!"
-        #         session[:error] = flash[:alert]
-        #         redirect_to root_path # halts request cycle
-        #     end
-        # end
+        def require_admin_login
+            unless session[:admin_logged_in] == true
+                render 'no_auth'
+                # flash[:alert] = "ERROR: You must be logged in as a teacher to access that page!"
+                # session[:error] = flash[:alert]
+                # redirect_to root_path # halts request cycle
+            end
+        end
+        def require_teacher_login
+            unless session[:teacher_logged_in] == true
+                render 'no_auth'
+                # flash[:alert] = "ERROR: You must be logged in as a teacher to access that page!"
+                # session[:error] = flash[:alert]
+                # redirect_to root_path # halts request cycle
+            end
+        end
         ##distinct doesn't work on heroku so we created our own distinct
         def distinct_department(teachers)
             distinct_departments = Array.new
