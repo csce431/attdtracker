@@ -13,9 +13,12 @@ class TeachersController < ApplicationController
         @all_departments = distinct_department(Teacher.order(:department))
         
         @current_departments = params[:departments]
-        if !params[:departments].nil?
-            @teachers = Teacher.where(department: @current_departments.keys) 
+        if params[:departments].nil?
+            @current_departments = @all_departments
+        else
+            @current_departments = params[:departments].keys
         end
+        @teachers = Teacher.where(department: @current_departments)
     end
     
     def new
@@ -35,29 +38,54 @@ class TeachersController < ApplicationController
     
     def show
         @teacher = Teacher.find(params[:id])
-        @courses = @teacher.courses.order(:year).reverse_order.order(:season)
+        # @courses = @teacher.courses.order(:year).reverse_order.order(:season)
         
-        @all_seasons = distinct_season(@courses.order(:year).reverse_order)
-        @all_years = distinct_year(@courses.order(:season)).sort
-        @all_years = @all_years.map { |str| str.to_s }
+        redirect_to teacher_courses_path(@teacher)
 
-        @current_seasons = params[:seasons]
-        @current_years = params[:years]
-        if (!params[:seasons].nil? and !params[:years].nil?)
-            @courses = @teacher.courses.where(year: @current_years.keys, season: @current_seasons.keys) 
-        elsif !params[:seasons].nil?
-            @current_seasons = params[:seasons].keys
-            @current_years = @all_years
-            @courses = @teacher.courses.where(season: @current_seasons.keys)
-        elsif !params[:years].nil?
-            @current_seasons = @all_seasons
-            @current_years = params[:years].keys
-            @courses = @teacher.courses.where(year: @current_years.keys)
-        else
-            @current_seasons = @all_seasons
-            @current_years = @all_years
-        end
-        @courses = Course.where(year: @current_years, season: @current_seasons)
+        # @all_seasons = distinct_season(@courses.order(:year).reverse_order)
+        # @all_years = distinct_year(@courses.order(:season)).sort
+        # @all_years = @all_years.map { |str| str.to_s }
+
+        # @current_seasons = params[:seasons]
+        # @current_years = params[:years]
+        # if (!params[:seasons].nil? and !params[:years].nil?)
+        #     @courses = @teacher.courses.where(year: @current_years.keys, season: @current_seasons.keys) 
+        # elsif !params[:seasons].nil?
+        #     @current_seasons = params[:seasons].keys
+        #     @current_years = @all_years
+        #     @courses = @teacher.courses.where(season: @current_seasons.keys)
+        # elsif !params[:years].nil?
+        #     @current_seasons = @all_seasons
+        #     @current_years = params[:years].keys
+        #     @courses = @teacher.courses.where(year: @current_years.keys)
+        # else
+        #     @current_seasons = @all_seasons
+        #     @current_years = @all_years
+        # end
+        # @courses = Course.where(year: @current_years, season: @current_seasons)
+        # @courses = Course.order(:year).reverse_order
+
+        #######
+
+        # @all_seasons = @courses.distinct.pluck(:season)
+        # @all_years = @courses.distinct.pluck(:year)
+        # @all_years = @all_years.map { |str| str.to_s }
+        
+        # if (params[:seasons].nil? and params[:years].nil?)
+        #     @current_seasons = @all_seasons
+        #     @current_years = @all_years
+        # elsif params[:seasons].nil?
+        #     @current_seasons = @all_seasons
+        #     @current_years = params[:years].keys
+        # elsif params[:years].nil?
+        #     @current_seasons = params[:seasons].keys
+        #     @current_years = @all_years
+        # else
+        #     @current_seasons = params[:seasons].keys
+        #     @current_years = params[:years].keys
+        # end
+
+        # @courses = Course.where(year: @current_years, season: @current_seasons)
     end 
     
     def edit

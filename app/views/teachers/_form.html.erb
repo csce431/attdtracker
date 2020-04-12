@@ -13,34 +13,16 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label "First Name" %><br>
-    <%= form.text_field :fname %>
-  </p>
- 
-  <p>
-    <%= form.label "Middle Name" %><br>
-    <%= form.text_field :mname %>
-  </p>
 
-  <p>
-    <%= form.label "Last Name" %><br>
-    <%= form.text_field :lname %>
-  </p>
+  <div><%= form.text_field :fname, placeholder: "First Name" %></div>
+  <div><%= form.text_field :mname, placeholder: "Middle Name" %></div>
+  <div><%= form.text_field :lname, placeholder: "Last Name" %></div>
+  <div><%= form.text_field :email, :required => true, placeholder: "E-mail" %></div>
+  <div><%= form.text_field :department, placeholder: "Department" %></div>
+  <br>
   
   <p>
-    <%= form.label "Email" %><br>
-    <%= form.text_field :email %>
-  </p>
-  
-  <p>
-    <%= form.label "Department" %><br>
-    <%= form.text_field :department %>
-  </p>
-  
-  <p>
-    <%= form.submit %>
+    <%= form.submit "Add Teacher" %>
   </p>
 
 <% end %>
