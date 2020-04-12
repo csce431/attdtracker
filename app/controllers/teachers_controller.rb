@@ -12,9 +12,12 @@ class TeachersController < ApplicationController
         @all_departments = distinct_department(Teacher.order(:department))
         
         @current_departments = params[:departments]
-        if !params[:departments].nil?
-            @teachers = Teacher.where(department: @current_departments.keys) 
+        if params[:departments].nil?
+            @current_departments = @all_departments
+        else
+            @current_departments = params[:departments].keys
         end
+        @teachers = Teacher.where(department: @current_departments)
     end
     
     def new

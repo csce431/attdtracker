@@ -8,7 +8,7 @@
 <p>
   <%= form_tag teachers_path, :method => :get do %>
     <% @all_departments.each do |department| %>
-      <%= check_box_tag "departments[#{department}]", :id => "departments_#{department}" %>
+      <%= check_box_tag "departments[#{department}]", 1, @current_departments.include?(department), :id => "departments_#{department}" %>
       <%= department %>
     <% end %><br>
     <%= submit_tag 'Filter' %>
