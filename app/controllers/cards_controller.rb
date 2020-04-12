@@ -62,7 +62,7 @@ class CardsController < ApplicationController
 
                     @card_updated = false;
 
-                    puts('EMAIL LINKED!!!')
+                    # puts('EMAIL LINKED!!!')
                     render 'added_email'
                 else
                     @existing_student = Card.where(email: @card.email).first
@@ -75,7 +75,7 @@ class CardsController < ApplicationController
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
                     
-                    puts('EXISTING STUDENT WITH NEW CARD')
+                    # puts('EXISTING STUDENT WITH NEW CARD')
 
                     # re-add card to the course if not already
                     if !@existing_student.course_ids.include? @course.id
@@ -106,11 +106,11 @@ class CardsController < ApplicationController
                 # card is already swiped in for that day ID
                 if @oldcard.day_ids.include? @day.id
                     # already swiped in for the day (the current day.id)
-                    puts('ALREADY SWIPED IN!!!')
+                    # puts('ALREADY SWIPED IN!!!')
                     render 'already_in'
                 else
                     # IT IS A NEW DAY, show confirmation page
-                    puts('SUCCESSFULLY SWIPED IN!!!')
+                    # puts('SUCCESSFULLY SWIPED IN!!!')
                 
                     # add card to the course if not already
                     if !@oldcard.course_ids.include? @course.id
@@ -130,11 +130,10 @@ class CardsController < ApplicationController
                 @card.lastname = @student.lname
 
                 # error page with "consult instructor to add you to the roster"
-                puts('EXISTING STUDENT NOT IN COURSE!!!')
+                # puts('EXISTING STUDENT NOT IN COURSE!!!')
                 render 'not_registered', :course_id => @course, :code => @card
             end
         end
-        
     end
 
     def update
