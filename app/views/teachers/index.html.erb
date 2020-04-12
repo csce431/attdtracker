@@ -1,9 +1,11 @@
 <div class="page-content">
 
-<h1>Listing Teachers</h1>
+<h1>Listing Instructors</h1>
 
-<%= link_to 'Add Teacher', new_teacher_path %><br>
+<%= link_to 'Add Instructor', new_teacher_path %><br>
 <%= link_to 'Back', admins_path %>
+
+<% unless @teachers.blank? %>
 
 <p>
   <%= form_tag teachers_path, :method => :get do %>
@@ -11,7 +13,7 @@
       <%= check_box_tag "departments[#{department}]", 1, @current_departments.include?(department), :id => "departments_#{department}" %>
       <%= department %>
     <% end %><br>
-    <%= submit_tag 'Filter' %>
+    <%= submit_tag 'Filter by Department' %>
   <% end %>
 </p>
 
@@ -42,5 +44,9 @@
     </tr>
   <% end %>
 </table>
+
+<% else %>
+  <br><%= "There are currently no instructors listed. Please add an instructor to begin." %>
+<% end %>
 
 </div>

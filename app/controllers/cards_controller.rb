@@ -39,9 +39,9 @@ class CardsController < ApplicationController
         
         # code doesn't exist in entire database and no email is linked to it
         if !code_exist(@card.code) && @card.email == nil
-            redirect_to course_day_card_promptemail_path(@course, @day, @card)
+            # redirect_to course_day_card_promptemail_path(@course, @day, @card)
             # puts('EMAIL PROMPTED!!!')
-            # render 'prompt_email'
+            render 'prompt_email'
         # code doesn't exist in entire database, but there is email linked to it
         elsif !code_exist(@card.code) && @card.email != nil
             # check if linked email is in course's cards' emails
