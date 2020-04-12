@@ -1,6 +1,7 @@
 class TeachersController < ApplicationController
-    before_action :require_admin_login
-    before_action :require_teacher_login, except: [:index]
+    before_action :require_admin_login, only: [:index]
+    before_action :require_teacher_login
+    
     def index
         #admin
         # if session[:admin_logged_in] != true
@@ -113,17 +114,11 @@ class TeachersController < ApplicationController
         def require_admin_login
             unless session[:admin_logged_in] == true
                 render 'no_auth'
-                # flash[:alert] = "ERROR: You must be logged in as a teacher to access that page!"
-                # session[:error] = flash[:alert]
-                # redirect_to root_path # halts request cycle
             end
         end
         def require_teacher_login
             unless session[:teacher_logged_in] == true
                 render 'no_auth'
-                # flash[:alert] = "ERROR: You must be logged in as a teacher to access that page!"
-                # session[:error] = flash[:alert]
-                # redirect_to root_path # halts request cycle
             end
         end
         ##distinct doesn't work on heroku so we created our own distinct

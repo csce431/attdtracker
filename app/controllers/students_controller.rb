@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+    before_action: require_student_login
+    
     def index
         @students = Student.all
     end
@@ -61,6 +63,23 @@ class StudentsController < ApplicationController
     end 
     
     private
+        def require_admin_login
+            unless session[:admin_logged_in] == true
+                render 'no_auth'
+            end
+        end
+
+        def require_teacher_login
+            unless session[:teacher_logged_in] == true
+                render 'no_auth'
+            end
+        end
+        def require_student_login
+            unless session[:student_logged_in] == true
+                render 'no_auth'
+            end
+        end
+
         def exist_email(email)
            ret = false
            for student in Student.all do
