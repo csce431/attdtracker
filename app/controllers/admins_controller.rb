@@ -2,11 +2,6 @@ class AdminsController < ApplicationController
     before_action :require_admin_login
 
     def index
-        # if session[:admin_logged_in] != true
-        #     flash[:alert] = "ERROR: You must be logged in as an admin to access that page!"
-        #     session[:error] = flash[:alert]
-        #     redirect_to root_path
-        # end
         @admins = Admin.all
         @isStudent = Student.pluck(:email).include? session[:email] 
         if @isStudent
@@ -27,7 +22,7 @@ class AdminsController < ApplicationController
     def new
         @admin = Admin.new
     end
-    
+
     def create
         @admin = Admin.new(admin_params)
         
@@ -36,6 +31,10 @@ class AdminsController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def show
+        @student = Student.new
     end
     
     def destroy

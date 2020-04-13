@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    #before_action :require_teacher_login, only: [:new, :create]
-    #before_action :require_student_login
+    before_action :require_teacher_login, only: [:new, :create, :destroy]
+    before_action :require_student_login
 
     def index
         @students = Student.all
@@ -25,25 +25,30 @@ class StudentsController < ApplicationController
     
     def create
         @student = Student.new(student_params)
-        @course = Course.find(params[:course_id])
-        @teacher = @course.teacher_id
-        
-        if exist_email(@student.email)
-        begin
-            @existStudent = Student.where(email: @student.email).first
-            if !email_in_course(@course, @student.email)
-                @existStudent.courses << @course
-            end
-            redirect_to teacher_course_path(@teacher, @course)
-        end
+        if !params[:course_id]
+            @student.save!
+            redirect_to students_path
         else
-            if @student.save
+            @course = Course.find(params[:course_id])
+            @teacher = @course.teacher_id
+            
+            if exist_email(@student.email)
             begin
-                @student.courses << @course
-                redirect_to course_path(@course)
+                @existStudent = Student.where(email: @student.email).first
+                if !email_in_course(@course, @student.email)
+                    @existStudent.courses << @course
+                end
+                redirect_to teacher_course_path(@teacher, @course)
             end
             else
-                render 'new'
+                if @student.save
+                begin
+                    @student.courses << @course
+                    redirect_to course_path(@course)
+                end
+                else
+                    render 'new'
+                end
             end
         end
     end
@@ -60,10 +65,15 @@ class StudentsController < ApplicationController
 
     def destroy
         @student = Student.find(params[:id])
-        @course = Course.find(params[:course_id])
-        @course.students.delete(Student.find(params[:id]))
-        
-        redirect_to course_path(@course)
+        if !params[:course_id]
+            @student.destroy
+            redirect_to students_path
+        else
+            @course = Course.find(params[:course_id])
+            @course.students.delete(Student.find(params[:id]))
+            
+            redirect_to course_path(@course)
+        end
     end 
     
     private

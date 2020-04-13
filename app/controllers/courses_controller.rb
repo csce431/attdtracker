@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
-
     skip_before_action :verify_authenticity_token 
+    before_action :require_teacher_login
 
     def index
         @teacher = Teacher.find(params[:teacher_id])
@@ -115,6 +115,24 @@ class CoursesController < ApplicationController
     end 
     
     private
+        def require_admin_login
+            unless session[:admin_logged_in] == true
+                render 'no_auth'
+            end
+        end
+
+        def require_teacher_login
+            unless session[:teacher_logged_in] == true
+                render 'no_auth'
+            end
+        end
+
+        def require_student_login
+            unless session[:student_logged_in] == true
+                render 'no_auth'
+            end
+        end
+
         def exist_email(email)
             ret = false
             for student in Student.all do

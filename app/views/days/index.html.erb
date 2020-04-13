@@ -12,7 +12,7 @@
 <p>
     <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path, target: :_blank) do
      link_to("Take Attendance!", new_course_day_card_path(@course, @day), target: :_blank)
-   end%>
+    end %>
 </p>
 <p>Current Date: <em><%= Date.strptime(@time, '%m-%d-%Y').strftime("%B %d, %Y") %></em></p>
 
@@ -138,8 +138,7 @@
                     <i class="fas fa-sort-alpha-down" style="color: white;"></i>
                 <% end %>
             </th>
-            <th style="padding-left: 24px;"><%= "%" %>
-            </th>
+            <th><%= "%" %></th>
             <% $i = 2 %>
             <% @days.each do |day| %>
                 <th onclick="sortTable(<%= $i %>)" >
@@ -148,7 +147,7 @@
                         method: :delete,
                         data: { confirm: 'Are you sure you want to remove this day?' } %>
                 </th>
-                <% $i += 1%>
+                <% $i += 1 %>
             <% end %>
         </tr>
     </thead>
@@ -164,13 +163,13 @@
                 <% @cards.each do |card| %>
                     <% if card.email == student.email %>
                         <% if card.day_ids.include? day.id %>
-                            <td class="pres"><%="PRESENT"%></td>
+                            <td class="pres"><%= "PRESENT" %></td>
                             <% $present = true %>
                         <% end %>
                     <% end %>
                 <% end %>
                 <% if !$present %>
-                    <td class="abs"><%="ABSENT"%></td>
+                    <td class="abs"><%= "ABSENT" %></td>
                 <% end %>
             <% end %>
         </tr>
