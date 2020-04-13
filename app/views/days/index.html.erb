@@ -47,6 +47,8 @@
     });
 </script>
 
+<% unless @course.days.blank? %>
+
 <div class="btn-group">
   <button>Download as CSV</button>
 </div><br><br>
@@ -176,7 +178,11 @@
     </tbody>
 </table>
 
-<br>
+<% else %>
+    <br><%= "There is no recorded attendance yet. Press \"Take Attendance!\" to begin." %>
+<% end %>
+
+<br><br>
 <div><%= link_to 'Back', teacher_path(@teacher) %></div>
 
 </div>

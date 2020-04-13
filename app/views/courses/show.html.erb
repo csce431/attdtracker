@@ -25,6 +25,8 @@
   $('form#upload-roster-form').attr('action', "/courses/".concat(courseID, "/import"));
 </script>
 
+<% unless @course.students.blank? %>
+
 <table>
   <tr>
     <th>First Name</th>
@@ -52,5 +54,9 @@
     </tr>
   <% end %>
 </table>
+
+<% else %>
+  <br><%= "There are currently no students in this course. Add a student or upload a roster." %><br>
+<% end %>
 
 </div>
