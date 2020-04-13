@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    before_action :require_teacher_login, only: [:new, :create]
-    before_action :require_student_login
+    #before_action :require_teacher_login, only: [:new, :create]
+    #before_action :require_student_login
 
     def index
         @students = Student.all
@@ -12,7 +12,10 @@ class StudentsController < ApplicationController
     
     def edit
         @student = Student.find(params[:id])
-        
+    end
+
+    def studentEdit
+        @student = Student.find(params[:student_id])
     end
     
     def show

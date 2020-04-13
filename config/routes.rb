@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :courses
   end
 
-  resources :students
+  resources :students do
+    get 'studentEdit', to: 'students#studentEdit'
+  end
   resources :admins
 
   #resources :courses do
