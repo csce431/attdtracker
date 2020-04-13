@@ -23,7 +23,7 @@ class StudentsController < ApplicationController
     def create
         @student = Student.new(student_params)
         if !params[:course_id]
-            @student.save
+            @student.save!
             redirect_to students_path
         else
             @course = Course.find(params[:course_id])
@@ -63,7 +63,7 @@ class StudentsController < ApplicationController
     def destroy
         @student = Student.find(params[:id])
         if !params[:course_id]
-            @student.delete
+            @student.destroy
             redirect_to students_path
         else
             @course = Course.find(params[:course_id])
