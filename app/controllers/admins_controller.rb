@@ -22,7 +22,7 @@ class AdminsController < ApplicationController
     def new
         @admin = Admin.new
     end
-    
+
     def create
         @admin = Admin.new(admin_params)
         
@@ -31,6 +31,10 @@ class AdminsController < ApplicationController
         else
             render 'new'
         end
+    end
+
+    def show
+        @student = Student.new
     end
     
     def destroy

@@ -1,0 +1,37 @@
+<div class="page-content">
+
+<h1>New Student</h1>
+
+<%= form_with model: @student, url: students_path, html: {autocomplete: 'off'}, local: true do |form| %>
+ 
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        <%= pluralize(@student.errors.count, "error") %> prohibited
+        this student from being saved:
+      </h3>
+      <div>
+        <% @student.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
+        <% end %>
+      </div>
+    </div>
+    <br>
+  <% end %>
+
+  <div><%= form.text_field :fname, placeholder: "First Name" %></div>
+  <div><%= form.text_field :mname, placeholder: "Middle Name" %></div>
+  <div><%= form.text_field :lname, placeholder: "Last Name" %></div>
+  <div><%= form.text_field :prefname, placeholder: "Preferred Name" %></div>
+  <div><%= form.text_field :email, :required => true, placeholder: "TAMU E-mail" %></div>
+  <br>
+  
+  <p>
+    <%= form.submit "Add Student" %>
+  </p>
+  
+  <%= link_to 'Back', :back %>
+ 
+<% end %>
+
+</div>

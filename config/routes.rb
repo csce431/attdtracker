@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :students
   resources :admins
 
+  get '/admins/new1', to: 'admins#show'
+
   #resources :courses do
   #  resources :students
   #  resources :role
