@@ -32,7 +32,7 @@
  
   <% @teachers.each do |teacher| %>
     <tr>
-      <td><%= teacher.lname %>, <%= teacher.fname %> <%= teacher.mname%></td>
+      <td><%= teacher.lname %>, <%= teacher.fname %> <%= teacher.mname %></td>
       <td><%= teacher.email %></td>
       <td><%= teacher.department %></td>
       <td title="View Instructor's Courses"><%= link_to 'View', teacher_path(teacher) %></td>
