@@ -138,14 +138,7 @@
                     <i class="fas fa-sort-alpha-down" style="color: white;"></i>
                 <% end %>
             </th>
-            <th style="padding-left: 24px;"><%= sortable "lname", "%" %>
-                <% if params[:direction] == "asc" and params[:sort] == "lname" %>
-                    <i class="fas fa-sort-alpha-down"></i>
-                <% elsif params[:direction] == "desc" and params[:sort] == "lname" %>
-                    <i class="fas fa-sort-alpha-up-alt"></i>
-                <% else %>
-                    <i class="fas fa-sort-alpha-down" style="color: white;"></i>
-                <% end %>
+            <th style="padding-left: 24px;"><%= "%" %>
             </th>
             <% $i = 2 %>
             <% @days.each do |day| %>
