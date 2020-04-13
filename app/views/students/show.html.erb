@@ -34,10 +34,6 @@
         <td class="colC">Email:</td>
         <td class="colD"><%= @student.email %></td>
     </tr>
-    <!--tr>
-        <td class="colC">Card Number: </td>
-        <td class="colD"><%= @student.card_num %></td>
-    </tr-->
     <tr>
         <td class="colC">Classes:</td>
         <td class="colD"><strong>
@@ -48,7 +44,7 @@
     </tr>
 </table><br>
 
-<%= link_to 'Edit Student Profile', edit_student_path() %><br>
+<%= link_to 'Edit Student Profile', student_studentEdit_path(@student) %><br>
 
 <br><br><br>
 <div>
