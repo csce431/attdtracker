@@ -1,6 +1,7 @@
 class DaysController < ApplicationController
 
   helper_method :sort_column, :sort_direction
+  helper_method :days_fraction
 
   def index
     @courses = Course.all
@@ -106,6 +107,21 @@ class DaysController < ApplicationController
       params.require(:day).permit(:classday)
     end
 
+    def days_fraction(student)
+      @days = @course.days
+      @present_days = 0
+      
+      for day in @days
+        
+        if(day.cards.pluck("email").include? student.email)
+          @present_days += 1
+        end
+      end
+
+      @present_days.to_s + "/" + @days.count.to_s
+    end
+
+
     def sort_column
         Student.column_names.include?(params[:sort]) ? params[:sort] : "lname"
     end
@@ -113,5 +129,4 @@ class DaysController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
-
 end

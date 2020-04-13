@@ -25,7 +25,9 @@ ActiveRecord::Schema.define(version: 2020_04_07_212842) do
     t.string "code"
     t.string "email"
     t.string "firstname"
+    t.string "middlename"
     t.string "lastname"
+    t.string "preferredname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
