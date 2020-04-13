@@ -7,9 +7,10 @@ class Student < ApplicationRecord
     
     #validates :uin, length: {is: 9}
     #validates :card_num, presence: true, format: { with: /[\%](\d{16}[\?])[\;](\1)[\+](\1)/ }
+    validates :card_num, :uniqueness => {:message => "A student with this card number already exists."}
 
     validates :email, presence: true, format: {with: /tamu.edu\z/}
-    #validates :email, :uniqueness => {:message => "A student with this email already exists."}
+    validates :email, :uniqueness => {:message => "A student with this email already exists."}
 
     #validates_format_of :email, :with => /\wa/
     #validates :fname, presence: true
