@@ -10,9 +10,9 @@
     <span id="course_section"><%= @course.section %></span>
 </h1> 
 <p>
-    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path, target: :blank) do
+    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path, target: :_blank) do
      link_to("Take Attendance!", new_course_day_card_path(@course, @day), target: :_blank)
-   end%>
+    end %>
 </p>
 <p>Current Date: <em><%= Date.strptime(@time, '%m-%d-%Y').strftime("%B %d, %Y") %></em></p>
 
@@ -138,7 +138,8 @@
                     <i class="fas fa-sort-alpha-down" style="color: white;"></i>
                 <% end %>
             </th>
-
+            <th style="padding-left: 24px;"><%= "%" %>
+            </th>
             <% $i = 2 %>
             <% @days.each do |day| %>
                 <th onclick="sortTable(<%= $i %>)" >
@@ -147,32 +148,31 @@
                         method: :delete,
                         data: { confirm: 'Are you sure you want to remove this day?' } %>
                 </th>
-                <% $i += 1%>
+                <% $i += 1 %>
             <% end %>
         </tr>
     </thead>
     <tbody>
         <% @students.each do |student| %>
         <tr>
-            <%# if @courses.ids.include? @course.id %>
-                <td class="name"><%= student.fname %></td>
-                <td class="name"><%= student.lname %></td>
-                
-                <% @days.each do |day| %>
-                    <% $present = false %>
-                    <% @cards.each do |card| %>
-                        <% if card.email == student.email %>
-                            <% if card.day_ids.include? day.id %>
-                                <td class="pres"><%="PRESENT"%></td>
-                                <% $present = true %>
-                            <% end %>
+            <td class="name"><%= student.fname %></td>
+            <td class="name"><%= student.lname %></td>
+            <td><%= days_fraction(student) %></td>
+            
+            <% @days.each do |day| %>
+                <% $present = false %>
+                <% @cards.each do |card| %>
+                    <% if card.email == student.email %>
+                        <% if card.day_ids.include? day.id %>
+                            <td class="pres"><%= "PRESENT" %></td>
+                            <% $present = true %>
                         <% end %>
                     <% end %>
-                    <% if !$present %>
-                        <td class="abs"><%="ABSENT"%></td>
-                    <% end %>
                 <% end %>
-            <%# end %>
+                <% if !$present %>
+                    <td class="abs"><%= "ABSENT" %></td>
+                <% end %>
+            <% end %>
         </tr>
         <% end %>
     </tbody>
