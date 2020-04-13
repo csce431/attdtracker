@@ -29,6 +29,7 @@ class SessionsController < ApplicationController
         session[:lname] = access_token.info.last_name
         session[:email] = access_token.info.email
         session[:picture] = access_token.info.image
+        session[:expires_at] = Time.current + 30.minutes
         # session[:token] = refresh_token # or do I use @user.google_refresh_token
         #puts user.id
 

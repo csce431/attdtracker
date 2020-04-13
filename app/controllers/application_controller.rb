@@ -3,28 +3,24 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   # before_action :require_admin_login
-  # before_action :require_teacher_login
-  # before_action :require_student_login
+  before_action :session_expiration
+  after_action :session_activity
  
-  # private
+  private
+    def session_expiration
+      if session[:expires_at] < Time.current
+        redirect_to logout_path #, alert: "ERROR: You are being timed out for inactivity. Please sign in again."
+        flash[:alert] = "ERROR: You are being timed out for inactivity. Please sign in again."
+      end
+    end
+
+    def session_activity
+      session[:expires_at] = Time.current + 30.minutes
+    end
   # # require user to log in before accessing any url
   # def require_admin_login
   #   unless session[:admin_logged_in] == true
   #     flash[:error] = "You must be logged in as an admin to access this section"
-  #     redirect_to root_path # halts request cycle
-  #   end
-  # end
-
-  # def require_teacher_login
-  #   unless session[:teacher_logged_in] == true
-  #     flash[:error] = "You must be logged in as a teacher to access this section"
-  #     redirect_to root_path # halts request cycle
-  #   end
-  # end
-
-  # def require_student_login
-  #   unless session[:student_logged_in] == true
-  #     flash[:error] = "You must be logged in as a student to access this section"
   #     redirect_to root_path # halts request cycle
   #   end
   # end
