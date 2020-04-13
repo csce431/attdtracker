@@ -69,7 +69,7 @@ class CardsController < ApplicationController
                     @existing_student.update_attribute(:code, @card.code)
 
                     @student = @students.where(email: @existing_student.email).first
-                    @student.update_attribute(:card_num, @existing_student.code)
+                    # @student.update_attribute(:card_num, @existing_student.code)
 
                     @card.preferredname = @student.prefname
                     @card.firstname = @student.fname

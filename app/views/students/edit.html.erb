@@ -2,6 +2,21 @@
 
 <h1>Edit Student</h1>
 <%= form_with(model: @student, local: true) do |form| %>
+
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        <%= pluralize(@student.errors.count, "error") %> prohibited
+        this student from being saved:
+      </h3>
+      <div>
+        <% @student.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
+        <% end %>
+      </div>
+    </div>
+    <br>
+  <% end %>
  
   <div>
     <div><%= form.text_field :fname, :required => true, placeholder: "First Name" %></div>
