@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_action :session_expiration, only: [:index, :googleAuth, :destroy]
     def index
         if !Admin.where(email: session[:email]).first.nil?
             session[:admin_logged_in] = true
@@ -29,6 +30,8 @@ class SessionsController < ApplicationController
         session[:lname] = access_token.info.last_name
         session[:email] = access_token.info.email
         session[:picture] = access_token.info.image
+        t = Time.now + 30.minutes
+        session[:expires_at] = t.to_i 
         # session[:token] = refresh_token # or do I use @user.google_refresh_token
         #puts user.id
 
