@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
         access_token = request.env["omniauth.auth"]
         refresh_token = access_token.credentials.refresh_token
 
-        # session[:loggedin] = true
         session[:fname] = access_token.info.first_name
         session[:lname] = access_token.info.last_name
         session[:email] = access_token.info.email
@@ -66,8 +65,6 @@ private
     end
 
     def create_from_omniauth(fname, lname, email, pic)
-        #data = access_token.info
-        #user = User.where(email: data['email']).first
         # Creates a new user only if it doesn't exist
         if Student.where(email: email).first.nil?
             @newstudent = Student.new

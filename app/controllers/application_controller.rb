@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
 
     def session_activity
-      t = Time.now + 1.minutes
+      t = Time.now + 30.minutes
       session[:expires_at] = t.to_i
     end
   # # require user to log in before accessing any url
