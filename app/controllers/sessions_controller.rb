@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     skip_before_action :session_expiration, only: [:index, :googleAuth, :destroy]
-    
+
     def index
         if !Admin.where(email: session[:email]).first.nil?
             session[:admin_logged_in] = true
@@ -33,36 +33,25 @@ class SessionsController < ApplicationController
         session[:picture] = access_token.info.image
         t = Time.now + 30.minutes
         session[:expires_at] = t.to_i 
-        # session[:token] = refresh_token # or do I use @user.google_refresh_token
-        #puts user.id
+        # session[:token] = refresh_token # or use @user.google_refresh_token
 
-        # if access_token.info.email == "racheljee1@tamu.edu"
-        #     @user = Student.where(email: "racheljee1@tamu.edu").first
-        #     @user.google_refresh_token = refresh_token
-        #     render 'admin'
-        #     # render new_student_teacher_path
-        #     render "teachers/index"
-        # else
-        #     @user = create_from_omniauth(access_token) 
-        #     @user.google_refresh_token = refresh_token if refresh_token.present?
-            # redirect_to students/show.html.erb
         redirect_to root_path
-        # end
-        
-        # look thru teacher database, if finds a matching email, (check authenticity?), redirect to teacher/show
-        # else create student, redirect to student view page
     end
 
-    # def authenticate
-    #     if session[:token] == @user.google_refresh_token
-            
-    #     end
-    # end
-
     def destroy
-        session.clear
-        
+        # session.clear
+        session.delete(:fname)
+        session.delete(:lname)
+        session.delete(:email)
+        session.delete(:picture)
+        session.delete(:admin_logged_in)
+        session.delete(:teacher_logged_in)
+        session.delete(:student_logged_in)
+        session.delete(:expires_at)
+        session.delete(:alert)
+
         redirect_to root_path
+        session[:alert] = flash[:alert]
     end
 
 private
