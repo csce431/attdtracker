@@ -29,8 +29,7 @@
 
 <table>
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
+    <th>Student</th>
     <th>Email</th>
     <th style="color: white; border-bottom-color: black;">Edit</th>
     <th style="color: white; border-bottom-color: black;">&#215</th>
@@ -39,8 +38,7 @@
   </tr>
   <% @students.each do |student| %>
     <tr>
-      <td title="View Student"><%= link_to student.fname, student_path(student) %></td>
-      <td title="View Student"><%= link_to student.lname, student_path(student) %></td>
+      <td title="View Student"><%= link_to student.lname+", "+student.fname, student_path(student) %></td>
       <td title="View Student"><%= link_to student.email, student_path(student) %></td>
       <td title="Edit Student"><%= link_to ('<i class="fa fa-user-edit"></i>').html_safe, edit_student_path(student) %></td>
       <td title="Remove Student from Course"><%= link_to ('<i class="fa fa-user-times"></i>').html_safe, course_student_path(@course, student),

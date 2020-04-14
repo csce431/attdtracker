@@ -1,0 +1,22 @@
+<div class="page-content">
+
+<h1>Edit Student</h1>
+<%= form_with(model: @student, local: true) do |form| %>
+ 
+  <div>
+    <div><%= "First Name: " + @student.fname  %></div>
+    <div><%= "Middle Name: " + @student.mname %></div>
+    <div><%= "Last Name: " + @student.lname %></div>
+    <div>Preffered Name: <%= form.text_field :prefname, placeholder: "Preferred Name" %></div>
+    <div><%= "Email: " + @student.email %></div>
+  </div>
+  <br>
+
+  <div>
+    <%= form.submit "Update" %>
+  </div><br>
+
+<% end %>
+
+<%= link_to 'Back', :back %>
+</div>
