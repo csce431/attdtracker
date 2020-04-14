@@ -5,7 +5,8 @@ class CoursesController < ApplicationController
     def index
         @teacher = Teacher.find(params[:teacher_id])
         @courses = @teacher.courses.order(:year).reverse_order.order(:season)
-        
+        @isAdmin = Admin.pluck(:email).include? session[:email]
+
         @all_seasons = better_distinct_season(@courses.order(:year).reverse_order)
         @all_years = better_distinct_year(@courses.order(:season)).sort
         @all_years = @all_years.map { |str| str.to_s }

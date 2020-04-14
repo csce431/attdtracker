@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
-    before_action :require_admin_login, only: [:index]
-    before_action :require_teacher_login
+    # before_action :require_admin_login, only: [:index]
+    # before_action :require_teacher_login
     
     def index
         @teachers = Teacher.order(:lname)
@@ -33,8 +33,6 @@ class TeachersController < ApplicationController
     
     def show
         @teacher = Teacher.find(params[:id])
-        @isAdmin = Admin.pluck(:email).include? session[:email]
-
         redirect_to teacher_courses_path(@teacher)
 
         # @all_seasons = distinct_season(@courses.order(:year).reverse_order)
