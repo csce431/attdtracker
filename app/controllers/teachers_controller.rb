@@ -33,8 +33,8 @@ class TeachersController < ApplicationController
     
     def show
         @teacher = Teacher.find(params[:id])
-        # @courses = @teacher.courses.order(:year).reverse_order.order(:season)
-        
+        @isAdmin = Admin.pluck(:email).include? session[:email]
+
         redirect_to teacher_courses_path(@teacher)
 
         # @all_seasons = distinct_season(@courses.order(:year).reverse_order)

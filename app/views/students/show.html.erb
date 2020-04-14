@@ -49,6 +49,8 @@
 </table><br>
 
 <%= link_to 'Edit Student Profile', edit_student_path() %><br>
+<%= link_to_if(@isAdmin, 'Back', students_path) do
+end %>
 
 <br><br><br>
 <div>
