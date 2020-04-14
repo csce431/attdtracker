@@ -1,6 +1,6 @@
 class TeachersController < ApplicationController
-    # before_action :require_admin_login, only: [:index]
-    # before_action :require_teacher_login
+    before_action :require_admin_login, only: [:index]
+    before_action :require_teacher_login
     
     def index
         @teachers = Teacher.order(:lname)
