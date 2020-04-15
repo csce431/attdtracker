@@ -133,9 +133,7 @@ class CardsController < ApplicationController
 
                 puts()
 
-                if @student.prefname.nil?
-                    @card.preferredname = @student.firstname
-                else
+                if !@student.prefname.nil?
                     @card.preferredname = @student.prefname
                 end
                 @card.firstname = @student.fname
