@@ -19,7 +19,7 @@
  
   <% @students.each do |student| %>
     <tr>
-      <td title="Edit Student"><%= link_to student.lname+", "+student.fname, edit_student_path(student) %></td>
+      <td title="Edit Student"><%= link_to student.lname + ", " + student.fname, edit_student_path(student) %></td>
       <td title="Edit Student"><%= link_to student.email, edit_student_path(student) %></td>
         <% student.courses.each do |c| %>
           <%= c.name %><%= c.number %>
