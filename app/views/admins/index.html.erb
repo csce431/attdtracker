@@ -4,11 +4,17 @@
  
 <%= link_to 'Add Admin', new_admin_path %><br>
 <%= link_to 'View Instructors', teachers_path %>
-<%= link_to_if(@isTeacher, "| My Instructor Page", teacher_path(@teacher)) do
+<% if @isTeacher %>
+  <%= " | " %>
+<% end %>
+<%= link_to_if(@isTeacher, "My Instructor Page", teacher_path(@teacher)) do
 end %><br>
 
 <%= link_to 'View Students', students_path %>
-<%= link_to_if(@isStudent, " | My Student Page", student_path(@student)) do
+<% if @isStudent %>
+  <%= " | " %>
+<% end %>
+<%= link_to_if(@isStudent, "My Student Page", student_path(@student)) do
 end %>
    
 <table>
