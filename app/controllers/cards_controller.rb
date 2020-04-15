@@ -55,8 +55,9 @@ class CardsController < ApplicationController
                     # update student and card attribute (link email and card number)
                     @student = @students.where(email: @card.email).first
                     @student.update_attribute(:card_num, @card.code)
-
-                    @card.preferredname = @student.prefname
+                    if !@student.prefname.nil?
+                        @card.preferredname = @student.prefname
+                    end
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
 
@@ -70,8 +71,9 @@ class CardsController < ApplicationController
 
                     @student = @students.where(email: @existing_student.email).first
                     # @student.update_attribute(:card_num, @existing_student.code)
-
-                    @card.preferredname = @student.prefname
+                    if !@student.prefname.nil?
+                        @card.preferredname = @student.prefname
+                    end
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
                     
@@ -99,7 +101,9 @@ class CardsController < ApplicationController
                 @oldcard = Card.where(code: @card.code).first
                 @student = @students.where(email: @oldcard.email).first
 
-                @card.preferredname = @student.prefname
+                if !@student.prefname.nil?
+                    @card.preferredname = @student.prefname
+                end
                 @card.firstname = @student.fname
                 @card.lastname = @student.lname
 
@@ -125,7 +129,9 @@ class CardsController < ApplicationController
                 @oldcard = Card.where(code: @card.code).first
                 @student = Student.all.where(email: @oldcard.email).first
 
-                @card.preferredname = @student.prefname
+                if !@student.prefname.nil?
+                    @card.preferredname = @student.prefname
+                end
                 @card.firstname = @student.fname
                 @card.lastname = @student.lname
 

@@ -46,7 +46,7 @@ class SessionsController < ApplicationController
         session.delete(:admin_logged_in)
         session.delete(:teacher_logged_in)
         session.delete(:student_logged_in)
-        session.delete(:expires_at)
+        # session.delete(:expires_at)
         session.delete(:alert)
 
         redirect_to root_path
