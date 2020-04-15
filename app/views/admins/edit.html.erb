@@ -1,0 +1,47 @@
+<h1>Edit Admin</h1>
+
+<%= form_with(model: @admin, local: true) do |form| %>
+ 
+  <% if @admin.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@admin.errors.count, "error") %> prohibited
+        this admin from being saved:
+      </h2>
+      <ul>
+        <% @admin.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label "First Name" %><br>
+    <%= form.text_field :fname %>
+  </p>
+ 
+  <p>
+    <%= form.label "Middle Name" %><br>
+    <%= form.text_field :mname %>
+  </p>
+
+  <p>
+    <%= form.label "Last Name" %><br>
+    <%= form.text_field :lname %>
+  </p>
+  
+  <p>
+    <%= form.label "Email" %><br>
+    <%= form.text_field :email %>
+  </p>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+<p><%= link_to ('<i class="fas fa-trash" title="Remove Admin"></i>').html_safe, admin_path(@admin),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to remove this admin?' } %> | 
+<%= link_to 'Back', admins_path %></p>

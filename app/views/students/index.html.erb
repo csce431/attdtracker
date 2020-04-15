@@ -19,18 +19,25 @@
  
   <% @students.each do |student| %>
     <tr>
-      <td><%= student.lname %>, <%= student.fname %> <%= student.mname%></td>
-      <td><%= student.email %></td>
-      <td>
+      <td title="Edit Student"><%= link_to student.lname+", "+student.fname, edit_student_path(student) %></td>
+      <td title="Edit Student"><%= link_to student.email, edit_student_path(student) %></td>
+        <% student.courses.each do |c| %>
+          <%= c.name %><%= c.number %>
+        <% end %>
+      </td>
+
+      <!--<td><%= student.lname %>, <%= student.fname %> <%= student.mname%></td>-->
+      <!--<td><%= student.email %></td>-->
+      <!--<td>
         <% student.courses.each do |course| %>
           <%= course.name %><%= course.number %> 
         <% end %>
-      </td>
-      <td><%= link_to 'View', student_path(student) %></td>
-      <td><%= link_to 'Edit', edit_student_path(student) %></td>
-      <td><%= link_to 'Delete', student_path(student),
+      </td>-->
+      <!--<td><%= link_to 'View', student_path(student) %></td>-->
+      <!--<td><%= link_to 'Edit', edit_student_path(student) %></td>-->
+      <!--<td><%= link_to 'Delete', student_path(student),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' } %></td>-->
     </tr>
   <% end %>
 </table>

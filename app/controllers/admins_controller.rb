@@ -37,6 +37,20 @@ class AdminsController < ApplicationController
         @student = Student.new
     end
     
+    def edit
+        @admin = Admin.find(params[:id])
+    end
+
+    def update
+        @admin = Admin.find(params[:id])
+ 
+        if @admin.update(admin_params)
+            redirect_to admins_path
+        else
+            render 'edit'
+        end
+    end
+
     def destroy
         @admin = Admin.find(params[:id])
         @admin.destroy

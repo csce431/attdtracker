@@ -3,7 +3,10 @@
 <h1>Edit Teacher</h1>
 
 <%= render 'form' %>
-    
-<%= link_to 'Back', teachers_path %>
+
+<p><%= link_to ('<i class="fas fa-trash" title="Remove Instructor"></i>').html_safe, teacher_path(@teacher),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to remove this instructor?' } %> | 
+<%= link_to 'Back', teachers_path %></p>
 
 </div>
