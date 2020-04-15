@@ -27,7 +27,6 @@ class StudentsController < ApplicationController
     end
     
     def create
-        @isAdmin = Admin.pluck(:email).include? session[:email]
         @student = Student.new(student_params)
         if !params[:course_id]
             @student.save!
