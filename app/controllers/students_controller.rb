@@ -19,9 +19,9 @@ class StudentsController < ApplicationController
     end
     
     def show
-        @student = Student.find(params[:id])
+        @student = Student.find(params[:student_id])
         @courses = @student.courses.all
-        # @course = Course.find(params[:course_id])
+        @course = Course.find(params[:course_id])
         @isTeacher = Teacher.pluck(:email).include? session[:email]
         @isAdmin = Admin.pluck(:email).include? session[:email]
     end
