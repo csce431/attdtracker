@@ -2,13 +2,13 @@ class SessionsController < ApplicationController
     skip_before_action :session_expiration, only: [:index, :googleAuth, :destroy]
 
     def index
-        @admin = create_admin(session[:fname], session[:lname], session[:email])
-        if !Admin.where(email: session[:email]).first.nil?
+        # @admin = create_admin(session[:fname], session[:lname], session[:email])
+        if session[:email] == "racheljee1@tamu.edu" #!Admin.where(email: session[:email]).first.nil?
             session[:admin_logged_in] = true
             session[:teacher_logged_in] = true
             session[:student_logged_in] = true
             @admin = Admin.where(email: session[:email]).first
-            @admin = create_admin(session[:fname], session[:lname], session[:email]) # to add an admin for the first time
+            # @admin = create_admin(session[:fname], session[:lname], session[:email]) # to add an admin for the first time
             redirect_to admins_path
         elsif !Teacher.where(email: session[:email]).first.nil?
             session[:teacher_logged_in] = true
