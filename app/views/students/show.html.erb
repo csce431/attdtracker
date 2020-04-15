@@ -45,7 +45,7 @@
 </table><br>
 
 <%= link_to 'Edit Student Profile', student_studentEdit_path(@student) %><br>
-<%= link_to_if(@isTeacher, 'Back to Course Enrollment', course_path(@course)) do
+<%# link_to_if(@isTeacher, 'Back to Course Enrollment', course_path(@course)) do
 end %><br>
 <%= link_to_if(@isAdmin, 'Back to Students List', students_path) do
 end %>

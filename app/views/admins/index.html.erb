@@ -3,8 +3,8 @@
 <h1>Listing Admins</h1>
  
 <%= link_to 'Add Admin', new_admin_path %><br>
-<%= link_to 'View Teachers', teachers_path %>
-<%= link_to_if(@isTeacher, "| My Teacher Page", teacher_path(@teacher)) do
+<%= link_to 'View Instructors', teachers_path %>
+<%= link_to_if(@isTeacher, "| My Instructor Page", teacher_path(@teacher)) do
 end %><br>
 
 <%= link_to 'View Students', students_path %>
@@ -24,13 +24,6 @@ end %>
     <tr>
       <td title="Edit Admin"><%= link_to admin.lname + ", " + admin.fname, edit_admin_path(admin) %></td>
       <td title="Edit Admin"><%= link_to admin.email, edit_admin_path(admin) %></td>
-
-      <!--<td><%= admin.lname %>, <%= admin.fname %> <%= admin.mname %></td>-->
-      <!--<td><%= admin.email %></td>-->
-      <!--<td><%= link_to 'Edit', edit_admin_path(admin) %></td>-->
-      <!--<td><%= link_to 'Delete', admin_path(admin),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>-->
     </tr>
   <% end %>
 </table>
