@@ -3,6 +3,8 @@ class CardsController < ApplicationController
         @course = Course.find(params[:course_id])
         @cards = @course.cards.all
         @day = Day.find(params[:day_id])
+
+        @isAdmin = Admin.pluck(:email).include? session[:email]
     end
     
     def new
