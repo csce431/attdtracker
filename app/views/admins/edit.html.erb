@@ -1,3 +1,4 @@
+<div class="page-content">
 <h1>Edit Admin</h1>
 
 <%= form_with(model: @admin, local: true) do |form| %>
@@ -16,25 +17,11 @@
     </div>
   <% end %>
  
-  <p>
-    <%= form.label "First Name" %><br>
-    <%= form.text_field :fname %>
-  </p>
- 
-  <p>
-    <%= form.label "Middle Name" %><br>
-    <%= form.text_field :mname %>
-  </p>
-
-  <p>
-    <%= form.label "Last Name" %><br>
-    <%= form.text_field :lname %>
-  </p>
-  
-  <p>
-    <%= form.label "Email" %><br>
-    <%= form.text_field :email %>
-  </p>
+  <div><%= form.text_field :fname, placeholder: "First Name" %></div>
+  <div><%= form.text_field :mname, placeholder: "Middle Name" %></div>
+  <div><%= form.text_field :lname, placeholder: "Last Name" %></div>
+  <div><%= form.text_field :email, :required => true, placeholder: "E-mail" %></div>
+  <br>
   
   <p>
     <%= form.submit %>
@@ -45,3 +32,5 @@
               method: :delete,
               data: { confirm: 'Are you sure you want to remove this admin?' } %> | 
 <%= link_to 'Back', admins_path %></p>
+
+</div>
