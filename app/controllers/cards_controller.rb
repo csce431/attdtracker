@@ -131,8 +131,6 @@ class CardsController < ApplicationController
                 @oldcard = Card.where(code: @card.code).first
                 @student = Student.where(email: @oldcard.email).first
 
-                puts()
-
                 if !@student.prefname.nil?
                     @card.preferredname = @student.prefname
                 end
