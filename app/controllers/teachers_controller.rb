@@ -34,51 +34,6 @@ class TeachersController < ApplicationController
     def show
         @teacher = Teacher.find(params[:id])
         redirect_to teacher_courses_path(@teacher)
-
-        # @all_seasons = distinct_season(@courses.order(:year).reverse_order)
-        # @all_years = distinct_year(@courses.order(:season)).sort
-        # @all_years = @all_years.map { |str| str.to_s }
-
-        # @current_seasons = params[:seasons]
-        # @current_years = params[:years]
-        # if (!params[:seasons].nil? and !params[:years].nil?)
-        #     @courses = @teacher.courses.where(year: @current_years.keys, season: @current_seasons.keys) 
-        # elsif !params[:seasons].nil?
-        #     @current_seasons = params[:seasons].keys
-        #     @current_years = @all_years
-        #     @courses = @teacher.courses.where(season: @current_seasons.keys)
-        # elsif !params[:years].nil?
-        #     @current_seasons = @all_seasons
-        #     @current_years = params[:years].keys
-        #     @courses = @teacher.courses.where(year: @current_years.keys)
-        # else
-        #     @current_seasons = @all_seasons
-        #     @current_years = @all_years
-        # end
-        # @courses = Course.where(year: @current_years, season: @current_seasons)
-        # @courses = Course.order(:year).reverse_order
-
-        #######
-
-        # @all_seasons = @courses.distinct.pluck(:season)
-        # @all_years = @courses.distinct.pluck(:year)
-        # @all_years = @all_years.map { |str| str.to_s }
-        
-        # if (params[:seasons].nil? and params[:years].nil?)
-        #     @current_seasons = @all_seasons
-        #     @current_years = @all_years
-        # elsif params[:seasons].nil?
-        #     @current_seasons = @all_seasons
-        #     @current_years = params[:years].keys
-        # elsif params[:years].nil?
-        #     @current_seasons = params[:seasons].keys
-        #     @current_years = @all_years
-        # else
-        #     @current_seasons = params[:seasons].keys
-        #     @current_years = params[:years].keys
-        # end
-
-        # @courses = Course.where(year: @current_years, season: @current_seasons)
     end 
     
     def edit

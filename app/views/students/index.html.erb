@@ -12,17 +12,15 @@
     <th>Name</th>
     <th>Email</th>
     <th>Courses</th>
-    <th style="color: #FFFFFF">View</th>
-    <th style="color: #FFFFFF">Edit</th>
-    <th style="color: #FFFFFF">Delete</th>
   </tr>
  
   <% @students.each do |student| %>
     <tr>
       <td title="Edit Student"><%= link_to student.lname + ", " + student.fname, edit_student_path(student) %></td>
       <td title="Edit Student"><%= link_to student.email, edit_student_path(student) %></td>
-        <% student.courses.each do |c| %>
-          <%= c.name %><%= c.number %>
+      <td>
+        <% student.courses.each do |course| %>
+          <%= course.name %><%= course.number %> 
         <% end %>
       </td>
 
