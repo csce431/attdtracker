@@ -36,19 +36,15 @@ class StudentsController < ApplicationController
             @teacher = @course.teacher_id
             
             if exist_email(@student.email)
-            begin
                 @existStudent = Student.where(email: @student.email).first
                 if !email_in_course(@course, @student.email)
                     @existStudent.courses << @course
                 end
                 redirect_to teacher_course_path(@teacher, @course)
-            end
             else
                 if @student.save
-                begin
                     @student.courses << @course
                     redirect_to course_path(@course)
-                end
                 else
                     render 'new'
                 end
