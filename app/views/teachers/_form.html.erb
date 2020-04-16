@@ -1,4 +1,4 @@
-<%= form_with(model: @teacher, local: true) do |form| %>
+<%= form_with(model: @teacher, html: {autocomplete: 'off'}, local: true) do |form| %>
  
   <% if @teacher.errors.any? %>
     <div id="error_explanation">
