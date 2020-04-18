@@ -6,15 +6,14 @@
  
   <% if @course.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@course.errors.count, "error") %> prohibited
-        this course from being saved:
-      </h2>
-      <ul>
-        <% @course.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+      <h4>
+        <%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:
+      </h4>
+      <div>
+        <% @course.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
         <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
 
