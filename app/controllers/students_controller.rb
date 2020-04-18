@@ -29,12 +29,12 @@ class StudentsController < ApplicationController
     def create
         @student = Student.new(student_params)
         if !params[:course_id]
-            if @student.save
-                redirect_to students_path
-            else
-                render 'new'
-            end
-            #@student.save!
+            @student.save!
+            # if @student.save
+            redirect_to students_path
+            # else
+            #     render 'new'
+            # end
         else
             @course = Course.find(params[:course_id])
             @teacher = @course.teacher_id
