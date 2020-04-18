@@ -48,10 +48,9 @@
      link_to("Edit Student Profile", student_studentEdit_path(@student))
     end %>
 
-<% link_to_if(@isTeacher, 'Back to Course Enrollment', :back) do
-end %><br>
-<%= link_to_if(@isTeacher, 'Back to Course Enrollment', :back) do
-end %>
+<%= link_to_if(@isTeacher, "Back", teacher_path(@user)) do
+     link_to("Back", teachers_path)
+    end %>
 
 <br><br><br>
 <div>
