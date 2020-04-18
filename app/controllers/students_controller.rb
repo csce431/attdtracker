@@ -17,6 +17,7 @@ class StudentsController < ApplicationController
             @isTeacher = true
         else
             @user = Teacher.new
+            @isTeacher = false
         end
     end
 

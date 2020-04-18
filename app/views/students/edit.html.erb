@@ -37,6 +37,8 @@
               method: :delete,
               data: { confirm: 'Are you sure you want to remove this student?' } %> | 
 
-<%= link_to 'Back', teacher_path(@teacher) %></p>
+<%= link_to_if(@isTeacher, "Back", teacher_path(@user)) do
+     link_to("Back", teachers_path)
+    end %>
 
 </div>
