@@ -14,14 +14,15 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+<nav class="navbar navbar-default navbar-static-top navbar-custom">
+<!--<nav class="navbar navbar-default navbar-static-top navbar-custom">-->
   <div class="container">
     <ul class="nav navbar-nav">
       <li class="<%= 'active' if current_page?(root_path) %>">
-        <a href="/"><span class="glyphicon glyphicon-user"></span> Sign In</a>
+        <a style="color: black;" href="/"><!--<span class="glyphicon glyphicon-user"></span>--><i class="fa fa-user"></i> Sign In</a>
       </li>
       <li>
-        <a href="/logout"><span class="glyphicon glyphicon-remove"></span> Sign Out</a>
+        <a style="color: black;" href="/logout"><!--<span class="glyphicon glyphicon-remove"></span>--><i class="fa fa-user"></i> Sign Out</a>
       </li>
     </ul>
   </div>
