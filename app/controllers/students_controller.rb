@@ -23,7 +23,6 @@ class StudentsController < ApplicationController
         @courses = @student.courses.all
         # @course = Course.find(params[:course_id])
         @isTeacher = Teacher.pluck(:email).include? session[:email]
-        @isAdmin = Admin.pluck(:email).include? session[:email]
     end
     
     def create
