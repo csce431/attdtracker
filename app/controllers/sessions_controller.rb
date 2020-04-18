@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :session_expiration, only: [:index, :googleAuth, :destroy]
+    skip_before_action :session_expiration, only: [:destroy]
 
     def index
         if !Admin.where(email: session[:email]).first.nil?
