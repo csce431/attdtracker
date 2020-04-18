@@ -12,13 +12,6 @@ class StudentsController < ApplicationController
     
     def edit
         @student = Student.find(params[:id])
-        if Teacher.pluck(:email).include? session[:email]
-            @user = Teacher.where(email: session[:email]).first
-            @isTeacher = true
-        else
-            @user = Teacher.new
-            @isTeacher = false
-        end
     end
 
     def studentEdit
@@ -30,6 +23,11 @@ class StudentsController < ApplicationController
         @courses = @student.courses.all
         # @course = Course.find(params[:course_id])
         @isTeacher = Teacher.pluck(:email).include? session[:email]
+        if(@isTeacher)
+            @teacher = Teacher.where(email: session[:email]).first
+        else
+            @teacher = Teacher.new
+        end
     end
     
     def create
