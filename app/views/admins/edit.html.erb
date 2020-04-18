@@ -5,15 +5,14 @@
  
   <% if @admin.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@admin.errors.count, "error") %> prohibited
-        this admin from being saved:
-      </h2>
-      <ul>
-        <% @admin.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+      <h4>
+        <%= pluralize(@admin.errors.count, "error") %> prohibited this admin from being saved:
+      </h4>
+      <div>
+        <% @admin.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
         <% end %>
-      </ul>
+      </div>
     </div>
   <% end %>
  
