@@ -27,6 +27,7 @@ class StudentsController < ApplicationController
             @teacher = Teacher.where(email: session[:email]).first
         else
             @teacher = Teacher.new
+            @teacher.id = 0
         end
     end
     
