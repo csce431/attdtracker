@@ -33,17 +33,6 @@
       <td title="View Instructor"><%= link_to teacher.lname + ", " + teacher.fname, teacher_path(teacher) %></td>
       <td><%= teacher.email %></td>
       <td><%= teacher.department %></td>
-      <td title="View Instructor's Courses"><%= link_to 'View Courses', teacher_path(teacher) %>
-
-      <!--<td><%= teacher.lname %>, <%= teacher.fname %> <%= teacher.mname %></td>-->
-      <!--<td><%= teacher.email %></td>-->
-      <!--<td><%= teacher.department %></td>-->
-      <!--<td title="View Instructor's Courses"><%= link_to 'View', teacher_path(teacher) %></td>-->
-      <!--<td title="Edit Instructor"><%= link_to ('<i class="fa fa-user-edit"></i>').html_safe, edit_teacher_path(teacher) %></td>-->
-      <!--<td title="Remove Instructor"><%= link_to ('<i class="fa fa-user-times"></i>').html_safe, teacher_path(teacher),
-              method: :delete,
-              data: { confirm: 'Are you sure you want to remove this instructor?' } %>
-      </td>-->
     </tr>
   <% end %>
 </table>
