@@ -70,7 +70,7 @@ class CardsController < ApplicationController
                     @existing_student.update_attribute(:code, @card.code)
 
                     @student = @students.where(email: @existing_student.email).first
-                    # @student.update_attribute(:card_num, @existing_student.code)
+                    @student.update_attribute(:card_num, @existing_student.code)
                     if !@student.prefname.nil?
                         @card.preferredname = @student.prefname
                     end
@@ -127,7 +127,7 @@ class CardsController < ApplicationController
             # code doesn't exist in course, but exists in database
             else
                 @oldcard = Card.where(code: @card.code).first
-                @student = Student.all.where(email: @oldcard.email).first
+                @student = Student.where(email: @oldcard.email).first
 
                 if !@student.prefname.nil?
                     @card.preferredname = @student.prefname

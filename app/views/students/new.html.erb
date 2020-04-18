@@ -19,9 +19,9 @@
     <br>
   <% end %>
 
-  <div><%= form.text_field :fname, placeholder: "First Name" %></div>
+  <div><%= form.text_field :fname, :required => true, placeholder: "First Name" %></div>
   <div><%= form.text_field :mname, placeholder: "Middle Name" %></div>
-  <div><%= form.text_field :lname, placeholder: "Last Name" %></div>
+  <div><%= form.text_field :lname, :required => true, placeholder: "Last Name" %></div>
   <div><%= form.text_field :prefname, placeholder: "Preferred Name" %></div>
   <div><%= form.text_field :email, :required => true, placeholder: "TAMU E-mail" %></div>
   <br>

@@ -1,13 +1,12 @@
 <div class="page-content">
 <h1>Listing Students</h1>
- 
-<%= link_to 'Add Student', admins_new1_path %><br>
-<%= link_to 'Back', admins_path %>
+
+<p>
+  <%= link_to ('<i class="fa fa-user-plus" title="Add Student"></i>').html_safe, admins_new1_path %> | 
+  <%= link_to 'Back', admins_path %>
+</p>
 
 <table>
-  <tr>
-    
-  </tr>
   <tr>
     <th>Name</th>
     <th>Email</th>
