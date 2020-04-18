@@ -36,5 +36,8 @@
 <p><%= link_to ('<i class="fas fa-trash" title="Remove Student"></i>').html_safe, student_path(@student),
               method: :delete,
               data: { confirm: 'Are you sure you want to remove this student?' } %> | 
-<%= link_to 'Back', :back %></p>
+
+<%= link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
+    end %>
+
 </div>

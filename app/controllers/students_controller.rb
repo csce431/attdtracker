@@ -12,6 +12,7 @@ class StudentsController < ApplicationController
     
     def edit
         @student = Student.find(params[:id])
+        @teacher = Teacher.where(email: session[:email]).first
     end
 
     def studentEdit
