@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    before_action :require_teacher_login, only: [:new, :create, :destroy]
-    before_action :require_student_login
+    #before_action :require_teacher_login, only: [:new, :create, :destroy]
+    #before_action :require_student_login
 
     def index
         @students = Student.all
@@ -23,11 +23,18 @@ class StudentsController < ApplicationController
         @courses = @student.courses.all
         # @course = Course.find(params[:course_id])
         @isTeacher = Teacher.pluck(:email).include? session[:email]
-        @isAdmin = Admin.pluck(:email).include? session[:email]
+        if(@isTeacher)
+            @teacher = Teacher.where(email: session[:email]).first
+        else
+            @teacher = Teacher.new
+        end
     end
     
     def create
         @student = Student.new(student_params)
+        if @student.mname.nil
+            @student.mname = ""
+        end
         if !params[:course_id]
             # @student.save!
             if @student.save
