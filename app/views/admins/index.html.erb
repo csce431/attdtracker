@@ -29,7 +29,7 @@ end %>
   <% @admins.each do |admin| %>
     <tr>
       <td title="Edit Admin"><%= link_to admin.lname + ", " + admin.fname, edit_admin_path(admin) %></td>
-      <td title="Edit Admin"><%= link_to admin.email, edit_admin_path(admin) %></td>
+      <td><%= admin.email %></td>
     </tr>
   <% end %>
 </table>

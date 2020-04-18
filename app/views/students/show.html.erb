@@ -47,7 +47,7 @@
 <%= link_to_if(@isTeacher, "Edit Student Profile", edit_student_path(@student)) do
      link_to("Edit Student Profile", student_studentEdit_path(@student))
     end %>
-
+<br>
 <%= link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
      link_to("Back", teachers_path)
     end %>

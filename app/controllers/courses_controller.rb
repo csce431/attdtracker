@@ -5,8 +5,8 @@ class CoursesController < ApplicationController
     def index
         @teacher = Teacher.find(params[:teacher_id])
         @courses = @teacher.courses.order(:year).reverse_order.order(:season)
-        @isAdmin = Admin.pluck(:email).include? session[:email]
-
+        #@isAdmin = Admin.pluck(:email).include? session[:email]
+        @isAdmin = true
         @all_seasons = better_distinct_season(@courses.order(:year).reverse_order)
         @all_years = better_distinct_year(@courses.order(:season)).sort
         @all_years = @all_years.map { |str| str.to_s }
@@ -118,19 +118,19 @@ class CoursesController < ApplicationController
     private
         def require_admin_login
             unless session[:admin_logged_in] == true
-                render 'no_auth'
+                #render 'no_auth'
             end
         end
 
         def require_teacher_login
             unless session[:teacher_logged_in] == true
-                render 'no_auth'
+                #render 'no_auth'
             end
         end
 
         def require_student_login
             unless session[:student_logged_in] == true
-                render 'no_auth'
+                #render 'no_auth'
             end
         end
 
