@@ -44,11 +44,13 @@
     </tr>
 </table><br>
 
-<%= link_to 'Edit Student Profile', student_studentEdit_path(@student) %><br>
-<%# link_to_if(@isTeacher, 'Back to Course Enrollment', course_path(@course)) do
-end %><br>
-<%= link_to_if(@isTeacher, 'Back to Course Enrollment', :back) do
-end %>
+<%= link_to_if(@isTeacher, "Edit Student Profile", edit_student_path(@student)) do
+     link_to("Edit Student Profile", student_studentEdit_path(@student))
+    end %>
+<br>
+<%= link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
+     link_to("Back", teachers_path)
+    end %>
 
 <br><br><br>
 <div>

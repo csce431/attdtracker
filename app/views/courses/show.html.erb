@@ -31,16 +31,13 @@
   <tr>
     <th>Student</th>
     <th>Email</th>
-    <th style="color: white; border-bottom-color: black;">View</th>
-    <!--<th style="color: white; border-bottom-color: black;">&#215</th>-->
     <th>Enrolled Courses</th>
     <th></th>
   </tr>
   <% @students.each do |student| %>
     <tr>
-      <td title="Edit Student"><%= link_to student.lname + ", " + student.fname, edit_student_path(student) %></td>
-      <td title="Edit Student"><%= link_to student.email, edit_student_path(student) %></td>
-      <td title="View Student"><%= link_to "View", student_path(student) %></td>
+      <td title="View Student"><%= link_to student.lname + ", " + student.fname, student_path(student) %></td>
+      <td><%= student.email%></td>
       <td>
         <% student.courses.each do |c| %>
           <%= c.name %><%= c.number %>
