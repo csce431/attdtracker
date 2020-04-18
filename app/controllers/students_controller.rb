@@ -21,31 +21,34 @@ class StudentsController < ApplicationController
     def show
         @student = Student.find(params[:id])
         @courses = @student.courses.all
+        # @course = Course.find(params[:course_id])
+        @isTeacher = Teacher.pluck(:email).include? session[:email]
+        @isAdmin = Admin.pluck(:email).include? session[:email]
     end
     
     def create
         @student = Student.new(student_params)
         if !params[:course_id]
-            @student.save!
-            redirect_to students_path
+            # @student.save!
+            if @student.save
+                redirect_to students_path
+            else
+                render 'admins/show'
+            end
         else
             @course = Course.find(params[:course_id])
             @teacher = @course.teacher_id
             
             if exist_email(@student.email)
-            begin
                 @existStudent = Student.where(email: @student.email).first
                 if !email_in_course(@course, @student.email)
                     @existStudent.courses << @course
                 end
                 redirect_to teacher_course_path(@teacher, @course)
-            end
             else
                 if @student.save
-                begin
                     @student.courses << @course
                     redirect_to course_path(@course)
-                end
                 else
                     render 'new'
                 end

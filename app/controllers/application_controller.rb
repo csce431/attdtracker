@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   private
     def session_expiration
       if session[:expires_at].to_i < Time.now.to_i
+        flash[:alert] = "WARNING: You were logged out for inactivity. Please sign in again."
         redirect_to logout_path #, alert: "ERROR: You are being timed out for inactivity. Please sign in again."
-        flash[:alert] = "ERROR: You are being timed out for inactivity. Please sign in again."
       end
     end
 

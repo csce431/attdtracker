@@ -3,6 +3,8 @@ class CardsController < ApplicationController
         @course = Course.find(params[:course_id])
         @cards = @course.cards.all
         @day = Day.find(params[:day_id])
+
+        @isAdmin = Admin.pluck(:email).include? session[:email]
     end
     
     def new
@@ -55,8 +57,9 @@ class CardsController < ApplicationController
                     # update student and card attribute (link email and card number)
                     @student = @students.where(email: @card.email).first
                     @student.update_attribute(:card_num, @card.code)
-
-                    @card.preferredname = @student.prefname
+                    if !@student.prefname.nil?
+                        @card.preferredname = @student.prefname
+                    end
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
 
@@ -69,9 +72,10 @@ class CardsController < ApplicationController
                     @existing_student.update_attribute(:code, @card.code)
 
                     @student = @students.where(email: @existing_student.email).first
-                    # @student.update_attribute(:card_num, @existing_student.code)
-
-                    @card.preferredname = @student.prefname
+                    @student.update_attribute(:card_num, @existing_student.code)
+                    if !@student.prefname.nil?
+                        @card.preferredname = @student.prefname
+                    end
                     @card.firstname = @student.fname
                     @card.lastname = @student.lname
                     
@@ -99,7 +103,9 @@ class CardsController < ApplicationController
                 @oldcard = Card.where(code: @card.code).first
                 @student = @students.where(email: @oldcard.email).first
 
-                @card.preferredname = @student.prefname
+                if !@student.prefname.nil?
+                    @card.preferredname = @student.prefname
+                end
                 @card.firstname = @student.fname
                 @card.lastname = @student.lname
 
@@ -123,9 +129,11 @@ class CardsController < ApplicationController
             # code doesn't exist in course, but exists in database
             else
                 @oldcard = Card.where(code: @card.code).first
-                @student = Student.all.where(email: @oldcard.email).first
+                @student = Student.where(email: @oldcard.email).first
 
-                @card.preferredname = @student.prefname
+                if !@student.prefname.nil?
+                    @card.preferredname = @student.prefname
+                end
                 @card.firstname = @student.fname
                 @card.lastname = @student.lname
 
