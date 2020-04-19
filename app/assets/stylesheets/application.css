@@ -21,7 +21,7 @@
 }
 
 .hexagon-back {
-    background-image: url(682191.jpeg);
+    background-image: url(hex.jpeg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -34,7 +34,7 @@
 }
 
 .polygon-back {
-    background-image: url(b.jpg);
+    background-image: url(poly.jpg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;

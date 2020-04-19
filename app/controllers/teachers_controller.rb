@@ -38,6 +38,8 @@ class TeachersController < ApplicationController
     
     def edit
         @teacher = Teacher.find(params[:id])
+        @isTeacher = Teacher.pluck(:email).include? session[:email]
+        @isAdmin = Admin.pluck(:email).include? session[:email]
     end
     
     def update
