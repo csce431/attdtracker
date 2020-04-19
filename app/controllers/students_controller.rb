@@ -33,9 +33,7 @@ class StudentsController < ApplicationController
     
     def create
         @student = Student.new(student_params)
-        if @student.mname.nil
-            @student.mname = ""
-        end
+        
         if !params[:course_id]
             # @student.save!
             if @student.save
