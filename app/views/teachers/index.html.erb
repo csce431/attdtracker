@@ -1,44 +1,45 @@
-<div class="page-content">
+<body class="image2">
+  <div class="page-content">
 
-<h1>Listing Instructors</h1>
+  <h1>Listing Instructors</h1>
 
-<%= link_to 'Add Instructor', new_teacher_path %><br>
-<%= link_to 'Back', admins_path %>
+  <%= link_to 'Add Instructor', new_teacher_path %><br>
+  <%= link_to 'Back', admins_path %>
 
-<% unless @teachers.blank? %>
+  <% unless @teachers.blank? %>
 
-<p>
-  <%= form_tag teachers_path, :method => :get do %>
-    <% @all_departments.each do |department| %>
-      <%= check_box_tag "departments[#{department}]", 1, @current_departments.include?(department), :id => "departments_#{department}" %>
-      <%= department %>
-    <% end %><br>
-    <%= submit_tag 'Filter by Department' %>
-  <% end %>
-</p>
+  <p>
+    <%= form_tag teachers_path, :method => :get do %>
+      <% @all_departments.each do |department| %>
+        <%= check_box_tag "departments[#{department}]", 1, @current_departments.include?(department), :id => "departments_#{department}" %>
+        <%= department %>
+      <% end %><br>
+      <%= submit_tag 'Filter by Department' %>
+    <% end %>
+  </p>
 
-<table>
-  <tr>
-    
-  </tr>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Department</th>
-    <th style="color: #FFFFFF; border-bottom-color: black;">View</th>
-  </tr>
- 
-  <% @teachers.each do |teacher| %>
+  <table>
     <tr>
-      <td title="View Instructor"><%= link_to teacher.lname + ", " + teacher.fname, teacher_path(teacher) %></td>
-      <td><%= teacher.email %></td>
-      <td><%= teacher.department %></td>
+      
     </tr>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+    </tr>
+  
+    <% @teachers.each do |teacher| %>
+      <tr>
+        <td title="View Instructor"><%= link_to teacher.lname + ", " + teacher.fname, teacher_path(teacher) %></td>
+        <td><%= teacher.email %></td>
+        <td><%= teacher.department %></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <% else %>
+    <br><%= "There are currently no instructors listed. Please add an instructor to begin." %>
   <% end %>
-</table>
 
-<% else %>
-  <br><%= "There are currently no instructors listed. Please add an instructor to begin." %>
-<% end %>
-
-</div>
+  </div>
+</body>
