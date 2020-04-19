@@ -12,17 +12,17 @@
   <script src="https://kit.fontawesome.com/a4c2a4e031.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body class="<% if current_page?(root_path) %><%= 'hexagon-back' %><% else %><%= 'polygon-back' %><% end %>">
 
 <nav class="navbar navbar-default navbar-static-top navbar-custom">
 <!--<nav class="navbar navbar-default navbar-static-top navbar-custom">-->
   <div class="container">
     <ul class="nav navbar-nav">
       <li class="<%= 'active' if current_page?(root_path) %>">
-        <a style="color: black;" href="/"><!--<span class="glyphicon glyphicon-user"></span>--><i class="fa fa-user"></i> Sign In</a>
+        <a style="color: black;" href="/"><i class="fa fa-user"></i> Sign In</a>
       </li>
       <li>
-        <a style="color: black;" href="/logout"><!--<span class="glyphicon glyphicon-remove"></span>--><i class="fa fa-user"></i> Sign Out</a>
+        <a style="color: black;" href="/logout"><i class="fa fa-user"></i> Sign Out</a>
       </li>
     </ul>
   </div>

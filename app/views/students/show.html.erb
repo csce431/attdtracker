@@ -1,98 +1,95 @@
-<!-- Show student profiles
--->
-<body class="image2">
-    <div class="page-content">
+<div class="page-content">
 
-    <h2>Welcome,
-        <% if @student.prefname.nil? or @student.prefname.empty? %>
-            <%= @student.fname + "!" %>
-        <% else %>
-            <%= @student.prefname + "!" %>
-        <% end %>
-    </h2>
-    <table>
-        <tr>
-            <td class="colC">Full Name:</td>
-            <td class="colD">
-                <%= @student.fname + " " %>
-                <% if !@student.mname.nil? %>
-                    <%= @student.mname %>
-                <% end %>
-                <%= @student.lname %>
-            </td>
-        </tr>
-        <tr>
-            <td class="colC">Preferred Name:</td>
-            <td class="colD">
-                <% if @student.prefname.nil? %>
-                    <%= "-" %>
+<h2>Welcome,
+    <% if @student.prefname.nil? or @student.prefname.empty? %>
+        <%= @student.fname + "!" %>
+    <% else %>
+        <%= @student.prefname + "!" %>
+    <% end %>
+</h2>
+<table>
+    <tr>
+        <td class="colC">Full Name:</td>
+        <td class="colD">
+            <%= @student.fname + " " %>
+            <% if !@student.mname.nil? %>
+                <%= @student.mname %>
+            <% end %>
+            <%= @student.lname %>
+        </td>
+    </tr>
+    <tr>
+        <td class="colC">Preferred Name:</td>
+        <td class="colD">
+            <% if @student.prefname.nil? %>
+                <%= "-" %>
+            <% else %>
+                <%= @student.prefname %>
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <td class="colC">Email:</td>
+        <td class="colD"><%= @student.email %></td>
+    </tr>
+    <tr>
+        <td class="colC">Classes:</td>
+        <td class="colD"><strong>
+            <% @courses.each do |course| %>
+                <%= course.name %><%= ' ' %><%= course.number %> 
+            <% end %>
+        </strong></td>
+    </tr>
+</table><br>
+
+<%= link_to_if(@isTeacher, "Edit Student Profile", edit_student_path(@student)) do
+    link_to("Edit Student Profile", student_studentEdit_path(@student))
+    end %>
+<br>
+<%= link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
+    link_to("Back", teachers_path)
+    end %>
+
+<br><br><br>
+<div>
+    <% @courses.each do |course| %>
+        <table style="width: 51%;" id="pres_abs">
+            <% $i = 0 %>
+            <% $j = 0 %>
+            <tr><th class="dept" colspan="2"><%= course.name %><%= ' ' %><%= course.number %></th></tr>
+
+            <% course.days.each do |day| %> 
+                <% if day.cards.include? Card.where(email: @student.email).first %>
+                    <% $i += 1 %>
                 <% else %>
-                    <%= @student.prefname %>
+                    <% $j += 1 %>
                 <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td class="colC">Email:</td>
-            <td class="colD"><%= @student.email %></td>
-        </tr>
-        <tr>
-            <td class="colC">Classes:</td>
-            <td class="colD"><strong>
-                <% @courses.each do |course| %>
-                    <%= course.name %><%= ' ' %><%= course.number %> 
-                <% end %>
-            </strong></td>
-        </tr>
-    </table><br>
+            <% end %>
+            <tr>
+                <td class="pres"><%= "Present: " %><%= $i %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
+                <td class="abs"><%= "Absent: " %><%= $j %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
+            </tr>
 
-    <%= link_to_if(@isTeacher, "Edit Student Profile", edit_student_path(@student)) do
-        link_to("Edit Student Profile", student_studentEdit_path(@student))
-        end %>
-    <br>
-    <%= link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
-        link_to("Back", teachers_path)
-        end %>
-
-    <br><br><br>
-    <div>
-        <% @courses.each do |course| %>
-            <table id="pres_abs">
-                <% $i = 0 %>
-                <% $j = 0 %>
-                <tr><th class="dept" colspan="2"><%= course.name %><%= ' ' %><%= course.number %></th></tr>
-
-                <% course.days.each do |day| %> 
-                    <% if day.cards.include? Card.where(email: @student.email).first %>
-                        <% $i += 1 %>
-                    <% else %>
-                        <% $j += 1 %>
+            <tr>
+                <td>
+                <table>
+                    <% course.days.each do |day| %> 
+                        <% if day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
+                        <% end %>
                     <% end %>
-                <% end %>
-                <tr>
-                    <td class="pres"><%= "Present: " %><%= $i %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
-                    <td class="abs"><%= "Absent: " %><%= $j %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
-                </tr>
-
-                <tr>
-                    <td>
-                    <table>
-                        <% course.days.each do |day| %> 
-                            <% if day.cards.include? Card.where(email: @student.email).first %>
-                                <tr><td><%= day.classday %></td></tr>
-                            <% end %>
+                </table></td>
+                <td>
+                <table>
+                    <% course.days.each do |day| %> 
+                        <% if !day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
                         <% end %>
-                    </table></td><td>
-                    <table>
-                        <% course.days.each do |day| %> 
-                            <% if !day.cards.include? Card.where(email: @student.email).first %>
-                                <tr><td><%= day.classday %></td></tr>
-                            <% end %>
-                        <% end %>
-                    </table></td>
-                </tr>
-            </table>  
-        <% end %>
-    </div>
+                    <% end %>
+                </table></td>
+            </tr>
+        </table><br>
+    <% end %>
+</div>
 
-    </div>
-</body>
+</div>

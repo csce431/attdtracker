@@ -19,3 +19,29 @@
     justify-content: center;
     align-items: center;
 }
+
+.hexagon-back {
+    background-image: url(682191.jpeg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.polygon-back {
+    background-image: url(b.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-attachment: fixed;
+}

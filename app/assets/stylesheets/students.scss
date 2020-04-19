@@ -2,15 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.image2 {
-    background-image: image-url("b.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 table#pres_abs {
     text-align: center;
-    float: left;
+    float: center;
     width: 100%;
     table-layout: fixed;
     margin-left: auto;
