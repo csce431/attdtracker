@@ -1,3 +1,4 @@
 //= link application.js
 //= link application.css
-//= link white-background.jpg
+//= link hex.jpeg
+//= link poly.jpg
