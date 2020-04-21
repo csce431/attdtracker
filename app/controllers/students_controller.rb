@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    before_action :require_teacher_login, only: [:new, :create, :destroy]
-    before_action :require_student_login
+    #before_action :require_teacher_login, only: [:new, :create, :destroy]
+    #before_action :require_student_login
 
     def index
         @students = Student.all
@@ -21,8 +21,15 @@ class StudentsController < ApplicationController
     def show
         @student = Student.find(params[:id])
         @courses = @student.courses.all
-        # @course = Course.find(params[:course_id])
+        if !params[:course_id]
+            @course = Course.find(params[:course_id])
+        else
+            @course = Course.new
+            @course.id = 0
+        end
+
         @isTeacher = Teacher.pluck(:email).include? session[:email]
+        #@isTeacher = true 
         if(@isTeacher)
             @teacher = Teacher.where(email: session[:email]).first
         else
@@ -78,7 +85,7 @@ class StudentsController < ApplicationController
 
         for course in @courses do
             @card = course.cards.where(email: @student.email).first
-            course.cards.delete(Cards.where(email: @student.email).first))
+            course.cards.delete(Cards.where(email: @student.email).first)
             course.students.delete(Student.find(params[:id]))
         end
         if !@card.nil?

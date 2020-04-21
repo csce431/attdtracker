@@ -1,5 +1,3 @@
-<!-- Show student profiles
--->
 <div class="page-content">
 
 <h2>Welcome,
@@ -45,17 +43,23 @@
 </table><br>
 
 <%= link_to_if(@isTeacher, "Edit Student Profile", edit_student_path(@student)) do
-     link_to("Edit Student Profile", student_studentEdit_path(@student))
+    link_to("Edit Student Profile", student_studentEdit_path(@student))
     end %>
 <br>
-<%= link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
-     link_to("Back", teachers_path)
+<%= link_to_if(@isTeacher, "Remove Student From Course", course_student_path(@course, @student),
+    method: :delete,
+    data: { confirm: 'Are you sure you want to remove this student?' }) do
     end %>
+<%= link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
+    link_to("Back", teachers_path)
+    end %>
+
+<!--add statement to contact instructor at email __ if absent is > 0?-->
 
 <br><br><br>
 <div>
     <% @courses.each do |course| %>
-        <table id="pres_abs">
+        <table style="width: 51%;" id="pres_abs">
             <% $i = 0 %>
             <% $j = 0 %>
             <tr><th class="dept" colspan="2"><%= course.name %><%= ' ' %><%= course.number %></th></tr>
@@ -68,8 +72,8 @@
                 <% end %>
             <% end %>
             <tr>
-                <td class="pres"><%= "Present: " %><%= $i %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
-                <td class="abs"><%= "Absent: " %><%= $j %><%= " out of " %><%= course.days.length %><%= " lectures" %></td>
+                <td class="pres"><%= "Present: " %><%= $i %><%= " / " %><%= course.days.length %><%= " lectures" %></td>
+                <td class="abs"><%= "Absent: " %><%= $j %><%= " / " %><%= course.days.length %><%= " lectures" %></td>
             </tr>
 
             <tr>
@@ -80,7 +84,8 @@
                             <tr><td><%= day.classday %></td></tr>
                         <% end %>
                     <% end %>
-                </table></td><td>
+                </table></td>
+                <td>
                 <table>
                     <% course.days.each do |day| %> 
                         <% if !day.cards.include? Card.where(email: @student.email).first %>
@@ -89,7 +94,7 @@
                     <% end %>
                 </table></td>
             </tr>
-        </table>  
+        </table><br>
     <% end %>
 </div>
 

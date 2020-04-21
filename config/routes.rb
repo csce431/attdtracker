@@ -32,6 +32,9 @@ Rails.application.routes.draw do
 
   post '/courses/:id/import', to: 'courses#import'
 
+  # get "/assets/hex.jpg", to: "/app/assets/images/hex.jpg"
+  # get "/assets/poly.jpg", to: "/app/assets/images/poly.jpg"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

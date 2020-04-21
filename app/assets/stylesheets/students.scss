@@ -2,16 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 table#pres_abs {
     text-align: center;
-    float: left;
+    float: center;
     width: 100%;
     table-layout: fixed;
     margin-left: auto;
     margin-right: auto;
     border-style: solid;
-    border-color: white;
+    border-color: black;
 }
 
 th.dept {

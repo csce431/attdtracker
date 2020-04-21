@@ -126,7 +126,7 @@
                 <% elsif params[:direction] == "desc" and params[:sort] == "fname" %>
                     <i class="fas fa-sort-alpha-up-alt"></i>
                 <% else %>
-                    <i class="fas fa-sort-alpha-down" style="color: white;"></i>
+                    <i class="fas fa-sort-alpha-down" style="opacity: 0;"></i>
                 <% end %>
             </th>
             <th style="padding-left: 24px;"><%= sortable "lname", "Last Name" %>
@@ -135,7 +135,7 @@
                 <% elsif params[:direction] == "desc" and params[:sort] == "lname" %>
                     <i class="fas fa-sort-alpha-up-alt"></i>
                 <% else %>
-                    <i class="fas fa-sort-alpha-down" style="color: white;"></i>
+                    <i class="fas fa-sort-alpha-down" style="opacity: 0;"></i>
                 <% end %>
             </th>
             <th><%= "Summary" %></th>

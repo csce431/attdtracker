@@ -25,9 +25,8 @@
     <th>Name</th>
     <th>Email</th>
     <th>Department</th>
-    <th style="color: #FFFFFF; border-bottom-color: black;">View</th>
   </tr>
- 
+
   <% @teachers.each do |teacher| %>
     <tr>
       <td title="View Instructor"><%= link_to teacher.lname + ", " + teacher.fname, teacher_path(teacher) %></td>

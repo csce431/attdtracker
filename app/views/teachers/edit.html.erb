@@ -30,9 +30,14 @@
 
 <% end %>
 
-<p><%= link_to ('<i class="fas fa-trash" title="Remove Instructor"></i>').html_safe, teacher_path(@teacher),
-              method: :delete,
-              data: { confirm: 'Are you sure you want to remove this instructor?' } %> | 
-<%= link_to 'Back', teachers_path %></p>
+<p>
+  <%= link_to ('<i class="fas fa-trash" title="Remove Instructor"></i>').html_safe, teacher_path(@teacher),
+                method: :delete,
+                data: { confirm: 'Are you sure you want to remove this instructor?' } %> | 
+  <%= link_to_if(@isTeacher, "Back to Courses", teacher_courses_path(@teacher)) do
+      end %>
+  <%= link_to_if(@isAdmin, "Back to Instructors", teachers_path) do
+      end %>
+</p>
 
 </div>
