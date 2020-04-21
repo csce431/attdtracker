@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    before_action :require_teacher_login, only: [:new, :create, :destroy]
-    before_action :require_student_login
+    #before_action :require_teacher_login, only: [:new, :create, :destroy]
+    #before_action :require_student_login
 
     def index
         @students = Student.all
@@ -12,6 +12,8 @@ class StudentsController < ApplicationController
     
     def edit
         @student = Student.find(params[:id])
+        @coursespage = params[:course_id].present?
+        @isnotstudent = (Teacher.pluck(:email).include? session[:email]) || (Admin.pluck(:email).include? session[:email])
         if params[:course_id]
             @course = Course.find(params[:course_id])
         else
@@ -27,15 +29,20 @@ class StudentsController < ApplicationController
     def show
         @student = Student.find(params[:id])
         @courses = @student.courses.all
-        if params[:course_id]
+        
+        #dictates which path to take in html
+        @coursespage = params[:course_id].present?
+        @isTeacher = Teacher.pluck(:email).include? session[:email]
+        @isnotstudent = (@isTeacher) || (Admin.pluck(:email).include? session[:email])
+        
+        #prevents errors
+        if params[:course_id].present?
             @course = Course.find(params[:course_id])
         else
             @course = Course.new
             @course.id = 0
         end
 
-        @isTeacher = Teacher.pluck(:email).include? session[:email]
-        #@isTeacher = true 
         if(@isTeacher)
             @teacher = Teacher.where(email: session[:email]).first
         else

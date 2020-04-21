@@ -42,9 +42,12 @@
     </tr>
 </table><br>
 
-<%= link_to_if(@isTeacher, "Edit Student Profile", edit_student_path(@student)) do
-    link_to("Edit Student Profile", student_studentEdit_path(@student))
-    end %>
+
+<%= link_to_if(@coursespage, ('<i class="fas fa-edit" title="Edit Student Profile"></i> | ').html_safe, edit_course_student_path(@course, @student)) do
+    link_to_if @isnotstudent, ('<i class="fas fa-edit" title="Edit Student Profile"></i> | ').html_safe, student_path(@student) do
+        link_to("Edit Student Profile", student_studentEdit_path(@student))
+        end  
+  end %>
 <br>
 
 <%= link_to_if(@isAdmin, "Back", teachers_path) do
