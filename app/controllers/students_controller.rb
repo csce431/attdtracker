@@ -94,20 +94,19 @@ class StudentsController < ApplicationController
     end
 
     def destroy
-        @student = Student.find(params[:id])
-        @courses = @student.courses
-
         #if deleting student from course
-        if params[:course_id]
+        if params[:course_id].present?
             @course = Course.find(params[:course_id])
             @course.students.delete(Student.find(params[:id]))
 
             redirect_to course_path(@course)
         #if deleting student from database
         else
+            @student = Student.find(params[:id])
+            @courses = @student.courses
+
             for course in @courses do
                 @card = course.cards.where(email: @student.email).first
-                course.cards.delete(Cards.where(email: @student.email).first)
                 course.students.delete(Student.find(params[:id]))
             end
             if !@card.nil?

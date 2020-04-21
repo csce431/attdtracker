@@ -7,9 +7,6 @@ class CardsController < ApplicationController
     
     def new
         @card = Card.new
-        #if(Card.where(courses_id: :courses_id).last)
-        #    @lastCard = Card.where(course_id: :course_id).last.code
-        #end
     end
     
     def promptemail
