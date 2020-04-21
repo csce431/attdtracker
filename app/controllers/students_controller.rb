@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    #before_action :require_teacher_login, only: [:new, :create, :destroy]
-    #before_action :require_student_login
+    before_action :require_teacher_login, only: [:new, :create, :destroy]
+    before_action :require_student_login
 
     def index
         @students = Student.all
@@ -83,6 +83,7 @@ class StudentsController < ApplicationController
     def destroy
         @student = Student.find(params[:id])
         @courses = @student.courses
+
 
         for course in @courses do
             @card = course.cards.where(email: @student.email).first

@@ -46,10 +46,6 @@
     link_to("Edit Student Profile", student_studentEdit_path(@student))
     end %>
 <br>
-<%= link_to_if(@isTeacher, "Remove Student From Course | ", course_student_path(@course, @student),
-    method: :delete,
-    data: { confirm: 'Are you sure you want to remove this student?' }) do
-    end %>
 <%= link_to_if(@isAdmin, "Back", teachers_path) do
     link_to_if(@isTeacher, "Back", teacher_path(@teacher)) do
     end
