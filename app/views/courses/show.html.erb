@@ -35,7 +35,7 @@
   </tr>
   <% @students.each do |student| %>
     <tr>
-      <td title="View Student"><%= link_to student.lname + ", " + student.fname, student_path(student) %></td>
+      <td title="View Student"><%= link_to student.lname + ", " + student.fname, course_student_path(@course, student) %></td>
       <td><%= student.email%></td>
     </tr>
   <% end %>

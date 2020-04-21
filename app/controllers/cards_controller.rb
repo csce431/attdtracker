@@ -95,18 +95,17 @@ class CardsController < ApplicationController
             end
         # code exists in entire database
         else
+            @oldcard = Card.where(code: @card.code).first
+            @student = Student.where(email: @oldcard.email).first
+
+            if !@student.prefname.nil?
+                @card.preferredname = @student.prefname
+            end
+            @card.firstname = @student.fname
+            @card.lastname = @student.lname
+
             # code exists in course (no need to check for email)
             if code_exist_in_course(@card.code, @course)
-
-                @oldcard = Card.where(code: @card.code).first
-                @student = @students.where(email: @oldcard.email).first
-
-                if !@student.prefname.nil?
-                    @card.preferredname = @student.prefname
-                end
-                @card.firstname = @student.fname
-                @card.lastname = @student.lname
-
                 # card is already swiped in for that day ID
                 if @oldcard.day_ids.include? @day.id
                     # already swiped in for the day (the current day.id)
@@ -124,17 +123,8 @@ class CardsController < ApplicationController
                     @day.cards << @oldcard
                     render 'cards/show', :course_id => @course, :code => @card
                 end
-            # code doesn't exist in course, but exists in database
+            # code doesn't exist in course, but exists in entire database
             else
-                @oldcard = Card.where(code: @card.code).first
-                @student = Student.where(email: @oldcard.email).first
-
-                if !@student.prefname.nil?
-                    @card.preferredname = @student.prefname
-                end
-                @card.firstname = @student.fname
-                @card.lastname = @student.lname
-
                 # error page with "consult instructor to add you to the roster"
                 # puts('EXISTING STUDENT NOT IN COURSE!!!')
                 render 'not_registered', :course_id => @course, :code => @card
