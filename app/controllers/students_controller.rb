@@ -21,7 +21,7 @@ class StudentsController < ApplicationController
     def show
         @student = Student.find(params[:id])
         @courses = @student.courses.all
-        if !params[:course_id]
+        if params[:course_id]
             @course = Course.find(params[:course_id])
         else
             @course = Course.new
@@ -36,6 +36,7 @@ class StudentsController < ApplicationController
             @teacher = Teacher.new
             @teacher.id = 0
         end
+        @isAdmin = Admin.pluck(:email).include? session[:email]
     end
     
     def create
