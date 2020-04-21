@@ -36,11 +36,6 @@
                 data: { confirm: 'Are you sure you want to remove this instructor?' } %> | 
   <%= link_to_if(@isTeacher, "Back to Courses", teacher_courses_path(@teacher)) do
       end %>
-  <% if @isAdmin %>
-    <%= " | " %>
-  <% end %>
-  <%= link_to_if(@isAdmin, "Back to Instructors", teachers_path) do
-      end %>
 </p>
 
 </div>
