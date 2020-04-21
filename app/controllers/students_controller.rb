@@ -12,6 +12,12 @@ class StudentsController < ApplicationController
     
     def edit
         @student = Student.find(params[:id])
+        if params[:course_id]
+            @course = Course.find(params[:course_id])
+        else
+            @course = Course.new
+            @course.id = 0
+        end
     end
 
     def studentEdit
@@ -84,24 +90,25 @@ class StudentsController < ApplicationController
         @student = Student.find(params[:id])
         @courses = @student.courses
 
-
-        for course in @courses do
-            @card = course.cards.where(email: @student.email).first
-            course.cards.delete(Cards.where(email: @student.email).first)
-            course.students.delete(Student.find(params[:id]))
-        end
-        if !@card.nil?
-            @card.destroy
-        end
-
-        @student.destroy
-
-        if !params[:course_id]
-            redirect_to students_path
-        else
+        #if deleting student from course
+        if params[:course_id]
             @course = Course.find(params[:course_id])
-            
+            @course.students.delete(Student.find(params[:id]))
+
             redirect_to course_path(@course)
+        #if deleting student from database
+        else
+            for course in @courses do
+                @card = course.cards.where(email: @student.email).first
+                course.cards.delete(Cards.where(email: @student.email).first)
+                course.students.delete(Student.find(params[:id]))
+            end
+            if !@card.nil?
+                @card.destroy
+            end
+    
+            @student.destroy
+            redirect_to students_path
         end
     end 
     
