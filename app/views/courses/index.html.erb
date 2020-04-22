@@ -3,7 +3,7 @@
 <h1>Listing Courses</h1>
 
 <%= link_to 'Add Course', new_teacher_course_path(@teacher) %><br>
-<%= link_to_if(@isAdmin, ('<i class="fa fa-user-times" title="Edit Instructor"></i> | ').html_safe, edit_teacher_path(@teacher)) do
+<%= link_to_if(@isAdmin, ('<i class="fa fa-user-edit" title="Edit Instructor"></i> | ').html_safe, edit_teacher_path(@teacher)) do
     end %>
 <%= link_to_if(@isAdmin, 'Back', teachers_path) do
     end %>
