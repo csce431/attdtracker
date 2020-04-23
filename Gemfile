@@ -25,16 +25,27 @@ gem 'jbuilder'
 gem 'sdoc',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-group :development do 
-    # Use sqlite3 as the database for Active Record
-    gem 'sqlite3', '~> 1.4'
-    gem 'spring'
+group :development, :test do 
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '~> 1.4'
+  gem 'spring'
+  gem 'byebug'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-rails'
+  gem 'pry'
+  gem 'pry-byebug'
 end 
 
+group :test do
+  gem 'cucumber-rails' 
+  gem 'cucumber-rails-training-wheels'
+end
 
 group :production do
-    # Use postgresql as the database for Active Record
-    gem 'pg', '~> 0.18'
+  # Use postgresql as the database for Active Record
+  gem 'pg', '~> 0.18'
 end
 
 
