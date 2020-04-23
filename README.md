@@ -4,9 +4,9 @@ A barebones Rails app, which can easily be deployed to Heroku. See [Attendance T
 
 ## Running Locally
 
-### Using Rails command
-
 Make sure you have Ruby on Rails installed.
+
+### Using Rails command
 
 ```sh
 $ git clone https://github.com/csce431/attdtracker.git
@@ -20,7 +20,7 @@ The app should now be running on [localhost:3000](http://localhost:3000/).
 
 ### Using Heroku
 
-Make sure you have Ruby installed.  Also, install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) (formerly known as the Heroku Toolbelt).
+Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) (formerly known as the Heroku Toolbelt).
 
 ```sh
 $ git clone https://github.com/csce431/attdtracker.git
