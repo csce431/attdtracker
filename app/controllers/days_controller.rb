@@ -119,7 +119,11 @@ class DaysController < ApplicationController
       end
 
       # @present_days.to_s + "/" + @days.count.to_s
-      ('%.2f' % ((@present_days.to_f / @days.count) * 100)).to_str + "%"
+      if @days.count == 0
+        "0%"
+      else
+        ('%.2f' % ((@present_days.to_f / @days.count) * 100)).to_str + "%"
+      end
     end
 
 
