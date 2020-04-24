@@ -2,25 +2,45 @@
 
 <p>
   <h1>Enrollment for <%= @course.name + " " + @course.number.to_s + " - " + @course.section.to_s %></h1>
-  <%= link_to ('<i class="fa fa-user-plus" title="Add Student"></i>').html_safe, new_course_student_path(@course) %>
+  <%= link_to ('<i class="fa fa-user-plus" title="Add Student"></i>').html_safe, new_course_student_path(@course) %> | 
   <%= link_to ('<i class="fa fa-edit" title="Edit Course"></i>').html_safe, edit_course_path(@course) %><br>
   <%= link_to 'Back', teacher_path(@teacher) %>
 </p>
 
 <p id="course-id" hidden><%= params[:id] %><p>
 
-<form id="upload-roster-form" method="post" enctype="multipart/form-data" action="/courses">
+<!-- OLD FORMAT FOR CSV UPLOAD -->
+<!--<form id="upload-roster-form" method="post" enctype="multipart/form-data" action="/courses">
   <label for="enrollment">Choose roster (.csv) to upload</label>
   <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
-    <input style="margin-left: 5px; margin-right: 5px; background-color: lightgray;"
+    <button class="btn btn-light"><input style="margin-left: 5px; margin-right: 5px; background-color: lightgray;"
           type="file" id="enrollment" name="enrollment"
-          accept=".csv">
-    <button>Submit</button>
+          accept=".csv"></button>
+    <button class="btn btn-success">Submit</button>
+  </div>
+</form>-->
+
+<!-- STYLED FORMAT FOR CSV UPLOAD -->
+<form style="width: 300px; margin: auto;" id="upload-roster-form" method="post" enctype="multipart/form-data" action="/courses">
+  <div class="input-group">
+    <label class="input-group-btn" title="Browse for .csv files">
+      <span class="btn btn-primary btn-sm">
+        Browse
+        <input style="display: none;" type="file" id="enrollment" name="enrollment" accept=".csv">
+      </span>
+    </label>
+    <p title="Click 'Browse' to choose a file to upload." id="fileName" class="form-control"
+      style="display: flex; justify-content: center; align-items: center; height: 30px; background-color: #FFFFFF;">No file chosen</p>
+    <span class="input-group-btn"><button class="btn btn-success btn-sm">Submit</button></span>
   </div>
 </form>
 <br>
 
 <script>
+  document.getElementById('enrollment').onchange = function () {
+    fileChosen = this.value.replace(/.*[\/\\]/, '');
+    document.getElementById("fileName").innerHTML = fileChosen;
+  };
   var courseID = document.getElementById("course-id").innerHTML;
   $('form#upload-roster-form').attr('action', "/courses/".concat(courseID, "/import"));
 </script>

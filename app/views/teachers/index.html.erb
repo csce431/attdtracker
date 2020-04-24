@@ -2,8 +2,10 @@
 
 <h1>Listing Instructors</h1>
 
-<%= link_to 'Add Instructor', new_teacher_path %><br>
-<%= link_to 'Back', admins_path %>
+<p>
+  <%= link_to ('<i class="fa fa-user-plus" title="Add Instructor"></i>').html_safe, new_teacher_path %> | 
+  <%= link_to 'Back', admins_path %>
+</p>
 
 <% unless @teachers.blank? %>
 
@@ -13,7 +15,7 @@
       <%= check_box_tag "departments[#{department}]", 1, @current_departments.include?(department), :id => "departments_#{department}" %>
       <%= department %>
     <% end %><br>
-    <%= submit_tag 'Filter by Department' %>
+    <%= submit_tag 'Filter', class: 'btn btn-info', title: "Filter by Department" %>
   <% end %>
 </p>
 

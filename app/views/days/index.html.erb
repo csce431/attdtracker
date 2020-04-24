@@ -14,7 +14,9 @@
      link_to("Take Attendance!", new_course_day_card_path(@course, @day), target: :_blank)
     end %>
 </p>
+
 <p>Current Date: <em><%= Date.strptime(@time, '%m-%d-%Y').strftime("%B %d, %Y") %></em></p>
+<p><%= link_to 'Back', teacher_path(@teacher) %></p>
 
 <script>
     $(function() {
@@ -50,9 +52,8 @@
 <% unless @course.days.blank? %>
 
 <div class="btn-group">
-  <button>Download as CSV</button>
+  <button class="btn btn-primary" title="Click to download attendance as CSV">Download as CSV</button>
 </div><br><br>
-
 
 <script>
     function sortTable(n) {
@@ -120,7 +121,7 @@
 <table id="attendance_day">
     <thead>
         <tr>
-            <th style="padding-left: 24px;"><%= sortable "fname", "First Name" %>
+            <th title="Click to sort by first name." style="padding-left: 24px;"><%= sortable "fname", "First Name" %>
                 <% if params[:direction] == "asc" and params[:sort] == "fname" %>
                     <i class="fas fa-sort-alpha-down"></i>
                 <% elsif params[:direction] == "desc" and params[:sort] == "fname" %>
@@ -129,7 +130,7 @@
                     <i class="fas fa-sort-alpha-down" style="opacity: 0;"></i>
                 <% end %>
             </th>
-            <th style="padding-left: 24px;"><%= sortable "lname", "Last Name" %>
+            <th title="Click to sort by last name." style="padding-left: 24px;"><%= sortable "lname", "Last Name" %>
                 <% if params[:direction] == "asc" and params[:sort] == "lname" %>
                     <i class="fas fa-sort-alpha-down"></i>
                 <% elsif params[:direction] == "desc" and params[:sort] == "lname" %>
@@ -141,7 +142,7 @@
             <th><%= "Summary" %></th>
             <% $i = 2 %>
             <% @days.each do |day| %>
-                <th onclick="sortTable(<%= $i %>)" >
+                <th onclick="sortTable(<%= $i %>)" title="Click to sort by absences and presences.">
                     <%= day.classday %>
                     <%= link_to ('<i class="fa fa-times"></i>').html_safe, course_day_path(@course, day),
                         method: :delete,
@@ -156,7 +157,7 @@
         <tr>
             <td class="name"><%= student.fname %></td>
             <td class="name"><%= student.lname %></td>
-            <td><%= days_fraction(student) %></td>
+            <td><%= days_percentage(student) %></td>
             
             <% @days.each do |day| %>
                 <% $present = false %>
@@ -176,12 +177,10 @@
         <% end %>
     </tbody>
 </table>
+<br>
 
 <% else %>
     <br><%= "There is no recorded attendance yet. Press \"Take Attendance!\" to begin." %>
 <% end %>
-
-<br><br>
-<div><%= link_to 'Back', teacher_path(@teacher) %></div>
 
 </div>
