@@ -198,10 +198,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rdoc (6.2.1)
-<<<<<<< HEAD
-=======
     regexp_parser (1.7.0)
->>>>>>> fa00a6f57d6ab13c028f240dd9f3877cf2fdea1d
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.1)
