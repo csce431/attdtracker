@@ -24,6 +24,10 @@ gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc',          group: :doc
 
+group :development, :test do 
+    gem 'rspec-rails'
+end 
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do 
     # Use sqlite3 as the database for Active Record
