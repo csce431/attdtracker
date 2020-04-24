@@ -16,7 +16,11 @@ module NavigationHelpers
       when /^the home\s?page$/
         '/'
   
-  
+      when /^the Instructor page$/
+        then '/teachers'
+
+      # when /^the Attendance page$/
+      #   then '/courses/1/days'
     
       #when 
       #then '/movies'  

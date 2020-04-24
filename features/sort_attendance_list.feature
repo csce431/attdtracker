@@ -13,9 +13,11 @@ Background: students have been added to the course database
   | Rachel     | Jee       | racheljee1@tamu.edu   |
   | Reegan     | Jiang     | rdj772@tamu.edu       |
 
+  And I am on the Attendance page
   Then 5 seed students should exist
 
 Scenario: sort first name alphabetically
+Given I am on the Attendance page
 When I follow "First Name"
 Then I should see "Anthony" before "Rachel"
 

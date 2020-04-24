@@ -1,37 +1,3 @@
-Given /the following courses exist for a teacher/ do |courses_table|
-   courses_table.hashes.each do |course|
-      dept = (course[:course])[0..3]
-      num = (course[:course])[5..7]
-      sec = (course[:course])[11..13] 
-      courses = Course.new
-      courses.name = dept
-      courses.number = num.to_i
-      courses.section = sec.to_i
-      courses.year = course[:year]
-      courses.season = course[:semester]
-      courses.save
-   end
- end
-
-Then /(.*) seed courses should exist/ do |seeds|
-   Course.count.should be seeds.to_i
-end
-
-When /I (un)?check the following years: (.*)/ do |uncheck, year_list|
-   year_list.split(", ").each do |s|  
-      if uncheck
-         uncheck("years[#{s}]")
-      else 
-         check("years[#{s}]")
-      end  
-   end
-end
-
-Then /I should see all the years/ do
-    rows = Course.all.count
-    expect(rows).to eq 6
-end
-
 Given /the following instructors exist in the database/ do |instructors_table|
    instructors_table.hashes.each do |instructor|
       teachers = Teacher.new
@@ -58,12 +24,13 @@ When /I (un)?check the following departments: (.*)/ do |uncheck, dept_list|
    end
 end
 
-Then /I should see all the years/ do
-    rows = Teacher.all.count
-    expect(rows).to eq 6
+Then /I should see all the departments/ do
+   rows = Teacher.all.count
+   expect(rows).to eq 4
 end
 
 Given /the following students exist in the database/ do |students_table|
+   course = Course.new
    students_table.hashes.each do |student|
       stud = Student.new
       stud.fname = student[:first_name]
@@ -71,6 +38,10 @@ Given /the following students exist in the database/ do |students_table|
       stud.email = student[:email]
       stud.save
    end
+end
+
+And /I am on the Attendance page/ do
+   expect(page).to have_current_path(course_days_path("#{Course.last.id}"))
 end
 
 Then /(.*) seed students should exist/ do |seeds|

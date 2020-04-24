@@ -66,13 +66,10 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
 end
 
 When /^(?:|I )check "([^"]*)"$/ do |field|
-  # find('#years_' + field).click
   find_field(field)[:value].should eq 1
 end
 
 When /^(?:|I )uncheck "([^"]*)"$/ do |field|
-  # uncheck(field)
-  # find(field).unclick
   find_field(field)[:value].should eq 0
 end
 
