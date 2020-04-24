@@ -1,6 +1,7 @@
 <div class="page-content">
 
 <h1>Listing Courses</h1>
+<h5><em>Instructor:</em> <%= @teacher.lname %>, <%= @teacher.fname %></h5>
 
 <p>
   <%= link_to 'Add Course', new_teacher_course_path(@teacher) %><br>
@@ -12,8 +13,6 @@
   <%= link_to_if(@isAdmin, 'Back', teachers_path) do
       end %>
 </p>
-
-
 
 <% unless @teacher.courses.blank? %>
 

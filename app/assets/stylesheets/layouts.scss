@@ -29,6 +29,10 @@
     background-attachment: fixed;
 }
 
+body {
+    padding-top: 100px;
+}
+
 @media (min-width: 576px) {
     // .navbar {
     //     border-radius: 4px;
@@ -49,5 +53,8 @@
     .navbar-nav>li>a {
         padding-top: 15px;
         padding-bottom: 15px;
+    }
+    body {
+        padding-top: 50px;
     }
 }

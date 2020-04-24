@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
 
   helper_method :sort_column, :sort_direction
-  helper_method :days_fraction
+  helper_method :days_percentage
 
   def index
     @courses = Course.all
@@ -107,7 +107,7 @@ class DaysController < ApplicationController
       params.require(:day).permit(:classday)
     end
 
-    def days_fraction(student)
+    def days_percentage(student)
       @days = @course.days
       @present_days = 0
       
@@ -118,7 +118,8 @@ class DaysController < ApplicationController
         end
       end
 
-      @present_days.to_s + "/" + @days.count.to_s
+      # @present_days.to_s + "/" + @days.count.to_s
+      ('%.2f' % ((@present_days.to_f / @days.count) * 100)).to_str + "%"
     end
 
 

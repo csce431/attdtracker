@@ -157,7 +157,7 @@
         <tr>
             <td class="name"><%= student.fname %></td>
             <td class="name"><%= student.lname %></td>
-            <td><%= days_fraction(student) %></td>
+            <td><%= days_percentage(student) %></td>
             
             <% @days.each do |day| %>
                 <% $present = false %>
@@ -177,6 +177,7 @@
         <% end %>
     </tbody>
 </table>
+<br>
 
 <% else %>
     <br><%= "There is no recorded attendance yet. Press \"Take Attendance!\" to begin." %>
