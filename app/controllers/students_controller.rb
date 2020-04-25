@@ -40,6 +40,7 @@ class StudentsController < ApplicationController
         #dictates which path to take in html
         @coursespage = params[:course_id].present?
         @isTeacher = Teacher.pluck(:email).include? session[:email]
+        @isAdmin = (Admin.pluck(:email).include? session[:email])
         @isnotstudent = (@isTeacher) || (Admin.pluck(:email).include? session[:email])
         
         #prevents errors
