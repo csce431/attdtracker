@@ -32,6 +32,10 @@
 body {
     padding-top: 100px;
 }
+div#no-auth {
+    padding-top: 100px;
+    color: red;
+}
 
 @media (min-width: 576px) {
     // .navbar {
@@ -55,6 +59,9 @@ body {
         padding-bottom: 15px;
     }
     body {
+        padding-top: 50px;
+    }
+    div#no-auth {
         padding-top: 50px;
     }
 }
