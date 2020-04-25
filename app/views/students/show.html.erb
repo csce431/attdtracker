@@ -43,13 +43,14 @@
 </table><br>
 
 
-<%= link_to_if(@coursespage, ('<i class="fas fa-edit" title="Edit Student Profile"></i> | ').html_safe, edit_course_student_path(@course, @student)) do
-    link_to_if @isnotstudent, ('<i class="fas fa-edit" title="Edit Student Profile"></i> | ').html_safe, edit_student_path(@student) do
+<%= link_to_if(@coursespage, ('<i class="fas fa-edit" title="Edit Student Profile"></i>').html_safe, edit_course_student_path(@course, @student)) do
+    link_to_if @isnotstudent, ('<i class="fas fa-edit" title="Edit Student Profile"></i>').html_safe, edit_student_path(@student) do
         link_to("Edit Student Profile", student_studentEdit_path(@student))
         end  
   end %>
-<%= link_to_if(@isTeacher, "Back", :back) do
-    end %>
+<%= link_to_if @coursespage, " | Back to Enrollment", course_path(@course) do
+  link_to_if @isnotstudent, " | Back to Students Page", students_path do end
+end %>
 
 <!--add statement to contact instructor at email __ if absent is > 0?-->
 

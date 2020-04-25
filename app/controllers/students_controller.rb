@@ -20,10 +20,17 @@ class StudentsController < ApplicationController
             @course = Course.new
             @course.id = 0
         end
+
+        if @student.mname.nil?
+            @student.mname = ""
+        end
     end
 
     def studentEdit
         @student = Student.find(params[:student_id])
+        if @student.mname.nil?
+            @student.mname = ""
+        end
     end
     
     def show
