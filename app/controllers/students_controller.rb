@@ -20,10 +20,17 @@ class StudentsController < ApplicationController
             @course = Course.new
             @course.id = 0
         end
+
+        if @student.mname.nil?
+            @student.mname = ""
+        end
     end
 
     def studentEdit
         @student = Student.find(params[:student_id])
+        if @student.mname.nil?
+            @student.mname = ""
+        end
     end
     
     def show
@@ -33,6 +40,7 @@ class StudentsController < ApplicationController
         #dictates which path to take in html
         @coursespage = params[:course_id].present?
         @isTeacher = Teacher.pluck(:email).include? session[:email]
+        @isAdmin = (Admin.pluck(:email).include? session[:email])
         @isnotstudent = (@isTeacher) || (Admin.pluck(:email).include? session[:email])
         
         #prevents errors
