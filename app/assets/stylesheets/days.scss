@@ -3,27 +3,51 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.table-wrapper {
+    overflow: auto;
+    margin: auto;
+    max-width: 90%;
+}
+
 table#attendance_day {
     border-style: solid;
     border-color: grey;
+    table-layout: auto;
+    border-collapse: separate;
+    padding: 0;
+    border-spacing: 0px;
 }
 
-th {
+table#attendance_day th:first-child, table#attendance_day th:nth-child(2) {
+    z-index: 2;
+}
+table#attendance_day td:first-child, table#attendance_day th:first-child {
+    position: sticky;
+    left: 1px;
+    z-index: 1;
+    background-color: #D6EAF8;
+}
+table#attendance_day td:nth-child(2), table#attendance_day th:nth-child(2) {
+    position: sticky;
+    left: 124px;
+    z-index: 1;
+    background-color: #D6EAF8;
+}
+
+table#attendance_day th {
     border-bottom-style: solid;
     width: 1%;
     white-space: nowrap;
 }
 
 td.name {
-    border-right-style: solid;
-    border-color: lightgrey;
+    // border-right-style: solid;
+    // border-color: lightgrey;
 }
 
 td.pres {
     background-color: lightgreen;
-    // font-weight: bold;
 }
 td.abs {
     background-color: lightcoral;
-    // font-weight: bold;
 }
