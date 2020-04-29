@@ -29,6 +29,7 @@ class CardsController < ApplicationController
         @card = Card.new(card_params)
         @course = Course.find(params[:course_id])
         @day = Day.find(params[:day_id])
+        @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y")
         @teacher = @course.teacher_id
         @students = @course.students
 

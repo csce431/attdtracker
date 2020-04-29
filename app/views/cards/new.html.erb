@@ -1,6 +1,11 @@
 <div class="page-content">
 
 <h1>Swipe In</h1>
+<% @course = Course.find(params[:course_id]) %>
+<p>Course: <em><strong><%= @course.name + " " + @course.number.to_s + " - " + @course.section.to_s %></em></strong></p>
+<% @time = Time.now.in_time_zone('Central Time (US & Canada)').strftime("%m-%d-%Y") %>
+<p>Current Date: <em><%= Date.strptime(@time, '%m-%d-%Y').strftime("%B %d, %Y") %></em></p>
+<br>
 
 <%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
 
@@ -18,7 +23,7 @@
   <% end %>
 
   <% @lastCard %>
-  
+
   <div>
     <div><%= form.label :code, "Please swipe your TAMU ID card" %></div>
     <div><%= form.text_field :code, :required => true, placeholder: 'TAMU ID card', autocomplete: 'off' %></div>
