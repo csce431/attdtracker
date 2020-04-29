@@ -23,26 +23,31 @@ table#attendance_day th:first-child, table#attendance_day th:nth-child(2) {
 }
 table#attendance_day td:first-child, table#attendance_day th:first-child {
     position: sticky;
-    left: 1px;
+    left: 0px;
     z-index: 1;
     background-color: #D6EAF8;
 }
 table#attendance_day td:nth-child(2), table#attendance_day th:nth-child(2) {
     position: sticky;
-    left: 124px;
+    left: 122px;
     z-index: 1;
     background-color: #D6EAF8;
 }
 
-table#attendance_day th {
+th {
     border-bottom-style: solid;
     width: 1%;
     white-space: nowrap;
 }
 
-td.name {
-    // border-right-style: solid;
-    // border-color: lightgrey;
+td.name1 {
+    // border-left-style: solid;
+    // border-color: grey;
+}
+td.name2 {
+    border-left-style: solid;
+    border-right-style: solid;
+    border-color: lightgrey;
 }
 
 td.pres {
