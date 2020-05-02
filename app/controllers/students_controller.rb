@@ -93,11 +93,20 @@ class StudentsController < ApplicationController
     
     def update
         @student = Student.find(params[:id])
- 
-        if @student.update(student_params)
-            redirect_to @student
+        @course = Course.find(params[:course_id])
+
+        if params[:course_id]
+            if @student.update(student_params)
+                redirect_to course_student_path(@course, @student)
+            else
+                render 'edit'
+            end
         else
-            render 'edit'
+            if @student.update(student_params)
+                redirect_to student_path(@student)
+            else
+                render 'edit'
+            end
         end
     end
 
