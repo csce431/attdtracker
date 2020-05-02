@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    before_action :require_teacher_login, only: [:new, :create, :destroy]
-    before_action :require_student_login
+    #before_action :require_teacher_login, only: [:new, :create, :destroy]
+    #before_action :require_student_login
 
     def index
         @students = Student.all
@@ -93,6 +93,9 @@ class StudentsController < ApplicationController
     
     def update
         @student = Student.find(params[:id])
+        #temporary Course
+        @course = Course.new
+        @course.id = 0
 
         if params[:course_id].present?
             @course = Course.find(params[:course_id])
