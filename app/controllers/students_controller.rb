@@ -93,9 +93,9 @@ class StudentsController < ApplicationController
     
     def update
         @student = Student.find(params[:id])
-        @course = Course.find(params[:course_id])
 
-        if params[:course_id]
+        if params[:course_id].present?
+            @course = Course.find(params[:course_id])
             if @student.update(student_params)
                 redirect_to course_student_path(@course, @student)
             else
