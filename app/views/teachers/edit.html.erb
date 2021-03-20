@@ -1,0 +1,41 @@
+<div class="page-content">
+
+<h1>Edit Instructor</h1>
+
+<%= form_with(model: @teacher, html: {autocomplete: 'off'}, local: true) do |form| %>
+ 
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h4>
+        <%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:
+      </h4>
+      <div>
+        <% @teacher.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div><%= form.text_field :fname, :required => true, placeholder: "First Name" %></div>
+  <div><%= form.text_field :mname, placeholder: "Middle Name" %></div>
+  <div><%= form.text_field :lname, :required => true, placeholder: "Last Name" %></div>
+  <div><%= form.text_field :email, :required => true, placeholder: "E-mail" %></div>
+  <div><%= form.text_field :department, :required => true, placeholder: "Department" %></div>
+  <br>
+  
+  <p>
+    <%= form.submit "Update Instructor", class: 'btn btn-primary' %>
+  </p>
+
+<% end %>
+
+<p>
+  <%= link_to ('<i class="fas fa-trash" title="Remove Instructor"></i>').html_safe, teacher_path(@teacher),
+                method: :delete,
+                data: { confirm: 'Are you sure you want to remove this instructor?' } %> | 
+  <%= link_to_if(@isTeacher, "Back to Courses", teacher_courses_path(@teacher)) do
+      end %>
+</p>
+
+</div>

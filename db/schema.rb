@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_224747) do
+ActiveRecord::Schema.define(version: 2020_04_07_212842) do
+
+  create_table "admins", force: :cascade do |t|
+    t.string "fname"
+    t.string "mname"
+    t.string "lname"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string "code"
     t.string "email"
     t.string "firstname"
+    t.string "middlename"
     t.string "lastname"
+    t.string "preferredname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,19 +51,15 @@ ActiveRecord::Schema.define(version: 2020_03_21_224747) do
   end
 
   create_table "courses", force: :cascade do |t|
+    t.integer "teacher_id"
     t.string "name"
+    t.integer "number"
     t.integer "section"
+    t.integer "year"
+    t.string "season"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "courses_days", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "day_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_courses_days_on_course_id"
-    t.index ["day_id"], name: "index_courses_days_on_day_id"
+    t.index ["teacher_id"], name: "index_courses_on_teacher_id"
   end
 
   create_table "courses_students", force: :cascade do |t|
@@ -65,9 +72,11 @@ ActiveRecord::Schema.define(version: 2020_03_21_224747) do
   end
 
   create_table "days", force: :cascade do |t|
+    t.integer "course_id"
     t.string "classday"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_days_on_course_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -81,14 +90,16 @@ ActiveRecord::Schema.define(version: 2020_03_21_224747) do
     t.string "card_num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "uid"
+  create_table "teachers", force: :cascade do |t|
     t.string "fname"
+    t.string "mname"
     t.string "lname"
     t.string "email"
-    t.string "picture"
+    t.string "department"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

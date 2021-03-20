@@ -1,29 +1,189 @@
 <!-- Link to new if now alreayd in database, otherwise, link to UIN_new -->
 
-<h1>Attendance!</h1> 
+<div class="page-content">
+
+<h1>Attendance for
+    <span id="course_name"><%= @course.name %></span>
+    <%= " " %>
+    <span id="course_number"><%= @course.number %></span>
+    <%= " - " %>
+    <span id="course_section"><%= @course.section %></span>
+</h1> 
 <p>
-    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path) do
-     link_to("Take Attendance!", new_course_day_card_path(@course, @day))
-   end
-    %>
+    <%= link_to_if(!@tookattendance, "Take Attendance!", new_course_day_path, target: :_blank) do
+     link_to("Take Attendance!", new_course_day_card_path(@course, @day), target: :_blank)
+    end %>
 </p>
 
-<p>
-    Time: <%= @time %>
-    <br>
-</p>
+<p>Current Date: <em><%= Date.strptime(@time, '%m-%d-%Y').strftime("%B %d, %Y") %></em></p>
+<p><%= link_to 'Back', teacher_path(@teacher) %></p>
+
+<script>
+    $(function() {
+        $("button").on('click', function() {
+            var data = "";
+            var tableData = [];
+            var rows = $('#attendance_day tr');
+            rows.each(function(index, row) {
+                var rowData = [];
+                $(row).find("th, td").each(function(index, column) {
+                    rowData.push(column.innerText);
+                });
+                tableData.push(rowData.join(","));
+            });
+            data += tableData.join("\n");
+
+            var fileName = "";
+            var courseName = document.getElementById("course_name").innerHTML;
+            var courseNumber = document.getElementById("course_number").innerHTML;
+            var courseSection = document.getElementById("course_section").innerHTML;
+
+            $(document.body).append('<a id="download-link" download=' + fileName.concat(courseName, '_', courseNumber, '_', courseSection) + '_Attendance.csv href=' + URL.createObjectURL(new Blob([data], {
+                type: "text/csv"
+            })) + '/>');
+
+
+            $('#download-link')[0].click();
+            $('#download-link').remove();
+        });
+    });
+</script>
+
+<% unless @course.days.blank? %>
+
+<div class="btn-group">
+  <button class="btn btn-primary" title="Click to download attendance as CSV">Download as CSV</button>
+</div><br><br>
+
+<script>
+    function sortTable(n) {
+        var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+        table = document.getElementById("attendance_day");
+        switching = true;
+        //Set the sorting direction to ascending:
+        dir = "asc"; 
+        /*Make a loop that will continue until
+        no switching has been done:*/
+        while (switching) {
+            //start by saying: no switching is done:
+            switching = false;
+            rows = table.rows;
+            /*Loop through all table rows (except the
+            first, which contains table headers):*/
+            for (i = 1; i < (rows.length - 1); i++) {
+                //start by saying there should be no switching:
+                shouldSwitch = false;
+                /*Get the two elements you want to compare,
+                one from current row and one from the next:*/
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                /*check if the two rows should switch place,
+                based on the direction, asc or desc:*/
+                if (dir == "asc") {
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch= true;
+                        break;
+                    }
+                }
+                else if (dir == "desc") {
+                    if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                        //if so, mark as a switch and break the loop:
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+
+            if (shouldSwitch) {
+                /*If a switch has been marked, make the switch
+                and mark that a switch has been done:*/
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                //Each time a switch is done, increase this count by 1:
+                switchcount ++;
+            }
+            else {
+                /*If no switching has been done AND the direction is "asc",
+                set the direction to "desc" and run the while loop again.*/
+                if (switchcount == 0 && dir == "asc") {
+                    dir = "desc";
+                    switching = true;
+                }
+            }
+        }
+    }
+</script>
+
 
 <% @classday %>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <% @days.each do |day| %>
-            <th><%= day.classday %></th>
+<div class="table-wrapper">
+
+<table id="attendance_day">
+    <thead>
+        <tr>
+            <th title="Click to sort by first name." style="padding-left: 24px;"><%= sortable "fname", "First Name" %>
+                <% if params[:direction] == "asc" and params[:sort] == "fname" %>
+                    <i class="fas fa-sort-alpha-down"></i>
+                <% elsif params[:direction] == "desc" and params[:sort] == "fname" %>
+                    <i class="fas fa-sort-alpha-up-alt"></i>
+                <% else %>
+                    <i class="fas fa-sort-alpha-down" style="opacity: 0;"></i>
+                <% end %>
+            </th>
+            <th title="Click to sort by last name." style="padding-left: 24px;"><%= sortable "lname", "Last Name" %>
+                <% if params[:direction] == "asc" and params[:sort] == "lname" %>
+                    <i class="fas fa-sort-alpha-down"></i>
+                <% elsif params[:direction] == "desc" and params[:sort] == "lname" %>
+                    <i class="fas fa-sort-alpha-up-alt"></i>
+                <% else %>
+                    <i class="fas fa-sort-alpha-down" style="opacity: 0;"></i>
+                <% end %>
+            </th>
+            <th><%= "Attendance" %></th>
+            <% $i = 3 %>
+            <% @days.each do |day| %>
+                <th onclick="sortTable(<%= $i %>)" title="Click to sort by absences and presences.">
+                    <%= day.classday %>
+                    <%= link_to ('<i class="fa fa-times"></i>').html_safe, course_day_path(@course, day),
+                        method: :delete,
+                        data: { confirm: 'Are you sure you want to remove this day?' } %>
+                </th>
+                <% $i += 1 %>
+            <% end %>
+        </tr>
+    </thead>
+    <tbody>
+        <% @students.each do |student| %>
+        <tr>
+            <td class="name1"><%= student.fname %></td>
+            <td class="name2"><%= student.lname %></td>
+            <td><%= days_percentage(student) %></td>
+            
+            <% @days.each do |day| %>
+                <% $present = false %>
+                <% @cards.each do |card| %>
+                    <% if card.email == student.email %>
+                        <% if card.day_ids.include? day.id %>
+                            <td class="pres"><%= "PRESENT" %></td>
+                            <% $present = true %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <% if !$present %>
+                    <td class="abs"><%= "ABSENT" %></td>
+                <% end %>
+            <% end %>
+        </tr>
         <% end %>
-    </tr>
+    </tbody>
 </table>
+</div>
+<br>
 
+<% else %>
+    <br><%= "There is no recorded attendance yet. Press \"Take Attendance!\" to begin." %>
+<% end %>
 
-
-
+</div>

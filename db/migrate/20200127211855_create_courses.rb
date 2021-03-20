@@ -1,8 +1,12 @@
 class CreateCourses < ActiveRecord::Migration[5.2]
   def change
     create_table :courses do |t|
+      t.belongs_to :teacher
       t.string :name
+      t.integer :number
       t.integer :section
+      t.integer :year
+      t.string :season
 
       t.timestamps
     end

@@ -1,0 +1,38 @@
+<div class="page-content">
+
+<h1>Swipe In <%= @page %></h1>
+<p>Course: <em><strong><%= @course.name + " " + @course.number.to_s + " - " + @course.section.to_s %></em></strong></p>
+<p>Current Date: <em><%= Date.strptime(@time, '%m-%d-%Y').strftime("%B %d, %Y") %></em></p>
+<br>
+
+<%= form_with scope: :card, url: course_day_cards_path, local: true do |form| %>
+
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h4>
+        <%= pluralize(@card.errors.count, "error") %> prohibited this student from being saved:
+      </h4>
+      <div>
+        <% @card.errors.full_messages.each do |msg| %>
+          <p><%= msg %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div hidden>
+    <div><%= form.label :card %></div>
+    <div><%= form.text_field :code %></div>
+  </div>
+  <div>
+    <div><%= form.label :email, "Card not recognized... Please enter your email" %></div>
+    <div><%= form.text_field :email, :required => true, placeholder: 'TAMU Email', autocomplete: 'off' %></div>
+  </div>
+  <br>
+
+  <div>
+    <%= form.submit "Submit", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+</div>

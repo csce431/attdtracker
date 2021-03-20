@@ -1,0 +1,35 @@
+<div class="page-content">
+
+<div>
+  <h1>
+    <% @name = "" %>
+    <% if @card.preferredname.nil? or @card.preferredname.empty? %>
+      <% @name = @card.firstname %>
+    <% else %>
+      <% @name = @card.preferredname %>
+    <% end %>
+    Howdy, <%= @name %>!
+  </h1>
+  <div>
+    <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
+    <% if @card_updated = false %>
+      <p>Your card was also successfully linked to your account!</strong></p>
+    <% else %>
+      <p>Your new card is now registered with your email!</p>
+    <% end %>
+  </div>
+</div>
+
+<!-- this is the timer for the redirect -->
+<head>
+  <script src="jquery-3.4.1.min.js"></script>
+</head>
+<script>
+  (function () {
+      setTimeout(function () {
+          history.go(-2);
+      }, 3000);
+  })();
+</script>
+
+</div>

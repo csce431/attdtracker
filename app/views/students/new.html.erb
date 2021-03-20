@@ -1,50 +1,36 @@
+<div class="page-content">
+
 <h1>New Student</h1>
 
-<%= form_with model: @student, url: course_students_path, local: true do |form| %>
+<%= form_with model: @student, url: course_students_path, html: {autocomplete: 'off'}, local: true do |form| %>
  
   <% if @student.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= pluralize(@student.errors.count, "error") %> prohibited
-        this student from being saved:
-      </h2>
-      <ul>
-        <% @student.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+      <h4>
+        <%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:
+      </h4>
+      <div>
+        <% @student.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
         <% end %>
-      </ul>
+      </div>
     </div>
+    <br>
   <% end %>
- 
-  <p>
-    <%= form.label "First Name" %><br>
-    <%= form.text_field :fname %>
-  </p>
-  <p>
-    <%= form.label "Middle Name" %><br>
-    <%= form.text_field :mname %>
-  </p>
-  <p>
-    <%= form.label "Last Name" %><br>
-    <%= form.text_field :lname %>
-  </p>
-  <p>
-    <%= form.label "Preffered Name" %><br>
-    <%= form.text_field :prefname %>
-  </p>
-  <p>
-    <%= form.label "UIN" %><br>
-    <%= form.text_field :uin %>
-  </p>
-  <p>
-    <%= form.label "Tamu E-mail" %><br>
-    <%= form.text_field :email %>
-  </p>
 
+  <div><%= form.text_field :fname, :required => true, placeholder: "First Name" %></div>
+  <div><%= form.text_field :mname, placeholder: "Middle Name" %></div>
+  <div><%= form.text_field :lname, :required => true, placeholder: "Last Name" %></div>
+  <div><%= form.text_field :prefname, placeholder: "Preferred Name" %></div>
+  <div><%= form.text_field :email, :required => true, placeholder: "TAMU E-mail" %></div>
+  <br>
+  
   <p>
-    <%= form.submit %>
+    <%= form.submit "Add Student", class: 'btn btn-primary' %>
   </p>
   
-  <%= link_to 'Back', students_path %>
+  <%= link_to 'Back', :back %>
  
 <% end %>
+
+</div>

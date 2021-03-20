@@ -1,4 +1,45 @@
+<div class="page-content">
+
 <h1>Edit Course</h1>
 
-<%= render 'form' %>
-    
+<%= form_with(model: @course, url: course_path(@course), local: true) do |form| %>
+ 
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h4>
+        <%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:
+      </h4>
+      <div>
+        <% @course.errors.messages.each do |msg| %>
+          <p><%= msg[1][0] %></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <div><%= form.text_field :name, :required => true, placeholder: "Department" %></div>
+  <div><%= form.text_field :number, :required => true, placeholder: "Course Number" %></div>
+  <div><%= form.text_field :section, :required => true, placeholder: "Section" %></div>
+  
+  <br>
+  <p>
+    <%= form.label "Year" %>
+    <%= form.select :year, (Date.today.year - 20)..(Date.today.year + 1), :selected => Time.current.year %>
+  </p>
+  <p>
+    <%= form.label "Semester" %>
+    <%= form.select(:season, options_for_select([["Fall","Fall"], ["Spring", "Spring"], ["Summer", "Summer"]])) %>
+  </p>
+ 
+  <p>
+    <%= form.submit nil, class: 'btn btn-primary' %>
+  </p>
+
+<% end %>
+
+<p><%= link_to ('<i class="fas fa-trash" title="Remove Course"></i>').html_safe, teacher_course_path(@teacher, @course),
+              method: :delete,
+              data: { confirm: 'Are you sure you want to remove this course?' } %> | 
+<%= link_to 'Back', teacher_path(@teacher) %></p>
+
+</div>

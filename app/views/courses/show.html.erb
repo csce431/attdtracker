@@ -1,52 +1,68 @@
-<p>
-  <strong>Course:</strong>
-  <%= @course.name %>
-</p>
- 
-<p>
-  <strong>Section:</strong>
-  <%= @course.section %>
-</p>
+<div class="page-content">
 
 <p>
-  <%= link_to 'Edit', edit_course_path(@course) %><br>
-  <%= link_to 'Back', courses_path %>
+  <h1>Enrollment for <%= @course.name + " " + @course.number.to_s + " - " + @course.section.to_s %></h1>
+  <%= link_to ('<i class="fa fa-user-plus" title="Add Student"></i>').html_safe, new_course_student_path(@course) %> | 
+  <%= link_to ('<i class="fa fa-edit" title="Edit Course"></i>').html_safe, edit_course_path(@course) %><br>
+  <%= link_to 'Back', teacher_path(@teacher) %>
 </p>
 
-<p>
-  <h1>Students</h1>
-  <%= link_to 'New Student', new_course_student_path(@course) %>
-</p>
+<p id="course-id" hidden><%= params[:id] %><p>
+
+<!-- OLD FORMAT FOR CSV UPLOAD -->
+<!--<form id="upload-roster-form" method="post" enctype="multipart/form-data" action="/courses">
+  <label for="enrollment">Choose roster (.csv) to upload</label>
+  <div style="display: flex; flex-direction: row; justify-content: center; align-items: center;">
+    <button class="btn btn-light"><input style="margin-left: 5px; margin-right: 5px; background-color: lightgray;"
+          type="file" id="enrollment" name="enrollment"
+          accept=".csv"></button>
+    <button class="btn btn-success">Submit</button>
+  </div>
+</form>-->
+
+<!-- STYLED FORMAT FOR CSV UPLOAD -->
+<form style="width: 300px; margin: auto;" id="upload-roster-form" method="post" enctype="multipart/form-data" action="/courses">
+  <div class="input-group">
+    <label class="input-group-btn" title="Browse for .csv files">
+      <span class="btn btn-primary btn-sm">
+        Browse
+        <input style="display: none;" type="file" id="enrollment" name="enrollment" accept=".csv">
+      </span>
+    </label>
+    <p title="Click 'Browse' to choose a file to upload." id="fileName" class="form-control"
+      style="display: flex; justify-content: center; align-items: center; height: 30px; background-color: #FFFFFF;">No file chosen</p>
+    <span class="input-group-btn"><button class="btn btn-success btn-sm">Submit</button></span>
+  </div>
+</form>
+<br>
+
+<script>
+  document.getElementById('enrollment').onchange = function () {
+    fileChosen = this.value.replace(/.*[\/\\]/, '');
+    document.getElementById("fileName").innerHTML = fileChosen;
+  };
+  var courseID = document.getElementById("course-id").innerHTML;
+  $('form#upload-roster-form').attr('action', "/courses/".concat(courseID, "/import"));
+</script>
+
+<% unless @course.students.blank? %>
+
 <table>
   <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
+    <th>Student</th>
     <th>Email</th>
-    <th>View</th>
-    <th>Edit</th>
-    <th>Delete</th>
-    <th>List of Courses</th>
     <th></th>
   </tr>
   <% @students.each do |student| %>
     <tr>
-      <td><%= student.fname %></td>
-      <td><%= student.lname %></td>
-      <td><%= student.email %></td>
-      <td><%= link_to 'View', student_path(student) %></td>
-      <td><%= link_to 'Edit', edit_student_path(student) %></td>
-      <td><%= link_to 'Delete', student_path(student, @course),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-      <td>
-        <% student.courses.each do |c| %>
-          <%= c.name %><%= c.section %> 
-        <% end %></td>
+      <td title="View Student"><%= link_to student.lname + ", " + student.fname, course_student_path(@course, student) %></td>
+      <td><%= student.email%></td>
     </tr>
-    
   <% end %>
 </table>
 
+<% else %>
+  <br><%= "There are currently no students in this course. Add a student or upload a roster to begin." %><br>
+<% end %>
 
-
-
+</div>

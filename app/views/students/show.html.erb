@@ -1,20 +1,102 @@
-<!-- Show student profiles
--->
-<center><h1>Welcome <%= link_to @student.fname, edit_student_path() %></h1></center>
+<div class="page-content">
 
+<h2>Welcome,
+    <% if @student.prefname.nil? or @student.prefname.empty? %>
+        <%= @student.fname + "!" %>
+    <% else %>
+        <%= @student.prefname + "!" %>
+    <% end %>
+</h2>
 <table>
     <tr>
-        <td class="colC">Card Number:</td>
-        
+        <td class="colC">Full Name:</td>
+        <td class="colD">
+            <%= @student.fname + " " %>
+            <% if !@student.mname.nil? %>
+                <%= @student.mname %>
+            <% end %>
+            <%= @student.lname %>
+        </td>
+    </tr>
+    <tr>
+        <td class="colC">Preferred Name:</td>
+        <td class="colD">
+            <% if @student.prefname.nil? %>
+                <%= "-" %>
+            <% else %>
+                <%= @student.prefname %>
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <td class="colC">Email:</td>
+        <td class="colD"><%= @student.email %></td>
     </tr>
     <tr>
         <td class="colC">Classes:</td>
         <td class="colD"><strong>
             <% @courses.each do |course| %>
-                <%= course.name %>
+                <%= course.name %><%= ' ' %><%= course.number %> 
             <% end %>
         </strong></td>
     </tr>
-</table>
+</table><br>
 
-<%= link_to 'Back', students_path %>
+<!-- can fix this logic -->
+<%= link_to_if(@coursespage, ('<i class="fas fa-edit" title="Edit Student Profile"></i>').html_safe, edit_course_student_path(@course, @student)) do
+    link_to_if @isnotstudent, ('<i class="fas fa-edit" title="Edit Student Profile"></i>').html_safe, edit_student_path(@student) do
+        link_to("Edit Student Profile", student_studentEdit_path(@student))
+        end  
+  end %>
+<%= link_to_if @coursespage, " | Back to Enrollment", course_path(@course) do
+    link_to_if @isTeacher, " | Back to My Page", teacher_path(@teacher) do
+        link_to_if @isAdmin, " | Back to Students Page", students_path do
+        end
+    end
+end %>
+
+<!--add statement to contact instructor at email __ if absent is > 0?-->
+
+<br><br><br>
+<div>
+    <% @courses.each do |course| %>
+        <table style="width: 51%;" id="pres_abs">
+            <% $i = 0 %>
+            <% $j = 0 %>
+            <tr><th class="dept" colspan="2"><%= course.name %><%= ' ' %><%= course.number %></th></tr>
+
+            <% course.days.each do |day| %> 
+                <% if day.cards.include? Card.where(email: @student.email).first %>
+                    <% $i += 1 %>
+                <% else %>
+                    <% $j += 1 %>
+                <% end %>
+            <% end %>
+            <tr>
+                <td class="pres"><%= "Present: " %><%= $i %><%= " / " %><%= course.days.length %><%= " lectures" %></td>
+                <td class="abs"><%= "Absent: " %><%= $j %><%= " / " %><%= course.days.length %><%= " lectures" %></td>
+            </tr>
+
+            <tr>
+                <td>
+                <table>
+                    <% course.days.each do |day| %> 
+                        <% if day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
+                        <% end %>
+                    <% end %>
+                </table></td>
+                <td>
+                <table>
+                    <% course.days.each do |day| %> 
+                        <% if !day.cards.include? Card.where(email: @student.email).first %>
+                            <tr><td><%= day.classday %></td></tr>
+                        <% end %>
+                    <% end %>
+                </table></td>
+            </tr>
+        </table><br>
+    <% end %>
+</div>
+
+</div>

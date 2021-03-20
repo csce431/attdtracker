@@ -1,1 +1,29 @@
-  <%= link_to 'Courses', courses_path %>
+<div class="page-content">
+<h1>Listing Students</h1>
+
+<p>
+  <%= link_to ('<i class="fa fa-user-plus" title="Add Student"></i>').html_safe, admins_new1_path %> | 
+  <%= link_to 'Back', admins_path %>
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Courses</th>
+  </tr>
+ 
+  <% @students.each do |student| %>
+    <tr>
+      <td title="View Student"><%= link_to student.lname + ", " + student.fname, student_path(student) %></td>
+      <td><%= student.email %></td>
+      <td>
+        <% student.courses.each do |course| %>
+          <%= course.name %><%= course.number %> 
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+</div>

@@ -1,11 +1,30 @@
 <div class="page-content">
 
-<p>
-  <h1>Howdy <%= @card.name%> <%= @card.lname%>!</h1>
-  <p>Your card number is: <%= @card.card %></p>
-</p>
+<div>
+  <h1>
+    <% @name = "" %>
+    <% if @card.preferredname.nil? or @card.preferredname.empty? %>
+      <% @name = @card.firstname %>
+    <% else %>
+      <% @name = @card.preferredname %>
+    <% end %>
+    Howdy, <%= @name %>!
+  </h1>
+  <div>
+    <p><%= @name %> <%= @card.lastname %>, you have <strong>successfully swiped-in for this class today!</strong></p>
+  </div>
+</div>
 
-<br>
+<!-- this is the timer for the redirect -->
+<head>
+  <script src="jquery-3.4.1.min.js"></script>
+</head>
+<script>
+  (function () {
+      setTimeout(function () {
+          history.back();
+      }, 2000);
+  })();
+</script>
 
-<%= link_to 'Back', :back %>
 </div>

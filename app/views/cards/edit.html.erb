@@ -3,7 +3,7 @@
 <h1>Edit Student</h1>
 <%= form_with(model: @home, local: true) do |form| %>
  
-  <% if @home.errors.any? %>
+  <% if @card.errors.any? %>
     <div id="error_explanation">
       <h4>
         <%= pluralize(@home.errors.count, "error") %> prohibited this student from being saved:
@@ -17,27 +17,36 @@
   <% end %>
 
   <div>
-    <div><%= form.label :text, "Edit name" %></div>
-    <div><%= form.text_field :name %></div>
-  </div>
-  <br>
-
-  <div>
-    <div><%= form.label :text, "Edit student's card number" %></div>
+    <div><%= form.label :card, "Card" %></div>
     <div><%= form.text_field :card %></div>
   </div>
+  <div>
+    <div><%= form.label :email, "Email" %></div>
+    <div><%= form.text_field :email %></div>
+  </div>
+  
+  <div>
+    <div><%= form.label :firstname, "First Name" %></div>
+    <div><%= form.text_field :firstname %></div>
+  </div>
+  
+  <div>
+    <div><%= form.label :lastname, "Last Name" %></div>
+    <div><%= form.text_field :lastname %></div>
+  </div>
+  
   <br>
 
   <div>
     <%= form.submit "Update" %>
   </div><br>
   <p>
-    <%= link_to 'Remove', @home,
+    <%= link_to 'Remove', 
         method: :delete,
         data: { confirm: 'Are you sure?' }
     %>
   </p>
 <% end %>
 
-<%= link_to 'Back', home_index_path %>
+<!-- link_to 'Back',-->
 </div>

@@ -1,0 +1,23 @@
+<div class="page-content">
+
+<div>
+  <h1>Sorry!</h1>
+  <p>The email <strong><%= @card.email %></strong> you entered is <strong>not registered</strong> in this course.</p>
+  <p>Please consult with your instructor.</p>
+</div>
+
+<br>
+
+<!-- this is the timer for the redirect -->
+<head>
+  <script src="jquery-3.4.1.min.js"></script>
+</head>
+<script>
+  (function () {
+      setTimeout(function () {
+          history.go(-2);
+      }, 3000);
+  })();
+</script>
+
+</div>
